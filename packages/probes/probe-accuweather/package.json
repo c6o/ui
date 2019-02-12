@@ -1,0 +1,33 @@
+{
+  "name": "@traxitt/probe-accuweather",
+  "version": "0.0.1",
+  "description": "Probe for Accuweather data",
+  "main": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "del lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nsainaney/traxitt.com.git"
+  },
+  "keywords": [
+    "traxitt",
+    "probe",
+    "accuweather",
+    "weather"
+  ],
+  "author": "Narayan Sainaney",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/nsainaney/traxitt.com/issues"
+  },
+  "homepage": "https://github.com/nsainaney/traxitt.com#readme",
+  "dependencies": {
+    "@traxitt/common": "^0.0.1"
+  }
+}
