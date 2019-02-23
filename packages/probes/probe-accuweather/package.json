@@ -11,6 +11,9 @@
     "clean": "del lib",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "publishConfig": {
+    "access": "private"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/nsainaney/traxitt.com.git"
@@ -28,6 +31,6 @@
   },
   "homepage": "https://github.com/nsainaney/traxitt.com#readme",
   "dependencies": {
-    "@traxitt/common": "^0.0.1"
+    "@traxitt/common": "^0.0.2"
   }
 }
