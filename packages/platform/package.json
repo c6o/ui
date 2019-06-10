@@ -23,7 +23,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "develop": "tsc -w",
+    "develop": "tsc -w --preserveWatchOutput",
     "start": "node lib/index.js",
     "packagedev": "./deploy/development/package.sh"
   },
