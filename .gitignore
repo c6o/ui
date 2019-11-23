@@ -1,9 +1,24 @@
+# Node stuff
 node_modules/
 lerna-debug.log
 npm-debug.log
-packages/**/lib
 .idea
+
+# tsc and build output
+packages/**/lib
+tsconfig.tsbuildinfo
+
+# These are the local provisioners cache
 .provisioners/
+
+# These are generated json schema files
 *.gen.json
 
+# kubeconfig files from DigitalOcean
 *-kubeconfig.yaml
+
+# parcel cache files
+.cache
+
+# Gets created when servers are run in production and PORT environment is not set
+PORT

@@ -1,0 +1,19 @@
+{
+    "name": "@traxitt/ui-web",
+    "version": "0.0.1",
+    "description": "Web controls",
+    "main": "./src/index.ts",
+    "module": "./src/index.ts",
+    "source": true,
+    "files": [
+      "src"
+    ],
+    "author": "Narayan Sainaney",
+    "license": "UNLICENSED",
+    "dependencies": {
+      "@traxitt/common": "^0.0.2",
+      "@vaadin/vaadin": "^14.0.11",
+      "lit-element": "^2.2.0",
+      "source-map-support": "^0.5.16"
+    }
+  }
