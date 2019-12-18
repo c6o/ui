@@ -1,5 +1,6 @@
 import { TextFieldElement } from '@vaadin/vaadin-text-field/src/vaadin-text-field'
-import { mix, EntityStoreMixin } from './mixins'
+import { mix } from '@traxitt/common'
+import { EntityStoreMixin } from './mixins'
 import { observe, toJS } from 'mobx'
 
 export class TextField extends mix(TextFieldElement).with(EntityStoreMixin) {

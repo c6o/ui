@@ -1,6 +1,7 @@
 import { html } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
-import { mix, EntityStoreMixin } from './mixins'
+import { mix } from '@traxitt/common'
+import { EntityStoreMixin } from './mixins'
 import { toJS } from 'mobx'
 
 export class Errors extends mix(MobxLitElement).with(EntityStoreMixin) {

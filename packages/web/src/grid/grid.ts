@@ -1,6 +1,6 @@
 import { GridElement } from '@vaadin/vaadin-grid/src/vaadin-grid'
 import { EntityListStoreMixin } from '../mixins/entityListStore'
-import { mix } from '../mixins/builder'
+import { mix } from '@traxitt/common'
 import { observe } from 'mobx'
 
 export class Grid extends mix(GridElement).with(EntityListStoreMixin) {
