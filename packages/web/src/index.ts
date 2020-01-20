@@ -1,8 +1,10 @@
 // import '@vaadin/vaadin'
 import '@vaadin/vaadin-lumo-styles/all-imports'
 import '@vaadin/vaadin-core/vaadin-core'
+import '@vaadin/vaadin-menu-bar'
 
 export * from './button'
+export * from './combobox'
 export * from './dialog'
 export * from './errors'
 export * from './form/layout'

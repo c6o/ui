@@ -2,10 +2,12 @@ import { EntityStore } from '@traxitt/common'
 
 export const EntityStoreMixin = (base) =>  class entityStoreMixin extends base {
     store: EntityStore
+    noInherit: Boolean
 
     static get properties() {
         return {
-            store: {observer: 'storeChanged', reflect: true}
+            store: {observer: 'storeChanged', reflect: true},
+            noInherit: {type: Boolean, reflect: true}
         }
     }
 
@@ -30,7 +32,7 @@ export const EntityStoreMixin = (base) =>  class entityStoreMixin extends base {
     async connectedCallback() {
         super.connectedCallback()
 
-        if (!this.store) {
+        if (!this.store && !this.noInherit) {
             let el = this
             while (el) {
                 el = el.parentNode

@@ -5,8 +5,10 @@ import { render, TemplateResult } from 'lit-html'
 
 export abstract class DialogBase extends mix(DialogElement).with(EntityStoreMixin) {
     abstract renderContent(ok, cancel) : TemplateResult
+    root
 
     renderer = (root) => {
+        this.root = root
         render(this.renderContent(this.okClick, this.cancelClick), root)
     }
 
