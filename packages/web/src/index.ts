@@ -17,5 +17,6 @@ export * from './layout/vertical'
 export * from './progress'
 export * from './notification'
 export * from './text-field'
+export * from './confirm-dialog'
 
 export * from './mixins/'
