@@ -16,6 +16,7 @@ export * from './layout/horizontal'
 export * from './layout/vertical'
 export * from './progress'
 export * from './notification'
+export * from './text-area'
 export * from './text-field'
 export * from './confirm-dialog'
 
