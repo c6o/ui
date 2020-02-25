@@ -31,7 +31,8 @@ export class ConfirmationDialog extends DialogElement {
             `
     }
 
-    confirm() {
+    confirm(message) {
+        this.message = message
         super.opened = true
         return new Promise((resolve) => {
             this.callback = (confirmed: boolean) => {
