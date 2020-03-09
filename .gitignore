@@ -22,3 +22,10 @@ tsconfig.tsbuildinfo
 
 # Gets created when servers are run in production and PORT environment is not set
 PORT
+
+# git secrets
+.gitsecret/keys/random_seed
+
+# Secrets should not be checked in
+**/*.secret.*
+!**.secret
