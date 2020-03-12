@@ -3,9 +3,14 @@ import '@vaadin/vaadin-lumo-styles/all-imports'
 import '@vaadin/vaadin-core/vaadin-core'
 import '@vaadin/vaadin-menu-bar'
 
+// Styles for Vaadin components
+export * from './theme/styles'
+
+// Traxitt UI components that extend Vaadin components
 export * from './button'
 export * from './checkbox'
 export * from './combobox'
+export * from './details'
 export * from './dialog'
 export * from './errors'
 export * from './form/layout'

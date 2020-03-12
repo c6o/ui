@@ -6,7 +6,7 @@ export class Checkbox extends mix(CheckboxElement).with(EntityStoreMixin) {
     path: string
 
     static get properties() {
-            return {
+        return {
             //...super.properties,
             path: {type: String}
         }
