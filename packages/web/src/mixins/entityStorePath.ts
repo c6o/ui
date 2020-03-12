@@ -30,6 +30,7 @@ export const PathEntityStoreMixin = (base) => class entityPathStoreMixin extends
     }
 
     _errorDisposer
+    _pendingDisposer
     storeChanged = () => {
         super.storeChanged()
         if (!this.path)
@@ -37,6 +38,8 @@ export const PathEntityStoreMixin = (base) => class entityPathStoreMixin extends
 
         if (this._errorDisposer)
             this._errorDisposer()
+        if (this._pendingDisposer)
+            this._pendingDisposer()
 
         if (this.store) {
             // Set the value
@@ -52,6 +55,12 @@ export const PathEntityStoreMixin = (base) => class entityPathStoreMixin extends
                     this.errorMessage = ''
                     this.invalid = false
                 }
+            })
+
+            this._pendingDisposer = observe(this.store, 'pending', () => {
+                // If pending is path is not set, reload the value from store
+                if (!this.store.pending[this.path])
+                    this.storeToValue()
             })
         } else {
             this.value = ''

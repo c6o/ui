@@ -22,7 +22,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, PathEn
     }
 
     dataChanged(newVal, oldVal) {
-        if (this.store || !this.readonly)
+        if (this.store || this.readonly === true)
             throw new Error('traxitt-text-area data cannot be used when store is specified or if it is not readonly')
 
         if (this.json)
