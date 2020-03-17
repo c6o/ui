@@ -3,8 +3,8 @@ import '@vaadin/vaadin-lumo-styles/all-imports'
 import '@vaadin/vaadin-core/vaadin-core'
 import '@vaadin/vaadin-menu-bar'
 
-// Styles for Vaadin components
-export * from './theme/styles'
+// Define additional or override styles for Vaadin components
+export * from './register-styles'
 
 // Traxitt UI components that extend Vaadin components
 export * from './button'

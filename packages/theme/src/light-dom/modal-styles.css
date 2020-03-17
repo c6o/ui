@@ -1,0 +1,54 @@
+/*
+ * Modal Styles
+ * Light DOM Styles
+ * These will not apply to the ShadowDOM of Web Components except via CSS variables
+ */
+
+.modal-header > img {
+    padding-right: 20px;
+    width: 48px;
+    height: 48px;
+    box-sizing: content-box;
+}
+
+iron-icon {
+    --iron-icon-width: 16px;
+    --iron-icon-height: 16px;
+}
+
+.modal-header {
+    align-items: flex-start;
+    border-bottom: 1px solid var(--lumo-contrast-20pct);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.modal-title {
+    flex: 1;
+    line-height: 2em;
+    margin-block-end: 0em;
+    margin-block-start: 0em;
+}
+
+.modal-body {
+    border-bottom: 1px solid var(--lumo-contrast-20pct);
+    width: 700px;
+    height: 540px;
+    padding: 10px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+
+traxitt-horizontal-layout > .btn-group {
+    flex: 1 1 auto;
+}
+
+traxitt-horizontal-layout > .btn-group:last-child {
+    text-align: right;
+}
+
+.btn-group > traxitt-button:not(:first-child) {
+    margin-left: var(--lumo-space-s);
+}

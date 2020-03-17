@@ -14,7 +14,7 @@ export abstract class DialogBase extends mix(DialogElement).with(EntityStoreMixi
 
     storeChanged() {
         super.storeChanged()
-        this.opened = this.store != null
+        this.opened = this.store !== null
     }
 
     async doCancel() {

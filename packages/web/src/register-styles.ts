@@ -16,6 +16,12 @@ registerStyles('vaadin-checkbox vaadin-radio-button', css`
 
 registerStyles('vaadin-text-field', css`
     :host {
-        width: 20rem;
+        padding-bottom: var(--lumo-space-xm);
+    }
+`)
+
+registerStyles('vaadin-dialog-overlay', css`
+    :host {
+        top: -1rem;
     }
 `)

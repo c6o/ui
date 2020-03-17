@@ -1,0 +1,29 @@
+{
+  "name": "@traxitt/ui-theme",
+  "version": "0.0.1",
+  "description": "Theme for Traxitt",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "source": true,
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "theme",
+    "traxitt",
+    "UI"
+  ],
+  "author": "Adrian Jones",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/traxitt/node-monorepo/issues"
+  },
+  "homepage": "https://github.com/traxitt/node-monorepo#readme",
+  "dependencies": {
+    "lit-element": "^2.2.1",
+    "source-map-support": "^0.5.16"
+  }
+}
