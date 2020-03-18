@@ -1,0 +1,66 @@
+/*
+ * Traxitt Theme
+ * Light DOM Styles
+ * These will not apply to the ShadowDOM of Web Components except via CSS variables
+ */
+
+ html > body {
+    --lumo-space-xm: .75rem;
+
+    --vaadin-text-field-default-width: 20em;
+
+    --traxitt-icon-height: 48px;
+    --traxitt-icon-width: 48px;
+    --traxitt-icon-padding: 22px;
+
+    --marina-menubar-height: 40px;
+    --marina-menubar-background-color: var(--lumo-shade-20pct);
+}
+
+ h1, h2, h3, h4 {
+    margin-bottom: .75rem;
+}
+
+h1 {
+    font-size: var(--lumo-font-size-xxl);
+}
+
+h2 {
+    font-size: var(--lumo-font-size-xl);
+}
+
+h3 {
+    font-size: var(--lumo-font-size-l);
+}
+
+h4 {
+    font-size: var(--lumo-font-size-m);
+}
+
+.help-text {
+    color: var(--lumo-secondary-text-color);
+    font-size: var(--lumo-font-size-s);
+}
+
+.hidden {
+    display: none;
+}
+
+vaadin-context-menu-list-box{
+    > hr {
+        height: 1px;
+    }
+
+    vaadin-context-menu-item {
+        cursor: pointer;
+    }
+}
+vaadin-list-box {
+    > hr {
+        height: 1px;
+    }
+
+    vaadin-item {
+        cursor: pointer;
+    }
+}

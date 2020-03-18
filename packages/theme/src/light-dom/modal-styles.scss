@@ -4,18 +4,6 @@
  * These will not apply to the ShadowDOM of Web Components except via CSS variables
  */
 
-.modal-header > img {
-    padding-right: 20px;
-    width: 48px;
-    height: 48px;
-    box-sizing: content-box;
-}
-
-iron-icon {
-    --iron-icon-width: 16px;
-    --iron-icon-height: 16px;
-}
-
 .modal-header {
     align-items: flex-start;
     border-bottom: 1px solid var(--lumo-contrast-20pct);
@@ -23,6 +11,20 @@ iron-icon {
     justify-content: space-between;
     margin-bottom: 10px;
     padding-bottom: 10px;
+
+    > img,
+    > .modal-icon {
+        padding-right: var(--traxitt-icon-padding, 22px);
+        width: var(--traxitt-icon-width, 48px);
+        height: var(--traxitt-icon-height, 48px);
+        box-sizing: content-box;
+    }
+
+    iron-icon {
+        --iron-icon-width: 16px;
+        --iron-icon-height: 16px;
+        cursor: pointer;
+    }
 }
 
 .modal-title {
@@ -39,6 +41,10 @@ iron-icon {
     padding: 10px;
     overflow-y: scroll;
     margin-bottom: 10px;
+
+    &.wide {
+        width: calc(100vw - 300px);
+    }
 }
 
 traxitt-horizontal-layout > .btn-group {
