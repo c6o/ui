@@ -1,0 +1,22 @@
+//
+// Vaadin styles for the light DOM
+//
+
+vaadin-context-menu-list-box{
+  > hr {
+      height: 1px;
+  }
+
+  vaadin-context-menu-item {
+      cursor: pointer;
+  }
+}
+vaadin-list-box {
+  > hr {
+      height: 1px;
+  }
+
+  vaadin-item {
+      cursor: pointer;
+  }
+}

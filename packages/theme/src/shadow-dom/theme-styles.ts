@@ -11,35 +11,96 @@ export const themeStyles = css`
 /*# sourceMappingURL=bootstrap-reboot.min.css.map */
 
 /*
- * Traxitt Theme Styles
+ * Traxitt Styles
  */
 
- h1, h2, h3, h4 {
-   margin-bottom: .75rem;
- }
+.container,
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 732px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1164px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1404px;
+    }
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: .75rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
 
 h1 {
-  font-size: var(--lumo-font-size-xxl);
+    font-size: var(--lumo-font-size-xxl);
 }
 
 h2 {
-  font-size: var(--lumo-font-size-xl);
+    font-size: var(--lumo-font-size-xl);
 }
 
 h3 {
-  font-size: var(--lumo-font-size-l);
+    font-size: var(--lumo-font-size-l);
 }
 
 h4 {
-  font-size: var(--lumo-font-size-m);
+    font-size: var(--lumo-font-size-m);
 }
 
 .help-text {
-  color: var(--lumo-secondary-text-color);
-  font-size: var(--lumo-font-size-s);
+    color: var(--lumo-secondary-text-color);
+    font-size: var(--lumo-font-size-s);
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+small,
+.small {
+    font-size: 80%;
+    font-weight: 400;
+}
+
+code {
+    font-size: 87.5%;
+    color: #e83e8c;
+    word-wrap: break-word;
 }
 
 .hidden{
-  display: none;
+    display: none;
 }
 `

@@ -1,0 +1,94 @@
+/*
+ * Traxitt Theme
+ * Light DOM Styles
+ * These will not apply to the ShadowDOM of Web Components except via CSS variables
+ */
+
+:root {
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: var(--lumo-shade-80pct);
+    --gray: var(--lumo-shade-40pct);
+    --gray-dark: var(--lumo-shade-60pct);
+    --gray-light: var(--lumo-shade-20pct);
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-xxl: 1440px;
+}
+
+html > body {
+    --lumo-space-xm: .75rem;
+
+    --vaadin-text-field-default-width: 20em;
+
+    --traxitt-icon-height: 48px;
+    --traxitt-icon-width: 48px;
+    --traxitt-icon-padding: 22px;
+
+    --marina-menubar-height: 40px;
+    --marina-menubar-background-color: var(--lumo-shade-20pct);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .75rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: var(--lumo-font-size-xxl);
+}
+
+h2 {
+    font-size: var(--lumo-font-size-xl);
+}
+
+h3 {
+    font-size: var(--lumo-font-size-l);
+}
+
+h4 {
+    font-size: var(--lumo-font-size-m);
+}
+
+h5 {
+    font-size: var(--lumo-font-size-xm);
+}
+
+h6 {
+    font-size: var(--lumo-font-size-s);
+}
+
+.help-text {
+    color: var(--lumo-secondary-text-color);
+    font-size: var(--lumo-font-size-s);
+}
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid var(--lumo-shade-10pct);
+}
+
+small,
+.small {
+    font-size: 80%;
+    font-weight: 400;
+}
+
+code {
+    font-size: 87.5%;
+    color: #e83e8c;
+    word-wrap: break-word;
+}
+
+.hidden {
+    display: none;
+}
