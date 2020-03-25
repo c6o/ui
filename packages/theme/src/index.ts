@@ -4,7 +4,6 @@ Copyright (c) 2020 Traxitt Inc.
 */
 
 import './light-dom/vendor/bootstrap/bootstrap-reboot.css'
-import './light-dom/vendor/blueprint/blueprint.scss'
 import './light-dom/layout.scss'
 import './light-dom/modal.scss'
 import './light-dom/theme.scss'
