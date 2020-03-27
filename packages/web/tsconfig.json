@@ -22,7 +22,7 @@
 {
     "compilerOptions": {
         "composite": true,
-        "module": "commonjs",
+        "module": "esnext",
         "moduleResolution": "node",
         "declaration": true,
         "noImplicitAny": false,
@@ -36,11 +36,11 @@
         "skipLibCheck": true,
         "target": "es2018",
         "sourceMap": true,
-        "lib": ["es2018", "dom"],
-        "references": [
-            { "path":  "../../common" },
-        ],
+        "lib": ["es2018", "dom"]
     },
+    "references": [
+        { "path":  "../../common" },
+    ],
     "exclude": [
         "test",
         "node_modules",
