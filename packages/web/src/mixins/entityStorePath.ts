@@ -11,12 +11,39 @@ export const PathEntityStoreMixin = (base) => class entityPathStoreMixin extends
         }
     }
 
+    // From: https://stackoverflow.com/questions/6842795/dynamic-deep-setting-for-a-javascript-object
+    setValue(value) {
+        const a = this.path.split('.')
+        let o = this.store.pending
+        while (a.length - 1) {
+            var n = a.shift()
+            if (!(n in o)) o[n] = {}
+            o = o[n]
+        }
+        o[a[0]] = value
+    }
+
+    getValue() {
+        if (!this.store.entity)
+            return ''
+        let path = this.path.replace(/\[(\w+)\]/g, '.$1')
+        path = path.replace(/^\./, '')
+        const a = path.split('.')
+        let o = this.store.entity
+        while (a.length) {
+            var n = a.shift()
+            if (!(n in o)) return
+            o = o[n]
+        }
+        return o
+    }
+
     eventToStore(e) {
-        this.store.pending[this.path] = e.target.value
+        this.setValue(e.target.value)
     }
 
     storeToValue() {
-        super.value = this.store.entity ? this.store.entity[this.path] : ''
+        super.value = this.getValue()
     }
 
     inputChanged = (e) => {

@@ -36,7 +36,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, PathEn
     eventToStore(e) {
         if (this.json) {
             try {
-                this.store.pending[this.path] = JSON.parse(e.target.value)
+                this.setValue(JSON.parse(e.target.value))
             }
             catch (e) {
                 // ignore - we don't update until JSON is valid
@@ -44,7 +44,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, PathEn
         }
         else if (this.yaml) {
             try {
-                this.store.pending[this.path] = yaml.safeLoad(e.target.value)
+                this.setValue(yaml.safeLoad(e.target.value))
             }
             catch (e) {
                 // ignore - we don't update until YAML is valid
@@ -56,9 +56,9 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, PathEn
 
     storeToValue() {
         if (this.json)
-            super.value = this.store.entity ? JSON.stringify(this.store.entity[this.path], null, 4) : ''
+            super.value = JSON.stringify(this.getValue(), null, 4)
         else if (this.yaml)
-            super.value = this.store.entity ? yaml.safeDump(this.store.entity[this.path]) : ''
+            super.value = yaml.safeDump(this.getValue())
         else
             super.storeToValue()
     }
