@@ -16,7 +16,7 @@ export const PathEntityStoreMixin = (base) => class entityPathStoreMixin extends
         const a = this.path.split('.')
         let o = this.store.pending
         while (a.length - 1) {
-            var n = a.shift()
+            const n = a.shift()
             if (!(n in o)) o[n] = {}
             o = o[n]
         }
@@ -31,7 +31,7 @@ export const PathEntityStoreMixin = (base) => class entityPathStoreMixin extends
         const a = path.split('.')
         let o = this.store.entity
         while (a.length) {
-            var n = a.shift()
+            const n = a.shift()
             if (!(n in o)) return
             o = o[n]
         }

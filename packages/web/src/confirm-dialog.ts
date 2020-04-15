@@ -1,7 +1,6 @@
 import { html } from 'lit-element'
 import { DialogElement } from '@vaadin/vaadin-dialog/src/vaadin-dialog'
 import { render } from 'lit-html'
-import { resolve } from 'dns'
 
 export class ConfirmationDialog extends DialogElement {
 
@@ -11,14 +10,12 @@ export class ConfirmationDialog extends DialogElement {
     static get properties() {
         return {
             ...super.properties,
-            message: { type: String, value: "Are you sure?" }
+            message: { type: String, value: 'Are you sure?' }
         }
     }
 
-    renderer = (root, dialog) => {
-        if (root.firstElementChild) {
-            return;
-        }
+    renderer = (root) => {
+        if (root.firstElementChild) return
         render(this.renderContent(), root)
     }
 
