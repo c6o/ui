@@ -1,10 +1,10 @@
 import { DialogElement } from '@vaadin/vaadin-dialog/src/vaadin-dialog'
-import { EntityStoreMixin } from './mixins/entityStore'
+import { EntityStoreMixin } from '../mixins/entityStore'
 import { mix } from '@traxitt/common'
 import { render, TemplateResult } from 'lit-html'
 
-export abstract class DialogBase extends mix(DialogElement).with(EntityStoreMixin) {
-    abstract renderContent(ok, cancel) : TemplateResult
+export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMixin) {
+    abstract renderContent(ok, cancel): TemplateResult
     root
 
     renderer = (root) => {

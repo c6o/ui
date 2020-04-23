@@ -1,22 +1,25 @@
-//
-// Vaadin styles for the light DOM
-//
+/* ==========================================================================
+ * Vaadin
+ * Light DOM Styles
+ * These will not apply to the ShadowDOM of Web Components except via CSS variables
+========================================================================== */
 
-vaadin-context-menu-list-box{
-  > hr {
-      height: 1px;
-  }
+vaadin-context-menu-list-box {
+    > hr {
+        height: 1px;
+    }
 
-  vaadin-context-menu-item {
-      cursor: pointer;
-  }
+    vaadin-context-menu-item {
+        cursor: pointer;
+    }
 }
-vaadin-list-box {
-  > hr {
-      height: 1px;
-  }
 
-  vaadin-item {
-      cursor: pointer;
-  }
+vaadin-list-box {
+    > hr {
+        height: 1px;
+    }
+
+    vaadin-item {
+        cursor: pointer;
+    }
 }

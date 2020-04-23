@@ -4,7 +4,6 @@ import { EntityStoreMixin, PathEntityStoreMixin } from './mixins'
 import yaml from 'js-yaml'
 
 export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, PathEntityStoreMixin) {
-
     json: boolean
     yaml: boolean
 

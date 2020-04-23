@@ -1,16 +1,16 @@
-/*
- * Modal Styles
+/* ==========================================================================
+ * Modals
  * Light DOM Styles
  * These will not apply to the ShadowDOM of Web Components except via CSS variables
- */
+========================================================================== */
 
 .modal-header {
     align-items: flex-start;
-    border-bottom: 1px solid var(--lumo-contrast-20pct);
+    border-bottom: 1px solid var(--color-cloud);
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
+    margin-bottom: var(--lg-spacing);
+    padding-bottom: var(--md-spacing);
 
     > img,
     > .modal-icon {
@@ -24,6 +24,11 @@
         --iron-icon-width: 16px;
         --iron-icon-height: 16px;
         cursor: pointer;
+        color: var(--color-rain);
+
+        &:hover {
+            color: var(--color-navy);
+        }
     }
 }
 
@@ -35,16 +40,34 @@
 }
 
 .modal-body {
-    border-bottom: 1px solid var(--lumo-contrast-20pct);
-    width: 700px;
-    height: 540px;
-    padding: 10px;
+    padding: 0 var(--md-spacing);
     overflow-y: scroll;
-    margin-bottom: 10px;
+    max-height: 600px;
+    min-height: 100px;
 
-    &.wide {
-        width: calc(100vw - 300px);
+    #sign-in-modal-content {
+        text-align: center;
     }
+
+    .auth-provider {
+        width: 15rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .modal-body {
+        width: 700px;
+
+        &.wide {
+            width: calc(100vw - 300px);
+        }
+    }
+}
+
+.modal-footer {
+    border-top: 1px solid var(--color-cloud);
+    margin-top: var(--lg-spacing);
+    padding-top: var(--md-spacing);
 }
 
 traxitt-horizontal-layout > .btn-group {

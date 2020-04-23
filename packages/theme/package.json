@@ -24,7 +24,9 @@
   "homepage": "https://github.com/traxitt/node-monorepo#readme",
   "dependencies": {
     "lit-element": "^2.2.1",
-    "source-map-support": "^0.5.16"
+    "source-map-support": "^0.5.16",
+    "typeface-montserrat": "^0.0.75",
+    "typeface-roboto": "^0.0.75"
   },
   "devDependencies": {
     "sass": "^1.26.3"

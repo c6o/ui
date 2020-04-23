@@ -3,7 +3,6 @@ import { DialogElement } from '@vaadin/vaadin-dialog/src/vaadin-dialog'
 import { render } from 'lit-html'
 
 export class ConfirmationDialog extends DialogElement {
-
     message: string
     callback: (confirm: boolean) => void
 
@@ -25,7 +24,7 @@ export class ConfirmationDialog extends DialogElement {
             <br>
             <traxitt-button style="margin-right: 1em" @click=${this.cancel.bind(this)}>Cancel</traxitt-button>
             <traxitt-button theme="primary" style="margin-right: 1em" @click=${this.ok.bind(this)}>OK</traxitt-button>
-            `
+        `
     }
 
     confirm(message) {
@@ -42,7 +41,7 @@ export class ConfirmationDialog extends DialogElement {
         super.opened = false
         this.callback(false)
     }
-    
+
     async ok() {
         super.opened = false
         this.callback(true)

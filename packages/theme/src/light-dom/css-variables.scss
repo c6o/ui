@@ -1,0 +1,45 @@
+@import './vendor/blueprint/_config';
+
+:root {
+    --color-sea: #416edd;
+    --color-ocean: #09c1d1;
+    --color-sun: #fae170;
+    --color-fire: #ff5a00;
+    --color-navy: #2a343e;
+    --color-morning-sea: #3c5aac;
+    --color-twilight-ocean: #2899a6;
+    --color-evening-sun: #c3b566;
+    --color-night-fire: #d95020;
+    --color-wind: var(--lumo-shade-10pct);
+    --color-cloud: var(--lumo-shade-30pct);
+    --color-rain: var(--lumo-shade-50pct);
+    --color-storm: var(--lumo-shade-60pct);
+    --color-thunder: var(--lumo-shade-70pct);
+    --color-sunset: #ff9e43;
+    --color-stone: #8e9292;
+    --color-snow: #f6f6f6;
+    --color-white: #fff;
+    --color-black: #000;
+
+    --success: var(--color-ocean);
+    --info: var(--color-sea);
+    --warning: var(--color-sun);
+    --danger: var(--color-fire);
+    --light: var(--color-snow);
+    --dark: var(--color-thunder);
+
+    --font-family: 'Montserrat', sans-serif;
+
+    --lumo-font-family: var(--font-family);
+    --lumo-space-xm: .75rem;
+    --lumo-clickable-cursor: pointer;
+
+    --traxitt-icon-height: 48px;
+    --traxitt-icon-width: 48px;
+    --traxitt-icon-padding: 22px;
+    --c6o-button-size: 2.375rem;
+    --c6o-field-size: var(--c6o-button-size);
+
+    --marina-menubar-height: 40px;
+    --marina-menubar-background-color: var(--lumo-shade-20pct);
+}
