@@ -3,4 +3,9 @@
   margin: 0 auto;
   display: block;
   max-width: $container-width;
+
+  &:not(.full-width) {
+    padding-left: $md-spacing;
+    padding-right: $md-spacing;
+  }
 }

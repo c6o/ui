@@ -7,6 +7,10 @@ export const cssGrid = css`
   display: block;
   max-width: 1440px;
 }
+[c6o~=container]:not(.full-width) {
+  padding-left: 15px;
+  padding-right: 15px;
+}
 
 [c6o~=grid] {
   display: grid !important;
@@ -26,8 +30,16 @@ export const cssGrid = css`
   align-items: end;
 }
 
+[c6o~=justify-left] {
+  justify-content: flex-start;
+}
+
 [c6o~=between] {
   justify-content: center;
+}
+
+[c6o~=justify-right] {
+  justify-content: flex-end;
 }
 
 [c6o~=gap-none] {
@@ -864,6 +876,9 @@ export const cssGrid = css`
   flex-wrap: wrap;
   display: flex;
 }
+[c6o~=flex][c6o~=column] {
+  flex-direction: column;
+}
 
 [c6o~=fill] {
   flex: 1 1 0%;
@@ -1182,7 +1197,4 @@ export const cssGrid = css`
 [c6o~=padding-left--none] {
   padding-left: 0 !important;
 }
-
-/*# sourceMappingURL=blueprint.css.map */
-
 `

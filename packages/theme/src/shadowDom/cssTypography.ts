@@ -41,11 +41,12 @@ h6 {
 .title {
     color: var(--color-sea);
     font-size: var(--lumo-font-size-xxxl);
+    font-weight: 100;
 }
 
 .help-text {
-    color: var(--color-storm);
-    font-size: var(--lumo-font-size-s);
+    color: var(--color-rain);
+    font-size: var(--lumo-font-size-xs);
 }
 
 small,

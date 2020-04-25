@@ -3,11 +3,33 @@
     https://blueprintcss.dev
     License MIT 2019
 */
+:root {
+  --no-break: 0;
+  --sm-break: 480px;
+  --md-break: 720px;
+  --lg-break: 960px;
+  --lgr-break: 1200px;
+  --xl-break: 1440px;
+}
+
+:root {
+  --xs-spacing: 5px;
+  --sm-spacing: 10px;
+  --md-spacing: 15px;
+  --lg-spacing: 20px;
+  --xl-spacing: 30px;
+  --xxl-spacing: 50px;
+}
+
 [c6o~=container] {
   width: 100%;
   margin: 0 auto;
   display: block;
   max-width: 1440px;
+}
+[c6o~=container]:not(.full-width) {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 [c6o~=grid] {
@@ -28,8 +50,16 @@
   align-items: end;
 }
 
+[c6o~=justify-left] {
+  justify-content: flex-start;
+}
+
 [c6o~=between] {
   justify-content: center;
+}
+
+[c6o~=justify-right] {
+  justify-content: flex-end;
 }
 
 [c6o~=gap-none] {
@@ -865,6 +895,9 @@
 [c6o~=flex] {
   flex-wrap: wrap;
   display: flex;
+}
+[c6o~=flex][c6o~=column] {
+  flex-direction: column;
 }
 
 [c6o~=fill] {

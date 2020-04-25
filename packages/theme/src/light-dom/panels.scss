@@ -1,0 +1,13 @@
+/* ==========================================================================
+ * Panels
+ * Light DOM Styles
+ * These will not apply to the ShadowDOM of Web Components except via CSS variables
+========================================================================== */
+
+.panel {
+    background-color: var(--color-white);
+    border: none;
+    border-radius: 6px;
+    margin-top: var(--lg-spacing);
+    padding: var(--xl-spacing);
+}

@@ -128,6 +128,15 @@ registerStyles('vaadin-button', css`
         background-color: var(--color-night-fire);
         color: var(--color-white);
     }
+
+    [part="label"], [part="prefix"], [part="suffix"] {
+        line-height: var(--lumo-line-height-m);
+    }
+
+    [part] ::slotted(iron-icon[icon^="vaadin:"]) {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
 `)
 
 registerStyles('vaadin-form-item', css`
@@ -161,6 +170,8 @@ registerStyles('vaadin-dialog-overlay', css`
 registerStyles('vaadin-menu-bar', css`
     vaadin-menu-bar-button {
         cursor: pointer;
+        border: none;
+        border-radius: 0;
     }
 `)
 
@@ -169,10 +180,6 @@ registerStyles('vaadin-context-menu-overlay', css`
 `)
 
 registerStyles('vaadin-list-box', css`
-
-`)
-
-registerStyles('vaadin-item', css`
 
 `)
 

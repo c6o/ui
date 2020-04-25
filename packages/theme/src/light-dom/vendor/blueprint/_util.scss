@@ -1,6 +1,10 @@
 [#{$prefix}~='flex'] {
   flex-wrap: wrap;
   display: flex;
+
+  &[#{$prefix}~='column'] {
+    flex-direction: column;
+  }
 }
 
 [#{$prefix}~='fill'] {

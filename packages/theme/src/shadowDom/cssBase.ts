@@ -16,6 +16,23 @@ a {
     color: var(--color-twilight-ocean);
 }
 
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+button:hover,
+button:focus,
+button:active {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+}
+
 hr {
     margin-top: 1rem;
     margin-bottom: 1rem;
