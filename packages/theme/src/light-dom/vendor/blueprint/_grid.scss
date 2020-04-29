@@ -6,7 +6,7 @@
 }
 
 [#{$prefix}~='vertical-start'] {
-  align-items: start;
+  align-items: flex-start;
 }
 
 [#{$prefix}~='vertical-center'] {
@@ -14,18 +14,22 @@
 }
 
 [#{$prefix}~='vertical-end'] {
-  align-items: end;
+  align-items: flex-end;
 }
 
-[#{$prefix}~='justify-left'] {
+[#{$prefix}~='horizontal-left'] {
   justify-content: flex-start;
 }
 
-[#{$prefix}~='between'] {
+[#{$prefix}~='horizontal-between'] {
+  justify-content: space-between;
+}
+
+[#{$prefix}~='horizontal-center'] {
   justify-content: center;
 }
 
-[#{$prefix}~='justify-right'] {
+[#{$prefix}~='horizontal-right'] {
   justify-content: flex-end;
 }
 

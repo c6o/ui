@@ -139,14 +139,34 @@ registerStyles('vaadin-button', css`
     }
 `)
 
-registerStyles('vaadin-form-item', css`
+registerStyles('vaadin-grid', css`
+    [part~="header-cell"] {
+        background-color: var(--color-rain);
+        color: var(--color-white);
+        font-weight: 700;
+    }
 
+    [part~="header-cell"] ::slotted(vaadin-grid-cell-content),
+    [part~="footer-cell"] ::slotted(vaadin-grid-cell-content),
+    [part~="reorder-ghost"] {
+        font-size: var(--lumo-font-size-md);
+        font-weight: 700;
+    }
+
+    :host [part~="row"]:hover [part~="body-cell"]{
+        background-color: var(--color-wind);
+        cursor: pointer;
+    }
+
+    :host [part~="body-cell"] ::slotted(vaadin-grid-cell-content){
+        cursor: pointer;
+    }
 `)
 
 registerStyles('vaadin-checkbox vaadin-radio-button vaadin-combo-box', css`
     :host {
         display: block;
-        padding-bottom: var($lg-spacing);;
+        padding-bottom: var(--lg-spacing);;
     }
 
     :host > label {
@@ -157,7 +177,21 @@ registerStyles('vaadin-checkbox vaadin-radio-button vaadin-combo-box', css`
 registerStyles('vaadin-text-field', css`
     :host {
         --lumo-text-field-size: var(--c6o-field-size);
-        padding-bottom: var($lg-spacing);
+        padding-bottom: var(--lg-spacing);
+        padding-top: 0;
+        --vaadin-text-field-default-width: 25em;
+    }
+
+    :host(.search-field) {
+        padding-bottom: 0;
+    }
+
+    :host(.search-field) [part="value"] {
+        font-size: var(--lumo-font-size-s);
+    }
+
+    :host [part="input-field"] {
+        border-radius: 0;
     }
 `)
 
@@ -172,23 +206,5 @@ registerStyles('vaadin-menu-bar', css`
         cursor: pointer;
         border: none;
         border-radius: 0;
-    }
-`)
-
-registerStyles('vaadin-context-menu-overlay', css`
-
-`)
-
-registerStyles('vaadin-list-box', css`
-
-`)
-
-registerStyles('vaadin-text-field', css`
-    :host [part="input-field"] {
-        border-radius: 0;
-    }
-
-    :host(.search-field) [part="value"] {
-        font-size: var(--lumo-font-size-s);
     }
 `)

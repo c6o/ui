@@ -19,7 +19,7 @@ export const cssGrid = css`
 }
 
 [c6o~=vertical-start] {
-  align-items: start;
+  align-items: flex-start;
 }
 
 [c6o~=vertical-center] {
@@ -27,18 +27,22 @@ export const cssGrid = css`
 }
 
 [c6o~=vertical-end] {
-  align-items: end;
+  align-items: flex-end;
 }
 
-[c6o~=justify-left] {
+[c6o~=horizontal-left] {
   justify-content: flex-start;
 }
 
-[c6o~=between] {
+[c6o~=horizontal-between] {
+  justify-content: space-between;
+}
+
+[c6o~=horizontal-center] {
   justify-content: center;
 }
 
-[c6o~=justify-right] {
+[c6o~=horizontal-right] {
   justify-content: flex-end;
 }
 

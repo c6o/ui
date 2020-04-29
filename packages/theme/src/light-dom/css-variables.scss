@@ -34,9 +34,9 @@
     --lumo-space-xm: .75rem;
     --lumo-clickable-cursor: pointer;
 
-    --traxitt-icon-height: 48px;
-    --traxitt-icon-width: 48px;
-    --traxitt-icon-padding: 22px;
+    --traxitt-icon-height: 3rem;
+    --traxitt-icon-width: var(--traxitt-icon-height);
+    --traxitt-icon-spacing: .75rem;
     --c6o-button-size: 2.375rem;
     --c6o-field-size: var(--c6o-button-size);
 
