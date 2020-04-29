@@ -17,6 +17,7 @@ import './light-dom/modals.scss'
 import './light-dom/vaadin.scss'
 
 // Shadow DOM
+export * from './shadowDom/cssAll'
 export * from './shadowDom/cssReboot'
 export * from './shadowDom/cssGrid'
 export * from './shadowDom/cssBase'
