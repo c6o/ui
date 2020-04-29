@@ -20,111 +20,111 @@ registerStyles('vaadin-button', css`
         color: var(--color-white);
     }
 
-    :host([theme="primary"]) {
+    :host([theme~="primary"]) {
         background-color: var(--color-sea);
         border: none;
         color: var(--color-white);
     }
 
-    :host([theme="primary"]:hover) {
+    :host([theme~="primary"]:hover) {
         background-color: var(--color-morning-sea);
     }
 
-    :host([theme="tertiary"]) {
+    :host([theme~="tertiary"]) {
         border: none;
     }
 
-    :host([theme="tertiary"]:hover) {
+    :host([theme~="tertiary"]:hover) {
         color: var(--color-morning-sea);
         opacity: 1 !important;
     }
 
-    :host(.btn-default) {
+    :host([theme~="default"]) {
         border-color: var(--color-rain);
         color: var(--color-storm);
     }
 
-    :host(.btn-default:hover) {
+    :host([theme~="default"]:hover) {
         background-color: var(--color-rain);
         border: none;
         color: var(--color-white);
     }
 
-    :host(.btn-info) {
+    :host([theme~="info"]) {
         border-color: var(--color-sea);
         color: var(--color-sea);
     }
 
-    :host(.btn-info:hover) {
+    :host([theme~="info"]:hover) {
         background-color: var(--color-sea);
         color: var(--color-white);
     }
 
-    :host(.btn-info[theme="primary"]) {
+    :host([theme~="info"][theme~="primary"]) {
         color: var(--color-white);
     }
 
-    :host(.btn-info[theme="primary"]:hover) {
+    :host([theme~="info"][theme~="primary"]:hover) {
         background-color: var(--color-morning-sea);
         color: var(--color-white);
     }
 
-    :host(.btn-success) {
+    :host([theme~="success"]) {
         border-color: var(--color-ocean);
         color: var(--color-ocean);
     }
 
-    :host(.btn-success:hover) {
+    :host([theme~="success"]:hover) {
         background-color: var(--color-ocean);
         color: var(--color-white);
     }
 
-    :host(.btn-success[theme="primary"]) {
+    :host([theme~="success"][theme~="primary"]) {
         background-color: var(--color-ocean);
         color: var(--color-white);
     }
 
-    :host(.btn-success[theme="primary"]:hover) {
+    :host([theme~="success"][theme~="primary"]:hover) {
         background-color: var(--color-twilight-ocean);
         color: var(--color-white);
     }
 
-    :host(.btn-warning) {
+    :host([theme~="warning"]) {
         border-color: var(--color-sun);
         color: var(--color-thunder);
     }
 
-    :host(.btn-warning:hover) {
+    :host(.[theme~="warning"]:hover) {
         background-color: var(--color-sun);
         color: var(--color-navy);
     }
 
-    :host(.btn-warning[theme="primary"]) {
+    :host([theme~="warning"][theme~="primary"]) {
         background-color: var(--color-sun);
         color: var(--color-thunder);
     }
 
-    :host(.btn-warning[theme="primary"]:hover) {
+    :host([theme~="warning"][theme~="primary"]:hover) {
         background-color: var(--color-evening-sun);
         color: var(--color-white);
     }
 
-    :host(.btn-danger) {
+    :host([theme~="error"]) {
         border-color: var(--color-fire);
         color: var(--color-fire);
     }
 
-    :host(.btn-danger:hover) {
+    :host([theme~="error"]:hover) {
         background-color: var(--color-fire);
         color: var(--color-white);
     }
 
-    :host(.btn-danger[theme="primary"]) {
+    :host([theme~="error"][theme~="primary"]) {
         background-color: var(--color-fire);
         color: var(--color-white);
     }
 
-    :host(.btn-danger[theme="primary"]:hover) {
+    :host([theme~="error"][theme~="primary"]:hover) {
         background-color: var(--color-night-fire);
         color: var(--color-white);
     }
