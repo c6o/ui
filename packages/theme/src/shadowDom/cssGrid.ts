@@ -18,31 +18,31 @@ export const cssGrid = css`
   grid-template-columns: repeat(12, 1fr);
 }
 
-[c6o~=vertical-start] {
+[c6o~=align-start] {
   align-items: flex-start;
 }
 
-[c6o~=vertical-center] {
+[c6o~=align-center] {
   align-items: center;
 }
 
-[c6o~=vertical-end] {
+[c6o~=align-end] {
   align-items: flex-end;
 }
 
-[c6o~=horizontal-left] {
+[c6o~=justify-start] {
   justify-content: flex-start;
 }
 
-[c6o~=horizontal-between] {
+[c6o~=justify-between] {
   justify-content: space-between;
 }
 
-[c6o~=horizontal-center] {
+[c6o~=justify-center] {
   justify-content: center;
 }
 
-[c6o~=horizontal-right] {
+[c6o~=justify-end] {
   justify-content: flex-end;
 }
 

@@ -16,10 +16,23 @@ vaadin-context-menu-list-box {
 
 vaadin-list-box {
     > hr {
-        height: 1px;
+        margin-bottom: var(--sm-spacing);
+        margin-top: var(--sm-spacing);
     }
 
     vaadin-item {
         cursor: pointer;
+    }
+
+    iron-icon {
+        &[theme~="account-switcher"] {
+            margin-right: var(--sm-spacing);
+        }
+
+        &[theme~="profile"] {
+            height: 30px;
+            width: 30px;
+            opacity: .5;
+        }
     }
 }

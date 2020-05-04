@@ -137,6 +137,33 @@ registerStyles('vaadin-button', css`
         padding-top: 0;
         padding-bottom: 0;
     }
+
+    :host(.menu-link) {
+        color: var(--color-navy);
+        padding: 0;
+    }
+
+    :host(.menu-link:hover) {
+        text-decoration: none;
+        color: var(--color-sea);
+    }
+`)
+
+registerStyles('vaadin-checkbox vaadin-radio-button vaadin-combo-box', css`
+    :host {
+        display: block;
+        padding-bottom: var(--lg-spacing);;
+    }
+
+    :host > label {
+        cursor: pointer;
+    }
+`)
+
+registerStyles('vaadin-dialog-overlay', css`
+    :host {
+        top: -1rem;
+    }
 `)
 
 registerStyles('vaadin-grid', css`
@@ -163,14 +190,117 @@ registerStyles('vaadin-grid', css`
     }
 `)
 
-registerStyles('vaadin-checkbox vaadin-radio-button vaadin-combo-box', css`
+registerStyles('vaadin-item', css`
     :host {
-        display: block;
-        padding-bottom: var(--lg-spacing);;
+        font-size: var(--lumo-font-size-s);
     }
 
-    :host > label {
+    :host(:focus) {
+        outline: none !important;
+    }
+
+    :host([theme~="account-switcher"]) {
+        font-size: var(--lumo-font-size-s);
+        text-align: left;
+    }
+
+    :host([theme~="logout"]) {
+        color: var(--color-fire);
+        margin-bottom: var(--sm-spacing);
+    }
+
+    :host([tabindex])::after {
+        display: var(--_lumo-item-selected-icon-display, none);
+        content: var(--lumo-icons-checkmark);
+        font-family: lumo-icons;
+        font-size: var(--lumo-icon-size-m);
+        line-height: 1;
+        font-weight: normal;
+        width: 1em;
+        height: 1em;
+        margin: calc((1 - var(--lumo-line-height-xs)) * var(--lumo-font-size-m) / 2) 0;
+        color: var(--color-white);
+        flex: none;
+        opacity: 0;
+        transition: transform 0.2s cubic-bezier(.12, .32, .54, 2), opacity 0.1s;
+    }
+
+    :host([tabindex]:hover)::after {
+        color: var(--color-sea);
+    }
+
+    :host([selected])::after {
+        opacity: 1;
+    }
+`)
+
+registerStyles('vaadin-list-box', css`
+    [part="items"] ::slotted(.profile) {
+        font-size: var(--lumo-font-size-s);
+        margin-top: var(--sm-spacing);
+        padding: var(--sm-spacing) var(--lg-spacing);
+        text-align: left;
+    }
+
+    [part="items"] ::slotted(.create-org) {
+        font-size: var(--lumo-font-size-s);
+        padding: 0 var(--lg-spacing);
+        text-align: left;
+    }
+
+    [part="items"] ::slotted(vaadin-item) {
+        border-radius: 0;
+        height: 45px;
+        padding: var(--sm-spacing) var(--lg-spacing);
+    }
+
+    [part="items"] ::slotted(vaadin-item)::before {
+        display: none;
+    }
+
+    [part="items"] ::slotted(vaadin-item:hover:not([disabled])) {
+        background-color: var(--color-wind);
+        color: var(--color-navy);
+    }
+
+    [part="items"] ::slotted(vaadin-item[selected]) {
+        background-color: var(--color-sea);
+        color: var(--color-white);
+    }
+`)
+
+registerStyles('vaadin-menu-bar', css`
+    vaadin-menu-bar-button {
         cursor: pointer;
+        border: none;
+        border-radius: 0;
+    }
+`)
+
+registerStyles('vaadin-select-text-field', css`
+    :host([theme~="account-switcher"]) {
+        padding-bottom: 0;
+        background: none;
+        color: var(--color-navy);
+    }
+
+    :host([theme~="account-switcher"]:hover) {
+        background: none;
+    }
+
+    :host([theme~="account-switcher"]) [part="input-field"] {
+        background: none;
+    }
+`)
+
+registerStyles('vaadin-select-overlay', css`
+    :host([theme~="account-switcher"]) [part~="overlay"] {
+        padding: 0;
+        outline: none !important;
+    }
+
+    :host([theme~="account-switcher"]) [part~="content"] {
+        padding: 0;
     }
 `)
 
@@ -182,6 +312,10 @@ registerStyles('vaadin-text-field', css`
         --vaadin-text-field-default-width: 25em;
     }
 
+    :host(:focus) {
+        outline: none !important;
+    }
+
     :host(.search-field) {
         padding-bottom: 0;
     }
@@ -190,21 +324,7 @@ registerStyles('vaadin-text-field', css`
         font-size: var(--lumo-font-size-s);
     }
 
-    :host [part="input-field"] {
-        border-radius: 0;
-    }
-`)
-
-registerStyles('vaadin-dialog-overlay', css`
-    :host {
-        top: -1rem;
-    }
-`)
-
-registerStyles('vaadin-menu-bar', css`
-    vaadin-menu-bar-button {
+    [part="input-field"] ::slotted([part="value"]) {
         cursor: pointer;
-        border: none;
-        border-radius: 0;
     }
 `)

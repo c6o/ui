@@ -11,3 +11,17 @@
     margin-top: var(--lg-spacing);
     padding: var(--xl-spacing);
 }
+
+.profile-image {
+    height: 48px;
+    width: 48px;
+    border-radius: 6px;
+    margin-right: var(--sm-spacing);
+}
+
+.account-image {
+    height: 30px;
+    width: 30px;
+    border-radius: 6px;
+    margin-right: var(--sm-spacing);
+}

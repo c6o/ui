@@ -5,31 +5,31 @@
   grid-template-columns: repeat($cols, 1fr);
 }
 
-[#{$prefix}~='vertical-start'] {
+[#{$prefix}~='align-start'] {
   align-items: flex-start;
 }
 
-[#{$prefix}~='vertical-center'] {
+[#{$prefix}~='align-center'] {
   align-items: center;
 }
 
-[#{$prefix}~='vertical-end'] {
+[#{$prefix}~='align-end'] {
   align-items: flex-end;
 }
 
-[#{$prefix}~='horizontal-left'] {
+[#{$prefix}~='justify-start'] {
   justify-content: flex-start;
 }
 
-[#{$prefix}~='horizontal-between'] {
+[#{$prefix}~='justify-between'] {
   justify-content: space-between;
 }
 
-[#{$prefix}~='horizontal-center'] {
+[#{$prefix}~='justify-center'] {
   justify-content: center;
 }
 
-[#{$prefix}~='horizontal-right'] {
+[#{$prefix}~='justify-end'] {
   justify-content: flex-end;
 }
 
