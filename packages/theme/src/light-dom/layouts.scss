@@ -20,8 +20,8 @@
 }
 
 .account-image {
-    height: 30px;
-    width: 30px;
+    height: var(--lumo-icon-size-l);
+    width: var(--lumo-icon-size-l);
     border-radius: 6px;
     margin-right: var(--sm-spacing);
 }

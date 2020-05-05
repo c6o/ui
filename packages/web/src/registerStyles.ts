@@ -139,7 +139,7 @@ registerStyles('vaadin-button', css`
     }
 
     :host(.menu-link) {
-        color: var(--color-navy);
+        color: var(--color-thunder);
         padding: 0;
     }
 
@@ -242,7 +242,7 @@ registerStyles('vaadin-list-box', css`
         text-align: left;
     }
 
-    [part="items"] ::slotted(.create-org) {
+    [part="items"] ::slotted(.dropdown-item) {
         font-size: var(--lumo-font-size-s);
         padding: 0 var(--lg-spacing);
         text-align: left;
@@ -301,6 +301,46 @@ registerStyles('vaadin-select-overlay', css`
 
     :host([theme~="account-switcher"]) [part~="content"] {
         padding: 0;
+    }
+`)
+
+registerStyles('vaadin-tab', css`
+    :host([theme~="authenticated-subnav"]) {
+        align-items: flex-end;
+    }
+
+    :host([selected])::before,
+    :host([selected])::after {
+        background-color: var(--color-ocean);
+        width: 100%;
+    }
+
+    :host ::slotted(a.subnav) {
+        color: var(--color-navy) !important;
+        font-weight: 500;
+    }
+
+    :host ::slotted(a.subnav:hover) {
+        color: var(--color-ocean) !important;
+    }
+
+    :host([selected]) ::slotted(a.subnav) {
+        color: var(--color-navy) !important;
+        font-weight: 700;
+    }
+
+    :host([selected]) ::slotted(a.subnav:hover) {
+        color: var(--color-navy) !important;
+    }
+`)
+
+registerStyles('vaadin-tabs', css`
+    :host(:not([orientation="vertical"])) {
+        box-shadow: none;
+    }
+
+    :host([orientation="horizontal"]) [part="tabs"] {
+        margin: 0;
     }
 `)
 
