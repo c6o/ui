@@ -4,7 +4,7 @@ import { render, TemplateResult } from 'lit-html'
 
 export abstract class DialogBase extends DialogElement {
     abstract renderContent(): TemplateResult
-    abstract closeModalCallback(): void
+    abstract closeCallback(): void
     btnTheme: string
     btnText: string
     title: string
@@ -37,14 +37,14 @@ export abstract class DialogBase extends DialogElement {
                 </div>
             </div>
             <div class="modal-footer" c6o="text-center">
-                <traxitt-button class="pointer" id="cancel-button" theme="${this.btnTheme}" @click=${this.close}>${this.btnText}</traxitt-button>
+                <traxitt-button class="pointer close-button" theme="${this.btnTheme}" @click=${this.close}>${this.btnText}</traxitt-button>
             </div>
         `
     }
 
     close = () => {
-        if (this.closeModalCallback)
-            this.closeModalCallback()
+        if (this.closeCallback)
+            this.closeCallback()
         super.opened = false
     }
 }

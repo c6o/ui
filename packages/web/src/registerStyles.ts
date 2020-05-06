@@ -46,7 +46,7 @@ registerStyles('vaadin-button', css`
 
     :host([theme~="default"]:hover) {
         background-color: var(--color-rain);
-        border: none;
+        border-color: transparent;
         color: var(--color-white);
     }
 
@@ -146,6 +146,10 @@ registerStyles('vaadin-button', css`
     :host(.menu-link:hover) {
         text-decoration: none;
         color: var(--color-sea);
+    }
+
+    :host(.confirm-button) {
+        margin-left: var(--sm-spacing);
     }
 `)
 
@@ -354,6 +358,10 @@ registerStyles('vaadin-text-field', css`
 
     :host(:focus) {
         outline: none !important;
+    }
+
+    :host([has-label]) {
+        padding-top: 0;
     }
 
     :host(.search-field) {
