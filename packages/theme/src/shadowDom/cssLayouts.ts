@@ -6,10 +6,18 @@ traxitt-subnav + [c6o~="container"] {
 }
 
 .panel {
-    background-color: #fff;
+    background-color: var(--color-white);
     border: none;
-    border-radius: 6px;
-    margin-top: 20px;
-    padding: 30px;
+    border-radius: var(--c6o-border-radius);
+    margin-top: var(--lg-spacing);
+    padding: var(--xl-spacing);
+}
+
+.sub-panel {
+    border: 1px solid var(--color-wind);
+    border-radius: var(--c6o-border-radius);
+    margin: var(--lg-spacing) auto;
+    max-width: 500px;
+    padding: var(--xl-spacing);
 }
 `

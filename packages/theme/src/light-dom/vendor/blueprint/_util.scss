@@ -1,9 +1,13 @@
 [#{$prefix}~='flex'] {
-  flex-wrap: wrap;
   display: flex;
+  flex-wrap: wrap;
 
   &[#{$prefix}~='column'] {
     flex-direction: column;
+  }
+
+  &[#{$prefix}~='nowrap'] {
+    flex-wrap: nowrap;
   }
 }
 
@@ -14,6 +18,34 @@
 
 [#{$prefix}~='fit'] {
   flex-basis: auto;
+}
+
+[#{$prefix}~='align-start'] {
+  align-items: flex-start;
+}
+
+[#{$prefix}~='align-center'] {
+  align-items: center;
+}
+
+[#{$prefix}~='align-end'] {
+  align-items: flex-end;
+}
+
+[#{$prefix}~='justify-start'] {
+  justify-content: flex-start;
+}
+
+[#{$prefix}~='justify-between'] {
+  justify-content: space-between;
+}
+
+[#{$prefix}~='justify-center'] {
+  justify-content: center;
+}
+
+[#{$prefix}~='justify-end'] {
+  justify-content: flex-end;
 }
 
 [#{$prefix}~='float-center'] {

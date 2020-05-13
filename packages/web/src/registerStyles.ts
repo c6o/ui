@@ -24,6 +24,7 @@ registerStyles('vaadin-button', css`
         background-color: var(--color-sea);
         border: none;
         color: var(--color-white);
+        min-width: calc(var(--lumo-button-size) * 4);
     }
 
     :host([theme~="primary"]:hover) {
@@ -129,15 +130,6 @@ registerStyles('vaadin-button', css`
         color: var(--color-white);
     }
 
-    [part="label"], [part="prefix"], [part="suffix"] {
-        line-height: var(--lumo-line-height-m);
-    }
-
-    [part] ::slotted(iron-icon[icon^="vaadin:"]) {
-        padding-top: 0;
-        padding-bottom: 0;
-    }
-
     :host(.menu-link) {
         color: var(--color-thunder);
         padding: 0;
@@ -151,16 +143,54 @@ registerStyles('vaadin-button', css`
     :host(.confirm-button) {
         margin-left: var(--sm-spacing);
     }
+
+    [part="label"], [part="prefix"], [part="suffix"] {
+        line-height: var(--lumo-line-height-m);
+    }
+
+    [part] ::slotted(iron-icon[icon^="vaadin:"]) {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
 `)
 
-registerStyles('vaadin-checkbox vaadin-radio-button vaadin-combo-box', css`
+registerStyles('vaadin-checkbox vaadin-combo-box vaadin-radio-button vaadin-text-field vaadin-upload', css`
     :host {
-        display: block;
-        padding-bottom: var(--lg-spacing);;
+        margin-bottom: var(--xl-spacing);;
     }
 
     :host > label {
         cursor: pointer;
+    }
+`)
+
+registerStyles('vaadin-checkbox', css`
+    :host(.has-help-text) {
+        margin-bottom: var(--xs-spacing);
+    }
+
+    [part="checkbox"] {
+        height: calc(1em + 10px);
+        width: calc(1em + 10px);
+    }
+
+    [part="checkbox"]::after {
+        left: .6em;
+        top: 1.2em;
+    }
+
+    :host([checked]) [part="checkbox"]::after {
+        height: 1.9em;
+        width: .9em;
+    }
+
+    label {
+        align-items: center;
+    }
+
+    [part="label"]:not([empty]) {
+        text-transform: uppercase;
+        font-size: var(--lumo-font-size-s);
     }
 `)
 
@@ -283,7 +313,7 @@ registerStyles('vaadin-menu-bar', css`
 
 registerStyles('vaadin-select-text-field', css`
     :host([theme~="account-switcher"]) {
-        padding-bottom: 0;
+        margin-bottom: 0;
         background: none;
         color: var(--color-navy);
     }
@@ -309,8 +339,9 @@ registerStyles('vaadin-select-overlay', css`
 `)
 
 registerStyles('vaadin-tab', css`
-    :host([theme~="authenticated-subnav"]) {
+    :host([theme~="subnav-tab"]) {
         align-items: flex-end;
+        padding-bottom: 1rem;
     }
 
     :host([selected])::before,
@@ -351,7 +382,7 @@ registerStyles('vaadin-tabs', css`
 registerStyles('vaadin-text-field', css`
     :host {
         --lumo-text-field-size: var(--c6o-field-size);
-        padding-bottom: var(--lg-spacing);
+        padding-bottom: 0;
         padding-top: 0;
         --vaadin-text-field-default-width: 25em;
     }
@@ -365,7 +396,7 @@ registerStyles('vaadin-text-field', css`
     }
 
     :host(.search-field) {
-        padding-bottom: 0;
+        margin-bottom: 0;
     }
 
     :host(.search-field) [part="value"] {
@@ -376,3 +407,26 @@ registerStyles('vaadin-text-field', css`
         cursor: pointer;
     }
 `)
+
+registerStyles('vaadin-upload', css`
+    [part~="primary-buttons"] {
+        padding: 1rem;
+    }
+
+    [part~="upload-button"] {
+        cursor: pointer;
+        margin-bottom: var(--xs-spacing);
+    }
+
+    [part="drop-label"] {
+        font-size: var(--lumo-font-size-s);
+    }
+`)
+
+registerStyles('vaadin-upload-file', css`
+    [part~="status"] {
+        color: var(--color-sea);
+    }
+`)
+
+

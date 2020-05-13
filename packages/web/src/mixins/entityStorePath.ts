@@ -39,7 +39,7 @@ export const PathEntityStoreMixin = (base) => class entityPathStoreMixin extends
     }
 
     eventToStore(e) {
-        this.setValue(e.target.value)
+        this.setValue(e.target.value.trim())
     }
 
     storeToValue() {
@@ -53,7 +53,7 @@ export const PathEntityStoreMixin = (base) => class entityPathStoreMixin extends
 
     async connectedCallback() {
         super.connectedCallback()
-        super.addEventListener('input', this.inputChanged)
+        super.addEventListener('change', this.inputChanged)
     }
 
     _errorDisposer

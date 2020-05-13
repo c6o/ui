@@ -33,12 +33,16 @@
     --lumo-font-family: var(--font-family);
     --lumo-space-xm: .75rem;
     --lumo-clickable-cursor: pointer;
+    --lumo-primary-color: var(--color-sea);
+    --lumo-secondary-color: var(--color-ocean);
+    --lumo-error-text-color: var(--color-fire);
 
     --traxitt-icon-height: 3rem;
     --traxitt-icon-width: var(--traxitt-icon-height);
     --traxitt-icon-spacing: .75rem;
     --c6o-button-size: 2.375rem;
     --c6o-field-size: var(--c6o-button-size);
+    --c6o-border-radius: 6px;
 
     --marina-menubar-height: 40px;
     --marina-menubar-background-color: var(--lumo-shade-20pct);

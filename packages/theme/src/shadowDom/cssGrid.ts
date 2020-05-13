@@ -18,34 +18,6 @@ export const cssGrid = css`
   grid-template-columns: repeat(12, 1fr);
 }
 
-[c6o~=align-start] {
-  align-items: flex-start;
-}
-
-[c6o~=align-center] {
-  align-items: center;
-}
-
-[c6o~=align-end] {
-  align-items: flex-end;
-}
-
-[c6o~=justify-start] {
-  justify-content: flex-start;
-}
-
-[c6o~=justify-between] {
-  justify-content: space-between;
-}
-
-[c6o~=justify-center] {
-  justify-content: center;
-}
-
-[c6o~=justify-end] {
-  justify-content: flex-end;
-}
-
 [c6o~=gap-none] {
   grid-gap: 0;
   margin-bottom: 0;
@@ -877,11 +849,14 @@ export const cssGrid = css`
   }
 }
 [c6o~=flex] {
-  flex-wrap: wrap;
   display: flex;
+  flex-wrap: wrap;
 }
 [c6o~=flex][c6o~=column] {
   flex-direction: column;
+}
+[c6o~=flex][c6o~=nowrap] {
+  flex-wrap: nowrap;
 }
 
 [c6o~=fill] {
@@ -891,6 +866,34 @@ export const cssGrid = css`
 
 [c6o~=fit] {
   flex-basis: auto;
+}
+
+[c6o~=align-start] {
+  align-items: flex-start;
+}
+
+[c6o~=align-center] {
+  align-items: center;
+}
+
+[c6o~=align-end] {
+  align-items: flex-end;
+}
+
+[c6o~=justify-start] {
+  justify-content: flex-start;
+}
+
+[c6o~=justify-between] {
+  justify-content: space-between;
+}
+
+[c6o~=justify-center] {
+  justify-content: center;
+}
+
+[c6o~=justify-end] {
+  justify-content: flex-end;
 }
 
 [c6o~=float-center] {

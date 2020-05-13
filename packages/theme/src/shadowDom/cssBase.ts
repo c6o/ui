@@ -33,6 +33,11 @@ button:active {
     outline: 0;
 }
 
+ul.error-message {
+    color: var(--color-fire);
+    margin-bottom: var(--xl-spacing);
+}
+
 hr {
     margin-top: 1rem;
     margin-bottom: 1rem;

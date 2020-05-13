@@ -3,13 +3,23 @@ import { DialogElement } from '@vaadin/vaadin-dialog/src/vaadin-dialog'
 import { render } from 'lit-html'
 
 export class ConfirmationDialog extends DialogElement {
+    callback: (confirmed: boolean) => void
     message: string
-    callback: (confirm: boolean) => void
+    btnTheme: string
+    confirmBtnText: string
+    cancelBtnText: string
+    title: string
+    size: string
 
     static get properties() {
         return {
             ...super.properties,
-            message: { type: String, value: 'Are you sure?' }
+            message: { type: String, value: 'Are you sure?' },
+            btnTheme: { type: String, value: 'default' },
+            confirmBtnText: { type: String, value: 'OK' },
+            cancelBtnText: { type: String, value: 'Cancel' },
+            size: { type: String, value: '' },
+            title: { type: String, value: 'Please Confirm' },
         }
     }
 
@@ -20,16 +30,26 @@ export class ConfirmationDialog extends DialogElement {
 
     renderContent = () => {
         return html`
-            <div>${this.message}</div>
-            <br>
-            <traxitt-button style="margin-right: 1em" @click=${this.cancel.bind(this)}>Cancel</traxitt-button>
-            <traxitt-button theme="primary" style="margin-right: 1em" @click=${this.ok.bind(this)}>OK</traxitt-button>
+            <div class="modal-header">
+                <h2 class="modal-title">${this.title}</h2>
+                <iron-icon icon="vaadin:close" @click=${this.cancel}></iron-icon>
+            </div>
+            <div class="modal-body ${this.size}">
+                <div id="modal-content">
+                    ${this.message}
+                </div>
+            </div>
+            <div class="modal-footer" c6o="flex justify-between">
+                <traxitt-button class="pointer cancel-button" theme="default" @click=${this.cancel}>${this.cancelBtnText}</traxitt-button>
+                <traxitt-button class="pointer confirm-button" theme="${this.btnTheme}" @click=${this.confirm}>${this.confirmBtnText}</traxitt-button>
+            </div>
         `
     }
 
-    confirm(message) {
+    show(message) {
         this.message = message
         super.opened = true
+
         return new Promise((resolve) => {
             this.callback = (confirmed: boolean) => {
                 resolve(confirmed)
@@ -37,12 +57,12 @@ export class ConfirmationDialog extends DialogElement {
         })
     }
 
-    async cancel() {
+    cancel = async () => {
         super.opened = false
         this.callback(false)
     }
 
-    async ok() {
+    confirm = async () => {
         super.opened = false
         this.callback(true)
     }

@@ -5,34 +5,6 @@
   grid-template-columns: repeat($cols, 1fr);
 }
 
-[#{$prefix}~='align-start'] {
-  align-items: flex-start;
-}
-
-[#{$prefix}~='align-center'] {
-  align-items: center;
-}
-
-[#{$prefix}~='align-end'] {
-  align-items: flex-end;
-}
-
-[#{$prefix}~='justify-start'] {
-  justify-content: flex-start;
-}
-
-[#{$prefix}~='justify-between'] {
-  justify-content: space-between;
-}
-
-[#{$prefix}~='justify-center'] {
-  justify-content: center;
-}
-
-[#{$prefix}~='justify-end'] {
-  justify-content: flex-end;
-}
-
 [#{$prefix}~='gap-none'] {
   grid-gap: 0;
   margin-bottom: 0;

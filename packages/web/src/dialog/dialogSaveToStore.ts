@@ -41,7 +41,7 @@ export abstract class DialogSaveToStore extends mix(DialogElement).with(EntitySt
                     ${this.renderContent()}
                 </div>
             </div>
-            <div class="modal-footer" c6o="flex justify-end">
+            <div class="modal-footer" c6o="flex justify-between">
                 <traxitt-button class="pointer cancel-button" theme="default" @click=${this.cancel}>${this.cancelBtnText}</traxitt-button>
                 <traxitt-button class="pointer confirm-button" theme="${this.btnTheme}" @click=${this.confirm}>${this.confirmBtnText}</traxitt-button>
             </div>
@@ -65,15 +65,18 @@ export abstract class DialogSaveToStore extends mix(DialogElement).with(EntitySt
     }
 
     confirm = async () => {
-        const success = this.confirmCallback?.() || true
+        let closeModal = false
+        const callback = this.confirmCallback?.() || true
 
-        if (success) {
+        if (callback) {
             const result = await this.save()
-            if (result)
+            if (result) {
+                closeModal = true
                 this.store = null
+            }
         }
 
-        super.opened = !success
+        super.opened = !closeModal
     }
 
     async save() {

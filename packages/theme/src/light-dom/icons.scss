@@ -1,0 +1,27 @@
+/* ==========================================================================
+ * Icons
+ * Light DOM Styles
+ * These will not apply to the ShadowDOM of Web Components except via CSS variables
+========================================================================== */
+
+iron-icon {
+  &.info {
+      color: var(--color-sea);
+      margin-right: var(--sm-spacing);
+  }
+
+  &.success {
+      color: var(--color-ocean);
+      margin-right: var(--sm-spacing);
+  }
+
+  &.warning {
+      color: var(--color-sun);
+      margin-right: var(--sm-spacing);
+  }
+
+  &.error {
+      color: var(--color-fire);
+      margin-right: var(--sm-spacing);
+  }
+}
