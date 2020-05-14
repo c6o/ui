@@ -59,6 +59,19 @@ h6 {
     color: var(--color-fire);
 }
 
+.text-default {
+    color: var(--color-navy);
+}
+
+.text-default-light {
+    color: var(--color-storm);
+}
+
+.text-suffix {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
 .title {
     color: var(--color-sea);
     font-size: var(--lumo-font-size-xxxl);

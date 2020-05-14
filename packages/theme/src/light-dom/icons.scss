@@ -25,3 +25,12 @@ iron-icon {
       margin-right: var(--sm-spacing);
   }
 }
+
+.vendor-logo {
+    width: 60px;
+    margin-bottom: var(--md-spacing);
+
+    img {
+        width: 100%;
+    }
+}

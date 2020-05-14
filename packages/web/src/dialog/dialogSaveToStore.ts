@@ -13,6 +13,7 @@ export abstract class DialogSaveToStore extends mix(DialogElement).with(EntitySt
     cancelBtnText: string
     title: string
     size: string
+    root
 
     static get properties() {
         return {
@@ -26,6 +27,7 @@ export abstract class DialogSaveToStore extends mix(DialogElement).with(EntitySt
     }
 
     renderer = (root) => {
+        this.root = root
         if (root.firstElementChild) return
         render(this.renderModal(), root)
     }

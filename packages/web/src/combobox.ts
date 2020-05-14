@@ -6,7 +6,7 @@ export class ComboBox extends mix(ComboBoxElement).with(EntityListStoreMixin) {
     path: string
 
     static get properties() {
-            return {
+        return {
             //...super.properties,
             path: {type: String}
         }

@@ -61,6 +61,24 @@
         &.wide {
             width: calc(100vw - 300px);
         }
+
+        &.extra-wide {
+            width: calc(100vw - 200px);
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .modal-body {
+        width: 700px;
+
+        &.wide {
+            width: calc(100vw - 600px);
+        }
+
+        &.extra-wide {
+            width: calc(100vw - 300px);
+        }
     }
 }
 

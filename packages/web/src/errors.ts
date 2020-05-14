@@ -5,8 +5,10 @@ import { EntityStoreMixin } from './mixins'
 import { cssReboot, cssBase } from '@traxitt/ui-theme'
 
 export class Errors extends mix(MobxLitElement).with(EntityStoreMixin) {
+    defaultHeading = 'Please correct the following form errors:'
+
     @property({ type: String })
-    heading = 'Please correct the following form errors:'
+    heading = this.defaultHeading
 
     @property({ type: String })
     filter
@@ -30,6 +32,17 @@ export class Errors extends mix(MobxLitElement).with(EntityStoreMixin) {
 
     render() {
         const errors = this.store?.errors || {}
+        if (errors.type === 'FeathersError') {
+            return html`
+                <div class="form-error-panel">
+                    <h4>${this.defaultHeading}</h4>
+                    <ul class="error-message">
+                        ${errors.errors.map(i => html`<li>${i}</li>`)}
+                    </ul>
+                </div>
+            `
+        }
+
         const errorsToShow = this.filter ? Object.keys(errors).filter(key => key === this.filter) : Object.keys(errors)
         const messages = errorsToShow.map(key => errors[key].message)
         if (!messages.length)
