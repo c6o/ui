@@ -61,7 +61,7 @@ export const PathEntityStoreMixin = (base) => class entityPathStoreMixin extends
     storeChanged = () => {
         super.storeChanged()
         if (!this.path)
-            throw new Error('path is required by JsonTextArea')
+            throw new Error('path is required by PathEntityStoreMixin')
 
         if (this._errorDisposer)
             this._errorDisposer()
@@ -74,13 +74,16 @@ export const PathEntityStoreMixin = (base) => class entityPathStoreMixin extends
 
             // Observe errors
             this._errorDisposer = observe(this.store, 'errors', () => {
-                const error = this.store.errors[this.path]
-                if (error) {
-                    this.errorMessage = error.message
-                    this.invalid = true
-                } else {
-                    this.errorMessage = ''
-                    this.invalid = false
+                const errors = this.store.errors
+                if (errors.type !== 'FeathersError') {
+                    const error = Object.keys(errors).find(key => key === this.path)
+                    if (error) {
+                        this.errorMessage = errors[error].message
+                        this.invalid = true
+                    } else {
+                        this.errorMessage = ''
+                        this.invalid = false
+                    }
                 }
             })
 

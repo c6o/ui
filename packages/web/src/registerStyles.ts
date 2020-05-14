@@ -438,9 +438,12 @@ registerStyles('vaadin-upload-file', css`
         color: var(--color-sea);
     }
 
-    [part="done-icon"],
-    [part="warning-icon"] {
-        line-height: 1.1;
+    [part="done-icon"]::before,
+    [part="warning-icon"]::before,
+    [part="start-button"]::before,
+    [part="retry-button"]::before,
+    [part="clear-button"]::before {
+        vertical-align: -.1em;
     }
 `)
 
