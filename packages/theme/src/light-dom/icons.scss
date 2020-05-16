@@ -5,25 +5,29 @@
 ========================================================================== */
 
 iron-icon {
-  &.info {
-      color: var(--color-sea);
-      margin-right: var(--sm-spacing);
-  }
+    &.default {
+        margin-right: var(--sm-spacing);
+    }
 
-  &.success {
-      color: var(--color-ocean);
-      margin-right: var(--sm-spacing);
-  }
+    &.info {
+        color: var(--color-sea);
+        margin-right: var(--sm-spacing);
+    }
 
-  &.warning {
-      color: var(--color-sun);
-      margin-right: var(--sm-spacing);
-  }
+    &.success {
+        color: var(--color-ocean);
+        margin-right: var(--sm-spacing);
+    }
 
-  &.error {
-      color: var(--color-fire);
-      margin-right: var(--sm-spacing);
-  }
+    &.warning {
+        color: var(--color-sun);
+        margin-right: var(--sm-spacing);
+    }
+
+    &.error {
+        color: var(--color-fire);
+        margin-right: var(--sm-spacing);
+    }
 }
 
 .vendor-logo {

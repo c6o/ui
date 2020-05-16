@@ -20,4 +20,12 @@ traxitt-subnav + [c6o~="container"] {
     max-width: 500px;
     padding: var(--xl-spacing);
 }
+
+.btn-group-left traxitt-button {
+    margin-right: var(--md-spacing);
+}
+
+btn-group-right traxitt-button {
+    margin-left: var(--md-spacing);
+}
 `

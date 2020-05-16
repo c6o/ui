@@ -140,10 +140,6 @@ registerStyles('vaadin-button', css`
         color: var(--color-sea);
     }
 
-    :host(.confirm-button) {
-        margin-left: var(--sm-spacing);
-    }
-
     [part="label"], [part="prefix"], [part="suffix"] {
         line-height: var(--lumo-line-height-m);
     }
@@ -197,6 +193,12 @@ registerStyles('vaadin-checkbox', css`
 registerStyles('vaadin-dialog-overlay', css`
     :host {
         top: -1rem;
+    }
+`)
+
+registerStyles('vaadin-form-layout', css`
+    :host(.max-width) {
+        max-width: 40em;
     }
 `)
 
@@ -383,7 +385,6 @@ registerStyles('vaadin-text-field', css`
     :host {
         --lumo-text-field-size: var(--c6o-field-size);
         --vaadin-text-field-default-width: 25em;
-        max-width: 35em;
         padding-bottom: 0;
         padding-top: 0;
     }

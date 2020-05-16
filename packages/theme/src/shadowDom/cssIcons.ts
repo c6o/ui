@@ -1,6 +1,10 @@
 import { css } from 'lit-element'
 
 export const cssIcons = css`
+    iron-icon.default {
+        margin-right: var(--sm-spacing);
+    }
+
     iron-icon.info {
         color: var(--color-sea);
         margin-right: var(--sm-spacing);
