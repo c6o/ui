@@ -13,6 +13,10 @@ traxitt-subnav + [c6o~="container"] {
     padding: var(--xl-spacing);
 }
 
+.panel .banner {
+    justify-content: flex-start;
+}
+
 .sub-panel {
     border: 1px solid var(--color-wind);
     border-radius: var(--c6o-border-radius);
