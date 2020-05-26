@@ -6,8 +6,8 @@ import { render, TemplateResult } from 'lit-html'
 
 export abstract class DialogSaveToStore extends mix(DialogElement).with(EntityStoreMixin) {
     abstract renderContent(): TemplateResult
-    abstract cancelCallback(): boolean
-    abstract confirmCallback(): boolean
+    abstract cancelCallback(): void
+    abstract confirmCallback(): void
     btnTheme: string
     confirmBtnText: string
     cancelBtnText: string
@@ -44,8 +44,8 @@ export abstract class DialogSaveToStore extends mix(DialogElement).with(EntitySt
                 </div>
             </div>
             <div class="modal-footer" c6o="flex justify-between">
-                <traxitt-button class="pointer cancel-button" theme="default" @click=${this.cancel}>${this.cancelBtnText}</traxitt-button>
-                <traxitt-button class="pointer confirm-button" theme="${this.btnTheme}" @click=${this.confirm}>${this.confirmBtnText}</traxitt-button>
+                <traxitt-button class="cancel-button" theme="default" @click=${this.cancel}>${this.cancelBtnText}</traxitt-button>
+                <traxitt-button class="confirm-button" theme="${this.btnTheme}" @click=${this.confirm}>${this.confirmBtnText}</traxitt-button>
             </div>
         `
     }
@@ -56,29 +56,25 @@ export abstract class DialogSaveToStore extends mix(DialogElement).with(EntitySt
     }
 
     cancel = () => {
-        const success = this.cancelCallback?.() || true
-
-        if (success && this.store) {
+        if (this.store) {
             this.store.reset()
             this.store = null
+            if (this.cancelCallback)
+                this.cancelCallback()
         }
 
-        super.opened = !success
+        super.opened = false
     }
 
     confirm = async () => {
-        let closeModal = false
-        const callback = this.confirmCallback?.() || true
-
-        if (callback) {
-            const result = await this.save()
-            if (result) {
-                closeModal = true
-                this.store = null
-            }
+        const result = await this.save()
+        if (result) {
+            this.store = null
+            if (this.confirmCallback)
+                this.confirmCallback()
         }
 
-        super.opened = !closeModal
+        super.opened = !result
     }
 
     async save() {

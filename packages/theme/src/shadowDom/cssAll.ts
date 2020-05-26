@@ -1,4 +1,3 @@
-import { cssBanners } from './cssBanners'
 import { cssBase } from './cssBase'
 import { cssIcons } from './cssIcons'
 import { cssGrid } from './cssGrid'
@@ -13,6 +12,5 @@ export const cssAll = [
     cssBase,
     cssLayouts,
     cssTypography,
-    cssBanners,
     cssIcons
 ]

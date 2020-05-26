@@ -8,6 +8,7 @@ registerStyles('vaadin-button', css`
         border: 1px solid var(--color-sea);
         border-radius: 500px;
         color: var(--color-sea);
+        cursor: var(--lumo-clickable-cursor);
         font-size: var(--lumo-font-size-s);
         font-weight: 500;
         margin: 0;
@@ -95,7 +96,7 @@ registerStyles('vaadin-button', css`
         color: var(--color-thunder);
     }
 
-    :host(.[theme~="warning"]:hover) {
+    :host([theme~="warning"]:hover) {
         background-color: var(--color-sun);
         color: var(--color-navy);
     }
@@ -130,6 +131,10 @@ registerStyles('vaadin-button', css`
         color: var(--color-white);
     }
 
+    :host([theme~="error"][theme~="tertiary"]:hover) {
+        color: var(--color-night-fire);
+    }
+
     :host(.menu-link) {
         color: var(--color-thunder);
         padding: 0;
@@ -148,9 +153,13 @@ registerStyles('vaadin-button', css`
         padding-top: 0;
         padding-bottom: 0;
     }
+
+    :host(.inline-form-btn) {
+        margin-top: 21px;
+    }
 `)
 
-registerStyles('vaadin-checkbox vaadin-combo-box vaadin-radio-button vaadin-text-field vaadin-upload', css`
+registerStyles('vaadin-checkbox vaadin-radio-button vaadin-text-field vaadin-upload', css`
     :host {
         margin-bottom: var(--xl-spacing);;
     }
@@ -198,7 +207,7 @@ registerStyles('vaadin-dialog-overlay', css`
 
 registerStyles('vaadin-form-layout', css`
     :host(.max-width) {
-        max-width: 40em;
+        max-width: 35em;
     }
 `)
 
@@ -384,7 +393,7 @@ registerStyles('vaadin-tabs', css`
 registerStyles('vaadin-text-field', css`
     :host {
         --lumo-text-field-size: var(--c6o-field-size);
-        --vaadin-text-field-default-width: 25em;
+        --vaadin-text-field-default-width: var(--c6o-default-field-width, 25rem);
         padding-bottom: 0;
         padding-top: 0;
     }
@@ -416,10 +425,6 @@ registerStyles('vaadin-text-field', css`
 `)
 
 registerStyles('vaadin-upload', css`
-    :host {
-        max-width: 35em;
-    }
-
     [part~="primary-buttons"] {
         padding: 1rem;
     }

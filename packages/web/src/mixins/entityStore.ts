@@ -1,6 +1,6 @@
 import { EntityStore } from '@traxitt/common'
 
-export const EntityStoreMixin = (base) =>  class entityStoreMixin extends base {
+export const EntityStoreMixin = (base) => class entityStoreMixin extends base {
     store: EntityStore
     noInherit: boolean
 
@@ -11,6 +11,7 @@ export const EntityStoreMixin = (base) =>  class entityStoreMixin extends base {
         }
     }
 
+    _childMixins : Array<entityStoreMixin> = []
     storeChanged() {
         // Cannot use => notation in base class!?!
         // Do nothing in the base
@@ -18,9 +19,7 @@ export const EntityStoreMixin = (base) =>  class entityStoreMixin extends base {
         this._childMixins.forEach(child => child.store = this.store)
     }
 
-    _childMixins : Array<entityStoreMixin> = []
     _parentStorePorvider
-
     addChildEntityStoreMixin(childElement: entityStoreMixin) {
         this._childMixins.push(childElement)
         childElement.store = this.store

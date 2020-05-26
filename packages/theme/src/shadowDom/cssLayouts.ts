@@ -1,7 +1,8 @@
 import { css } from 'lit-element'
 
 export const cssLayouts = css`
-traxitt-subnav + [c6o~="container"] {
+traxitt-subnav + [c6o~="container"],
+traxitt-contextual-subnav + [c6o~="container"] {
     margin-top: var(--xl-spacing);
 }
 
@@ -13,8 +14,8 @@ traxitt-subnav + [c6o~="container"] {
     padding: var(--xl-spacing);
 }
 
-.panel .banner {
-    justify-content: flex-start;
+.nested-panel {
+    background-color: var(--color-wind);
 }
 
 .sub-panel {
@@ -31,5 +32,9 @@ traxitt-subnav + [c6o~="container"] {
 
 btn-group-right traxitt-button {
     margin-left: var(--md-spacing);
+}
+
+traxitt-select {
+    width: 100%;
 }
 `

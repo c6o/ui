@@ -1,14 +1,13 @@
 import { css } from 'lit-element'
 
 export const cssTypography = css`
-h1, h2 {
+h1, h2, h3 {
     margin-bottom: 1rem;
     line-height: 1.2;
 }
 
-h3, h4, h5, h6 {
+h4, h5, h6 {
     margin-bottom: .75rem;
-    font-weight: 500;
     line-height: 1.2;
 }
 
@@ -33,14 +32,17 @@ h3 {
 
 h4 {
     font-size: var(--lumo-font-size-m);
+    font-weight: 300;
 }
 
 h5 {
     font-size: var(--lumo-font-size-xm);
+    font-weight: 500;
 }
 
 h6 {
     font-size: var(--lumo-font-size-s);
+    font-weight: 300;
 }
 
 .text-info {

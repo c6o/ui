@@ -40,8 +40,8 @@ export class ConfirmationDialog extends DialogElement {
                 </div>
             </div>
             <div class="modal-footer" c6o="flex justify-between">
-                <traxitt-button class="pointer cancel-button" theme="default" @click=${this.cancel}>${this.cancelBtnText}</traxitt-button>
-                <traxitt-button class="pointer confirm-button" theme="${this.btnTheme}" @click=${this.confirm}>${this.confirmBtnText}</traxitt-button>
+                <traxitt-button class="cancel-button" theme="default" @click=${this.cancel}>${this.cancelBtnText}</traxitt-button>
+                <traxitt-button class="confirm-button" theme="${this.btnTheme}" @click=${this.confirm}>${this.confirmBtnText}</traxitt-button>
             </div>
         `
     }

@@ -1,8 +1,8 @@
 import { CheckboxElement } from '@vaadin/vaadin-checkbox/src/vaadin-checkbox'
 import { mix } from '@traxitt/common'
-import { EntityStoreMixin, PathEntityStoreMixin } from './mixins'
+import { EntityStoreMixin, EntityStorePathMixin } from './mixins'
 
-export class Checkbox extends mix(CheckboxElement).with(EntityStoreMixin, PathEntityStoreMixin) {
+export class Checkbox extends mix(CheckboxElement).with(EntityStoreMixin, EntityStorePathMixin) {
     eventToStore(e) {
         this.setValue(e.target.checked)
     }

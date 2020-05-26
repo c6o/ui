@@ -1,13 +1,13 @@
 import { EntityListStore } from '@traxitt/common'
 import { observe } from 'mobx'
 
-export const EntityListStoreMixin = (base) =>  class entityStoreMixin extends base {
+export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extends base {
     listStore: EntityListStore
     disposers = []
 
     static get properties() {
         return {
-            listStore: {observer: 'listStoreChanged'}
+            listStore: { observer: 'listStoreChanged' }
         }
     }
 
@@ -22,17 +22,16 @@ export const EntityListStoreMixin = (base) =>  class entityStoreMixin extends ba
         }
 
         if (this.listStore) {
-
-            this.disposers.push(observe(this.listStore, 'entityStores', (change) => {
-                this.entityStoresChanged(change)
+            this.disposers.push(observe(this.listStore, 'entityStores', () => {
+                this.entityStoresChanged()
             }, true))
 
 
             this.disposers.push(observe(this.listStore, 'entities', () => {
                 // Watch for entity changes
                 this.listStore.entities.forEach(entity => {
-                    this.disposers.push(observe(entity, (change) =>
-                        this.entityChanged(change)
+                    this.disposers.push(observe(entity, () =>
+                        this.entityChanged()
                     ), true)
                 })
             }, true))
@@ -43,6 +42,12 @@ export const EntityListStoreMixin = (base) =>  class entityStoreMixin extends ba
         }
     }
 
-    entityStoresChanged(change) {}
-    entityChanged(change) {}
+    entityStoresChanged() {
+        this.items = this.listStore?.entityStores
+        this.render()
+    }
+
+    entityChanged() {
+        this.render()
+    }
 }

@@ -37,14 +37,13 @@ export abstract class DialogBase extends DialogElement {
                 </div>
             </div>
             <div class="modal-footer" c6o="text-center">
-                <traxitt-button class="pointer close-button" theme="${this.btnTheme}" @click=${this.close}>${this.btnText}</traxitt-button>
+                <traxitt-button class="close-button" theme="${this.btnTheme}" @click=${this.close}>${this.btnText}</traxitt-button>
             </div>
         `
     }
 
     close = () => {
-        if (this.closeCallback)
-            this.closeCallback()
-        super.opened = false
+        const callbackSuccess = this.closeCallback ? this.closeCallback() : true
+        super.opened = !callbackSuccess
     }
 }
