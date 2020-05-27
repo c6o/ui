@@ -8,7 +8,7 @@ export class Checkbox extends mix(CheckboxElement).with(EntityStoreMixin, Entity
     }
 
     storeToValue() {
-        super.checked = this.getValue()
+        super.checked = !!this.getValue()
     }
 }
 
