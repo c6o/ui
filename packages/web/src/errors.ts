@@ -25,6 +25,10 @@ export class Errors extends mix(MobxLitElement).with(EntityStoreMixin) {
                     padding: var(--md-spacing);
                     margin-bottom: var(--md-spacing);
                 }
+
+                .form-error-panel h4 {
+                    color: var(--color-fire);
+                }
             `
         ]
     }
@@ -53,7 +57,7 @@ export class Errors extends mix(MobxLitElement).with(EntityStoreMixin) {
 
         const errorsToShow = this.filter ? Object.keys(errors).filter(key => key === this.filter) : Object.keys(errors)
         const messages = errorsToShow.map(key => errors[key].message)
-        if (!messages.length)
+        if (!messages.length || this.filter === 'feathers')
             return html``
 
         return html`

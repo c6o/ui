@@ -1,8 +1,7 @@
 import { css } from 'lit-element'
 
 export const cssLayouts = css`
-traxitt-subnav + [c6o~="container"],
-traxitt-contextual-subnav + [c6o~="container"] {
+[c6o~="container"] {
     margin-top: var(--xl-spacing);
 }
 
@@ -10,7 +9,6 @@ traxitt-contextual-subnav + [c6o~="container"] {
     background-color: var(--color-white);
     border: none;
     border-radius: var(--c6o-border-radius);
-    margin-top: var(--lg-spacing);
     padding: var(--xl-spacing);
 }
 

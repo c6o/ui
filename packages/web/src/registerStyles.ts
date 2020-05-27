@@ -159,7 +159,7 @@ registerStyles('vaadin-button', css`
     }
 `)
 
-registerStyles('vaadin-checkbox vaadin-radio-button vaadin-text-field vaadin-upload', css`
+registerStyles('vaadin-checkbox vaadin-radio-button vaadin-text-area vaadin-text-field vaadin-upload', css`
     :host {
         margin-bottom: var(--xl-spacing);;
     }
@@ -355,9 +355,8 @@ registerStyles('vaadin-tab', css`
         padding-bottom: 1rem;
     }
 
-    :host([selected])::before,
-    :host([selected])::after {
-        background-color: var(--color-ocean);
+    :host([theme~="subnav-tab"][selected])::before,
+    :host([theme~="subnav-tab"][selected])::after {
         width: 100%;
     }
 
@@ -378,11 +377,44 @@ registerStyles('vaadin-tab', css`
     :host([selected]) ::slotted(a.subnav:hover) {
         color: var(--color-navy) !important;
     }
+
+    :host ::slotted(a.subnav.contextual) {
+        color: var(--color-thunder) !important;
+        font-weight: 400;
+    }
+
+    :host ::slotted(a.subnav.contextual:hover) {
+        color: var(--color-ocean) !important;
+    }
+
+    :host([selected]) ::slotted(a.subnav.contextual) {
+        color: var(--color-navy) !important;
+        font-weight: 600;
+    }
+
+    :host([orientation="vertical"]) {
+        min-height: var(--lumo-size-l);
+        padding-left: 1.5em;
+    }
+
+    :host([orientation="vertical"])::before {
+        background-color: var(--color-wind);
+        height: var(--lumo-size-l);
+        transform: translateY(50%) scale(1);
+    }
+
+    :host([selected])::before {
+        background-color: var(--color-ocean);
+    }
+
+    :host([selected])::after {
+        display: none;
+    }
 `)
 
 registerStyles('vaadin-tabs', css`
-    :host(:not([orientation="vertical"])) {
-        box-shadow: none;
+    :host {
+        box-shadow: none !important;
     }
 
     :host([orientation="horizontal"]) [part="tabs"] {
@@ -390,7 +422,7 @@ registerStyles('vaadin-tabs', css`
     }
 `)
 
-registerStyles('vaadin-text-field', css`
+registerStyles('vaadin-text-area vaadin-text-field', css`
     :host {
         --lumo-text-field-size: var(--c6o-field-size);
         --vaadin-text-field-default-width: var(--c6o-default-field-width, 25rem);
