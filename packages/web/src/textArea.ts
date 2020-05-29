@@ -4,12 +4,9 @@ import { EntityStoreMixin, EntityStorePathMixin } from './mixins'
 import yaml from 'js-yaml'
 
 export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, EntityStorePathMixin) {
-    json: boolean
-    yaml: boolean
 
     static get properties() {
         return {
-            //...super.properties,
             json: { type: Boolean},
             yaml: { type: Boolean},
             data: {

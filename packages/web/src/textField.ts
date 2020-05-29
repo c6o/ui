@@ -3,12 +3,21 @@ import { mix } from '@traxitt/common'
 import { EntityStoreMixin, EntityStorePathMixin } from './mixins'
 
 export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, EntityStorePathMixin) {
-    autoformat: string
 
     static get properties() {
         return {
-            ...super.properties,
             autoformat: { type: String }
+        }
+    }
+
+    autoFormat = (e) => {
+        switch(this.autoformat) {
+            case 'lowercase':
+                this.value = e.target.value.toLowerCase()
+                break
+            case 'uppercase':
+                this.value = e.target.value.toUpperCase()
+                break
         }
     }
 
@@ -16,16 +25,15 @@ export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, Enti
         await super.connectedCallback()
 
         if (this.autoformat) {
-            this.addEventListener('input', (event) => {
-                switch(this.autoformat) {
-                    case 'lowercase':
-                        this.value = event.target.value.toLowerCase()
-                        break
-                    case 'uppercase':
-                        this.value = event.target.value.toUpperCase()
-                        break
-                }
-            })
+            this.addEventListener('input', this.autoFormat)
+        }
+    }
+
+    async disconnectedCallback() {
+        await super.disconnectedCallback()
+
+        if (this.autoformat) {
+            this.removeEventListener('input', this.autoFormat)
         }
     }
 }

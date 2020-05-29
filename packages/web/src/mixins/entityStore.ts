@@ -1,12 +1,10 @@
 import { EntityStore } from '@traxitt/common'
 
 export const EntityStoreMixin = (base) => class entityStoreMixin extends base {
-    store: EntityStore
-    noInherit: boolean
 
     static get properties() {
         return {
-            store: { observer: 'storeChanged', reflect: true },
+            store: { type: EntityStore, observer: 'storeChanged', reflect: true },
             noInherit: { type: Boolean, reflect: true }
         }
     }

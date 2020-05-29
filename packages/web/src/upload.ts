@@ -3,12 +3,9 @@ import { mix } from '@traxitt/common'
 import { EntityStoreMixin, EntityStorePathMixin } from './mixins'
 
 export class Upload extends mix(UploadElement).with(EntityStoreMixin, EntityStorePathMixin) {
-    btnText: string
-    errorText: string
 
     static get properties() {
         return {
-            ...super.properties,
             btnText: { type: String, value: 'Select File...' },
             errorText : { type: String, value: 'Error uploading file' }
         }

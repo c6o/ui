@@ -2,12 +2,11 @@ import { EntityListStore } from '@traxitt/common'
 import { observe } from 'mobx'
 
 export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extends base {
-    listStore: EntityListStore
     disposers = []
 
     static get properties() {
         return {
-            listStore: { observer: 'listStoreChanged' }
+            listStore: { type: EntityListStore, observer: 'listStoreChanged' }
         }
     }
 

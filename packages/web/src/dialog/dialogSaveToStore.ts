@@ -8,16 +8,10 @@ export abstract class DialogSaveToStore extends mix(DialogElement).with(EntitySt
     abstract renderContent(): TemplateResult
     abstract cancelCallback(): void
     abstract confirmCallback(): void
-    btnTheme: string
-    confirmBtnText: string
-    cancelBtnText: string
-    title: string
-    size: string
     root
 
     static get properties() {
         return {
-            ...super.properties,
             btnTheme: { type: String, value: 'default' },
             confirmBtnText: { type: String, value: 'OK' },
             cancelBtnText: { type: String, value: 'Cancel' },

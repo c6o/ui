@@ -4,20 +4,19 @@ import { render } from 'lit-html'
 
 export class ConfirmationDialog extends DialogElement {
     callback: (confirmed: boolean) => void
-    message: string
     btnTheme: string
     confirmBtnText: string
     cancelBtnText: string
-    title: string
+    message: string
     size: string
+    title: string
 
     static get properties() {
         return {
-            ...super.properties,
-            message: { type: String, value: 'Are you sure?' },
             btnTheme: { type: String, value: 'default' },
             confirmBtnText: { type: String, value: 'OK' },
             cancelBtnText: { type: String, value: 'Cancel' },
+            message: { type: String, value: 'Are you sure?' },
             size: { type: String, value: '' },
             title: { type: String, value: 'Please Confirm' },
         }

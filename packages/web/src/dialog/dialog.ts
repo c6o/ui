@@ -7,12 +7,11 @@ export abstract class DialogBase extends DialogElement {
     abstract closeCallback(): void
     btnTheme: string
     btnText: string
-    title: string
     size: string
+    title: string
 
     static get properties() {
         return {
-            ...super.properties,
             btnTheme: { type: String, value: 'default' },
             btnText: { type: String, value: 'Close' },
             size: { type: String, value: '' },

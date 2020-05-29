@@ -2,8 +2,6 @@ import { observe } from 'mobx'
 
 // This has to come AFTER an EntityStoreMixin in mix(xx).with(EntityStoreMixin, EntityStorePathMixin,....)
 export const EntityStorePathMixin = (base) => class entityStorePathMixin extends base {
-    path: string
-    skipStore: boolean
 
     static get properties() {
         return {
@@ -102,5 +100,10 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
     async connectedCallback() {
         super.connectedCallback()
         super.addEventListener('change', this.inputChanged)
+    }
+
+    async disconnectedCallback() {
+        await super.disconnectedCallback()
+        super.removeEventListener('change', this.inputChanged)
     }
 }
