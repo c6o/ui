@@ -4,7 +4,6 @@ Copyright (c) 2020 Traxitt Inc.
 */
 
 import 'typeface-montserrat'
-import 'typeface-roboto'
 
 // Light DOM
 import './light-dom/vendor/bootstrap/bootstrap-reboot.css'
