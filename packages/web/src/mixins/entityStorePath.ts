@@ -23,12 +23,13 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
     }
 
     getValue() {
-        if (!this.store.entity)
+        const entity = this.store.entity || this.store.pending
+        if (!entity)
             return ''
         let path = this.path.replace(/\[(\w+)\]/g, '.$1')
         path = path.replace(/^\./, '')
         const a = path.split('.')
-        let o = this.store.entity
+        let o = entity
         while (a.length) {
             const n = a.shift()
             if (!(n in o)) return
@@ -103,7 +104,7 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
     }
 
     async disconnectedCallback() {
-        await super.disconnectedCallback()
+        super.disconnectedCallback()
         super.removeEventListener('change', this.inputChanged)
     }
 }

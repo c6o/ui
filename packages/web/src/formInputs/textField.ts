@@ -1,6 +1,6 @@
 import { TextFieldElement } from '@vaadin/vaadin-text-field/src/vaadin-text-field'
 import { mix } from '@traxitt/common'
-import { EntityStoreMixin, EntityStorePathMixin } from './mixins'
+import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 
 export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, EntityStorePathMixin) {
 
@@ -30,7 +30,7 @@ export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, Enti
     }
 
     async disconnectedCallback() {
-        await super.disconnectedCallback()
+        super.disconnectedCallback()
 
         if (this.autoformat) {
             this.removeEventListener('input', this.autoFormat)

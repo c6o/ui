@@ -322,6 +322,30 @@ registerStyles('vaadin-menu-bar', css`
     }
 `)
 
+registerStyles('vaadin-radio-button', css`
+    :host {
+        display: block;
+    }
+
+    [part="radio"] {
+        height: 1.5em;
+        width: 1.5em;
+    }
+
+    [part="radio"]::after {
+        border-width: 4px;
+    }
+
+    [part="label"] {
+        font-size: var(--lumo-font-size-s);
+        text-transform: uppercase;
+    }
+
+    label {
+        align-items: center;
+    }
+`)
+
 registerStyles('vaadin-select-text-field', css`
     :host([theme~="account-switcher"]) {
         margin-bottom: 0;

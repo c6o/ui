@@ -4,12 +4,14 @@ import { mix } from '@traxitt/common'
 import { render, TemplateResult } from 'lit-html'
 
 export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMixin) {
-    abstract renderContent(ok, cancel): TemplateResult
+    abstract renderContent(save, cancel): TemplateResult
+    cancelCallback?(): void
+    confirmCallback?(): void
     root
 
     renderer = (root) => {
         this.root = root
-        render(this.renderContent(this.okClick, this.cancelClick), root)
+        render(this.renderContent(this.save, this.cancel), root)
     }
 
     storeChanged() {
@@ -17,14 +19,32 @@ export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMix
         this.opened = this.store !== null
     }
 
-    async doCancel() {
+    cancel = () => {
         if (this.store) {
             this.store.reset()
+            this.store = null
+
+            if (this.cancelCallback)
+                this.cancelCallback()
         }
-        return true
+
+        this.opened = false
     }
 
-    async doOk() {
+    save = async () => {
+        const result = await this.saveToStore()
+        if (result) {
+            this.store = null
+
+            if (this.confirmCallback)
+                this.confirmCallback()
+        }
+        this.opened = !result
+
+        return result
+    }
+
+    saveToStore = async () => {
         if (this.store) {
             await this.store.save()
             if (!this.store.success) {
@@ -32,17 +52,5 @@ export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMix
             }
         }
         return true
-    }
-
-    cancelClick = () => {
-        const result = this.doCancel()
-        if (result)
-            this.store = null
-    }
-
-    okClick = async () => {
-        const result = await this.doOk()
-        if (result)
-            this.store = null
     }
 }

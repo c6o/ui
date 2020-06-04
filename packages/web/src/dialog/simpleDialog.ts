@@ -2,13 +2,14 @@ import { DialogElement } from '@vaadin/vaadin-dialog/src/vaadin-dialog'
 import { html } from 'lit-element'
 import { render, TemplateResult } from 'lit-html'
 
-export abstract class DialogBase extends DialogElement {
-    abstract renderContent(): TemplateResult
-    abstract closeCallback(): void
+export abstract class SimpleDialog extends DialogElement {
+    abstract renderModalContent(): TemplateResult
+    closeCallback?(): void
     btnTheme: string
     btnText: string
     size: string
     title: string
+    root
 
     static get properties() {
         return {
@@ -20,11 +21,12 @@ export abstract class DialogBase extends DialogElement {
     }
 
     renderer = (root) => {
+        this.root = root
         if (root.firstElementChild) return
-        render(this.renderModal(), root)
+        render(this.renderContent(), root)
     }
 
-    renderModal = () => {
+    renderContent = () => {
         return html`
             <div class="modal-header">
                 <h2 class="modal-title">${this.title}</h2>
@@ -32,7 +34,7 @@ export abstract class DialogBase extends DialogElement {
             </div>
             <div class="modal-body ${this.size}">
                 <div id="modal-content">
-                    ${this.renderContent()}
+                    ${this.renderModalContent()}
                 </div>
             </div>
             <div class="modal-footer" c6o="text-center">

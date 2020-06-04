@@ -45,7 +45,7 @@ export class ConfirmationDialog extends DialogElement {
         `
     }
 
-    show(message) {
+    show(message: string) {
         this.message = message
         super.opened = true
 

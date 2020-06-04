@@ -24,4 +24,15 @@ export const cssIcons = css`
         color: var(--color-fire);
         margin-right: var(--sm-spacing);
     }
+
+    .vendor-logo,
+    .c6o-icon {
+        width: 60px;
+        margin: 0 var(--md-spacing) var(--xl-spacing) 0;
+    }
+
+    .vendor-logo img,
+    .c6o-icon img {
+        width: 100%;
+    }
 `
