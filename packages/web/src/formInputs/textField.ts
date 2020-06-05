@@ -32,9 +32,8 @@ export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, Enti
     async disconnectedCallback() {
         super.disconnectedCallback()
 
-        if (this.autoformat) {
+        if (this.autoformat)
             this.removeEventListener('input', this.autoFormat)
-        }
     }
 }
 

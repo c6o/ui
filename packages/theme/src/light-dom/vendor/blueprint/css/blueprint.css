@@ -38,6 +38,22 @@
   grid-template-columns: repeat(12, 1fr);
 }
 
+[c6o~=vertical-start] {
+  align-items: start;
+}
+
+[c6o~=vertical-center] {
+  align-items: center;
+}
+
+[c6o~=vertical-end] {
+  align-items: end;
+}
+
+[c6o~=between] {
+  justify-content: center;
+}
+
 [c6o~=gap-none] {
   grid-gap: 0;
   margin-bottom: 0;

@@ -45,12 +45,8 @@ export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMix
     }
 
     saveToStore = async () => {
-        if (this.store) {
+        if (this.store)
             await this.store.save()
-            if (!this.store.success) {
-                return false
-            }
-        }
-        return true
+        return !!this.store?.success
     }
 }

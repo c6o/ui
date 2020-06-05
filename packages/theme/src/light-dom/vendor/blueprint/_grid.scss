@@ -5,6 +5,22 @@
   grid-template-columns: repeat($cols, 1fr);
 }
 
+[#{$prefix}~='vertical-start'] {
+  align-items: start;
+}
+
+[#{$prefix}~='vertical-center'] {
+  align-items: center;
+}
+
+[#{$prefix}~='vertical-end'] {
+  align-items: end;
+}
+
+[#{$prefix}~='between'] {
+  justify-content: center;
+}
+
 [#{$prefix}~='gap-none'] {
   grid-gap: 0;
   margin-bottom: 0;
@@ -37,12 +53,12 @@
 }
 
 // implicit columns
-[#{$prefix}~='grid'][#{$prefix}*='\@'] {
+[#{$prefix}~='grid'][#{$prefix}*='\@'] { 
   grid-template-columns: #{$cols}fr;
 }
 
 // explicit columns default
-[#{$prefix}~='grid'][#{$prefix}*='\@sm'], [#{$prefix}~='grid'][#{$prefix}*='\@md'], [#{$prefix}~='grid'][#{$prefix}*='\@lg'], [#{$prefix}~='grid'][#{$prefix}*='\@xl'] {
+[#{$prefix}~='grid'][#{$prefix}*='\@sm'], [#{$prefix}~='grid'][#{$prefix}*='\@md'], [#{$prefix}~='grid'][#{$prefix}*='\@lg'], [#{$prefix}~='grid'][#{$prefix}*='\@xl'] { 
   grid-template-columns: #{$cols}fr;
 }
 
@@ -52,7 +68,7 @@
 
 @for $i from 1 through $cols {
   // explicit columns default
-  [#{$prefix}~='#{$i}\@sm'], [#{$prefix}~='#{$i}\@md'], [#{$prefix}~='#{$i}\@lg'], [#{$prefix}~='#{$i}\@xl'] {
+  [#{$prefix}~='#{$i}\@sm'], [#{$prefix}~='#{$i}\@md'], [#{$prefix}~='#{$i}\@lg'], [#{$prefix}~='#{$i}\@xl'] { 
     @extend %full-width-columns-explicit;
   }
 }
