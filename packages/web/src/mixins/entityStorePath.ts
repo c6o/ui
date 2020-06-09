@@ -6,7 +6,6 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
     static get properties() {
         return {
             path: { type: String },
-            skipStore: { type: Boolean, value: false }
         }
     }
 
@@ -61,7 +60,7 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
     }
 
     inputChanged = (e) => {
-        if (!this.skipStore && this.store && this.path)
+        if (this.store && this.path)
             this.eventToStore(e)
     }
 
@@ -70,31 +69,30 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
     storeChanged = () => {
         super.storeChanged()
 
-        if (!this.path)
-            throw new Error('path is required by EntityStorePathMixin')
-
-        if (this.store) {
-            if (!this.skipStore)
+        // if the control doesn't have a path, we are using it without binding to the store
+        if (this.path) {
+            if (this.store) {
                 this.storeToValue()
 
-            if (this._errorDisposer)
-                this._errorDisposer()
-            // Observe errors
-            this._errorDisposer = observe(this.store, 'errors', () => {
-                this.checkForErrors()
-            })
+                if (this._errorDisposer)
+                    this._errorDisposer()
+                // Observe errors
+                this._errorDisposer = observe(this.store, 'errors', () => {
+                    this.checkForErrors()
+                })
 
-            if (this._pendingDisposer)
-                this._pendingDisposer()
-            this._pendingDisposer = observe(this.store, 'pending', () => {
-                // If pending value at path is not set, reload the value from store
-                if (!this.store.pending[this.path])
-                    this.storeToValue()
-            })
-        } else {
-            this.value = ''
-            this.errorMessage = ''
-            this.invalid = false
+                if (this._pendingDisposer)
+                    this._pendingDisposer()
+                this._pendingDisposer = observe(this.store, 'pending', () => {
+                    // If pending value at path is not set, reload the value from store
+                    if (!this.store.pending[this.path])
+                        this.storeToValue()
+                })
+            } else {
+                this.value = ''
+                this.errorMessage = ''
+                this.invalid = false
+            }
         }
     }
 

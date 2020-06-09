@@ -1,8 +1,9 @@
 import { html } from 'lit-element'
 import { DialogElement } from '@vaadin/vaadin-dialog/src/vaadin-dialog'
-import { render } from 'lit-html'
+import { render, TemplateResult } from 'lit-html'
 
 export class ConfirmationDialog extends DialogElement {
+    renderModalContent?(): TemplateResult
     callback: (confirmed: boolean) => void
     btnTheme: string
     confirmBtnText: string
@@ -16,7 +17,7 @@ export class ConfirmationDialog extends DialogElement {
             btnTheme: { type: String, value: 'default' },
             confirmBtnText: { type: String, value: 'OK' },
             cancelBtnText: { type: String, value: 'Cancel' },
-            message: { type: String, value: 'Are you sure?' },
+            message: { type: String, value: '' },
             size: { type: String, value: '' },
             title: { type: String, value: 'Please Confirm' },
         }
@@ -35,7 +36,11 @@ export class ConfirmationDialog extends DialogElement {
             </div>
             <div class="modal-body ${this.size}">
                 <div id="modal-content">
-                    ${this.message}
+                    ${this.message?.length ? html`
+                        ${this.message}
+                    ` : html`
+                        ${this.renderModalContent()}
+                    `}
                 </div>
             </div>
             <div class="modal-footer" c6o="flex justify-between">

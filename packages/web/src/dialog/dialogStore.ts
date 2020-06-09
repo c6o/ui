@@ -27,13 +27,13 @@ export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMix
             if (this.cancelCallback)
                 this.cancelCallback()
         }
-
         this.opened = false
     }
 
     save = async () => {
         const result = await this.saveToStore()
         if (result) {
+            // this will close the dialog
             this.store = null
 
             if (this.confirmCallback)
