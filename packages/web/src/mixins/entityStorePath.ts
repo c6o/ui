@@ -48,7 +48,7 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
     checkForErrors = () => {
         const errors = this.store?.errors
         if (errors.type !== 'FeathersError') {
-            const error = Object.keys(errors).find(key => key === this.path)
+            const error = Object.keys(errors).find(key => key === this.path || key === this.id)
             if (error) {
                 this.errorMessage = errors[error].message
                 this.invalid = true
@@ -70,16 +70,9 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
         super.storeChanged()
 
         // if the control doesn't have a path, we are using it without binding to the store
-        if (this.path) {
-            if (this.store) {
+        if (this.store) {
+            if (this.path) {
                 this.storeToValue()
-
-                if (this._errorDisposer)
-                    this._errorDisposer()
-                // Observe errors
-                this._errorDisposer = observe(this.store, 'errors', () => {
-                    this.checkForErrors()
-                })
 
                 if (this._pendingDisposer)
                     this._pendingDisposer()
@@ -88,11 +81,18 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
                     if (!this.store.pending[this.path])
                         this.storeToValue()
                 })
-            } else {
-                this.value = ''
-                this.errorMessage = ''
-                this.invalid = false
             }
+
+            if (this._errorDisposer)
+                this._errorDisposer()
+            // Observe errors
+            this._errorDisposer = observe(this.store, 'errors', () => {
+                this.checkForErrors()
+            })
+        } else {
+            this.value = ''
+            this.errorMessage = ''
+            this.invalid = false
         }
     }
 
