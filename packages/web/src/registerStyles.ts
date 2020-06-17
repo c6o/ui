@@ -212,6 +212,19 @@ registerStyles('vaadin-form-layout', css`
 `)
 
 registerStyles('vaadin-grid', css`
+    :host {
+        border-radius: var(--c6o-border-radius);
+    }
+
+    :host [part~="row"]:hover [part~="body-cell"]{
+        background-color: var(--color-wind);
+        cursor: pointer;
+    }
+
+    :host [part~="body-cell"] ::slotted(vaadin-grid-cell-content){
+        cursor: pointer;
+    }
+
     [part~="header-cell"] {
         background-color: var(--color-rain);
         color: var(--color-white);
@@ -225,13 +238,8 @@ registerStyles('vaadin-grid', css`
         font-weight: 700;
     }
 
-    :host [part~="row"]:hover [part~="body-cell"]{
-        background-color: var(--color-wind);
-        cursor: pointer;
-    }
-
-    :host [part~="body-cell"] ::slotted(vaadin-grid-cell-content){
-        cursor: pointer;
+    #table {
+        border-radius: var(--c6o-border-radius);
     }
 `)
 
