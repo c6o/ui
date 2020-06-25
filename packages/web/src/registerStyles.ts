@@ -174,6 +174,10 @@ registerStyles('vaadin-checkbox vaadin-radio-button vaadin-text-area vaadin-text
 `)
 
 registerStyles('vaadin-checkbox', css`
+    :host {
+        display: block;
+    }
+
     [part="checkbox"] {
         height: calc(1em + 10px);
         width: calc(1em + 10px);
@@ -212,8 +216,9 @@ registerStyles('vaadin-form-layout', css`
 `)
 
 registerStyles('vaadin-grid', css`
-    :host {
-        border-radius: var(--c6o-border-radius);
+    :host [part~="row"] ::slotted(vaadin-grid-cell-content){
+        padding-top: var(--md-spacing);
+        padding-bottom: var(--md-spacing);
     }
 
     :host [part~="row"]:hover [part~="body-cell"]{
@@ -236,10 +241,6 @@ registerStyles('vaadin-grid', css`
     [part~="reorder-ghost"] {
         font-size: var(--lumo-font-size-md);
         font-weight: 700;
-    }
-
-    #table {
-        border-radius: var(--c6o-border-radius);
     }
 `)
 
@@ -354,11 +355,17 @@ registerStyles('vaadin-radio-button', css`
     }
 `)
 
+registerStyles('vaadin-select', css`
+    :host([theme~="inline"]) {
+        max-width: 300px;
+    }
+`)
+
 registerStyles('vaadin-select-text-field', css`
     :host([theme~="account-switcher"]) {
         margin-bottom: 0;
         background: none;
-        color: var(--color-navy);
+        color: var(--color-snow);
     }
 
     :host([theme~="account-switcher"]:hover) {
@@ -367,6 +374,14 @@ registerStyles('vaadin-select-text-field', css`
 
     :host([theme~="account-switcher"]) [part="input-field"] {
         background: none;
+    }
+
+    :host([theme~="account-switcher"]) ::slotted([part$="button"]) {
+        color: var(--color-snow) !important;
+    }
+
+    :host([theme~="inline"]) {
+        margin-bottom: 0;
     }
 `)
 
@@ -485,6 +500,18 @@ registerStyles('vaadin-text-area vaadin-text-field', css`
 
     [part="input-field"] ::slotted([part="value"]) {
         cursor: pointer;
+    }
+
+    :host([theme~="reversed"]) [part="input-field"] {
+        background-color: hsla(214, 69%, 84%, 0.32);
+    }
+
+    :host([theme~="reversed"]) [part="input-field"] ::slotted(iron-icon) {
+        color: var(--color-snow);
+    }
+
+    :host([theme~="reversed"]) [part="value"] {
+        color: var(--color-snow);
     }
 `)
 

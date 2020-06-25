@@ -16,6 +16,15 @@ export const cssBase = css`
         color: var(--color-twilight-ocean);
     }
 
+    a.icon {
+        text-decoration: none;
+    }
+
+    a.icon iron-icon {
+        height: 30px;
+        width: 30px;
+    }
+
     button {
         background: none;
         border: none;

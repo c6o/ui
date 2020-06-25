@@ -8,8 +8,8 @@ export const cssGrid = css`
   max-width: 1440px;
 }
 [c6o~=container]:not(.full-width) {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 [c6o~=grid] {

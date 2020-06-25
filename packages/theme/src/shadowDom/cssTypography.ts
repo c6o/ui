@@ -77,7 +77,7 @@ export const cssTypography = css`
     }
 
     .help-text {
-        color: var(--color-storm);
+        color: var(--color-rain);
         font-size: var(--lumo-font-size-xs);
         margin-bottom: var(--xl-spacing);
     }

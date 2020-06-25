@@ -27,7 +27,7 @@ export const EntityStoreMixin = (base) => class entityStoreMixin extends base {
     }
 
     async connectedCallback() {
-        super.connectedCallback()
+        await super.connectedCallback()
 
         if (!this.store && !this.noInherit) {
             let el = this

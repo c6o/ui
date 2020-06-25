@@ -23,17 +23,15 @@ export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, Enti
 
     async connectedCallback() {
         await super.connectedCallback()
-
         if (this.autoformat) {
             this.addEventListener('input', this.autoFormat)
         }
     }
 
     async disconnectedCallback() {
-        super.disconnectedCallback()
-
         if (this.autoformat)
             this.removeEventListener('input', this.autoFormat)
+        await super.disconnectedCallback()
     }
 }
 

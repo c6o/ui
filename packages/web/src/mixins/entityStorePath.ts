@@ -97,12 +97,12 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
     }
 
     async connectedCallback() {
-        super.connectedCallback()
+        await super.connectedCallback()
         super.addEventListener('change', this.inputChanged)
     }
 
     async disconnectedCallback() {
-        super.disconnectedCallback()
         super.removeEventListener('change', this.inputChanged)
+        await super.disconnectedCallback()
     }
 }

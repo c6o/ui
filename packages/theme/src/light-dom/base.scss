@@ -17,6 +17,15 @@ a {
     &:hover {
         color: var(---color-twilight-ocean);
     }
+
+    &.icon {
+        text-decoration: none;
+
+        iron-icon {
+            height: 30px;
+            width: 30px;
+        }
+    }
 }
 
 button {

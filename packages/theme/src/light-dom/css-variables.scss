@@ -10,14 +10,16 @@
     --color-twilight-ocean: #2899a6;
     --color-evening-sun: #c3b566;
     --color-night-fire: #d95020;
-    --color-wind: var(--lumo-shade-10pct);
-    --color-cloud: var(--lumo-shade-30pct);
-    --color-rain: var(--lumo-shade-50pct);
-    --color-storm: var(--lumo-shade-60pct);
-    --color-thunder: var(--lumo-shade-70pct);
+    --color-blizzard: var(--lumo-contrast-5pct);
+    --color-wind: var(--lumo-contrast-10pct);
+    --color-cloud: var(--lumo-contrast-30pct);
+    --color-rain: var(--lumo-contrast-50pct);
+    --color-storm: var(--lumo-contrast-60pct);
+    --color-thunder: var(--lumo-contrast-70pct);
     --color-sunset: #ff9e43;
     --color-stone: #8e9292;
-    --color-snow: #f6f6f6;
+    --color-fog: hsla(214, 82%, 90%, 0.6);
+    --color-snow: #f8f8f8;
     --color-white: #fff;
     --color-black: #000;
 
