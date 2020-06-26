@@ -515,6 +515,16 @@ registerStyles('vaadin-text-area vaadin-text-field', css`
     }
 `)
 
+registerStyles('vaadin-text-area', css`
+    :host(.min-height) {
+        min-height: 130px;
+    }
+
+    :host(.full-height) {
+        min-height: 300px;
+    }
+`)
+
 registerStyles('vaadin-upload', css`
     [part~="primary-buttons"] {
         padding: 1rem;

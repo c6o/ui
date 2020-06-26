@@ -11,6 +11,12 @@ html > body {
     font-weight: 500;
 }
 
+p {
+    &.section {
+        margin-bottom: var(--xl-spacing);
+    }
+}
+
 a {
     color: var(--color-ocean);
 
@@ -22,8 +28,8 @@ a {
         text-decoration: none;
 
         iron-icon {
-            height: 30px;
-            width: 30px;
+            height: var(--xl-spacing);
+            width: var(--xl-spacing);
         }
     }
 }
@@ -65,4 +71,10 @@ hr {
 
 .pointer {
     cursor: var(--lumo-clickable-cursor);
+}
+
+.icon {
+    height: calc(var(--xl-spacing) * 2);
+    margin-right: var(--xl-spacing);
+    width: calc(var(--xl-spacing) * 2);
 }

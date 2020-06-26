@@ -8,6 +8,10 @@ export const cssBase = css`
         font-weight: 500;
     }
 
+    p.section {
+        margin-bottom: var(--xl-spacing);
+    }
+
     a {
         color: var(--color-ocean);
     }
@@ -21,8 +25,8 @@ export const cssBase = css`
     }
 
     a.icon iron-icon {
-        height: 30px;
-        width: 30px;
+        height: var(--xl-spacing);
+        width: var(--xl-spacing);
     }
 
     button {
@@ -60,5 +64,11 @@ export const cssBase = css`
 
     .pointer {
         cursor: var(--lumo-clickable-cursor);
+    }
+
+    .icon {
+        height: calc(var(--xl-spacing) * 2.5);
+        margin-right: var(--xl-spacing);
+        width: calc(var(--xl-spacing) * 2.5);
     }
 `
