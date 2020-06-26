@@ -49,6 +49,7 @@ export const cssBase = css`
     ul.error-message {
         color: var(--color-fire);
         font-size: var(--lumo-font-size-s);
+        padding-inline-start: 0;
     }
 
     hr {

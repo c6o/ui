@@ -37,15 +37,15 @@ export class Errors extends mix(MobxLitElement).with(EntityStoreMixin) {
                     icon="exclamation-circle"
                     theme="error">
                     <h4>${this.defaultHeading}</h4>
-                    ${errors.errors.length ? html`
-                        <ul class="error-message">
-                            ${errors.errors.map(i => html`<li>${i}</li>`)}
-                        </ul>
-                    ` : html`
-                        <ul>
+                    <ul class="error-message">
+                        ${errors.errors.length ? html`
+                            ${errors.errors.map(i => html`
+                                <li>${i}</li>
+                            `)}
+                        ` : html`
                             <li>${errors.message}</li>
-                        </ul>
-                    `}
+                        `}
+                    </ul>
                 </c6o-contextual-banner>
             `
         }
