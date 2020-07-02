@@ -17,7 +17,7 @@ export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extend
         // Dispose previous subscriptions
         for(let i = 0; i < this.disposers.length; i++) {
             const dispose = this.disposers.pop()
-            dispose()
+                dispose()
         }
 
         if (this.listStore) {
@@ -31,7 +31,7 @@ export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extend
                 this.listStore.entities.forEach(entity => {
                     this.disposers.push(observe(entity, () =>
                         this.entityChanged()
-                    ), true)
+                    ))
                 })
             }, true))
 
