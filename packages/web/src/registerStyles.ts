@@ -481,6 +481,10 @@ registerStyles('vaadin-text-area vaadin-text-field', css`
         outline: none !important;
     }
 
+    :host(.full-width) {
+        width: 100%;
+    }
+
     :host([has-label]) {
         padding-top: 0;
     }
@@ -526,6 +530,10 @@ registerStyles('vaadin-text-area', css`
 `)
 
 registerStyles('vaadin-upload', css`
+    :host(.center) {
+        text-align: center;
+    }
+
     [part~="primary-buttons"] {
         padding: 1rem;
     }
@@ -551,6 +559,10 @@ registerStyles('vaadin-upload-file', css`
     [part="retry-button"]::before,
     [part="clear-button"]::before {
         vertical-align: -.1em;
+    }
+
+    [part="clear-button"] {
+        color: var(--color-fire);
     }
 `)
 

@@ -7,7 +7,15 @@ export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMix
     abstract renderContent(save, cancel): TemplateResult
     cancelCallback?(): void
     confirmCallback?(): void
-    root
+
+    static get properties() {
+        return {
+            ...super.properties,
+            file: { type: Object },
+            filePath: { type: String, value: 'image' },
+            root: { type: Object },
+        }
+    }
 
     renderer = (root) => {
         this.root = root
@@ -17,6 +25,20 @@ export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMix
     storeChanged() {
         super.storeChanged()
         this.opened = this.store !== null
+    }
+
+    upload = (e) => {
+        this.file = e.detail.file
+        this.file.complete = true
+        this.file.status = ''
+
+        const reader = new FileReader()
+        reader.onload = this.fileProcessed
+        reader.readAsDataURL(e.detail.file)
+    }
+
+    fileProcessed = (e) => {
+        this.store.pending[this.filePath] = e.target.result
     }
 
     cancel = () => {
@@ -36,17 +58,19 @@ export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMix
             if (this.confirmCallback)
                 this.confirmCallback()
 
-                // this will close the dialog
+            // this will close the dialog
             this.store = null
         }
-        this.opened = !result
 
         return result
     }
 
     saveToStore = async () => {
-        if (this.store)
-            await this.store.save()
+        await this.store?.save()
         return !!this.store?.success
+    }
+
+    reset = async () => {
+        this.store.reset()
     }
 }
