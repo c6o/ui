@@ -18,11 +18,8 @@ export const cssLayouts = css`
     }
 
     .sub-panel {
-        border: 1px solid var(--color-wind);
-        border-radius: var(--c6o-border-radius);
-        margin: var(--lg-spacing) auto;
         max-width: 500px;
-        padding: var(--xl-spacing);
+        padding: var(--md-spacing) calc(var(--xl-spacing) * 2);
     }
 
     .btn-group-left traxitt-button {
@@ -35,5 +32,17 @@ export const cssLayouts = css`
 
     traxitt-select {
         width: 100%;
+    }
+
+    .card {
+        background-color: var(--color-white);
+        box-shadow: 4px 4px 10px var(--color-cloud);
+        margin: var(--xl-spacing) calc(var(--xl-spacing) * 1.5);
+        padding: var(--xl-spacing);
+        text-align: center;
+    }
+
+    .card .icon {
+        margin: 0 auto var(--xl-spacing);
     }
 `

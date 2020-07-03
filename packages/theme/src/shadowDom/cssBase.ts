@@ -13,11 +13,11 @@ export const cssBase = css`
     }
 
     a {
-        color: var(--color-ocean);
+        color: var(--color-sea);
     }
 
     a:hover {
-        color: var(--color-twilight-ocean);
+        color: var(---color-morning-sea);
     }
 
     a.icon {
@@ -69,8 +69,11 @@ export const cssBase = css`
 
     .icon {
         height: calc(var(--xl-spacing) * 2.5);
-        margin-right: var(--xl-spacing);
         width: calc(var(--xl-spacing) * 2.5);
+    }
+
+    .icon.inline {
+        margin-right: var(--xl-spacing);
     }
 
     .icon.go-back {

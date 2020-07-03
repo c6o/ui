@@ -2,32 +2,33 @@ import { css } from 'lit-element'
 
 export const cssTypography = css`
     h1, h2, h3 {
-        margin-bottom: 1rem;
         line-height: 1.2;
+        margin-bottom: 1rem;
     }
 
     h4, h5, h6 {
-        margin-bottom: .75rem;
         line-height: 1.2;
+        margin-bottom: .75rem;
     }
 
     h1 {
-        color: var(--color-sea);
+        color: var(--color-navy);
         font-size: var(--lumo-font-size-xxl);
         font-weight: 200;
     }
 
     h2, .subtitle {
-        color: var(--color-sea);
+        color: var(--color-navy);
         font-size: var(--lumo-font-size-xl);
         font-weight: 500;
     }
 
     h3 {
         color: var(--color-navy);
-        text-transform: uppercase;
         font-size: var(--lumo-font-size-l);
         font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
     }
 
     h4 {
@@ -71,7 +72,7 @@ export const cssTypography = css`
     }
 
     .title {
-        color: var(--color-sea);
+        color: var(--color-thunder);
         font-size: var(--lumo-font-size-xxxl);
         font-weight: 100;
     }

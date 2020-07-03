@@ -18,10 +18,10 @@ p {
 }
 
 a {
-    color: var(--color-ocean);
+    color: var(--color-sea);
 
     &:hover {
-        color: var(---color-twilight-ocean);
+        color: var(--color-morning-sea);
     }
 
     &.icon {
@@ -76,8 +76,11 @@ hr {
 
 .icon {
     height: calc(var(--xl-spacing) * 2);
-    margin-right: var(--xl-spacing);
     width: calc(var(--xl-spacing) * 2);
+
+    &.inline {
+        margin-right: var(--xl-spacing);
+    }
 
     &.go-back {
         margin-right: var(--xs-spacing);

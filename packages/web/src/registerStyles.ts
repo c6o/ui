@@ -259,7 +259,6 @@ registerStyles('vaadin-item', css`
     }
 
     :host([theme~="logout"]) {
-        color: var(--color-fire);
         margin-bottom: var(--sm-spacing);
     }
 
@@ -399,12 +398,11 @@ registerStyles('vaadin-select-overlay', css`
 registerStyles('vaadin-tab', css`
     :host([theme~="subnav-tab"]) {
         align-items: flex-end;
-        padding-bottom: 1rem;
     }
 
     :host([theme~="subnav-tab"][selected])::before,
     :host([theme~="subnav-tab"][selected])::after {
-        width: 100%;
+        width: 80%;
     }
 
     :host ::slotted(a.subnav) {
@@ -413,7 +411,7 @@ registerStyles('vaadin-tab', css`
     }
 
     :host ::slotted(a.subnav:hover) {
-        color: var(--color-ocean) !important;
+        color: var(--color-sea) !important;
     }
 
     :host([selected]) ::slotted(a.subnav) {
@@ -431,7 +429,7 @@ registerStyles('vaadin-tab', css`
     }
 
     :host ::slotted(a.subnav.contextual:hover) {
-        color: var(--color-ocean) !important;
+        color: var(--color-sea) !important;
     }
 
     :host([selected]) ::slotted(a.subnav.contextual) {
@@ -451,7 +449,7 @@ registerStyles('vaadin-tab', css`
     }
 
     :host([selected])::before {
-        background-color: var(--color-ocean);
+        background-color: var(--color-sea);
     }
 
     :host([selected])::after {
