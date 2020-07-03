@@ -12,6 +12,7 @@ export abstract class DialogStoreModal extends DialogStore {
             cancelBtnText: { type: String, value: 'Cancel' },
             size: { type: String, value: '' },
             title: { type: String, value: 'CodeZero' },
+            deleteMessage: { type: String, value: '' },
         }
     }
 
@@ -26,10 +27,33 @@ export abstract class DialogStoreModal extends DialogStore {
                     ${this.renderModalContent()}
                 </div>
             </div>
-            <div class="modal-footer" c6o="flex justify-between">
-                <traxitt-button class="cancel-button" theme="default" @click=${cancel}>${this.cancelBtnText}</traxitt-button>
-                <traxitt-button class="confirm-button" theme="${this.btnTheme}" @click=${save}>${this.confirmBtnText}</traxitt-button>
-            </div>
+            ${this.deleteMessage?.length ? html`
+                <div class="modal-footer" c6o="flex justify-between">
+                    <traxitt-button class="delete-button" theme="error" @click=${this.delete}>Delete</traxitt-button>
+                    <div class="btn-group">
+                        <traxitt-button class="cancel-button" theme="default" @click=${cancel}>${this.cancelBtnText}</traxitt-button>
+                        <traxitt-button class="confirm-button" theme="${this.btnTheme}" @click=${save}>${this.confirmBtnText}</traxitt-button>
+                    </div>
+                </div>
+                <traxitt-confirm-dialog
+                    btn-theme="primary error"
+                    confirm-btn-text="Delete"
+                    title="Confirm Edition Deletion">
+                </traxitt-confirm-dialog>
+            ` : html`
+                <div class="modal-footer" c6o="flex justify-between">
+                    <traxitt-button class="cancel-button" theme="default" @click=${cancel}>${this.cancelBtnText}</traxitt-button>
+                    <traxitt-button class="confirm-button" theme="${this.btnTheme}" @click=${save}>${this.confirmBtnText}</traxitt-button>
+                </div>
+            `}
         `
+    }
+
+    delete = async () => {
+        const confirm = await this.confirmDialog.show(this.deleteMessage)
+        if (confirm) {
+            await this.store.remove()
+            this.store = null
+        }
     }
 }

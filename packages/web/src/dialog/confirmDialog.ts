@@ -14,7 +14,7 @@ export class ConfirmationDialog extends DialogElement {
 
     static get properties() {
         return {
-            btnTheme: { type: String, value: 'default' },
+            btnTheme: { type: String, value: 'info' },
             confirmBtnText: { type: String, value: 'OK' },
             cancelBtnText: { type: String, value: 'Cancel' },
             message: { type: String, value: '' },

@@ -72,4 +72,8 @@ export const cssBase = css`
         margin-right: var(--xl-spacing);
         width: calc(var(--xl-spacing) * 2.5);
     }
+
+    .icon.go-back {
+        margin-right: var(--xs-spacing);
+    }
 `

@@ -45,9 +45,7 @@ export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMix
         if (this.store) {
             if (this.cancelCallback)
                 this.cancelCallback()
-
-                this.store.reset()
-            this.store = null
+            this.store = null // this will close the dialog
         }
         this.opened = false
     }
@@ -57,11 +55,8 @@ export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMix
         if (result) {
             if (this.confirmCallback)
                 this.confirmCallback()
-
-            // this will close the dialog
-            this.store = null
+            this.store = null // this will close the dialog
         }
-
         return result
     }
 

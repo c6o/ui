@@ -78,4 +78,8 @@ hr {
     height: calc(var(--xl-spacing) * 2);
     margin-right: var(--xl-spacing);
     width: calc(var(--xl-spacing) * 2);
+
+    &.go-back {
+        margin-right: var(--xs-spacing);
+    }
 }
