@@ -35,7 +35,8 @@ export class Errors extends mix(MobxLitElement).with(EntityStoreMixin) {
             return html`
                 <c6o-contextual-banner
                     icon="exclamation-circle"
-                    theme="error">
+                    theme="error"
+                >
                     <h4>${this.defaultHeading}</h4>
                     <ul class="error-message">
                         ${errors.errors.length ? html`
@@ -58,7 +59,8 @@ export class Errors extends mix(MobxLitElement).with(EntityStoreMixin) {
         return html`
             <c6o-contextual-banner
                 icon="exclamation-circle"
-                theme="error">
+                theme="error"
+            >
                 <h4>${this.heading}</h4>
                 <ul class="error-message">
                     ${messages.map(i => html`<li>${i}</li>`)}
