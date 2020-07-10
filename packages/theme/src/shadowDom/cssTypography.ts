@@ -12,19 +12,19 @@ export const cssTypography = css`
     }
 
     h1 {
-        color: var(--color-navy);
+        color: var(--color-h1);
         font-size: var(--lumo-font-size-xxl);
         font-weight: 200;
     }
 
     h2, .subtitle {
-        color: var(--color-navy);
+        color: var(--color-h2);
         font-size: var(--lumo-font-size-xl);
         font-weight: 500;
     }
 
     h3 {
-        color: var(--color-navy);
+        color: var(--color-h3);
         font-size: var(--lumo-font-size-l);
         font-weight: 700;
         letter-spacing: 1px;
@@ -72,7 +72,7 @@ export const cssTypography = css`
     }
 
     .title {
-        color: var(--color-thunder);
+        color: var(--color-title);
         font-size: var(--lumo-font-size-xxxl);
         font-weight: 100;
     }

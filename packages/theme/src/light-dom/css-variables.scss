@@ -23,6 +23,11 @@
     --color-white: #fff;
     --color-black: #000;
 
+    --color-title: var(--color-thunder);
+    --color-h1: var(--color-navy);
+    --color-h2: var(--color-navy);
+    --color-h3: var(--color-navy);
+
     --success: var(--color-ocean);
     --info: var(--color-sea);
     --warning: var(--color-sun);
@@ -33,7 +38,6 @@
     --font-family: 'Montserrat', sans-serif;
 
     --lumo-font-family: var(--font-family);
-    --lumo-space-xm: .75rem;
     --lumo-clickable-cursor: pointer;
     --lumo-primary-color: var(--color-sea);
     --lumo-secondary-color: var(--color-ocean);

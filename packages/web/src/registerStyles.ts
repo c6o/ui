@@ -12,8 +12,8 @@ registerStyles('vaadin-button', css`
         font-size: var(--lumo-font-size-s);
         font-weight: 500;
         margin: 0;
-        padding-left: var(--lumo-space-xl);
-        padding-right: var(--lumo-space-xl);
+        padding-left: var(--xl-spacing);
+        padding-right: var(--xl-spacing);
     }
 
     :host(:hover) {
