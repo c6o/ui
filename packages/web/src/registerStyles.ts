@@ -21,6 +21,10 @@ registerStyles('vaadin-button', css`
         color: var(--color-white);
     }
 
+    :host([disabled][disabled]) {
+        border-color: var(--color-cloud);
+    }
+
     :host([theme~="primary"]) {
         background-color: var(--color-sea);
         border: none;

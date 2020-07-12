@@ -1,4 +1,5 @@
 import { observe } from 'mobx'
+import { setValueImp, getValueImp } from './path'
 
 // This has to come AFTER an EntityStoreMixin in mix(xx).with(EntityStoreMixin, EntityStorePathMixin,....)
 export const EntityStorePathMixin = (base) => class entityStorePathMixin extends base {
@@ -9,40 +10,13 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
         }
     }
 
-    // From: https://stackoverflow.com/questions/6842795/dynamic-deep-setting-for-a-javascript-object
-    setValue(value) {
-        const a = this.path.split('.')
-        let o = this.store.pending
-        while (a.length - 1) {
-            const n = a.shift()
-            if (!(n in o)) o[n] = {}
-            o = o[n]
-        }
-        o[a[0]] = value
-    }
-
-    getValue() {
-        const entity = this.store.entity || this.store.pending
-        if (!entity)
-            return ''
-        let path = this.path.replace(/\[(\w+)\]/g, '.$1')
-        path = path.replace(/^\./, '')
-        const a = path.split('.')
-        let o = entity
-        while (a.length) {
-            const n = a.shift()
-            if (!(n in o)) return
-            o = o[n]
-        }
-        return o
-    }
-
     eventToStore(e) {
-        this.setValue(e.target.value.trim())
+        setValueImp(this.store.pending, this.path, e.target.value.trim())
     }
 
     storeToValue() {
-        super.value = this.getValue()
+        const from = this.store.entity || this.store.pending
+        super.value = getValueImp(from, this.path)
     }
 
     checkForErrors = () => {

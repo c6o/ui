@@ -4,6 +4,7 @@ import { mix } from '@traxitt/common'
 import { render, TemplateResult } from 'lit-html'
 
 export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMixin) {
+
     abstract renderContent(save, cancel): TemplateResult
     cancelCallback?(): void
     confirmCallback?(): void
