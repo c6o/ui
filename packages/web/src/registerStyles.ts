@@ -220,6 +220,10 @@ registerStyles('vaadin-form-layout', css`
 `)
 
 registerStyles('vaadin-grid', css`
+    :host {
+        margin-bottom: var(--xl-spacing);
+    }
+
     :host [part~="row"] ::slotted(vaadin-grid-cell-content){
         padding-top: var(--md-spacing);
         padding-bottom: var(--md-spacing);
@@ -331,6 +335,10 @@ registerStyles('vaadin-menu-bar', css`
         cursor: pointer;
         border: none;
         border-radius: 0;
+    }
+
+    vaadin-menu-bar-button[theme="marina"] {
+        color: var(--color-white);
     }
 `)
 

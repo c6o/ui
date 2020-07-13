@@ -3,4 +3,4 @@ import { ProgressBarElement } from '@vaadin/vaadin-progress-bar/src/vaadin-progr
 export class ProgressBar extends ProgressBarElement {
 }
 
-customElements.define('traxitt-progress-bar', ProgressBar)
+customElements.define('c6o-progress-bar', ProgressBar)
