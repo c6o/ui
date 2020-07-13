@@ -1,5 +1,5 @@
 // From: https://stackoverflow.com/questions/6842795/dynamic-deep-setting-for-a-javascript-object
-export const setValueImp = (obj, path, value) => {
+export const setValueFromPath = (obj, path: string, value) => {
     const a = path.split('.')
     while (a.length - 1) {
         const n = a.shift()
@@ -9,7 +9,7 @@ export const setValueImp = (obj, path, value) => {
     obj[a[0]] = value
 }
 
-export const getValueImp = (obj, path) => {
+export const getValueFromPath = (obj, path: string) => {
     if (!path)
         return
     if (!obj)

@@ -1,9 +1,8 @@
 import { SelectElement } from '@vaadin/vaadin-select/src/vaadin-select'
 import { mix } from '@traxitt/common'
-import { EntityListStoreMixin, getValueImp } from '../mixins'
+import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin } from '../mixins'
 
-export class Select extends mix(SelectElement).with(EntityListStoreMixin) {
-
+export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin) {
     root
     listBox
 
@@ -12,7 +11,8 @@ export class Select extends mix(SelectElement).with(EntityListStoreMixin) {
             ...super.properties,
             itemLabelPath: { type: String, value: 'displayName' },
             itemValuePath: { type: String, value: 'value' },
-            items: { type: Array }
+            items: { type: Array },
+            path: { type: String }
         }
     }
 
@@ -29,13 +29,12 @@ export class Select extends mix(SelectElement).with(EntityListStoreMixin) {
 
         // Create the <vaadin-list-box>
         this.listBox = window.document.createElement('vaadin-list-box')
-        itemList.forEach((item) => {
+        itemList.forEach(item => {
             const vaadinItem = window.document.createElement('vaadin-item')
-            vaadinItem.textContent = getValueImp(item, this.itemLabelPath)
+            vaadinItem.textContent = item[this.itemLabelPath]
             this.listBox.appendChild(vaadinItem)
-            vaadinItem.setAttribute('value', getValueImp(item, this.itemValuePath))
+            vaadinItem.setAttribute('value', item[this.itemValuePath])
         })
-        // update the content
         root.appendChild(this.listBox)
     }
 

@@ -1,5 +1,5 @@
 import { observe } from 'mobx'
-import { setValueImp, getValueImp } from './path'
+import { setValueFromPath, getValueFromPath } from './path'
 
 // This has to come AFTER an EntityStoreMixin in mix(xx).with(EntityStoreMixin, EntityStorePathMixin,....)
 export const EntityStorePathMixin = (base) => class entityStorePathMixin extends base {
@@ -11,12 +11,12 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
     }
 
     eventToStore(e) {
-        setValueImp(this.store.pending, this.path, e.target.value.trim())
+        setValueFromPath(this.store.pending, this.path, e.target.value.trim())
     }
 
     storeToValue() {
-        const from = this.store.entity || this.store.pending
-        super.value = getValueImp(from, this.path)
+        const valueFrom = this.store.entity || this.store.pending
+        super.value = getValueFromPath(valueFrom, this.path)
     }
 
     checkForErrors = () => {

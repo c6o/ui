@@ -1,14 +1,16 @@
 import { RadioGroupElement } from '@vaadin/vaadin-radio-button/src/vaadin-radio-group'
 import { mix } from '@traxitt/common'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
+import { setValueFromPath, getValueFromPath } from '../mixins/path'
 
 export class RadioGroup extends mix(RadioGroupElement).with(EntityStoreMixin, EntityStorePathMixin) {
     eventToStore() {
-        this.setValue(this.value)
+        setValueFromPath(this.store.pending, this.path, this.value)
     }
 
     storeToValue() {
-        this.value = !!this.getValue()
+        const valueFrom = this.store.entity || this.store.pending
+        this.value = !!getValueFromPath(valueFrom, this.path)
     }
 }
 
