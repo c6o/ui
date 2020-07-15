@@ -1,6 +1,20 @@
 import { registerStyles, css } from '@vaadin/vaadin-themable-mixin/register-styles'
 
 // Register any styles here that you want to apply to the shadow DOM of a Vaadin component
+registerStyles('vaadin-accordion-panel', css`
+    :host([opened]) [part="content"] {
+        margin-bottom: var(--md-spacing);
+    }
+
+    [part~="summary"] {
+        cursor: var(--lumo-clickable-cursor);
+    }
+
+    [part~="summary-content"] ::slotted(*) {
+        margin: var(--md-spacing) 0;
+    }
+`)
+
 registerStyles('vaadin-button', css`
     :host {
         --lumo-button-size: var(--c6o-button-size);
@@ -73,6 +87,10 @@ registerStyles('vaadin-button', css`
     :host([theme~="info"][theme~="primary"]:hover) {
         background-color: var(--color-morning-sea);
         color: var(--color-white);
+    }
+
+    :host([theme~="info"][theme~="tertiary"]:hover) {
+        color: var(--color-morning-sea);
     }
 
     :host([theme~="success"]) {
@@ -202,8 +220,8 @@ registerStyles('vaadin-checkbox', css`
     }
 
     [part="label"]:not([empty]) {
-        text-transform: uppercase;
         font-size: var(--lumo-font-size-s);
+        line-height: 1.3;
     }
 `)
 
