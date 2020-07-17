@@ -7,6 +7,7 @@ export abstract class DialogStoreModal extends DialogStore {
 
     static get properties() {
         return {
+            ...super.properties,
             btnTheme: { type: String, value: 'default' },
             confirmBtnText: { type: String, value: 'OK' },
             cancelBtnText: { type: String, value: 'Cancel' },

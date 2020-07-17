@@ -7,9 +7,9 @@ export abstract class SimpleDialog extends DialogElement {
     closeCallback?(): void
     btnTheme: string
     btnText: string
+    root
     size: string
     title: string
-    root
 
     static get properties() {
         return {

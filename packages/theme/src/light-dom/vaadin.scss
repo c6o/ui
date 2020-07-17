@@ -7,6 +7,11 @@
 vaadin-context-menu-list-box {
     > hr {
         height: 1px;
+
+        &[theme~="marina"] {
+            height: 0;
+            margin: var(--xs-spacing);
+        }
     }
 
     vaadin-context-menu-item {

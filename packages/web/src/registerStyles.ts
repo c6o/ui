@@ -346,17 +346,26 @@ registerStyles('vaadin-list-box', css`
         background-color: var(--color-sea);
         color: var(--color-white);
     }
+
+    [part="items"] ::slotted([focus-ring]) {
+        box-shadow: inset 0 0 0 2px var(--color-sun) !important;
+    }
 `)
 
 registerStyles('vaadin-menu-bar', css`
-    vaadin-menu-bar-button {
+    [part="menu-bar-button"] {
         cursor: pointer;
         border: none;
         border-radius: 0;
     }
 
-    vaadin-menu-bar-button[theme="marina"] {
+    [part="menu-bar-button"][theme="marina"] {
+        background: none;
         color: var(--color-white);
+    }
+
+    [part="menu-bar-button"][theme="marina"]:hover {
+        background: none;
     }
 `)
 
