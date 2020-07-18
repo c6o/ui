@@ -3,6 +3,10 @@
  * Light DOM Styles
  * These will not apply to the ShadowDOM of Web Components except via CSS variables
 ========================================================================== */
+html,
+body {
+    height: 100%
+}
 
 html > body {
     background-color: var(--color-snow);

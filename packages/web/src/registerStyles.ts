@@ -329,6 +329,7 @@ registerStyles('vaadin-list-box', css`
 
     [part="items"] ::slotted(vaadin-item) {
         border-radius: 0;
+        cursor: pointer;
         height: 45px;
         padding: var(--sm-spacing) var(--lg-spacing);
     }

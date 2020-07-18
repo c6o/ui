@@ -1,6 +1,11 @@
 import { css } from 'lit-element'
 
 export const cssBase = css`
+    html,
+    body {
+        height: 100%
+    }
+
     html > body {
         background-color: var(--color-snow);
         color: var(--color-thunder);
