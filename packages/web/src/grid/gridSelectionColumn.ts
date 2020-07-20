@@ -4,7 +4,7 @@ export class GridSelectionColumn extends GridSelectionColumnElement {
 
     _findHostGrid() {
         let el: any = this
-        while (el && el.localName != 'traxitt-grid') {
+        while (el && el.localName != 'c6o-grid') {
             el = el.assignedSlot ? el.assignedSlot.parentNode : el.parentNode
         }
 
@@ -12,4 +12,4 @@ export class GridSelectionColumn extends GridSelectionColumnElement {
       }
 }
 
-customElements.define('traxitt-grid-selection-column', GridSelectionColumn)
+customElements.define('c6o-grid-selection-column', GridSelectionColumn)

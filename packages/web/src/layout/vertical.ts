@@ -3,4 +3,4 @@ import { VerticalLayoutElement } from '@vaadin/vaadin-ordered-layout/src/vaadin-
 export class VerticalLayout extends VerticalLayoutElement {
 }
 
-customElements.define('traxitt-vertical-layout', VerticalLayout)
+customElements.define('c6o-vertical-layout', VerticalLayout)

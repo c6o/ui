@@ -5,4 +5,4 @@ import { EntityListStoreMixin } from '../mixins'
 export class Tabs extends mix(TabsElement).with(EntityListStoreMixin) {
 }
 
-customElements.define('traxitt-tabs', Tabs)
+customElements.define('c6o-tabs', Tabs)

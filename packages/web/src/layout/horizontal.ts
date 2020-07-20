@@ -3,4 +3,4 @@ import { HorizontalLayoutElement } from '@vaadin/vaadin-ordered-layout/src/vaadi
 export class HorizontalLayout extends HorizontalLayoutElement {
 }
 
-customElements.define('traxitt-horizontal-layout', HorizontalLayout)
+customElements.define('c6o-horizontal-layout', HorizontalLayout)

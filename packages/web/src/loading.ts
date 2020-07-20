@@ -17,6 +17,7 @@ export class Loading extends MobxLitElement {
             css`
                 #loading {
                     animation: fadein 3s;
+                    padding: var(--xl-spacing) 0;
                 }
 
                 @keyframes fadein {
@@ -29,9 +30,11 @@ export class Loading extends MobxLitElement {
 
     render() {
         return html`
-            <section id="loading" class="panel">
-                <h3>${this.text}</h3>
-                <c6o-progress-bar indeterminate value="0"></c6o-progress-bar>
+            <section id="loading">
+                <div class="panel">
+                    <h3>${this.text}</h3>
+                    <c6o-progress-bar indeterminate value="0"></c6o-progress-bar>
+                </div>
             </section>
         `
     }

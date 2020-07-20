@@ -14,9 +14,9 @@
 
     > img,
     > .modal-icon {
-        padding-right: var(--traxitt-icon-padding, 22px);
-        width: var(--traxitt-icon-width, 48px);
-        height: var(--traxitt-icon-height, 48px);
+        padding-right: var(--c6o-icon-padding, 22px);
+        width: var(--c6o-icon-width, 48px);
+        height: var(--c6o-icon-height, 48px);
         box-sizing: content-box;
     }
 
@@ -95,14 +95,14 @@
     padding-top: var(--md-spacing);
 }
 
-traxitt-horizontal-layout > .btn-group {
+c6o-horizontal-layout > .btn-group {
     flex: 1 1 auto;
 }
 
-traxitt-horizontal-layout > .btn-group:last-child {
+c6o-horizontal-layout > .btn-group:last-child {
     text-align: right;
 }
 
-.btn-group > traxitt-button:not(:first-child) {
+.btn-group > c6o-button:not(:first-child) {
     margin-left: var(--md-spacing);
 }

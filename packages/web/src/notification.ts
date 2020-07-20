@@ -3,4 +3,4 @@ import { NotificationElement } from '@vaadin/vaadin-notification/src/vaadin-noti
 export class Notification extends NotificationElement {
 }
 
-customElements.define('traxitt-notification', Notification)
+customElements.define('c6o-notification', Notification)

@@ -38,7 +38,7 @@ export abstract class SimpleDialog extends DialogElement {
                 </div>
             </div>
             <div class="modal-footer" c6o="text-center">
-                <traxitt-button class="close-button" theme="${this.btnTheme}" @click=${this.close}>${this.btnText}</traxitt-button>
+                <c6o-button class="close-button" theme="${this.btnTheme}" @click=${this.close}>${this.btnText}</c6o-button>
             </div>
         `
     }

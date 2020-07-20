@@ -14,4 +14,4 @@ export class RadioGroup extends mix(RadioGroupElement).with(EntityStoreMixin, En
     }
 }
 
-customElements.define('traxitt-radio-group', RadioGroup)
+customElements.define('c6o-radio-group', RadioGroup)

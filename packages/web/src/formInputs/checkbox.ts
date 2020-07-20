@@ -14,4 +14,4 @@ export class Checkbox extends mix(CheckboxElement).with(EntityStoreMixin, Entity
     }
 }
 
-customElements.define('traxitt-checkbox', Checkbox)
+customElements.define('c6o-checkbox', Checkbox)

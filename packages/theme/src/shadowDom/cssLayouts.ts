@@ -1,8 +1,8 @@
 import { css } from 'lit-element'
 
 export const cssLayouts = css`
-    [c6o~="container"] {
-        margin-top: var(--xl-spacing);
+    .container-content {
+        padding-top: var(--xl-spacing);
     }
 
     .panel {
@@ -22,15 +22,15 @@ export const cssLayouts = css`
         padding: var(--md-spacing) calc(var(--xl-spacing) * 2);
     }
 
-    .btn-group-left traxitt-button {
+    .btn-group-left c6o-button {
         margin-right: var(--md-spacing);
     }
 
-    btn-group-right traxitt-button {
+    btn-group-right c6o-button {
         margin-left: var(--md-spacing);
     }
 
-    traxitt-select {
+    c6o-select {
         width: 100%;
     }
 

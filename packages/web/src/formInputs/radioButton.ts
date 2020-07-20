@@ -5,4 +5,4 @@ import { EntityStoreMixin } from '../mixins'
 export class RadioButton extends mix(RadioButtonElement).with(EntityStoreMixin) {
 }
 
-customElements.define('traxitt-radio-button', RadioButton)
+customElements.define('c6o-radio-button', RadioButton)

@@ -22,7 +22,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
             return
 
         if (this.store || this.readonly !== true)
-            throw new Error('traxitt-text-area data cannot be used when store is specified or if it is not readonly')
+            throw new Error('c6o-text-area data cannot be used when store is specified or if it is not readonly')
 
         if (this.json)
             this.value = JSON.stringify(newVal)
@@ -63,4 +63,4 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
     }
 }
 
-customElements.define('traxitt-text-area', TextArea)
+customElements.define('c6o-text-area', TextArea)

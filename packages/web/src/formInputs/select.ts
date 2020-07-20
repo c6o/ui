@@ -51,4 +51,4 @@ export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityList
     }
 }
 
-customElements.define('traxitt-select', Select)
+customElements.define('c6o-select', Select)

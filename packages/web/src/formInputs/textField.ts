@@ -35,4 +35,4 @@ export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, Enti
     }
 }
 
-customElements.define('traxitt-text-field', TextField)
+customElements.define('c6o-text-field', TextField)

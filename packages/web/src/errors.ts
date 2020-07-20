@@ -4,7 +4,7 @@ import { mix } from '@traxitt/common'
 import { EntityStoreMixin } from './mixins'
 import { cssReboot, cssBase } from '@traxitt/ui-theme'
 
-// This custom element must be nested in a traxitt-form-layout element with a bound store
+// This custom element must be nested in a c6o-form-layout element with a bound store
 export class Errors extends mix(MobxLitElement).with(EntityStoreMixin) {
     defaultHeading = 'Please correct the following form errors:'
 
@@ -70,4 +70,4 @@ export class Errors extends mix(MobxLitElement).with(EntityStoreMixin) {
     }
 }
 
-customElements.define('traxitt-errors', Errors)
+customElements.define('c6o-errors', Errors)

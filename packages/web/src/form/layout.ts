@@ -5,4 +5,4 @@ import { EntityStoreMixin } from '../mixins'
 export class FormLayout extends mix(FormLayoutElement).with(EntityStoreMixin) {
 }
 
-customElements.define('traxitt-form-layout', FormLayout)
+customElements.define('c6o-form-layout', FormLayout)

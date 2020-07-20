@@ -5,4 +5,4 @@ import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin } from '..
 export class ComboBox extends mix(ComboBoxElement).with(EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin) {
 }
 
-customElements.define('traxitt-combo-box', ComboBox)
+customElements.define('c6o-combo-box', ComboBox)

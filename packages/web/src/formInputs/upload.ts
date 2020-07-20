@@ -19,4 +19,4 @@ export class Upload extends mix(UploadElement).with(EntityStoreMixin, EntityStor
     }
 }
 
-customElements.define('traxitt-upload', Upload)
+customElements.define('c6o-upload', Upload)

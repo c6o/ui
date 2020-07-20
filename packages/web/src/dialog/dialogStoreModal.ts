@@ -30,21 +30,21 @@ export abstract class DialogStoreModal extends DialogStore {
             </div>
             ${this.deleteMessage?.length ? html`
                 <div class="modal-footer" c6o="flex justify-between">
-                    <traxitt-button class="delete-button" theme="error" @click=${this.delete}>Delete</traxitt-button>
+                    <c6o-button class="delete-button" theme="error" @click=${this.delete}>Delete</c6o-button>
                     <div class="btn-group">
-                        <traxitt-button class="cancel-button" theme="default" @click=${cancel}>${this.cancelBtnText}</traxitt-button>
-                        <traxitt-button class="confirm-button" theme="${this.btnTheme}" @click=${save}>${this.confirmBtnText}</traxitt-button>
+                        <c6o-button class="cancel-button" theme="default" @click=${cancel}>${this.cancelBtnText}</c6o-button>
+                        <c6o-button class="confirm-button" theme="${this.btnTheme}" @click=${save}>${this.confirmBtnText}</c6o-button>
                     </div>
                 </div>
-                <traxitt-confirm-dialog
+                <c6o-confirm-dialog
                     btn-theme="primary error"
                     confirm-btn-text="Delete"
                     title="Confirm Edition Deletion">
-                </traxitt-confirm-dialog>
+                </c6o-confirm-dialog>
             ` : html`
                 <div class="modal-footer" c6o="flex justify-between">
-                    <traxitt-button class="cancel-button" theme="default" @click=${cancel}>${this.cancelBtnText}</traxitt-button>
-                    <traxitt-button class="confirm-button" theme="${this.btnTheme}" @click=${save}>${this.confirmBtnText}</traxitt-button>
+                    <c6o-button class="cancel-button" theme="default" @click=${cancel}>${this.cancelBtnText}</c6o-button>
+                    <c6o-button class="confirm-button" theme="${this.btnTheme}" @click=${save}>${this.confirmBtnText}</c6o-button>
                 </div>
             `}
         `

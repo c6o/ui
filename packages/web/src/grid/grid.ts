@@ -5,4 +5,4 @@ import { mix } from '@traxitt/common'
 export class Grid extends mix(GridElement).with(EntityListStoreMixin) {
 }
 
-customElements.define('traxitt-grid', Grid)
+customElements.define('c6o-grid', Grid)

@@ -5,4 +5,4 @@ import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 export class PasswordField extends mix(PasswordFieldElement).with(EntityStoreMixin, EntityStorePathMixin) {
 }
 
-customElements.define('traxitt-password-field', PasswordField)
+customElements.define('c6o-password-field', PasswordField)
