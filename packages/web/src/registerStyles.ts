@@ -198,6 +198,10 @@ registerStyles('vaadin-checkbox vaadin-radio-button vaadin-text-area vaadin-text
     :host > label {
         cursor: pointer;
     }
+
+    :host([theme~="condensed"]) {
+        margin-bottom: var(--xs-spacing);
+    }
 `)
 
 registerStyles('vaadin-checkbox', css`
@@ -227,6 +231,12 @@ registerStyles('vaadin-checkbox', css`
     [part="label"]:not([empty]) {
         font-size: var(--lumo-font-size-s);
         line-height: 1.3;
+    }
+`)
+
+registerStyles('vaadin-combo-box', css`
+    :host(.has-help-text) [part="text-field"] {
+        margin-bottom: var(--xs-spacing);
     }
 `)
 
