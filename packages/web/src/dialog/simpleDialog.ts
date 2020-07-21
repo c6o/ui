@@ -7,14 +7,17 @@ export abstract class SimpleDialog extends DialogElement {
     closeCallback?(): void
     btnTheme: string
     btnText: string
+    forceRender: boolean
     root
     size: string
     title: string
 
     static get properties() {
         return {
+            ...super.properties,
             btnTheme: { type: String, value: 'default' },
             btnText: { type: String, value: 'Close' },
+            forceRender: { type: Boolean, value: false },
             size: { type: String, value: '' },
             title: { type: String, value: 'CodeZero' },
         }
@@ -22,7 +25,7 @@ export abstract class SimpleDialog extends DialogElement {
 
     renderer = (root) => {
         this.root = root
-        if (root.firstElementChild) return
+        if (!this.forceRender && root.firstElementChild) return
         render(this.renderContent(), root)
     }
 

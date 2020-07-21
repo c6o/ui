@@ -7,8 +7,8 @@ export const cssBase = css`
     }
 
     html > body {
-        background-color: var(--color-snow);
-        color: var(--color-thunder);
+        background-color: var(--c6o-body-bkg-color);
+        color: var(--c6o-body-text-color);
         font-family: var(--font-family);
         font-weight: 500;
     }

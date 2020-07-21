@@ -24,6 +24,10 @@ export class Loading extends MobxLitElement {
                     from { opacity: 0; }
                     to   { opacity: 1; }
                 }
+
+                #loading h3 {
+                    color: var(--color-navy);
+                }
             `
         ]
     }

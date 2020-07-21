@@ -43,7 +43,7 @@ registerStyles('vaadin-button', css`
         background-color: var(--color-sea);
         border: none;
         color: var(--color-white);
-        min-width: calc(var(--lumo-button-size) * 4);
+        min-width: calc(var(--lumo-button-size) * 3);
     }
 
     :host([theme~="primary"]:hover) {
@@ -62,6 +62,7 @@ registerStyles('vaadin-button', css`
     :host([theme~="default"]) {
         border-color: var(--color-rain);
         color: var(--color-storm);
+        min-width: calc(var(--lumo-button-size) * 3);
     }
 
     :host([theme~="default"]:hover) {
@@ -73,6 +74,7 @@ registerStyles('vaadin-button', css`
     :host([theme~="info"]) {
         border-color: var(--color-sea);
         color: var(--color-sea);
+        min-width: calc(var(--lumo-button-size) * 3);
     }
 
     :host([theme~="info"]:hover) {
@@ -96,6 +98,7 @@ registerStyles('vaadin-button', css`
     :host([theme~="success"]) {
         border-color: var(--color-ocean);
         color: var(--color-ocean);
+        min-width: calc(var(--lumo-button-size) * 3);
     }
 
     :host([theme~="success"]:hover) {
@@ -116,6 +119,7 @@ registerStyles('vaadin-button', css`
     :host([theme~="warning"]) {
         border-color: var(--color-sun);
         color: var(--color-thunder);
+        min-width: calc(var(--lumo-button-size) * 3);
     }
 
     :host([theme~="warning"]:hover) {
@@ -136,6 +140,7 @@ registerStyles('vaadin-button', css`
     :host([theme~="error"]) {
         border-color: var(--color-fire);
         color: var(--color-fire);
+        min-width: calc(var(--lumo-button-size) * 3);
     }
 
     :host([theme~="error"]:hover) {
@@ -542,6 +547,10 @@ registerStyles('vaadin-text-area vaadin-text-field', css`
 
     [part="input-field"] ::slotted([part="value"]) {
         cursor: pointer;
+    }
+
+    :host([theme~="light"]) [part="input-field"] {
+        background-color: var(--color-white);
     }
 
     :host([theme~="reversed"]) [part="input-field"] {

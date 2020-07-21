@@ -34,10 +34,6 @@ export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extend
                     ))
                 })
             }, true))
-
-            // This is not a good place to fetch as it will fetch
-            // each time the grid is added to the DOM. Find another
-            // await this.listStore.fetch()
         }
     }
 

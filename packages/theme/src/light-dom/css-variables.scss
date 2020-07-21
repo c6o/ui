@@ -43,6 +43,12 @@
     --lumo-secondary-color: var(--color-ocean);
     --lumo-error-text-color: var(--color-fire);
 
+    --c6o-body-bkg-color: var(--color-snow);
+    --c6o-body-text-color: var(--color-thunder);
+    --c6o-border-radius: 6px;
+    --c6o-button-size: 2.375rem;
+    --c6o-default-field-width: 25rem;
+    --c6o-field-size: var(--c6o-button-size);
     --c6o-icon-height-sm: 2.4rem;
     --c6o-icon-width-sm: var(--c6o-icon-height-sm);
     --c6o-icon-height: 3rem;
@@ -52,10 +58,6 @@
     --c6o-icon-height-xl: 6rem;
     --c6o-icon-width-xl: var(--c6o-icon-height-xl);
     --c6o-icon-spacing: .75rem;
-    --c6o-border-radius: 6px;
-    --c6o-button-size: 2.375rem;
-    --c6o-default-field-width: 25rem;
-    --c6o-field-size: var(--c6o-button-size);
 
     --color-google-auth: #0f9d58;
     --color-digitalocean-auth: #0069ff;
