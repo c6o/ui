@@ -1,4 +1,4 @@
-import { EntityStore } from '@traxitt/common'
+import { EntityStore } from '@c6o/common'
 
 export const EntityStoreMixin = (base) => class entityStoreMixin extends base {
 

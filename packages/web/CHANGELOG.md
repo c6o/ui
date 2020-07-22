@@ -27,4 +27,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.0.1](https://github.com/traxitt/node-monorepo/compare/v0.0.0...v0.0.1) (2020-07-07)
 
-**Note:** Version bump only for package @traxitt/ui-web
+**Note:** Version bump only for package @c6o/ui-web

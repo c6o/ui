@@ -1,5 +1,5 @@
 import { TextAreaElement } from '@vaadin/vaadin-text-field/src/vaadin-text-area'
-import { mix } from '@traxitt/common'
+import { mix } from '@c6o/common'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 import { setValueFromPath, getValueFromPath } from '../mixins/path'
 import yaml from 'js-yaml'

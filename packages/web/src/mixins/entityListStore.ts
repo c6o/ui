@@ -1,4 +1,4 @@
-import { EntityListStore } from '@traxitt/common'
+import { EntityListStore } from '@c6o/common'
 import { observe } from 'mobx'
 
 export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extends base {

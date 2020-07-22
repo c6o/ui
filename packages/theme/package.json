@@ -1,5 +1,5 @@
 {
-  "name": "@traxitt/ui-theme",
+  "name": "@c6o/ui-theme",
   "version": "0.0.2",
   "description": "Theme for Traxitt",
   "main": "./src/index.ts",

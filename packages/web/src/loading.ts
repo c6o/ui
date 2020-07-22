@@ -1,6 +1,6 @@
 import { html, customElement, property, css } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
-import { cssReboot, cssBase, cssLayouts, cssTypography } from '@traxitt/ui-theme'
+import { cssReboot, cssBase, cssLayouts, cssTypography } from '@c6o/ui-theme'
 
 @customElement('c6o-loading')
 export class Loading extends MobxLitElement {

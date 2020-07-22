@@ -1,8 +1,8 @@
 import { html, css, property } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
-import { mix } from '@traxitt/common'
+import { mix } from '@c6o/common'
 import { EntityStoreMixin } from './mixins'
-import { cssReboot, cssBase } from '@traxitt/ui-theme'
+import { cssReboot, cssBase } from '@c6o/ui-theme'
 
 // This custom element must be nested in a c6o-form-layout element with a bound store
 export class Errors extends mix(MobxLitElement).with(EntityStoreMixin) {
