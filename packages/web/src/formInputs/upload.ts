@@ -1,5 +1,5 @@
 import { UploadElement } from '@vaadin/vaadin-upload/src/vaadin-upload'
-import { mix } from '@c6o/common'
+import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 
 export class Upload extends mix(UploadElement).with(EntityStoreMixin, EntityStorePathMixin) {

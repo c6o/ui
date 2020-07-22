@@ -1,5 +1,5 @@
 import { SelectElement } from '@vaadin/vaadin-select/src/vaadin-select'
-import { mix } from '@c6o/common'
+import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin } from '../mixins'
 
 export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin) {

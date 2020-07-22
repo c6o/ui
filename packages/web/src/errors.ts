@@ -1,6 +1,6 @@
 import { html, css, property } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
-import { mix } from '@c6o/common'
+import { mix } from 'mixwith'
 import { EntityStoreMixin } from './mixins'
 import { cssReboot, cssBase } from '@c6o/ui-theme'
 

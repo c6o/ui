@@ -1,5 +1,5 @@
 import { RadioGroupElement } from '@vaadin/vaadin-radio-button/src/vaadin-radio-group'
-import { mix } from '@c6o/common'
+import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 import { setValueFromPath, getValueFromPath } from '../mixins/path'
 

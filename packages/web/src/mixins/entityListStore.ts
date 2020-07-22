@@ -1,4 +1,3 @@
-import { EntityListStore } from '@c6o/common'
 import { observe } from 'mobx'
 
 export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extends base {
@@ -6,7 +5,7 @@ export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extend
 
     static get properties() {
         return {
-            listStore: { type: EntityListStore, observer: 'listStoreChanged' }
+            listStore: { type: Object, observer: 'listStoreChanged' }
         }
     }
 

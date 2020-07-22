@@ -1,5 +1,5 @@
 import { TabsElement } from '@vaadin/vaadin-tabs/src/vaadin-tabs'
-import { mix } from '@c6o/common'
+import { mix } from 'mixwith'
 import { EntityListStoreMixin } from '../mixins'
 
 export class Tabs extends mix(TabsElement).with(EntityListStoreMixin) {

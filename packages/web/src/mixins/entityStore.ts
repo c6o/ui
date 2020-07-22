@@ -1,10 +1,8 @@
-import { EntityStore } from '@c6o/common'
-
 export const EntityStoreMixin = (base) => class entityStoreMixin extends base {
 
     static get properties() {
         return {
-            store: { type: EntityStore, observer: 'storeChanged', reflect: true },
+            store: { type: Object, observer: 'storeChanged', reflect: true },
             noInherit: { type: Boolean, reflect: true }
         }
     }
