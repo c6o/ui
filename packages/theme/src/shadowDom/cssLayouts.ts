@@ -9,6 +9,7 @@ export const cssLayouts = css`
         background-color: var(--color-white);
         border: none;
         border-radius: var(--c6o-border-radius);
+        color: var(--color-thunder);
         margin-bottom: var(--xl-spacing);
         padding: var(--xl-spacing);
     }

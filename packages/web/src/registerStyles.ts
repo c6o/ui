@@ -510,6 +510,14 @@ registerStyles('vaadin-tab', css`
     :host([selected])::after {
         display: none;
     }
+
+    :host([theme~="light"]) ::slotted(a.subnav.contextual) {
+        color: var(--color-snow) !important;
+    }
+
+    :host([selected][theme~="light"])::before {
+        background-color: var(--color-white);
+    }
 `)
 
 registerStyles('vaadin-tabs', css`
