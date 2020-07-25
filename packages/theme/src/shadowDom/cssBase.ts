@@ -80,8 +80,4 @@ export const cssBase = css`
     .icon.inline {
         margin-right: var(--xl-spacing);
     }
-
-    .icon.go-back {
-        margin-right: var(--xs-spacing);
-    }
 `

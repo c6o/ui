@@ -83,7 +83,8 @@ export class ContextualSubnav extends MobxLitElement {
 
                 span.second-part {
                     font-weight: 600;
-                    margin-left: .75rem;
+                    margin-left: 1rem;
+                    vertical-align: middle;
                 }
 
                 .sentence-case {
@@ -107,7 +108,7 @@ export class ContextualSubnav extends MobxLitElement {
             <div c6o="container flex justify-between align-end" theme="${this.theme}">
                 <h1>
                     ${this.headingFirstPartLink ? html`
-                        <a class="icon go-back" href="/${this.headingFirstPartLink}">
+                        <a class="icon" href="/${this.headingFirstPartLink}">
                             <iron-icon icon="vaadin:angle-left"></iron-icon>
                         </a>
                     ` : html`
