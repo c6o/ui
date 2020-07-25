@@ -50,4 +50,5 @@ export abstract class SimpleDialog extends DialogElement {
         const callbackSuccess = this.closeCallback ? this.closeCallback() : true
         super.opened = !callbackSuccess
     }
+
 }
