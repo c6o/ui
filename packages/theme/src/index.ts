@@ -26,3 +26,6 @@ export * from './shadowDom/cssLayouts'
 export * from './shadowDom/cssReboot'
 export * from './shadowDom/cssTypography'
 
+// Assets
+export * from './assets'
+
