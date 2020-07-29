@@ -1,9 +1,16 @@
 import { html } from 'lit-element'
-import { DialogStore } from './dialogStore'
 import { TemplateResult } from 'lit-html'
+import { DialogStore } from './dialogStore'
 
 export abstract class DialogStoreModal extends DialogStore {
     abstract renderModalContent(): TemplateResult
+    btnTheme
+    confirmBtnText
+    confirmDialog
+    cancelBtnText
+    deleteMessage
+    size
+    title
 
     static get properties() {
         return {
@@ -11,9 +18,9 @@ export abstract class DialogStoreModal extends DialogStore {
             btnTheme: { type: String, value: 'default' },
             confirmBtnText: { type: String, value: 'OK' },
             cancelBtnText: { type: String, value: 'Cancel' },
-            size: { type: String, value: '' },
-            title: { type: String, value: 'CodeZero' },
             deleteMessage: { type: String, value: '' },
+            size: { type: String, value: '' },
+            title: { type: String, value: 'CodeZero' }
         }
     }
 

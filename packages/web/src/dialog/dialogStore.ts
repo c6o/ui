@@ -7,6 +7,11 @@ export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMix
     abstract renderContent(save, cancel): TemplateResult
     cancelCallback?(): void
     confirmCallback?(): void
+    file
+    filePath
+    opened: boolean
+    root
+    store
 
     static get properties() {
         return {
