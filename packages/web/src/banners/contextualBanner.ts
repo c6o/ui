@@ -4,6 +4,7 @@ import { cssReboot, cssGrid, cssBase, cssIcons } from '@c6o/ui-theme'
 
 @customElement('c6o-contextual-banner')
 export class ContextualBanner extends MobxLitElement {
+
     @property({ type: String })
     icon = 'info-circle'
 
@@ -62,7 +63,6 @@ export class ContextualBanner extends MobxLitElement {
             `
         ]
     }
-
 
     render() {
         return html`

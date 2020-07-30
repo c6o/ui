@@ -1,13 +1,13 @@
 import { DialogElement } from '@vaadin/vaadin-dialog/src/vaadin-dialog'
 import { html } from 'lit-element'
-import { render, TemplateResult } from 'lit-html'
+import { render } from 'lit-html'
 
 export abstract class SimpleDialog extends DialogElement {
-    abstract renderModalContent(): TemplateResult
     closeCallback?(): void
     btnTheme: string
     btnText: string
     forceRender: boolean
+    message: string
     root
     size: string
     title: string
@@ -18,6 +18,7 @@ export abstract class SimpleDialog extends DialogElement {
             btnTheme: { type: String, value: 'default' },
             btnText: { type: String, value: 'Close' },
             forceRender: { type: Boolean, value: false },
+            message: { type: String },
             size: { type: String, value: '' },
             title: { type: String, value: 'CodeZero' },
         }
@@ -46,9 +47,12 @@ export abstract class SimpleDialog extends DialogElement {
         `
     }
 
+    renderModalContent = () => {
+        return html`${this.message}`
+    }
+
     close = () => {
         const callbackSuccess = this.closeCallback ? this.closeCallback() : true
         super.opened = !callbackSuccess
     }
-
 }
