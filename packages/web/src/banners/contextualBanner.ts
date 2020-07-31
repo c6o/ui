@@ -1,4 +1,4 @@
-import { html, customElement, css, property } from 'lit-element'
+import { html, customElement, css, property, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { cssReboot, cssGrid, cssBase, cssIcons } from '@c6o/ui-theme'
 
@@ -11,7 +11,7 @@ export class ContextualBanner extends MobxLitElement {
     @property({ type: String })
     theme = 'info'
 
-    static get styles() {
+    static get styles(): (CSSResult[] | CSSResult)[] {
         return [
             cssReboot,
             cssGrid,

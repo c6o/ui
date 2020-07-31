@@ -1,4 +1,4 @@
-import { html, customElement, property, css } from 'lit-element'
+import { html, customElement, property, css, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { Symbols, MeStore } from '@c6o/hub-common'
 import { inject } from '@c6o/common'
@@ -15,7 +15,7 @@ export class AlertBanner extends MobxLitElement {
     @inject(Symbols.stores.me)
     meStore: MeStore
 
-    static get styles() {
+    static get styles(): (CSSResult[] | CSSResult)[] {
         return [
             cssReboot,
             cssGrid,

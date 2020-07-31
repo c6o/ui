@@ -1,4 +1,4 @@
-import { html, customElement, css, property } from 'lit-element'
+import { html, customElement, css, property, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { cssReboot, cssGrid, cssBase, cssTypography } from '@c6o/ui-theme'
 
@@ -29,7 +29,7 @@ export class ContextualSubnav extends MobxLitElement {
     @property({ type: String })
     theme = 'default'
 
-    static get styles() {
+    static get styles(): (CSSResult[] | CSSResult)[] {
         return [
             cssReboot,
             cssGrid,
