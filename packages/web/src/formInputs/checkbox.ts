@@ -4,6 +4,7 @@ import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 import { setValueFromPath, getValueFromPath } from '../mixins/path'
 
 export class Checkbox extends mix(CheckboxElement).with(EntityStoreMixin, EntityStorePathMixin) {
+
     eventToStore(e) {
         setValueFromPath(this.store.pending, this.path, e.target.checked)
     }

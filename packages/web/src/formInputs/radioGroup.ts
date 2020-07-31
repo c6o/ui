@@ -4,6 +4,7 @@ import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 import { setValueFromPath, getValueFromPath } from '../mixins/path'
 
 export class RadioGroup extends mix(RadioGroupElement).with(EntityStoreMixin, EntityStorePathMixin) {
+
     eventToStore() {
         setValueFromPath(this.store.pending, this.path, this.value)
     }

@@ -6,6 +6,7 @@ import { cssReboot, cssGrid, cssBase, cssIcons } from '@c6o/ui-theme'
 
 @customElement('c6o-alert-banner')
 export class AlertBanner extends MobxLitElement {
+
     @property({ type: String })
     message: string
 
