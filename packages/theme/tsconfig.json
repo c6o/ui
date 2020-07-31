@@ -42,7 +42,7 @@
         ],
     },
     "references": [
-        { "path":  "../../common" },
+        { "path":  "../../../common" },
     ],
     "exclude": [
         "test",
