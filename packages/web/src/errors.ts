@@ -1,4 +1,4 @@
-import { html, css, property } from 'lit-element'
+import { html, css, property, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { mix } from 'mixwith'
 import { EntityStoreMixin } from './mixins'
@@ -14,7 +14,7 @@ export class Errors extends mix(MobxLitElement).with(EntityStoreMixin) {
     @property({ type: String })
     filter
 
-    static get styles() {
+    static get styles(): (CSSResult[] | CSSResult)[] {
         return [
             cssReboot,
             cssBase,

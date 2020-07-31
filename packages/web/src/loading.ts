@@ -1,4 +1,4 @@
-import { html, customElement, property, css } from 'lit-element'
+import { html, customElement, property, css, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { cssReboot, cssBase, cssLayouts, cssTypography } from '@c6o/ui-theme'
 
@@ -8,7 +8,7 @@ export class Loading extends MobxLitElement {
     @property({ type: String })
     text = 'Loading...'
 
-    static get styles() {
+    static get styles(): (CSSResult[] | CSSResult)[] {
         return [
             cssReboot,
             cssBase,

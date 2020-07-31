@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/traxitt/node-monorepo#readme",
   "dependencies": {
-    "lit-element": "^2.2.1",
+    "lit-element": "^2.3.1",
     "source-map-support": "^0.5.16",
     "typeface-montserrat": "^0.0.75",
     "typeface-roboto": "^0.0.75"
