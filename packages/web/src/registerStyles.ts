@@ -375,6 +375,11 @@ registerStyles('vaadin-menu-bar', css`
         border-radius: 0;
     }
 
+    [part="menu-bar-button"][theme="hub"] {
+        color: var(--color-white);
+        min-width: auto;
+    }
+
     [part="menu-bar-button"][theme="marina"] {
         background: none;
         color: var(--color-white);

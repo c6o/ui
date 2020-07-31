@@ -47,7 +47,7 @@
     --c6o-body-text-color: var(--color-thunder);
     --c6o-border-radius: 6px;
     --c6o-button-size: 2.375rem;
-    --c6o-default-field-width: 25rem;
+    --c6o-default-field-width: 15rem;
     --c6o-field-size: var(--c6o-button-size);
     --c6o-icon-height-sm: 2.4rem;
     --c6o-icon-width-sm: var(--c6o-icon-height-sm);
@@ -62,4 +62,8 @@
 
     --color-google-auth: #0f9d58;
     --color-digitalocean-auth: #0069ff;
+
+    @media (min-width: 1060px) {
+        --c6o-default-field-width: 25rem;
+    }
 }
