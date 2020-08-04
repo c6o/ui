@@ -277,6 +277,10 @@ registerStyles('vaadin-grid', css`
         font-weight: 700;
     }
 
+    [part~="cell"] ::slotted(vaadin-grid-cell-content) {
+        overflow: visible;
+    }
+
     [part~="header-cell"] ::slotted(vaadin-grid-cell-content),
     [part~="footer-cell"] ::slotted(vaadin-grid-cell-content),
     [part~="reorder-ghost"] {
@@ -633,6 +637,10 @@ registerStyles('vaadin-upload-file', css`
 
     [part="clear-button"] {
         color: var(--color-fire);
+    }
+
+    [part="row"] {
+        align-items: center;
     }
 `)
 

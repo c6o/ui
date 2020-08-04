@@ -24,6 +24,7 @@ export * from './shadowDom/cssGrid'
 export * from './shadowDom/cssIcons'
 export * from './shadowDom/cssLayouts'
 export * from './shadowDom/cssReboot'
+export * from './shadowDom/cssTooltip'
 export * from './shadowDom/cssTypography'
 
 // Assets
