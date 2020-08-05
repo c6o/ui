@@ -41,4 +41,5 @@ export * from './mixins/'
 export * from './notification'
 export * from './router'
 export * from './progress'
+export * from './tooltip'
 

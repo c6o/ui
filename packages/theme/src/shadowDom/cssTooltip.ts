@@ -45,7 +45,7 @@ export const cssTooltip = css`
         position: absolute;
     }
 
-    .tooltip:hover .tooltiptext .tooltip-header {
+    .tooltip .tooltiptext .tooltip-header {
         background-color: var(--color-sea);
         color: var(--color-white);
         font-weight: 500;
@@ -53,7 +53,7 @@ export const cssTooltip = css`
         text-align: center;
     }
 
-    .tooltip:hover .tooltiptext .tooltip-content {
+    .tooltip .tooltiptext .tooltip-content {
         padding: var(--sm-spacing);
         text-align: left;
     }

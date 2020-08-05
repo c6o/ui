@@ -2,7 +2,7 @@ import { html, customElement, property, css, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { Symbols, MeStore } from '@c6o/hub-common'
 import { inject } from '@c6o/common'
-import { cssReboot, cssGrid, cssBase, cssIcons } from '@c6o/ui-theme'
+import { cssReboot, cssBase, cssGrid, cssIcons } from '@c6o/ui-theme'
 
 @customElement('c6o-alert-banner')
 export class AlertBanner extends MobxLitElement {
@@ -19,8 +19,8 @@ export class AlertBanner extends MobxLitElement {
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
             cssReboot,
-            cssGrid,
             cssBase,
+            cssGrid,
             cssIcons,
             css`
                 #alert-banner {
