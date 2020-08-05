@@ -1,9 +1,11 @@
 export const EntityStoreMixin = (base) => class entityStoreMixin extends base {
+    noInherit: boolean
+    store
 
     static get properties() {
         return {
-            store: { type: Object, observer: 'storeChanged', reflect: true },
-            noInherit: { type: Boolean, reflect: true }
+            noInherit: { type: Boolean, reflect: true },
+            store: { type: Object, observer: 'storeChanged', reflect: true }
         }
     }
 

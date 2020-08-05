@@ -14,8 +14,8 @@ export class ContextualBanner extends MobxLitElement {
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
             cssReboot,
-            cssGrid,
             cssBase,
+            cssGrid,
             cssIcons,
             css`
                 .banner {
