@@ -38,6 +38,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
             }
             catch (e) {
                 // ignore - we don't update until JSON is valid
+                console.log('Error setting JSON value from path', e)
             }
         }
         else if (this.yaml) {
@@ -46,6 +47,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
             }
             catch (e) {
                 // ignore - we don't update until YAML is valid
+                console.log('Error setting YAML value from path', e)
             }
         }
         else
