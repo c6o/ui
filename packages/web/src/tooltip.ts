@@ -1,5 +1,4 @@
 import { html, customElement, property, CSSResult } from 'lit-element'
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { cssReboot, cssBase, cssTooltip } from '@c6o/ui-theme'
 
@@ -25,7 +24,9 @@ export class Tooltip extends MobxLitElement {
             <button class="tooltip">
                 <span class="tooltiptext">
                     <div class="tooltip-header">${this.title}</div>
-                    <div class="tooltip-content">${unsafeHTML(this.content)}</div>
+                    <div class="tooltip-content">
+                        <slot name="tooltip-content"></slot>
+                    </div>
                 </span>
                 <slot></slot>
             </button>
