@@ -11,12 +11,10 @@ export const revenueIconBlue = revenueIconB
 
 // Green icons
 import cloudIconG from './green/cloud.svg'
-import healthyIconG from './green/healthy.svg'
 import marketplaceIconG from './green/marketplace.svg'
 import toolsIconG from './green/tools.svg'
 
 export const cloudIconGreen = cloudIconG
-export const healthyIconGreen = healthyIconG
 export const marketplaceIconGreen = marketplaceIconG
 export const toolsIconGreen = toolsIconG
 
