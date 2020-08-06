@@ -9,7 +9,7 @@ export const cloudIconBlue = cloudIconB
 export const installIconBlue = installIconB
 export const revenueIconBlue = revenueIconB
 
-// Green icons
+// Green Icons
 import cloudIconG from './green/cloud.svg'
 import marketplaceIconG from './green/marketplace.svg'
 import toolsIconG from './green/tools.svg'
@@ -41,7 +41,7 @@ import warningIconY from './yellow/warning.svg'
 export const cloudIconYellow = cloudIconY
 export const warningIconYellow = warningIconY
 
-// Sail icons
+// Sail Icons
 import sailB from './sails/sail-blue.svg'
 import sailG from './sails/sail-green.svg'
 import sailGr from './sails/sail-grey.svg'
@@ -53,3 +53,15 @@ export const sailGreen = sailG
 export const sailGrey = sailGr
 export const sailRed = sailR
 export const sailYellow = sailY
+
+// Light Icons
+import cloudBlueShadow from './light/cloud-blue-shadow.svg'
+import storeBlueShadow from './light/store-blue-shadow.svg'
+
+export const cloudIconLight = cloudBlueShadow
+export const storeIconLight = storeBlueShadow
+
+// Icon Set
+import iCloud from './set/cloud.svg'
+
+export const cloudIcon = iCloud
