@@ -9,7 +9,7 @@
     "src"
   ],
   "author": "Narayan Sainaney",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "dependencies": {
     "@vaadin/vaadin": "^14.0.11",
     "js-yaml": "^3.13.1",
