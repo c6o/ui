@@ -17,7 +17,7 @@
     "UI"
   ],
   "author": "Adrian Jones",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/traxitt/node-monorepo/issues"
   },
