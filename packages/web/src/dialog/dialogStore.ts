@@ -4,14 +4,14 @@ import { mix } from 'mixwith'
 import { render, TemplateResult } from 'lit-html'
 
 export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMixin) {
-    abstract renderContent(save, cancel): TemplateResult
-    cancelCallback?(): void
-    confirmCallback?(): void
     file
     filePath
     opened: boolean
     root
     store
+    abstract renderContent(save, cancel): TemplateResult
+    cancelCallback?(): void // Optional so don't mark as abstract (which must be implemented)
+    confirmCallback?(): void
 
     static get properties() {
         return {

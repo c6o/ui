@@ -2,8 +2,7 @@ import { DialogElement } from '@vaadin/vaadin-dialog/src/vaadin-dialog'
 import { html } from 'lit-element'
 import { render } from 'lit-html'
 
-export abstract class SimpleDialog extends DialogElement {
-    closeCallback?(): void
+export class SimpleDialog extends DialogElement {
     btnTheme: string
     btnText: string
     forceRender: boolean
@@ -11,6 +10,7 @@ export abstract class SimpleDialog extends DialogElement {
     root
     size: string
     title: string
+    closeCallback?(): boolean
 
     static get properties() {
         return {

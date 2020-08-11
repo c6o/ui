@@ -60,6 +60,10 @@ export class ContextualBanner extends MobxLitElement {
                 .banner iron-icon {
                     flex-shrink: 0;
                 }
+
+                .banner ::slotted(p:last-child) {
+                    margin-bottom: 0 !important;
+                }
             `
         ]
     }
