@@ -51,6 +51,11 @@
     overflow-y: scroll;
     max-height: 600px;
     min-height: 100px;
+    width: 700px;
+
+    &.tall {
+        height: calc(100vh - 400px);
+    }
 
     #sign-in-modal-content {
         text-align: center;
@@ -63,8 +68,6 @@
 
 @media (min-width: 768px) {
     .modal-body {
-        width: 700px;
-
         &.wide {
             width: calc(100vw - 300px);
         }
@@ -77,8 +80,6 @@
 
 @media (min-width: 1200px) {
     .modal-body {
-        width: 700px;
-
         &.wide {
             width: calc(100vw - 600px);
         }
