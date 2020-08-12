@@ -73,4 +73,8 @@ export class SimpleDialog extends DialogElement {
         await super.connectedCallback()
         this.addEventListener('opened-changed', async () => await this.onOpened())
     }
+
+    async disconnectedCallback() {
+        await super.disconnectedCallback()
+    }
 }
