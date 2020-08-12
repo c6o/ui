@@ -2,6 +2,11 @@ import { DialogElement } from '@vaadin/vaadin-dialog/src/vaadin-dialog'
 import { html } from 'lit-element'
 import { render } from 'lit-html'
 
+export interface SimpleDialog {
+    opened: boolean
+    addEventListener: HTMLElement['addEventListener']
+}
+
 export class SimpleDialog extends DialogElement {
     btnTheme: string
     btnText: string
@@ -65,9 +70,7 @@ export class SimpleDialog extends DialogElement {
     }
 
     async connectedCallback() {
-        // @ts-ignore
         await super.connectedCallback()
-        // @ts-ignore
         this.addEventListener('opened-changed', async () => await this.onOpened())
     }
 }
