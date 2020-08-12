@@ -12,7 +12,6 @@ export class SimpleDialog extends DialogElement {
     title: string
 
     onClose(): boolean | Promise<boolean> { return true }
-    onOpened(): void | Promise<void> {}
 
     static get properties() {
         return {
@@ -62,12 +61,5 @@ export class SimpleDialog extends DialogElement {
     close =  async () => {
         const callbackSuccess = await this.onClose()
         super.opened = !callbackSuccess
-    }
-
-    async connectedCallback() {
-        // @ts-ignore
-        await super.connectedCallback()
-        // @ts-ignore
-        this.addEventListener('opened-changed', async () => await this.onOpened())
     }
 }
