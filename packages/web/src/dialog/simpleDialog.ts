@@ -17,7 +17,7 @@ export class SimpleDialog extends DialogElement {
     title: string
 
     onClose(): boolean | Promise<boolean> { return true }
-    onOpened(): void | Promise<void> {}
+    onOpened(): void | Promise<void> { return }
 
     static get properties() {
         return {
