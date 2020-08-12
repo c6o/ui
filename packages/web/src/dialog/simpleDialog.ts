@@ -33,17 +33,23 @@ export class SimpleDialog extends DialogElement {
     renderContent = () => {
         return html`
             <div class="modal-header">
-                <h2 class="modal-title">${this.title}</h2>
-                <iron-icon icon="vaadin:close" @click=${this.close}></iron-icon>
+                ${this.renderHeader()}
             </div>
             <div class="modal-body ${this.size}">
                 <div id="modal-content">
                     ${this.renderModalContent()}
                 </div>
             </div>
-            <div class="modal-footer" c6o="text-center">
+            <div class="modal-footer" c6o="text-right">
                 <c6o-button class="close-button" theme="${this.btnTheme}" @click=${this.close}>${this.btnText}</c6o-button>
             </div>
+        `
+    }
+
+    renderHeader = () => {
+        return html`
+            <h2 class="modal-title">${this.title}</h2>
+            <iron-icon icon="vaadin:close" @click=${this.close}></iron-icon>
         `
     }
 
