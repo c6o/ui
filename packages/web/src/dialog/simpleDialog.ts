@@ -1,10 +1,10 @@
 import { DialogElement } from '@vaadin/vaadin-dialog/src/vaadin-dialog'
+import { PolymerElement } from '@polymer/polymer'
 import { html } from 'lit-element'
 import { render } from 'lit-html'
 
-export interface SimpleDialog {
+export interface SimpleDialog extends PolymerElement {
     opened: boolean
-    addEventListener: HTMLElement['addEventListener']
 }
 
 export class SimpleDialog extends DialogElement {
@@ -66,15 +66,11 @@ export class SimpleDialog extends DialogElement {
 
     close =  async () => {
         const callbackSuccess = await this.onClose()
-        super.opened = !callbackSuccess
+        this.opened = !callbackSuccess
     }
 
     async connectedCallback() {
         await super.connectedCallback()
         this.addEventListener('opened-changed', async () => await this.onOpened())
-    }
-
-    async disconnectedCallback() {
-        await super.disconnectedCallback()
     }
 }
