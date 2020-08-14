@@ -5,6 +5,7 @@ import { render } from 'lit-html'
 
 export interface SimpleDialog extends PolymerElement {
     opened: boolean
+    render()
 }
 
 export class SimpleDialog extends DialogElement {
