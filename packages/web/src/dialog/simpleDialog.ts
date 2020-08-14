@@ -10,21 +10,19 @@ export interface SimpleDialog extends PolymerElement {
 export class SimpleDialog extends DialogElement {
     btnTheme: string
     btnText: string
-    forceRender: boolean
+    isStatic: boolean
     message: string
     root
     size: string
     title: string
-
-    onClose(): boolean | Promise<boolean> { return true }
-    onOpened(): void | Promise<void> { return }
+    onOpenedChanged(): void | Promise<void> { return }
 
     static get properties() {
         return {
             ...super.properties,
             btnTheme: { type: String, value: 'default' },
             btnText: { type: String, value: 'Close' },
-            forceRender: { type: Boolean, value: false },
+            isStatic: { type: Boolean, value: false },
             message: { type: String },
             size: { type: String, value: '' },
             title: { type: String, value: 'CodeZero' },
@@ -33,7 +31,7 @@ export class SimpleDialog extends DialogElement {
 
     renderer = (root) => {
         this.root = root
-        if (!this.forceRender && root.firstElementChild) return
+        if (this.isStatic && root.firstElementChild) return
         render(this.renderContent(), root)
     }
 
@@ -64,13 +62,12 @@ export class SimpleDialog extends DialogElement {
         return html`${this.message}`
     }
 
-    close =  async () => {
-        const callbackSuccess = await this.onClose()
-        this.opened = !callbackSuccess
+    close = () => {
+        this.opened = false
     }
 
     async connectedCallback() {
         await super.connectedCallback()
-        this.addEventListener('opened-changed', async () => await this.onOpened())
+        this.addEventListener('opened-changed', async () => await this.onOpenedChanged())
     }
 }
