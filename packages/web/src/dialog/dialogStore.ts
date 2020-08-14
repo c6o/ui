@@ -1,7 +1,10 @@
+import { PolymerElement } from '@polymer/polymer'
 import { DialogElement } from '@vaadin/vaadin-dialog/src/vaadin-dialog'
 import { EntityStoreMixin } from '../mixins/entityStore'
 import { mix } from 'mixwith'
 import { render, TemplateResult } from 'lit-html'
+
+export interface DialogStore extends PolymerElement {}
 
 export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMixin) {
     file

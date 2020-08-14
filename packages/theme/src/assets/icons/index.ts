@@ -4,12 +4,14 @@ import cloudIconB from './blue/cloud.svg'
 import installIconB from './blue/install.svg'
 import orgsIconB from './blue/organizations.svg'
 import revenueIconB from './blue/revenue.svg'
+import teamIconB from './blue/team.svg'
 
 export const appStoreIconBlue = appStoreIconB
 export const cloudIconBlue = cloudIconB
 export const installIconBlue = installIconB
 export const orgsIconBlue = orgsIconB
 export const revenueIconBlue = revenueIconB
+export const teamIconBlue = teamIconB
 
 // Green Icons
 import cloudIconG from './green/cloud.svg'
