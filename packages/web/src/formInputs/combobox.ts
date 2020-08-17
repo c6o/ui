@@ -11,7 +11,8 @@ export class ComboBox extends mix(ComboBoxElement).with(EntityStoreMixin, Entity
 
     static get properties() {
         return {
-            autoformat: { type: String },
+            lowercase: { type: Boolean },
+            uppercase: { type: Boolean },
             value: { type: String }
         }
     }
