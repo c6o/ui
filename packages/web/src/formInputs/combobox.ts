@@ -18,14 +18,10 @@ export class ComboBox extends mix(ComboBoxElement).with(EntityStoreMixin, Entity
     }
 
     autoFormat = (e) => {
-        switch(this.autoformat) {
-            case 'lowercase':
-                this.value = e.target.inputElement.value?.toLowerCase()
-                break
-            case 'uppercase':
-                this.value = e.target.inputElement.value?.toUpperCase()
-                break
-        }
+        if (this.lowercase)
+            this.value = e.target.inputElement.value?.toLowerCase()
+        if (this.uppercase)
+            this.value = e.target.inputElement.value?.toUpperCase()
     }
 
     async connectedCallback() {
