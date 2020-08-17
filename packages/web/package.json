@@ -8,6 +8,11 @@
   "files": [
     "src"
   ],
+  "keywords": [
+    "web",
+    "codezero",
+    "UI"
+  ],
   "author": "Narayan Sainaney",
   "license": "Apache-2.0",
   "dependencies": {
