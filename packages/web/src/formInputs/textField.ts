@@ -1,35 +1,39 @@
 import { TextFieldElement } from '@vaadin/vaadin-text-field/src/vaadin-text-field'
+import { PolymerElement } from '@polymer/polymer'
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 
+export interface TextField extends PolymerElement {}
+
 export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, EntityStorePathMixin) {
+    lowercase: boolean
+    uppercase: boolean
+    value: string
 
     static get properties() {
         return {
-            autoformat: { type: String }
+            lowercase: { type: Boolean },
+            uppercase: { type: Boolean },
+            value: { type: String }
         }
     }
 
     autoFormat = (e) => {
-        switch(this.autoformat) {
-            case 'lowercase':
-                this.value = e.target.value.toLowerCase()
-                break
-            case 'uppercase':
-                this.value = e.target.value.toUpperCase()
-                break
-        }
+        if (this.lowercase)
+            this.value = e.target.value?.toLowerCase()
+        if (this.uppercase)
+            this.value = e.target.value?.toUpperCase()
     }
 
     async connectedCallback() {
         await super.connectedCallback()
-        if (this.autoformat) {
+        if (this.lowercase || this.uppercase) {
             this.addEventListener('input', this.autoFormat)
         }
     }
 
     async disconnectedCallback() {
-        if (this.autoformat)
+        if (this.lowercase || this.uppercase)
             this.removeEventListener('input', this.autoFormat)
         await super.disconnectedCallback()
     }
