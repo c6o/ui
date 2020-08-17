@@ -30,9 +30,8 @@ export class ComboBox extends mix(ComboBoxElement).with(EntityStoreMixin, Entity
 
     async connectedCallback() {
         await super.connectedCallback()
-        if (this.autoformat) {
+        if (this.lowercase || this.uppercase)
             this.addEventListener('input', this.autoFormat)
-        }
     }
 
     async disconnectedCallback() {
