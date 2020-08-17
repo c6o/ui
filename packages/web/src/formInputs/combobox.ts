@@ -6,7 +6,8 @@ import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin } from '..
 export interface ComboBox extends PolymerElement { }
 
 export class ComboBox extends mix(ComboBoxElement).with(EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin) {
-    autoformat: string
+    lowercase: boolean
+    uppercase: boolean
     value: string
 
     static get properties() {
@@ -31,7 +32,7 @@ export class ComboBox extends mix(ComboBoxElement).with(EntityStoreMixin, Entity
     }
 
     async disconnectedCallback() {
-        if (this.autoformat)
+        if (this.lowercase || this.uppercase)
             this.removeEventListener('input', this.autoFormat)
         await super.disconnectedCallback()
     }
