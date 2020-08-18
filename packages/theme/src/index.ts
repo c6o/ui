@@ -18,6 +18,7 @@ import './light-dom/vaadin.scss'
 
 // Shadow DOM
 export * from './shadowDom/cssAll'
+export * from './shadowDom/cssAnimations'
 export * from './shadowDom/cssBase'
 export * from './shadowDom/cssBadge'
 export * from './shadowDom/cssGrid'

@@ -57,6 +57,10 @@
         height: calc(100vh - 400px);
     }
 
+    &.min-height {
+        min-height: 35vh;
+    }
+
     #sign-in-modal-content {
         text-align: center;
     }
