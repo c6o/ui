@@ -45,7 +45,8 @@ vaadin-context-menu-list-box {
             }
 
             .status {
-                &.error {
+                &.error,
+                &.terminating {
                     color: var(--color-fire);
                 }
 
