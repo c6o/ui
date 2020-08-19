@@ -2,29 +2,38 @@ import { css } from 'lit-element'
 
 export const cssAnimations = css`
     .c6o-chase {
-        width: var(--xl-spacing);
+        animation: c6o-chase 2.5s infinite linear both;
         height: var(--xl-spacing);
         position: relative;
-        animation: c6o-chase 2.5s infinite linear both;
+        width: var(--xl-spacing);
+    }
+
+    .c6o-chase.small {
+        height: var(--lg-spacing);
+        width: var(--lg-spacing);
     }
 
     .c6o-chase-dot {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
         animation: c6o-chase-dot 2.0s infinite ease-in-out both;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
     }
 
     .c6o-chase-dot:before {
-        content: '';
-        display: block;
-        width: 25%;
-        height: 25%;
+        animation: c6o-chase-dot-before 2.0s infinite ease-in-out both;
         background-color: var(--color-sea);
         border-radius: 100%;
-        animation: c6o-chase-dot-before 2.0s infinite ease-in-out both;
+        content: '';
+        display: block;
+        height: 25%;
+        width: 25%;
+    }
+
+    .c6o-chase.warning .c6o-chase-dot:before {
+        background-color: var(--color-sun);
     }
 
     .c6o-chase-dot:nth-child(1) { animation-delay: -1.1s; }
