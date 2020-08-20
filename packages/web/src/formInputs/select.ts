@@ -3,8 +3,12 @@ import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin } from '../mixins'
 
 export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin) {
-    root
+    itemLabelPath
+    itemValuePath
+    items
     listBox
+    listStore
+    root
 
     static get properties() {
         return {
@@ -12,6 +16,7 @@ export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityList
             itemLabelPath: { type: String, value: 'displayName' },
             itemValuePath: { type: String, value: 'value' },
             items: { type: Array },
+            listStore: { type: Object },
             path: { type: String }
         }
     }
@@ -30,23 +35,31 @@ export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityList
         // Create the <vaadin-list-box>
         this.listBox = window.document.createElement('vaadin-list-box')
         itemList.forEach(item => {
-            const vaadinItem = window.document.createElement('vaadin-item')
-            vaadinItem.textContent = item[this.itemLabelPath]
-            this.listBox.appendChild(vaadinItem)
-            vaadinItem.setAttribute('value', item[this.itemValuePath])
+            if (item[this.itemValuePath] === 'hr') {
+                const rule = window.document.createElement('hr')
+                this.listBox.appendChild(rule)
+            } else {
+                const vaadinItem = window.document.createElement('vaadin-item')
+                vaadinItem.textContent = item[this.itemLabelPath]
+                this.listBox.appendChild(vaadinItem)
+                vaadinItem.setAttribute('value', item[this.itemValuePath])
+            }
         })
         root.appendChild(this.listBox)
     }
 
-    entityStoresChanged() {
+    resetOptions() {
         if (this.root?.firstChild)
             this.root.removeChild(this.listBox)
+    }
+
+    entityStoresChanged() {
+        this.resetOptions()
         super.entityStoresChanged()
     }
 
     entityChanged() {
-        if (this.root?.firstChild)
-            this.root.removeChild(this.listBox)
+        this.resetOptions()
         super.entityChanged()
     }
 }
