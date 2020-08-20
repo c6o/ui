@@ -17,51 +17,15 @@ vaadin-context-menu-list-box {
     vaadin-context-menu-item {
         cursor: pointer;
 
-        &[theme~="notifications"] {
+        &[theme~="activity"] {
+            min-width: 200px;
             padding-bottom: var(--md-spacing);
             padding-top: var(--sm-spacing);
             position: relative;
 
-            .notification-icon {
-                margin-right: var(--sm-spacing);
-                position: relative;
-
-                .installing-animation {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                }
-
-                iron-icon {
-                    &.installing {
-                        opacity: 0.2;
-                    }
-                }
-            }
-
-            .name {
-                font-weight: 700;
-            }
-
-            .status {
-                &.error,
-                &.terminating {
-                    color: var(--color-fire);
-                }
-
-                &.installing {
-                    color: var(--color-twilight-ocean);
-                }
-
-                &.running {
-                    color: var(--color-sea);
-                }
-            }
-
-            .namespace {
-                color: var(--color-storm);
-                font-size: .68rem;
+            &[disabled] {
+                color: var(--color-navy);
+                padding: var(--xl-spacing) 0;
             }
         }
     }
