@@ -9,6 +9,8 @@
     "src"
   ],
   "scripts": {
+    "build": "echo \"Notice: no build specified\"",
+    "develop": "echo \"Notice: no develop specified\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
