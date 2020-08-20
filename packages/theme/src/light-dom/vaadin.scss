@@ -16,6 +16,18 @@ vaadin-context-menu-list-box {
 
     vaadin-context-menu-item {
         cursor: pointer;
+
+        &[theme~="activity"] {
+            min-width: 200px;
+            padding-bottom: var(--md-spacing);
+            padding-top: var(--sm-spacing);
+            position: relative;
+
+            &[disabled] {
+                color: var(--color-navy);
+                padding: var(--xl-spacing) 0;
+            }
+        }
     }
 }
 

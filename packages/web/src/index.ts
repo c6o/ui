@@ -7,6 +7,7 @@ import '@vaadin/vaadin-menu-bar'
 export * from './registerStyles'
 
 // Traxitt UI components that extend Vaadin components
+export * from './animations/installing'
 export * from './banners/alertBanner'
 export * from './banners/contextualBanner'
 export * from './button'

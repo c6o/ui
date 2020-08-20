@@ -5,7 +5,7 @@ import { cssLayouts } from './cssLayouts'
 import { cssReboot } from './cssReboot'
 import { cssTypography } from './cssTypography'
 
-// Does not include cssTooltip nor cssBadge
+// Does not include cssTooltip, cssBadge, nor cssAnimations
 export const cssAll = [
     cssReboot,
     cssGrid,

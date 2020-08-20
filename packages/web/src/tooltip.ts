@@ -8,6 +8,9 @@ export class Tooltip extends MobxLitElement {
     @property({ type: String })
     title = 'Tooltip'
 
+    @property({ type: Boolean })
+    narrow = false
+
     @property({ type: String })
     content
 
@@ -21,7 +24,7 @@ export class Tooltip extends MobxLitElement {
 
     render() {
         return html`
-            <button class="tooltip">
+            <button class="tooltip ${this.narrow ? 'narrow' : ''}">
                 <span class="tooltiptext">
                     <div class="tooltip-header">${this.title}</div>
                     <div class="tooltip-content">

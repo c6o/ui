@@ -28,6 +28,11 @@ export const cssTooltip = css`
         margin-top: var(--sm-spacing);
     }
 
+    .tooltip.narrow .tooltiptext {
+        margin-left: -80px;
+        width: 160px;
+    }
+
     /* Show the tooltip text when you mouse over the tooltip container */
     .tooltip:hover .tooltiptext {
         opacity: 1;
