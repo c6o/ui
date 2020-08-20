@@ -3,8 +3,8 @@ import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin } from '../mixins'
 
 export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin) {
-    itemLabelPath
-    itemValuePath
+    itemLabelPath: string
+    itemValuePath: string
     items
     listBox
     listStore
@@ -16,8 +16,7 @@ export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityList
             itemLabelPath: { type: String, value: 'displayName' },
             itemValuePath: { type: String, value: 'value' },
             items: { type: Array },
-            listStore: { type: Object },
-            path: { type: String }
+            listStore: { type: Object }
         }
     }
 
