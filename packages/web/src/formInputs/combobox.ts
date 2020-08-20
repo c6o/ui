@@ -12,6 +12,7 @@ export class ComboBox extends mix(ComboBoxElement).with(EntityStoreMixin, Entity
 
     static get properties() {
         return {
+            ...super.properties,
             lowercase: { type: Boolean },
             uppercase: { type: Boolean },
             value: { type: String }

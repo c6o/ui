@@ -290,10 +290,6 @@ registerStyles('vaadin-grid', css`
 `)
 
 registerStyles('vaadin-item', css`
-    :host {
-        font-size: var(--lumo-font-size-s);
-    }
-
     :host(:focus) {
         outline: none !important;
     }
