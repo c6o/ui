@@ -5,10 +5,13 @@
 ========================================================================== */
 
 vaadin-context-menu-list-box {
+    padding-bottom: var(--xs-spacing);
+    padding-top: var(--xs-spacing);
+
     > hr {
         height: 1px;
 
-        &[theme~="marina"] {
+        &[theme~="system"] {
             height: 0;
             margin: var(--xs-spacing);
         }
@@ -17,12 +20,21 @@ vaadin-context-menu-list-box {
     vaadin-context-menu-item {
         cursor: pointer;
 
-        &[theme~="activity"] {
+        &[theme~="system"],
+        &[theme~="activity"]{
             min-width: 200px;
-            padding-bottom: var(--md-spacing);
+            padding-bottom: var(--sm-spacing);
             padding-top: var(--sm-spacing);
             position: relative;
+        }
 
+        &[theme~="system"] {
+            &[disabled] {
+                color: var(--color-morning-sea);
+            }
+        }
+
+        &[theme~="activity"] {
             &[disabled] {
                 color: var(--color-navy);
                 padding: var(--xl-spacing) 0;
