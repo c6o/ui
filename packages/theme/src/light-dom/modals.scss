@@ -12,8 +12,7 @@
     margin-bottom: var(--xl-spacing);
     padding-bottom: var(--md-spacing);
 
-    > img,
-    > .modal-icon {
+    > img {
         padding-right: var(--c6o-icon-padding, 22px);
         width: var(--c6o-icon-width, 48px);
         height: var(--c6o-icon-height, 48px);
@@ -23,8 +22,8 @@
     iron-icon {
         --iron-icon-width: 16px;
         --iron-icon-height: 16px;
-        cursor: pointer;
         color: var(--color-rain);
+        cursor: pointer;
 
         &:hover {
             color: var(--color-navy);

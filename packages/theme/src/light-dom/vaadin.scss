@@ -5,10 +5,25 @@
 ========================================================================== */
 
 vaadin-context-menu-list-box {
+    padding-bottom: var(--xs-spacing);
+    padding-top: var(--xs-spacing);
+
     > hr {
         height: 1px;
+    }
 
-        &[theme~="marina"] {
+    &[theme~="system"],
+    &[theme~="activity"],
+    &[theme~="icon"] {
+        min-width: 200px;
+
+        vaadin-context-menu-item {
+            padding-bottom: var(--sm-spacing);
+            padding-top: var(--sm-spacing);
+            position: relative;
+        }
+
+        hr {
             height: 0;
             margin: var(--xs-spacing);
         }
@@ -17,12 +32,13 @@ vaadin-context-menu-list-box {
     vaadin-context-menu-item {
         cursor: pointer;
 
-        &[theme~="activity"] {
-            min-width: 200px;
-            padding-bottom: var(--md-spacing);
-            padding-top: var(--sm-spacing);
-            position: relative;
+        &[theme~="system"] {
+            &[disabled] {
+                color: var(--color-morning-sea);
+            }
+        }
 
+        &[theme~="activity"] {
             &[disabled] {
                 color: var(--color-navy);
                 padding: var(--xl-spacing) 0;

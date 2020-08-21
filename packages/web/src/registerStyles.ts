@@ -380,12 +380,12 @@ registerStyles('vaadin-menu-bar', css`
         min-width: auto;
     }
 
-    [part="menu-bar-button"][theme="marina"] {
+    [part="menu-bar-button"][theme="system"] {
         background: none;
         color: var(--color-white);
     }
 
-    [part="menu-bar-button"][theme="marina"]:hover {
+    [part="menu-bar-button"][theme="system"]:hover {
         background: none;
     }
 `)
