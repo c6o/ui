@@ -10,8 +10,20 @@ vaadin-context-menu-list-box {
 
     > hr {
         height: 1px;
+    }
 
-        &[theme~="system"] {
+    &[theme~="system"],
+    &[theme~="activity"],
+    &[theme~="icon"] {
+        min-width: 200px;
+
+        vaadin-context-menu-item {
+            padding-bottom: var(--sm-spacing);
+            padding-top: var(--sm-spacing);
+            position: relative;
+        }
+
+        hr {
             height: 0;
             margin: var(--xs-spacing);
         }
@@ -19,14 +31,6 @@ vaadin-context-menu-list-box {
 
     vaadin-context-menu-item {
         cursor: pointer;
-
-        &[theme~="system"],
-        &[theme~="activity"]{
-            min-width: 200px;
-            padding-bottom: var(--sm-spacing);
-            padding-top: var(--sm-spacing);
-            position: relative;
-        }
 
         &[theme~="system"] {
             &[disabled] {
