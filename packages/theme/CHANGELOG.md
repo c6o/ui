@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.4](https://github.com/c6o/node-monorepo/compare/v0.0.3...v0.0.4) (2020-08-23)
+
+
+### ✨ Features
+
+* **css:** App install animation and dialog styles ([#18](https://github.com/c6o/node-monorepo/issues/18)) ([c38a01c](https://github.com/c6o/node-monorepo/commit/c38a01c695d02460f4e0265691f2f426385f3f26))
+
+
+### 🐛 Bug Fixes
+
+* Remove roboto font as a dependency ([34b1fd3](https://github.com/c6o/node-monorepo/commit/34b1fd37938a44a603072661e3660d3c4fb1a7f0))
+
+
+### ♻️ Chores
+
+* **marina:** Tweak to the dropdown menu styles ([#22](https://github.com/c6o/node-monorepo/issues/22)) ([3f39e6b](https://github.com/c6o/node-monorepo/commit/3f39e6b1e09b8ebf079061c59a8b8afaceabe678))
+* Add "tall" style for modals ([acf8ab4](https://github.com/c6o/node-monorepo/commit/acf8ab48ac646d214d065f1f6379fe1b48c2ee05))
+* Add blue "team" icon ([8e9a093](https://github.com/c6o/node-monorepo/commit/8e9a0934d1224a45c7fba66d3360a7edc4b07122))
+* Adding some additional icons ([9d80060](https://github.com/c6o/node-monorepo/commit/9d80060e3a7a4b8912da01754489a8a3926e2656))
+* Reverted to workspaces ([#19](https://github.com/c6o/node-monorepo/issues/19)) ([6e8bfa7](https://github.com/c6o/node-monorepo/commit/6e8bfa7db7510dbb5d7b58fd7e45926b46836651))
+* Switch package keywords from traxitt to codezero ([#12](https://github.com/c6o/node-monorepo/issues/12)) ([ce69f30](https://github.com/c6o/node-monorepo/commit/ce69f30ec9a741460dadb8610840e8f35a89df29))
+* Tweak icon height small size ([#21](https://github.com/c6o/node-monorepo/issues/21)) ([985e2c1](https://github.com/c6o/node-monorepo/commit/985e2c1c02d2d38fb428d89c0e97cca251d97108))
+* Updated build scripts ([#17](https://github.com/c6o/node-monorepo/issues/17)) ([116ea68](https://github.com/c6o/node-monorepo/commit/116ea687c13fa706f5ea0f98ad5f15b45053a038))
+
+
+
+
+
 ## 0.0.3 (2020-08-08)
 
 

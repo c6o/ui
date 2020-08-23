@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.4](https://github.com/c6o/node-monorepo/compare/v0.0.3...v0.0.4) (2020-08-23)
+
+
+### ✨ Features
+
+* **css:** App install animation and dialog styles ([#18](https://github.com/c6o/node-monorepo/issues/18)) ([c38a01c](https://github.com/c6o/node-monorepo/commit/c38a01c695d02460f4e0265691f2f426385f3f26))
+* Added onOpened/onClose to SimpleDialog ([922dc43](https://github.com/c6o/node-monorepo/commit/922dc43193e1374c4c79f636749a5319bb85a425))
+* allow Simple Dialog modal header to be custom rendered ([42bb3b0](https://github.com/c6o/node-monorepo/commit/42bb3b006cab35faf54f4ab951d4b13ac1335a39))
+
+
+### 🐛 Bug Fixes
+
+* **combobox:** Add autoformat to combobox to force lower or uppercase ([#16](https://github.com/c6o/node-monorepo/issues/16)) ([e34c348](https://github.com/c6o/node-monorepo/commit/e34c34811a3a275302aa8ae84a258d3151d508d2))
+* **dialogs:** Change "forceRender" to "isStatic" and re-render the modal by default ([d9885c8](https://github.com/c6o/node-monorepo/commit/d9885c8f117d1e8fe2c5950b48bfe631aaed8ce9))
+* **hub:** Ability to select marketplace category when editing an app ([#20](https://github.com/c6o/node-monorepo/issues/20)) ([ee5b215](https://github.com/c6o/node-monorepo/commit/ee5b215ca357d80c6db20b5f324f15bb4028da01))
+* Remove roboto font as a dependency ([34b1fd3](https://github.com/c6o/node-monorepo/commit/34b1fd37938a44a603072661e3660d3c4fb1a7f0))
+* SimpleDialog inheristence ([c294639](https://github.com/c6o/node-monorepo/commit/c294639d50fb075f2271c96783413682951dc0e5))
+* Type issues with simpleDialog ([8fbbe71](https://github.com/c6o/node-monorepo/commit/8fbbe718607a78ed8ec4d25f3333e0269b77c072))
+
+
+### ♻️ Chores
+
+* **marina:** Tweak to the dropdown menu styles ([#22](https://github.com/c6o/node-monorepo/issues/22)) ([3f39e6b](https://github.com/c6o/node-monorepo/commit/3f39e6b1e09b8ebf079061c59a8b8afaceabe678))
+* Add "tall" style for modals ([acf8ab4](https://github.com/c6o/node-monorepo/commit/acf8ab48ac646d214d065f1f6379fe1b48c2ee05))
+* Add blue "team" icon ([8e9a093](https://github.com/c6o/node-monorepo/commit/8e9a0934d1224a45c7fba66d3360a7edc4b07122))
+* Add disconnectedCallback to SimpleDialog ([c4116a5](https://github.com/c6o/node-monorepo/commit/c4116a5a856e85feaa0758c2b2089c20841460b4))
+* Added pack-all script ([c5307fe](https://github.com/c6o/node-monorepo/commit/c5307fe1ad4dbf14031170099a7d4f4c11d6fda7))
+* Adding some additional icons ([9d80060](https://github.com/c6o/node-monorepo/commit/9d80060e3a7a4b8912da01754489a8a3926e2656))
+* fix VSCode warning ([7d0184d](https://github.com/c6o/node-monorepo/commit/7d0184d12fdcaf1e7cacff08934a35534e7c7213))
+* Reverted to workspaces ([#19](https://github.com/c6o/node-monorepo/issues/19)) ([6e8bfa7](https://github.com/c6o/node-monorepo/commit/6e8bfa7db7510dbb5d7b58fd7e45926b46836651))
+* Some cleanup to dialogs and banners ([2e1c029](https://github.com/c6o/node-monorepo/commit/2e1c029f135dd2724f2ca82f7b17d6b61e3e8a22))
+* Switch package keywords from traxitt to codezero ([#12](https://github.com/c6o/node-monorepo/issues/12)) ([ce69f30](https://github.com/c6o/node-monorepo/commit/ce69f30ec9a741460dadb8610840e8f35a89df29))
+* Tweak icon height small size ([#21](https://github.com/c6o/node-monorepo/issues/21)) ([985e2c1](https://github.com/c6o/node-monorepo/commit/985e2c1c02d2d38fb428d89c0e97cca251d97108))
+* Updated build scripts ([#17](https://github.com/c6o/node-monorepo/issues/17)) ([116ea68](https://github.com/c6o/node-monorepo/commit/116ea687c13fa706f5ea0f98ad5f15b45053a038))
+* **dialogs:** Add "render" to interface for type checking ([#15](https://github.com/c6o/node-monorepo/issues/15)) ([62de177](https://github.com/c6o/node-monorepo/commit/62de177379e2bc1608a79b678c50ba3cef5e6eab))
+
+
+
+
+
 ## 0.0.3 (2020-08-08)
 
 

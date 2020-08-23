@@ -21,7 +21,7 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
 
     checkForErrors = () => {
         const errors = this.store?.errors
-        if (errors.type !== 'FeathersError') {
+        if (errors && errors.type !== 'FeathersError') {
             const error = Object.keys(errors).find(key => key === this.path || key === this.id)
             if (error) {
                 this.errorMessage = errors[error].message

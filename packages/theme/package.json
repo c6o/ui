@@ -1,6 +1,6 @@
 {
   "name": "@c6o/ui-theme",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Theme for Traxitt",
   "main": "./src/index.ts",
   "module": "./src/index.ts",
@@ -9,11 +9,13 @@
     "src"
   ],
   "scripts": {
+    "build": "echo \"Notice: no build specified\"",
+    "develop": "echo \"Notice: no develop specified\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "theme",
-    "traxitt",
+    "codezero",
     "UI"
   ],
   "author": "Adrian Jones",
@@ -25,10 +27,10 @@
   "dependencies": {
     "lit-element": "^2.3.1",
     "source-map-support": "^0.5.16",
-    "typeface-montserrat": "^0.0.75",
-    "typeface-roboto": "^0.0.75"
+    "typeface-montserrat": "^0.0.75"
   },
   "devDependencies": {
-    "sass": "^1.26.3"
-  }
+    "sass": "^1.26.10"
+  },
+  "gitHead": "d87d05a208c8b3823b2ecf4de7a2f38076793500"
 }

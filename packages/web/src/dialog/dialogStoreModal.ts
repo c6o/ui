@@ -3,7 +3,6 @@ import { TemplateResult } from 'lit-html'
 import { DialogStore } from './dialogStore'
 
 export abstract class DialogStoreModal extends DialogStore {
-    abstract renderModalContent(): TemplateResult
     btnTheme
     confirmBtnText
     confirmDialog
@@ -11,6 +10,7 @@ export abstract class DialogStoreModal extends DialogStore {
     deleteMessage
     size
     title
+    abstract renderModalContent(): TemplateResult
 
     static get properties() {
         return {

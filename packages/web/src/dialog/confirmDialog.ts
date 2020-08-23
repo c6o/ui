@@ -3,14 +3,14 @@ import { DialogElement } from '@vaadin/vaadin-dialog/src/vaadin-dialog'
 import { render, TemplateResult } from 'lit-html'
 
 export class ConfirmationDialog extends DialogElement {
-    renderModalContent?(): TemplateResult
-    callback: (confirmed: boolean) => void
     btnTheme: string
     confirmBtnText: string
     cancelBtnText: string
     message: string
     size: string
     title: string
+    renderModalContent?(): TemplateResult
+    callback: (confirmed: boolean) => void
 
     static get properties() {
         return {
