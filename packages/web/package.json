@@ -27,5 +27,6 @@
     "mixwith": "^0.1.1",
     "mobx": "^5.15.2",
     "source-map-support": "^0.5.16"
-  }
+  },
+  "gitHead": "d87d05a208c8b3823b2ecf4de7a2f38076793500"
 }

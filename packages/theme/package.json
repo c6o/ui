@@ -31,5 +31,6 @@
   },
   "devDependencies": {
     "sass": "^1.26.10"
-  }
+  },
+  "gitHead": "d87d05a208c8b3823b2ecf4de7a2f38076793500"
 }
