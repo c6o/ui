@@ -665,14 +665,6 @@ registerStyles('vaadin-text-area', css`
     .fa-table:before {
         content: "\\f0ce"; }
 
-    @font-face {
-        font-family: 'Font Awesome 5 Free';
-        font-style: normal;
-        font-weight: 900;
-        font-display: block;
-        src: url("../webfonts/fa-solid-900.eot");
-        src: url("../webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../webfonts/fa-solid-900.woff2") format("woff2"), url("../webfonts/fa-solid-900.woff") format("woff"), url("../webfonts/fa-solid-900.ttf") format("truetype"), url("../webfonts/fa-solid-900.svg#fontawesome") format("svg"); }
-
     .fa {
         font-family: 'Font Awesome 5 Free';
         font-weight: 900; }

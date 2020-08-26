@@ -10,7 +10,6 @@ export class Markdown extends MobxLitElement {
 
     render() {
         if (this.markdown) {
-
             const md = new MarkdownIt()
             const safeContent = document.createRange().createContextualFragment(md.render(this.markdown))
             return html`${safeContent}`
