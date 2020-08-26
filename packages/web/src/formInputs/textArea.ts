@@ -75,7 +75,6 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
                 element: this.root.querySelector('textarea'),
                 autoDownloadFontAwesome: false,
                 minHeight: this.minHeight,
-                toolbar: false,
                 showIcons: ['code', 'table', 'horizontal-rule']
             })
 
