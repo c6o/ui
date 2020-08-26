@@ -16,7 +16,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
     static get properties() {
         return {
             json: { type: Boolean },
-            markdown: { type: Boolean, value: false },
+            markdown: { type: Boolean },
             minHeight: { type: String, value: '300px'},
             yaml: { type: Boolean },
             data: { type: Object, observer: 'dataChanged' }
