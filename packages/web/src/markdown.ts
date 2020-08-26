@@ -1,6 +1,5 @@
 import { html, customElement, property } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
-import { unsafeHTML } from 'lit-html/directives/unsafe-html.js'
 import MarkdownIt from 'markdown-it'
 
 @customElement('c6o-markdown')
@@ -11,8 +10,10 @@ export class Markdown extends MobxLitElement {
 
     render() {
         if (this.markdown) {
+
             const md = new MarkdownIt()
-            return html`${unsafeHTML(md.render(this.markdown))}`
+            const safeContent = document.createRange().createContextualFragment(md.render(this.markdown))
+            return html`${safeContent}`
         }
     }
 }
