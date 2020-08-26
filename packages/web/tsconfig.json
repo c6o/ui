@@ -12,10 +12,6 @@
     ],
     "include": [
         "src"
-    ],
-    "exclude": [
-        "node_modules",
-        "test"
     ]
 }
 */
@@ -44,6 +40,6 @@
     "exclude": [
         "test",
         "node_modules",
-        "test"
+        "**/*.unit.ts"
     ]
 }
