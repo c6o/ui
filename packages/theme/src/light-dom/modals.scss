@@ -12,10 +12,10 @@
     margin-bottom: var(--xl-spacing);
     padding-bottom: var(--md-spacing);
 
-    > img {
+    img {
         padding-right: var(--c6o-icon-padding, 22px);
         width: var(--c6o-icon-width, 48px);
-        height: var(--c6o-icon-height, 48px);
+        height: auto;
         box-sizing: content-box;
     }
 
