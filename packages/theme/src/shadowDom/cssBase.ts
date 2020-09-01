@@ -22,7 +22,7 @@ export const cssBase = css`
     }
 
     a:hover {
-        color: var(---color-morning-sea);
+        color: var(--color-morning-sea);
     }
 
     a.icon {
