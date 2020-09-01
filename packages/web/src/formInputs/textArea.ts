@@ -1,19 +1,25 @@
 import { TextAreaElement } from '@vaadin/vaadin-text-field/src/vaadin-text-area'
+import EasyMDE from 'easymde'
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 import { setValueFromPath, getValueFromPath } from '../mixins/path'
 import yaml from 'js-yaml'
 
 export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, EntityStorePathMixin) {
+    easyMDE
+    json: boolean
+    root
+    markdown: boolean
+    minHeight: string
+    yaml: boolean
 
     static get properties() {
         return {
             json: { type: Boolean },
+            markdown: { type: Boolean },
+            minHeight: { type: String, value: '300px'},
             yaml: { type: Boolean },
-            data: {
-                type: Object,
-                observer: 'dataChanged'
-            }
+            data: { type: Object, observer: 'dataChanged' }
         }
     }
 
@@ -40,8 +46,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
                 // ignore - we don't update until JSON is valid
                 console.log('Error setting JSON value from path', e)
             }
-        }
-        else if (this.yaml) {
+        } else if (this.yaml) {
             try {
                 setValueFromPath(this.store.pending, this.path, yaml.safeLoad(value))
             }
@@ -49,8 +54,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
                 // ignore - we don't update until YAML is valid
                 console.log('Error setting YAML value from path', e)
             }
-        }
-        else
+        } else
             super.eventToStore(e)
     }
 
@@ -62,6 +66,23 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
             super.value = yaml.safeDump(getValueFromPath(valueFrom, this.path))
         else
             super.storeToValue()
+    }
+
+    async connectedCallback() {
+        await super.connectedCallback()
+
+        if (this.markdown) {
+            const easyMDE = new EasyMDE({
+                element: this.root.querySelector('textarea'),
+                autoDownloadFontAwesome: false,
+                minHeight: this.minHeight,
+                showIcons: ['code', 'table', 'horizontal-rule']
+            })
+
+            easyMDE.codemirror.on('change', () => {
+                setValueFromPath(this.store.pending, this.path, easyMDE.value())
+            })
+        }
     }
 }
 

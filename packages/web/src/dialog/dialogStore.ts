@@ -4,7 +4,9 @@ import { EntityStoreMixin } from '../mixins/entityStore'
 import { mix } from 'mixwith'
 import { render, TemplateResult } from 'lit-html'
 
-export interface DialogStore extends PolymerElement {}
+export interface DialogStore extends PolymerElement {
+    render()
+}
 
 export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMixin) {
     file
@@ -53,6 +55,7 @@ export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMix
         if (this.store) {
             if (this.cancelCallback)
                 this.cancelCallback()
+            this.store.reset()
             this.store = null // this will close the dialog
         }
         this.opened = false

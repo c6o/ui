@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.5](https://github.com/c6o/node-monorepo/compare/v0.0.4...v0.0.5) (2020-09-01)
+
+
+### ✨ Features
+
+* Added markdown support to text area web component ([#25](https://github.com/c6o/node-monorepo/issues/25)) ([8e9bd29](https://github.com/c6o/node-monorepo/commit/8e9bd29907b9dc2f0984f6283d5c584b5f0ef9fe))
+* **icons:** Adding "question" icon in blue ([#24](https://github.com/c6o/node-monorepo/issues/24)) ([31f6b73](https://github.com/c6o/node-monorepo/commit/31f6b73f50135e9de668a14415ec8da25578b8c7))
+
+
+### 🐛 Bug Fixes
+
+* Fix for when user clears the marketplace search field ([#30](https://github.com/c6o/node-monorepo/issues/30)) ([061d0c6](https://github.com/c6o/node-monorepo/commit/061d0c65c445e51efd88f4ddd1dac58a688dbeae))
+
+
+### ♻️ Chores
+
+* add render() to interface ([#26](https://github.com/c6o/node-monorepo/issues/26)) ([f952a19](https://github.com/c6o/node-monorepo/commit/f952a19a56b97d01f1cf151f70e1979657974961))
+* Added conventional-changelog-metahub ([1b1c29c](https://github.com/c6o/node-monorepo/commit/1b1c29cbbd207108cde5c902e29156feed28207c))
+* Added gitHead ([3d75650](https://github.com/c6o/node-monorepo/commit/3d756507668d11511bd3cefffaefd30283a5ae08))
+* Removed lit-html version conflict ([2e48cac](https://github.com/c6o/node-monorepo/commit/2e48cac22cd0c8ca315e54858c4033b9311ab1a4))
+* Show markdown toolbar again and remove [@font-face](https://github.com/font-face). Font will come from CDN. ([#27](https://github.com/c6o/node-monorepo/issues/27)) ([e6c9b1e](https://github.com/c6o/node-monorepo/commit/e6c9b1e21d08a8cbb0690933845f8830c5a884ef))
+* Simplify the router util methods; remove 'redirect' and just use 'navigate' ([#29](https://github.com/c6o/node-monorepo/issues/29)) ([07c19b2](https://github.com/c6o/node-monorepo/commit/07c19b22a63d369163d86aeb539e5a64039551d8))
+* Tweak to our modal css ([#28](https://github.com/c6o/node-monorepo/issues/28)) ([e40e843](https://github.com/c6o/node-monorepo/commit/e40e843d11ed82883d6aa28a91154c5ba5270b70))
+* Updated yarn.lock ([dfe08e9](https://github.com/c6o/node-monorepo/commit/dfe08e97f932490007cca214c5ca61505b7aae07))
+
+
+
+
+
 ## [0.0.4](https://github.com/c6o/node-monorepo/compare/v0.0.3...v0.0.4) (2020-08-23)
 
 

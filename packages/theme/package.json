@@ -1,7 +1,7 @@
 {
   "name": "@c6o/ui-theme",
-  "version": "0.0.4",
-  "description": "Theme for Traxitt",
+  "version": "0.0.5",
+  "description": "CodeZero common front-end theme",
   "main": "./src/index.ts",
   "module": "./src/index.ts",
   "source": true,
@@ -32,5 +32,5 @@
   "devDependencies": {
     "sass": "^1.26.10"
   },
-  "gitHead": "d87d05a208c8b3823b2ecf4de7a2f38076793500"
+  "gitHead": "2b5d4788fb45fab8ccb92d7019a96a367744efc4"
 }
