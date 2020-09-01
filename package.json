@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "@types/node": "^10.12.18",
+    "conventional-changelog-metahub": "^4.0.1",
     "del-cli": "^3.0.1",
     "lerna": "^3.20.2",
     "source-map-support": "^0.5.16",
