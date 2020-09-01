@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.5](https://github.com/c6o/node-monorepo/compare/v0.0.4...v0.0.5) (2020-09-01)
+
+
+### ✨ Features
+
+* Added markdown support to text area web component ([#25](https://github.com/c6o/node-monorepo/issues/25)) ([8e9bd29](https://github.com/c6o/node-monorepo/commit/8e9bd29907b9dc2f0984f6283d5c584b5f0ef9fe))
+* **icons:** Adding "question" icon in blue ([#24](https://github.com/c6o/node-monorepo/issues/24)) ([31f6b73](https://github.com/c6o/node-monorepo/commit/31f6b73f50135e9de668a14415ec8da25578b8c7))
+
+
+### ♻️ Chores
+
+* Added gitHead ([3d75650](https://github.com/c6o/node-monorepo/commit/3d756507668d11511bd3cefffaefd30283a5ae08))
+* Tweak to our modal css ([#28](https://github.com/c6o/node-monorepo/issues/28)) ([e40e843](https://github.com/c6o/node-monorepo/commit/e40e843d11ed82883d6aa28a91154c5ba5270b70))
+
+
+
+
+
 ## [0.0.4](https://github.com/c6o/node-monorepo/compare/v0.0.3...v0.0.4) (2020-08-23)
 
 
