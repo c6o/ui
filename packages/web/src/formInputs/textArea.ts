@@ -71,9 +71,9 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
         const valueFromPath = getValueFromPath(valueFrom, this.path)
         if (this.json && valueFromPath?.length)
             super.value = JSON.stringify(getValueFromPath(valueFrom, this.path), null, 4)
-        else if (this.yaml && valueFromPath?.length) {
+        else if (this.yaml && valueFromPath?.length)
             super.value = yaml.safeDump(valueFromPath)
-        } else
+        else
             super.storeToValue()
     }
 
