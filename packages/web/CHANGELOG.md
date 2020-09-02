@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.6](https://github.com/c6o/node-monorepo/compare/v0.0.5...v0.0.6) (2020-09-02)
+
+
+### 🐛 Bug Fixes
+
+* Check for empty object or string instead of just empty string ([#34](https://github.com/c6o/node-monorepo/issues/34)) ([bb6352e](https://github.com/c6o/node-monorepo/commit/bb6352e9a9485b6b091ac76631f7e8b5f28429de))
+* Improvements and fixes mainly to the c6o-text-area component ([#33](https://github.com/c6o/node-monorepo/issues/33)) ([da843d7](https://github.com/c6o/node-monorepo/commit/da843d7b0a879584029e74b7660fbfc8ac8afab5))
+
+
+### ♻️ Chores
+
+* Updated gitHead ([28b4e6d](https://github.com/c6o/node-monorepo/commit/28b4e6d8af244e7b5e0b42f82cfbd57e41b8fd41))
+
+
+
+
+
 ## [0.0.5](https://github.com/c6o/node-monorepo/compare/v0.0.4...v0.0.5) (2020-09-01)
 
 
