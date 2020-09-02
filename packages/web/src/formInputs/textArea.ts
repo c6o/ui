@@ -1,6 +1,7 @@
 import { TextAreaElement } from '@vaadin/vaadin-text-field/src/vaadin-text-area'
 import EasyMDE from 'easymde'
 import { mix } from 'mixwith'
+import { EntityStore } from '@c6o/common'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 import { setValueFromPath, getValueFromPath } from '../mixins/path'
 import yaml from 'js-yaml'
@@ -8,27 +9,34 @@ import yaml from 'js-yaml'
 export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, EntityStorePathMixin) {
     easyMDE
     json: boolean
-    root
     markdown: boolean
     minHeight: string
+    path: string
+    readonly: boolean
+    root
+    store: EntityStore
+    value
     yaml: boolean
 
     static get properties() {
         return {
+            ...super.properties,
+            data: { type: Object, observer: 'dataChanged' },
             json: { type: Boolean },
             markdown: { type: Boolean },
             minHeight: { type: String, value: '300px'},
-            yaml: { type: Boolean },
-            data: { type: Object, observer: 'dataChanged' }
+            readonly: { type: Boolean, value: false },
+            yaml: { type: Boolean }
         }
     }
 
+    // This is used in the StoreReview class
     dataChanged(newVal, oldVal) {
         if (newVal === oldVal === undefined)
             return
 
-        if (this.store || this.readonly !== true)
-            throw new Error('c6o-text-area data cannot be used when store is specified or if it is not readonly')
+        if (this.store || !this.readonly)
+            throw new Error('c6o-text-area .data property cannot be used when store is specified or if it is not readonly')
 
         if (this.json)
             this.value = JSON.stringify(newVal)
@@ -60,10 +68,11 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
 
     storeToValue() {
         const valueFrom = this.store.entity || this.store.pending
-        if (this.json)
+        const valueFromPath = getValueFromPath(valueFrom, this.path)
+        if (this.json && valueFromPath?.length)
             super.value = JSON.stringify(getValueFromPath(valueFrom, this.path), null, 4)
-        else if (this.yaml)
-            super.value = yaml.safeDump(getValueFromPath(valueFrom, this.path))
+        else if (this.yaml && valueFromPath?.length)
+            super.value = yaml.safeDump(valueFromPath)
         else
             super.storeToValue()
     }

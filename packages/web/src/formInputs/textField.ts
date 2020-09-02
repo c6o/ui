@@ -12,6 +12,7 @@ export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, Enti
 
     static get properties() {
         return {
+            ...super.properties,
             lowercase: { type: Boolean },
             uppercase: { type: Boolean },
             value: { type: String }

@@ -71,7 +71,11 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
     }
 
     async connectedCallback() {
-        await super.connectedCallback()
+        try {
+            await super.connectedCallback()
+        } catch (err) {
+            console.log('connectedCallback error', err) // TODO: Log and handle this error
+        }
         super.addEventListener('change', this.inputChanged)
     }
 

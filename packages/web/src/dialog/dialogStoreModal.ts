@@ -1,11 +1,11 @@
 import { html } from 'lit-element'
 import { TemplateResult } from 'lit-html'
 import { DialogStore } from './dialogStore'
+import { ConfirmationDialog } from '@c6o/ui-web'
 
 export abstract class DialogStoreModal extends DialogStore {
     btnTheme
     confirmBtnText
-    confirmDialog
     cancelBtnText
     deleteMessage
     size
@@ -23,6 +23,8 @@ export abstract class DialogStoreModal extends DialogStore {
             title: { type: String, value: 'CodeZero' }
         }
     }
+
+    get confirmDialog() { return this.root.querySelector('c6o-confirm-dialog') as ConfirmationDialog }
 
     renderContent = (save, cancel) => {
         return html`
@@ -58,10 +60,12 @@ export abstract class DialogStoreModal extends DialogStore {
     }
 
     delete = async () => {
-        const confirm = await this.confirmDialog.show(this.deleteMessage)
-        if (confirm) {
-            await this.store.remove()
-            this.store = null
+        if (this.confirmDialog) {
+            const confirm = await this.confirmDialog.show(this.deleteMessage)
+            if (confirm) {
+                await this.store.remove()
+                this.store = null
+            }
         }
     }
 }

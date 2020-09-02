@@ -594,6 +594,10 @@ registerStyles('vaadin-text-area', css`
         min-height: 130px;
     }
 
+    :host(.medium-height) {
+        min-height: 200px;
+    }
+
     :host(.full-height) {
         min-height: 300px;
     }
