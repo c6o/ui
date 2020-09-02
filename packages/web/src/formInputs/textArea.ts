@@ -78,7 +78,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
     }
 
     isEmpty(value) {
-        if (value.constructor === Object)
+        if (value?.constructor === Object)
             return !Object.keys(value).length
         else
             return !value?.length
