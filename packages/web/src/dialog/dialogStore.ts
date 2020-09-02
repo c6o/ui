@@ -24,6 +24,7 @@ export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMix
             file: { type: Object },
             filePath: { type: String, value: 'image' },
             root: { type: Object },
+            store: { type: Object }
         }
     }
 

@@ -1,4 +1,5 @@
 // Blue Icons
+import appsIconB from './blue/apps.svg'
 import appStoreIconB from './blue/app-store.svg'
 import cloudIconB from './blue/cloud.svg'
 import installIconB from './blue/install.svg'
@@ -7,6 +8,7 @@ import questionIconB from './blue/question.svg'
 import revenueIconB from './blue/revenue.svg'
 import teamIconB from './blue/team.svg'
 
+export const appsIconBlue = appsIconB
 export const appStoreIconBlue = appStoreIconB
 export const cloudIconBlue = cloudIconB
 export const installIconBlue = installIconB

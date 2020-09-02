@@ -1,6 +1,6 @@
 {
   "name": "@c6o/ui-theme",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "CodeZero common front-end theme",
   "main": "./src/index.ts",
   "module": "./src/index.ts",
@@ -32,5 +32,5 @@
   "devDependencies": {
     "sass": "^1.26.10"
   },
-  "gitHead": "2b5d4788fb45fab8ccb92d7019a96a367744efc4"
+  "gitHead": "a4d382ca54a10c3f1405151c6a1cab1478d40896"
 }
