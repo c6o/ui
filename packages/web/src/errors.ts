@@ -6,10 +6,10 @@ import { cssReboot, cssBase } from '@c6o/ui-theme'
 
 // This custom element must be nested in a c6o-form-layout element with a bound store
 export class Errors extends mix(MobxLitElement).with(EntityStoreMixin) {
-    defaultHeading = 'Please correct the following form errors:'
+    store
 
     @property({ type: String })
-    heading = this.defaultHeading
+    heading = 'Please correct the following form errors:'
 
     @property({ type: String })
     filter
@@ -37,7 +37,7 @@ export class Errors extends mix(MobxLitElement).with(EntityStoreMixin) {
                     icon="exclamation-circle"
                     theme="error"
                 >
-                    <h4>${this.defaultHeading}</h4>
+                    <h4>${this.heading}</h4>
                     <ul class="error-message">
                         ${errors.errors.length ? html`
                             ${errors.errors.map(i => html`
