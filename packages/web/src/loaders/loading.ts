@@ -5,6 +5,9 @@ import { cssReboot, cssBase, cssLayouts, cssTypography } from '@c6o/ui-theme'
 @customElement('c6o-loading')
 export class Loading extends MobxLitElement {
 
+    @property({ type: Boolean, attribute: 'bar-only' })
+    barOnly = false
+
     @property({ type: String })
     text = 'Loading...'
 
@@ -33,7 +36,9 @@ export class Loading extends MobxLitElement {
     }
 
     render() {
-        return html`
+        return this.barOnly ? html`
+            <c6o-progress-bar indeterminate value="0"></c6o-progress-bar>
+        ` : html`
             <section id="loading">
                 <div class="panel">
                     <h3>${this.text}</h3>
