@@ -67,20 +67,28 @@ export class AlertBanner extends MobxLitElement {
     async connectedCallback() {
         await super.connectedCallback()
 
-        const errors = this.meStore?.errors || {}
-        if (errors) {
+        const errorHash = '#error'
+
+        if (!this.meStore.success) {
+            const errors = this.meStore.errors
             if (errors.type === 'FeathersError') {
                 // Display a general error dialog
                 // TODO: Be more specific about the error
-                this.message = `Server error: ${errors.message}`
+                this.message = `Error: ${errors.message}`
                 this.theme = 'error'
-                setTimeout(() => {
-                    this.alertBanner.className = 'hide'
-                }, 5000)
-            } else if (Object.keys(errors).length) {
+            }
+            else {
                 // TODO: Log these errors, or surface them
                 console.log(Object.keys(errors).forEach(key => errors[key].message))
             }
+        } else if (window.location.hash.startsWith(errorHash))
+            this.message = decodeURIComponent(window.location.hash.substring(1).substring(errorHash.length))
+
+        if (this.message?.length) {
+            this.theme = 'error'
+            setTimeout(() => {
+                this.alertBanner.className = 'hide'
+            }, 5000)
         }
     }
 }

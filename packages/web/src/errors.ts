@@ -27,7 +27,7 @@ export class Errors extends mix(MobxLitElement).with(EntityStoreMixin) {
     }
 
     render() {
-        if (!this.store?.errors || Object.keys(this.store.errors).length === 0)
+        if (!this.store?.success)
             return html``
 
         const errors = this.store.errors
