@@ -8,6 +8,7 @@ export interface TextField extends PolymerElement {}
 export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, EntityStorePathMixin) {
     lowercase: boolean
     uppercase: boolean
+    updateOnInput: boolean
     value: string
 
     static get properties() {
@@ -15,6 +16,7 @@ export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, Enti
             ...super.properties,
             lowercase: { type: Boolean },
             uppercase: { type: Boolean },
+            updateOnInput: {type: Boolean },
             value: { type: String }
         }
     }
@@ -24,6 +26,8 @@ export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, Enti
             this.value = e.target.value?.toLowerCase()
         if (this.uppercase)
             this.value = e.target.value?.toUpperCase()
+        if (this.updateOnInput)
+            this.eventToStore(e)
     }
 
     async connectedCallback() {
