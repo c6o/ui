@@ -6,6 +6,7 @@ import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 export interface TextField extends PolymerElement {}
 
 export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, EntityStorePathMixin) {
+    hideInitialValue: boolean
     lowercase: boolean
     uppercase: boolean
     value: string
@@ -13,6 +14,7 @@ export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, Enti
     static get properties() {
         return {
             ...super.properties,
+            hideInitialValue: { type: Boolean, value: false},
             lowercase: { type: Boolean },
             uppercase: { type: Boolean },
             value: { type: String }
@@ -28,6 +30,8 @@ export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, Enti
 
     async connectedCallback() {
         await super.connectedCallback()
+        if (this.hideInitialValue)
+            this.value = ''
         if (this.lowercase || this.uppercase) {
             this.addEventListener('input', this.autoFormat)
         }
