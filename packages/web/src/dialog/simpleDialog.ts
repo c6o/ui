@@ -47,7 +47,7 @@ export class SimpleDialog extends DialogElement {
                 </div>
             </div>
             <div class="modal-footer" c6o="text-right">
-                <c6o-button class="close-button" theme="${this.btnTheme}" @click=${this.close}>${this.btnText}</c6o-button>
+                ${this.renderFooter()}
             </div>
         `
     }
@@ -61,6 +61,12 @@ export class SimpleDialog extends DialogElement {
 
     renderModalContent = () => {
         return html`${this.message}`
+    }
+
+    renderFooter = () => {
+        return html`
+            <c6o-button class="close-button" theme="${this.btnTheme}" @click=${this.close}>${this.btnText}</c6o-button>
+        `
     }
 
     close = () => {
