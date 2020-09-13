@@ -46,5 +46,6 @@ export * from './markdown'
 export * from './mixins/'
 export * from './notification'
 export * from './router'
+export * from './storePanel'
 export * from './tooltip'
 
