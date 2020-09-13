@@ -8,20 +8,11 @@ export class StorePanel extends MobxLitElement {
     @property({ type: Boolean })
     container = false
 
-    @property({ type: Boolean, attribute: 'no-null' })
-    noNull = false
-
     @property({ type: Object })
     store: EntityStore | EntityListStore
 
     @property({ type: String })
     text = 'Loading...'
-
-    @queryAssignedNodes('null', true)
-    private nullNodes
-
-    @queryAssignedNodes(null, true)
-    private mainNodes
 
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
@@ -80,8 +71,8 @@ export class StorePanel extends MobxLitElement {
         return this.store.success ? html`
             <section id="content">
                 <div id="overlay" class="${this.store.busy ? 'busy' : ''}"></div>
-                ${this.store.nullState && !this.noNull ?
-                    html`<slot name="null"}></slot>` :
+                ${this.store.nullState ?
+                    html`<slot name="null"><slot></slot></slot>` :
                     html`<slot></slot>`
                 }
             </section>
