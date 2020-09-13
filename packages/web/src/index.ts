@@ -43,6 +43,7 @@ export * from './loaders/loading'
 export * from './markdown'
 export * from './mixins/'
 export * from './notification'
+export * from './panel'
 export * from './router'
 export * from './tooltip'
 
