@@ -20,7 +20,7 @@ export class StorePanel extends MobxLitElement {
                 ${this.store.nullState ? html`
                     <slot name="null"></slot>
                 ` : html`
-                    <slot name="content"></slot>
+                    <slot name="store-data"></slot>
                 `}
             </c6o-store-state>
         `
