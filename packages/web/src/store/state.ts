@@ -3,8 +3,8 @@ import { MobxLitElement } from '@adobe/lit-mobx'
 import { EntityStore, EntityListStore } from '@c6o/common'
 import { cssReboot, cssBase, cssGrid } from '@c6o/ui-theme'
 
-@customElement('c6o-loader')
-export class Loader extends MobxLitElement {
+@customElement('c6o-store-state')
+export class StoreState extends MobxLitElement {
 
     @property({ type: Boolean, attribute: 'bar-only' })
     barOnly = false

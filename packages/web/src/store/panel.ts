@@ -15,14 +15,14 @@ export class StorePanel extends MobxLitElement {
             return ''
 
         return html`
-            <c6o-loader .store=${this.store} .text=${this.text}>
+            <c6o-store-state .store=${this.store} .text=${this.text}>
                 <slot></slot>
                 ${this.store.nullState ? html`
                     <slot name="null"></slot>
                 ` : html`
                     <slot name="content"></slot>
                 `}
-            </c6o-loader>
+            </c6o-store-state>
         `
     }
 }
