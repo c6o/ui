@@ -172,6 +172,37 @@ registerStyles('vaadin-button', css`
         color: var(--color-sea);
     }
 
+    @keyframes fadeOut {
+        0% {
+          opacity: 1;
+          visibility: visible;
+        }
+        100% {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+
+    :host([saved]) [part="label"]::after {
+        animation: fadeOut .5s ease-in-out forwards;
+        animation-delay: 2.5s;
+        color: var(--color-ocean);
+        content: "Saved successfully!";
+        font-weight: bold;
+        left: 105px;
+        position: absolute;
+    }
+
+    :host([error]) [part="label"]::after {
+        animation: fadeOut .5s ease-in-out forwards;
+        animation-delay: 2.5s;
+        color: var(--color-fire);
+        content: "Error saving!";
+        font-weight: bold;
+        left: 105px;
+        position: absolute;
+    }
+
     [part="label"], [part="prefix"], [part="suffix"] {
         line-height: var(--lumo-line-height-m);
     }
