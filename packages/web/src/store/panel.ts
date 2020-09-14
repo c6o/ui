@@ -7,15 +7,15 @@ export class StorePanel extends MobxLitElement {
     @property({ type: Object })
     store: EntityStore | EntityListStore
 
-    @property({ type: String })
-    text = 'Loading...'
+    @property({ type: String, attribute: 'loading-message' })
+    loadingMessage
 
     render() {
         if (!this.store)
             return ''
 
         return html`
-            <c6o-store-state .store=${this.store} .text=${this.text}>
+            <c6o-store-state loading-message=${this.loadingMessage} .store=${this.store}>
                 <slot></slot>
                 ${this.store.nullState ? html`
                     <slot name="null"></slot>

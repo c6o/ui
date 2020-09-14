@@ -6,8 +6,8 @@ import { cssReboot, cssBase, cssGrid } from '@c6o/ui-theme'
 @customElement('c6o-store-state')
 export class StoreState extends MobxLitElement {
 
-    @property({ type: Boolean, attribute: 'bar-only' })
-    barOnly = false
+    @property({ type: Boolean, attribute: 'simple' })
+    simpleUI = false
 
     @property({ type: Boolean })
     container = false
@@ -15,8 +15,8 @@ export class StoreState extends MobxLitElement {
     @property({ type: Object })
     store: EntityStore | EntityListStore
 
-    @property({ type: String })
-    text = 'Loading...'
+    @property({ type: String, attribute: 'loading-message' })
+    loadingMessage
 
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
@@ -78,9 +78,9 @@ export class StoreState extends MobxLitElement {
         } else {
             return this.container ? html`
                 <div c6o="container">
-                    <c6o-loading ?bar-only=${this.barOnly} .text=${this.text}></c6o-loading>
+                    <c6o-loading loading-message=${this.loadingMessage} ?simple=${this.simpleUI}></c6o-loading>
                 </div>
-            ` : html`<c6o-loading ?bar-only=${this.barOnly} .text=${this.text}></c6o-loading>`
+            ` : html`<c6o-loading loading-message=${this.loadingMessage} ?simple=${this.simpleUI}></c6o-loading>`
         }
     }
 }
