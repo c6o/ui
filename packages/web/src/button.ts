@@ -31,11 +31,11 @@ export class Button extends ButtonElement {
     async connectedCallback() {
         await super.connectedCallback()
         if (this.store)
-            this.disposer = observe(this.store, 'saving', () => {
+            this.disposer = observe(this.store, 'busy', () => {
                 this.removeAttribute('saved')
                 this.removeAttribute('error')
-                this.disabled = this.store.saving
-                if (!this.store.saving) {
+                this.disabled = this.store.busy
+                if (!this.store.busy) {
                     this.store.success ? this.showSaved() : this.showError()
                 }
             })
