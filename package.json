@@ -8,9 +8,7 @@
   "scripts": {
     "clean": "del packages/**/lib && del packages/**/node_modules && del packages/**/tsconfig.tsbuildinfo && lerna clean -y && lerna run clean && del ./node_modules",
     "build": "lerna run build --stream",
-    "reset": "yarn run clean && yarn run clean && rm -rf node_modules && yarn install && yarn run build",
-    "release": "lerna version",
-    "publish": "git checkout main && git merge --no-ff"
+    "reset": "yarn run clean && yarn run clean && rm -rf node_modules && yarn install && yarn run build"
   },
   "devDependencies": {
     "@types/node": "^10.12.18",
