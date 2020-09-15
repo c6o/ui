@@ -17,6 +17,9 @@ export class Results extends mix(MobxLitElement).with(EntityStoreMixin) {
     @property({ type: String, attribute: 'error-heading' })
     errorHeading = 'Please correct the following errors:'
 
+    @property({ type: Boolean, attribute: 'errors-only'})
+    errorsOnly = false
+
     @property({ type: String })
     filter
 
@@ -37,7 +40,7 @@ export class Results extends mix(MobxLitElement).with(EntityStoreMixin) {
     }
 
     render() {
-        if (this.store?.results)
+        if (this.store?.results && !this.errorsOnly)
             return this.showSuccess()
 
         if (this.store?.error)

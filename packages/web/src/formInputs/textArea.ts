@@ -6,6 +6,8 @@ import { setValueFromPath, getValueFromPath } from '../mixins/path'
 import yaml from 'js-yaml'
 
 export interface TextArea extends PolymerElement {
+    errorMessage: string
+    invalid: boolean
     path: string
     store
 }
@@ -48,21 +50,24 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
 
     eventToStore(e) {
         const value = e.target.value.trim()
+        this.errorMessage = ''
+        this.invalid = false
+
         if (this.json) {
             try {
                 setValueFromPath(this.store.pending, this.path, JSON.parse(value))
             }
             catch (e) {
-                // ignore - we don't update until JSON is valid
-                console.log('Error setting JSON value from path', e)
+                this.errorMessage = `Error setting JSON: ${e.message}`
+                this.invalid = true
             }
         } else if (this.yaml) {
             try {
                 setValueFromPath(this.store.pending, this.path, yaml.safeLoad(value))
             }
             catch (e) {
-                // ignore - we don't update until YAML is valid
-                console.log('Error setting YAML value from path', e)
+                this.errorMessage = `Error setting YAML: ${e.message}`
+                this.invalid = true
             }
         } else
             super.eventToStore(e)
