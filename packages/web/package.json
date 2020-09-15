@@ -1,6 +1,6 @@
 {
   "name": "@c6o/ui-web",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "CodeZero common web components and controls",
   "main": "./src/index.ts",
   "module": "./src/index.ts",

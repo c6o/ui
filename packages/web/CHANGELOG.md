@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.7](https://github.com/c6o/node-monorepo/compare/v0.0.6...v0.0.7) (2020-09-15)
+
+
+### ✨ Features
+
+* Add a "label" component that can be themed ([#39](https://github.com/c6o/node-monorepo/issues/39)) ([068e13e](https://github.com/c6o/node-monorepo/commit/068e13e8cc95bc8eafa84d92af7ace95f9f6ce5e))
+* **button:** Disable when store property is busy ([d442a63](https://github.com/c6o/node-monorepo/commit/d442a635fb2e65c9b86379a893df2099afd008d9))
+* Alert Banner shows errors in URL hash ([56eb919](https://github.com/c6o/node-monorepo/commit/56eb919cd6db4afbdac5ea8d4ea135accb79646e))
+* **text-field:** Added live updating ([b5eebfb](https://github.com/c6o/node-monorepo/commit/b5eebfb74b5086a1280f23a7bdaaf86de85103df))
+* Welcome dialog and text field enhancements ([#37](https://github.com/c6o/node-monorepo/issues/37)) ([31ae438](https://github.com/c6o/node-monorepo/commit/31ae4386b2e010f65ad9bac69bbbe1c470de1635))
+
+
+### ♻️ Chores
+
+* Synced gitHead ([707d531](https://github.com/c6o/node-monorepo/commit/707d5312b35b1d97b798c51de4f3f3edb742313d))
+
+
+
+
+
 ## [0.0.6](https://github.com/c6o/node-monorepo/compare/v0.0.5...v0.0.6) (2020-09-02)
 
 
