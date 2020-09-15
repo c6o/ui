@@ -1,3 +1,9 @@
+export interface EntityStoreMixinClass {
+    noInherit: boolean
+    store: any
+    storeChanged(): void
+}
+
 export const EntityStoreMixin = (base) => class entityStoreMixin extends base {
     noInherit: boolean
     store

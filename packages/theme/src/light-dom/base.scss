@@ -36,6 +36,15 @@ a {
             width: var(--xl-spacing);
         }
     }
+
+    &.no-link {
+        cursor: default;
+
+        &:hover {
+            color: var(--color-sea);
+            text-decoration: none;
+        }
+    }
 }
 
 button {
