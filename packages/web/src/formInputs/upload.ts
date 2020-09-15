@@ -2,7 +2,13 @@ import { UploadElement } from '@vaadin/vaadin-upload/src/vaadin-upload'
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 
+export interface Upload extends PolymerElement {
+    set
+}
+
 export class Upload extends mix(UploadElement).with(EntityStoreMixin, EntityStorePathMixin) {
+    btnText: string
+    errorText: string
 
     static get properties() {
         return {

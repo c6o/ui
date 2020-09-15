@@ -1,20 +1,22 @@
 import { TextAreaElement } from '@vaadin/vaadin-text-field/src/vaadin-text-area'
 import EasyMDE from 'easymde'
 import { mix } from 'mixwith'
-import { EntityStore } from '@c6o/common'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 import { setValueFromPath, getValueFromPath } from '../mixins/path'
 import yaml from 'js-yaml'
+
+export interface TextArea extends PolymerElement {
+    path: string
+    store
+}
 
 export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, EntityStorePathMixin) {
     easyMDE
     json: boolean
     markdown: boolean
     minHeight: string
-    path: string
     readonly: boolean
     root
-    store: EntityStore
     value
     yaml: boolean
 

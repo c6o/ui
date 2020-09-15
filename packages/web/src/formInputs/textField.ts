@@ -3,7 +3,9 @@ import { PolymerElement } from '@polymer/polymer'
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 
-export interface TextField extends PolymerElement {}
+export interface TextField extends PolymerElement {
+    eventToStore
+}
 
 export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, EntityStorePathMixin) {
     lowercase: boolean
