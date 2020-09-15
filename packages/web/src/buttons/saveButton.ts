@@ -13,8 +13,14 @@ export interface SaveButton extends PolymerElement {
 export class SaveButton extends mix(MobxLitElement).with(EntityStoreMixin) {
     timeout
 
-    @property({ type: String, attribute: 'label-text' })
-    labelText = 'Save successful'
+    @property({ type: String, attribute: 'success-message' })
+    successMessage = 'Save successful'
+
+    @property({ type: String, attribute: 'error-heading' })
+    errorHeading = 'Please correct the following errors:'
+
+    @property({ type: Boolean })
+    banner: boolean
 
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
@@ -22,7 +28,7 @@ export class SaveButton extends mix(MobxLitElement).with(EntityStoreMixin) {
             cssBase,
             cssGrid,
             css`
-                #save-btn-label {
+                .save-results {
                     display: none;
                 }
 
@@ -37,34 +43,61 @@ export class SaveButton extends mix(MobxLitElement).with(EntityStoreMixin) {
                     }
                 }
 
-                #save-btn-label[saved] {
+                .save-results[saved] {
                     animation: fadeOut .5s ease-in-out forwards;
                     animation-delay: 3s;
                     display: block;
+                }
+
+                .save-results[error] {
+                    display: block;
+                }
+
+                #results-banner {
+                    margin-top: var(--md-spacing);
                 }
             `
         ]
     }
 
-    get label() { return this.shadowRoot.querySelector('c6o-label') as unknown as HTMLElement }
+    get resultsBanner() { return this.shadowRoot.querySelector('c6o-results') as unknown as HTMLElement }
+    get resultsLabel() { return this.shadowRoot.querySelector('c6o-label') as unknown as HTMLElement }
 
     render() {
+        if (!this.store)
+            return html``
+
         return html`
             <div c6o="flex align-center">
-                <c6o-button ?disabled=${this.store.busy} @click=${this.handleSave}>Save</c6o-button>
-                <c6o-label id="save-btn-label">${this.labelText}</c6o-label>
+                <c6o-button @click=${this.handleSave}>Save</c6o-button>
+                <c6o-label class="save-results">${this.successMessage}</c6o-label>
             </div>
+            <c6o-results
+                class="save-results"
+                colspan="2"
+                error-heading=${this.errorHeading}
+                filter="feathers"
+                id="results-banner"
+                success-message=${this.successMessage}
+                .store=${this.store}
+            ></c6o-results>
         `
     }
 
     handleSave = async () => {
-        this.label.removeAttribute('saved')
+        const resultsType = this.banner ? 'resultsBanner' : 'resultsLabel'
+
+        this.resultsBanner.removeAttribute('error')
+        this[resultsType].removeAttribute('saved')
         await this.store.save()
         if (this.store.success) {
             if (this.timeout)
                 clearTimeout(this.timeout)
-            this.label.setAttribute('saved', '')
-            this.timeout = setTimeout(() => { this.label.removeAttribute('saved') }, 3500)
+            this[resultsType].setAttribute('saved', '')
+            this.timeout = setTimeout(() => { this[resultsType].removeAttribute('saved') }, 3500)
+        } else {
+            // Show the error banner when there's a feather's error
+            this.resultsBanner.setAttribute('error', '')
         }
     }
 }
