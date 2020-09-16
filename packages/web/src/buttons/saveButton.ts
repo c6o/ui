@@ -19,6 +19,9 @@ export class SaveButton extends mix(MobxLitElement).with(EntityStoreMixin) {
     @property({ type: String, attribute: 'error-heading' })
     errorHeading = 'Please correct the following errors:'
 
+    @property({ type: Number, attribute: 'fade-out-duration'})
+    fadeOutDuration = 3300
+
     @property({ type: Boolean })
     banner: boolean
 
@@ -94,7 +97,7 @@ export class SaveButton extends mix(MobxLitElement).with(EntityStoreMixin) {
             if (this.timeout)
                 clearTimeout(this.timeout)
             this[resultsType].setAttribute('saved', '')
-            this.timeout = setTimeout(() => { this[resultsType].removeAttribute('saved') }, 3500)
+            this.timeout = setTimeout(() => { this[resultsType].removeAttribute('saved') }, this.fadeOutDuration)
         } else {
             // Show the error banner when there's a feather's error
             this.resultsBanner.setAttribute('error', '')
