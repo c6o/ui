@@ -2,11 +2,12 @@ import { ButtonElement } from '@vaadin/vaadin-button/src/vaadin-button'
 import { PolymerElement } from '@polymer/polymer'
 import { observe } from 'mobx'
 import { mix } from 'mixwith'
-import { EntityStoreMixin, EntityStoreMixinClass } from './mixins'
+import { EntityStoreMixin, EntityStoreMixinClass } from '../mixins'
 
 export interface Button extends PolymerElement, ButtonElement, EntityStoreMixinClass    {
     disabled: boolean
     noDisableWhenBusy: boolean
+    store
 }
 
 export class Button extends mix(ButtonElement).with(EntityStoreMixin)  {
@@ -28,7 +29,7 @@ export class Button extends mix(ButtonElement).with(EntityStoreMixin)  {
         delete this.busyDisposer
 
         if (this.store)
-            this.busyDisposer = observe(this.store, 'busy',() => {
+            this.busyDisposer = observe(this.store, 'busy', () => {
                 if (!this.noDisableWhenBusy)
                     this.disabled = this.store.busy
             })

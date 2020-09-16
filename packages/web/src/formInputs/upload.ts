@@ -2,7 +2,14 @@ import { UploadElement } from '@vaadin/vaadin-upload/src/vaadin-upload'
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 
+export interface Upload extends PolymerElement {
+    set
+    store
+}
+
 export class Upload extends mix(UploadElement).with(EntityStoreMixin, EntityStorePathMixin) {
+    btnText: string
+    errorText: string
 
     static get properties() {
         return {
@@ -13,7 +20,6 @@ export class Upload extends mix(UploadElement).with(EntityStoreMixin, EntityStor
 
     async connectedCallback() {
         await super.connectedCallback()
-
         this.set('i18n.addFiles.one', this.btnText)
         this.set('i18n.error.fileIsTooBig', this.errorText)
     }
