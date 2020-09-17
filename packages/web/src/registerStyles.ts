@@ -563,6 +563,32 @@ registerStyles('vaadin-text-area vaadin-text-field', css`
         font-size: var(--lumo-font-size-s);
     }
 
+    @keyframes spinner {
+        to { transform: rotate(360deg); }
+    }
+
+    :host(.search-field.busy)::before {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        top: 50%;
+        left: 262px;
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        margin-left: -10px;
+        border-radius: 50%;
+        border-top: 2px solid var(--color-twilight-ocean);
+        border-right: 2px solid transparent;
+        animation: spinner .4s linear infinite;
+    }
+
+    @media (min-width: 1060px) {
+        :host(.search-field.busy)::before {
+            left: 422px;
+        }
+    }
+
     :host(.single-row) {
         margin-left: 0 !important;
         margin-right: 100% !important;

@@ -5,8 +5,11 @@ import { cssReboot, cssBase, cssLayouts, cssTypography } from '@c6o/ui-theme'
 @customElement('c6o-loading')
 export class Loading extends MobxLitElement {
 
-    @property({ type: String })
-    text = 'Loading...'
+    @property({ type: Boolean, attribute: 'simple' })
+    simpleUI = false
+
+    @property({ type: String, attribute: 'loading-message' })
+    loadingMessage = 'Loading...'
 
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
@@ -33,10 +36,12 @@ export class Loading extends MobxLitElement {
     }
 
     render() {
-        return html`
+        return this.simpleUI ? html`
+            <c6o-progress-bar indeterminate value="0"></c6o-progress-bar>
+        ` : html`
             <section id="loading">
                 <div class="panel">
-                    <h3>${this.text}</h3>
+                    <h3>${this.loadingMessage}</h3>
                     <c6o-progress-bar indeterminate value="0"></c6o-progress-bar>
                 </div>
             </section>
