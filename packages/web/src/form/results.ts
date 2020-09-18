@@ -150,7 +150,7 @@ export class Results extends mix(MobxLitElement).with(EntityStoreMixin) {
     fadeOutTimer = async () => {
         if (this.timeout)
             clearTimeout(this.timeout)
-        this.timeout = setTimeout(() => { this.successBanner.removeAttribute('fade-out') }, this.fadeOutDuration)
+        this.timeout = setTimeout(() => { this.successBanner?.removeAttribute('fade-out') }, this.fadeOutDuration)
     }
 
     async connectedCallback() {
