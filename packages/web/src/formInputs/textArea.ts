@@ -1,4 +1,5 @@
 import { TextAreaElement } from '@vaadin/vaadin-text-field/src/vaadin-text-area'
+import { observe } from 'mobx'
 import EasyMDE from 'easymde'
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
@@ -19,6 +20,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
     minHeight: string
     readonly: boolean
     root
+    textAreaDisposer
     value
     yaml: boolean
 
@@ -94,18 +96,24 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
     async connectedCallback() {
         await super.connectedCallback()
 
-        if (this.markdown) {
-            const easyMDE = new EasyMDE({
-                element: this.root.querySelector('textarea'),
-                autoDownloadFontAwesome: false,
-                minHeight: this.minHeight,
-                showIcons: ['code', 'table', 'horizontal-rule']
-            })
+        this.textAreaDisposer = observe(this.store, 'entity', () => {
+            if (this.markdown) {
+                const easyMDE = new EasyMDE({
+                    element: this.root.querySelector('textarea'),
+                    autoDownloadFontAwesome: false,
+                    minHeight: this.minHeight,
+                    showIcons: ['code', 'table', 'horizontal-rule']
+                })
 
-            easyMDE.codemirror.on('change', () => {
-                setValueFromPath(this.store.pending, this.path, easyMDE.value())
-            })
-        }
+                this.store.entity ?
+                    easyMDE.value(getValueFromPath(this.store.entity, this.path)) :
+                    easyMDE.value('')
+
+                easyMDE.codemirror.on('change', () => {
+                    setValueFromPath(this.store.pending, this.path, easyMDE.value())
+                })
+            }
+        })
     }
 }
 

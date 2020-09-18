@@ -67,20 +67,20 @@ export class StoreState extends MobxLitElement {
 
     render() {
         if (this.store?.initialized) {
-            return this.store.success ? html`
+            return html`
                 <section id="content">
                     <div id="overlay" class="${this.store.busy ? 'busy' : ''}"></div>
                     <slot></slot>
                 </section>
-            ` : html`
-                <c6o-errors heading="The system encountered an error:" .store=${this.store}></c6o-errors>
             `
         } else {
             return this.container ? html`
                 <div c6o="container">
                     <c6o-loading loading-message=${this.loadingMessage} ?simple=${this.simpleUI}></c6o-loading>
                 </div>
-            ` : html`<c6o-loading loading-message=${this.loadingMessage} ?simple=${this.simpleUI}></c6o-loading>`
+            ` : html`
+                <c6o-loading loading-message=${this.loadingMessage} ?simple=${this.simpleUI}></c6o-loading>
+            `
         }
     }
 }
