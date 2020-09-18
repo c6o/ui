@@ -1,7 +1,7 @@
 import { observe } from 'mobx'
 
 export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extends base {
-    disposers = []
+    entityListStoreDisposers = []
 
     static get properties() {
         return {
@@ -14,21 +14,21 @@ export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extend
         // Do nothing in the base
         // Override this if you want to handle listStoreChanged events
         // Dispose previous subscriptions
-        for(let i = 0; i < this.disposers.length; i++) {
-            const dispose = this.disposers.pop()
-            dispose()
-        }
+        for(const disposer of this.entityListStoreDisposers)
+            disposer()
+
+        this.entityListStoreDisposers = []
 
         if (this.listStore) {
-            this.disposers.push(observe(this.listStore, 'entityStores', () => {
+            this.entityListStoreDisposers.push(observe(this.listStore, 'entityStores', () => {
                 this.entityStoresChanged()
             }, true))
 
 
-            this.disposers.push(observe(this.listStore, 'entities', () => {
+            this.entityListStoreDisposers.push(observe(this.listStore, 'entities', () => {
                 // Watch for entity changes
                 this.listStore.entities.forEach(entity => {
-                    this.disposers.push(observe(entity, () =>
+                    this.entityListStoreDisposers.push(observe(entity, () =>
                         this.entityChanged()
                     ))
                 })

@@ -1,4 +1,4 @@
-import { observe } from 'mobx'
+import { observe, reaction } from 'mobx'
 import { setValueFromPath, getValueFromPath } from './path'
 
 // This has to come AFTER an EntityStoreMixin in mix(xx).with(EntityStoreMixin, EntityStorePathMixin,....)
@@ -39,27 +39,31 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
     }
 
     _errorDisposer
-    _pendingDisposer
+    _reactionDisposer
+
     storeChanged = () => {
         super.storeChanged()
 
         // if the control doesn't have a path, we are using it without binding to the store
         if (this.store) {
             if (this.path) {
-                this.storeToValue()
+                // Load the value from the store if initialized
+                if (this.store.initialized)
+                    this.storeToValue()
 
-                if (this._pendingDisposer)
-                    this._pendingDisposer()
-                this._pendingDisposer = observe(this.store, 'pending', () => {
-                    // If pending value at path is not set, reload the value from store
-                    if (!this.store.pending[this.path])
-                        this.storeToValue()
-                })
+                this._reactionDisposer?.()
+                this._reactionDisposer = reaction(
+                    () => ([this.store.pending, this.store.initialized]),
+                    () => {
+                        // Either the store is reset or initialized
+                        // load the value as long as it's not pending
+                        if (!this.store.pending[this.path])
+                            this.storeToValue()
+                    }
+                )
             }
 
-            if (this._errorDisposer)
-                this._errorDisposer()
-            // Observe errors
+            this._errorDisposer?.()
             this._errorDisposer = observe(this.store, 'errors', () => {
                 this.checkForErrors()
             })
@@ -71,15 +75,14 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
     }
 
     async connectedCallback() {
-        try {
-            await super.connectedCallback()
-        } catch (err) {
-            console.log('connectedCallback error', err) // TODO: Log and handle this error
-        }
+        await super.connectedCallback()
         super.addEventListener('change', this.inputChanged)
     }
 
     async disconnectedCallback() {
+        this._reactionDisposer?.()
+        this._errorDisposer?.()
+
         super.removeEventListener('change', this.inputChanged)
         await super.disconnectedCallback()
     }
