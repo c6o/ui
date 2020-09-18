@@ -97,7 +97,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
         await super.connectedCallback()
 
         this.textAreaDisposer = observe(this.store, 'entity', () => {
-            if (this.markdown && this.entity) {
+            if (this.markdown) {
                 const easyMDE = new EasyMDE({
                     element: this.root.querySelector('textarea'),
                     autoDownloadFontAwesome: false,
@@ -105,7 +105,9 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
                     showIcons: ['code', 'table', 'horizontal-rule']
                 })
 
-                easyMDE.value(getValueFromPath(this.store.entity, this.path))
+                this.store.entity ?
+                    easyMDE.value(getValueFromPath(this.store.entity, this.path)) :
+                    easyMDE.value('')
 
                 easyMDE.codemirror.on('change', () => {
                     setValueFromPath(this.store.pending, this.path, easyMDE.value())
