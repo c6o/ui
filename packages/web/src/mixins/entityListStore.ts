@@ -22,6 +22,12 @@ export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extend
         if (this.listStore) {
             this.entityListStoreDisposers.push(observe(this.listStore, 'entityStores', () => {
                 this.entityStoresChanged()
+
+                this.listStore.entityStores.forEach(entityStore => {
+                    this.entityListStoreDisposers.push(observe(entityStore.entity, () =>
+                        this.entityChanged()
+                    ))
+                })
             }, true))
 
 
