@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.8](https://github.com/c6o/node-monorepo/compare/v0.0.7...v0.0.8) (2020-09-18)
+
+
+### ✨ Features
+
+* Created a "results" component that can show both success and error on saving of an entity ([#40](https://github.com/c6o/node-monorepo/issues/40)) ([1c3b292](https://github.com/c6o/node-monorepo/commit/1c3b29256e3ce3716c11f8fc2dfe59ec64db7bcf))
+* Loading component for initialization and fetching ([#36](https://github.com/c6o/node-monorepo/issues/36)) ([688a5b4](https://github.com/c6o/node-monorepo/commit/688a5b4ecec7dbaa4fabc898fda03a8a24377349))
+
+
+### 🐛 Bug Fixes
+
+* path based ui elements refresh on initialization ([dc5d05c](https://github.com/c6o/node-monorepo/commit/dc5d05c221a99604beb0dbf8a5b417bb2d71134b))
+
+
+
+
+
 ## [0.0.7](https://github.com/c6o/node-monorepo/compare/v0.0.6...v0.0.7) (2020-09-15)
 
 

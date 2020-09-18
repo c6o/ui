@@ -1,6 +1,6 @@
 {
   "name": "@c6o/ui-theme",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "CodeZero common front-end theme",
   "main": "./src/index.ts",
   "module": "./src/index.ts",
