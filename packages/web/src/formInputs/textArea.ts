@@ -97,7 +97,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
         await super.connectedCallback()
 
         this.textAreaDisposer = observe(this.store, 'entity', () => {
-            if (this.markdown) {
+            if (this.markdown && this.entity) {
                 const easyMDE = new EasyMDE({
                     element: this.root.querySelector('textarea'),
                     autoDownloadFontAwesome: false,
