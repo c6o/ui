@@ -10,12 +10,15 @@ export class StorePanel extends MobxLitElement {
     @property({ type: String, attribute: 'loading-message' })
     loadingMessage
 
+    @property({ type: Boolean, attribute: 'no-busy' })
+    noBusy
+
     render() {
         if (!this.store)
             return ''
 
         return html`
-            <c6o-store-state loading-message=${this.loadingMessage} .store=${this.store}>
+            <c6o-store-state loading-message=${this.loadingMessage} ?no-busy=${this.noBusy} .store=${this.store}>
                 <slot></slot>
                 ${this.store.nullState ? html`
                     <slot name="null"></slot>

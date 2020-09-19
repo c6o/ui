@@ -18,6 +18,9 @@ export class StoreState extends MobxLitElement {
     @property({ type: String, attribute: 'loading-message' })
     loadingMessage
 
+    @property({ type: Boolean, attribute: 'no-busy' })
+    noBusy = false
+
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
             cssReboot,
@@ -69,7 +72,7 @@ export class StoreState extends MobxLitElement {
         if (this.store?.initialized) {
             return html`
                 <section id="content">
-                    <div id="overlay" class="${this.store.busy ? 'busy' : ''}"></div>
+                    <div id="overlay" class="${this.store.busy && !this.noBusy ? 'busy' : ''}"></div>
                     <slot></slot>
                 </section>
             `
