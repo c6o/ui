@@ -65,8 +65,7 @@ export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMix
     save = async () => {
         const result = await this.saveToStore()
         if (result) {
-            if (this.confirmCallback)
-                this.confirmCallback()
+            this.confirmCallback?.()
             this.store = null // this will close the dialog
         }
         return result
