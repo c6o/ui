@@ -8,6 +8,7 @@ export interface TextField extends PolymerElement {
 }
 
 export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, EntityStorePathMixin) {
+    invalid: boolean
     lowercase: boolean
     uppercase: boolean
     updateOnInput: boolean
@@ -43,6 +44,11 @@ export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, Enti
         if (this.lowercase || this.uppercase)
             this.removeEventListener('input', this.autoFormat)
         await super.disconnectedCallback()
+    }
+
+    resetValue() {
+        this.value = ''
+        this.invalid = false
     }
 }
 
