@@ -5,10 +5,12 @@ import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin } from '..
 export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin) {
     itemLabelPath: string
     itemValuePath: string
+    invalid: boolean
     items
     listBox
     listStore
     root
+    value: string
 
     static get properties() {
         return {
@@ -60,6 +62,11 @@ export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityList
     entityChanged() {
         this.resetOptions()
         super.entityChanged()
+    }
+
+    resetValue() {
+        this.value = ''
+        this.invalid = false
     }
 }
 

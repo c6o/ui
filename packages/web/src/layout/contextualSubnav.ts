@@ -87,6 +87,10 @@ export class ContextualSubnav extends MobxLitElement {
                     vertical-align: middle;
                 }
 
+                span.first-part + span.second-part {
+                    vertical-align: inherit;
+                }
+
                 .sentence-case {
                     text-transform: capitalize;
                 }
