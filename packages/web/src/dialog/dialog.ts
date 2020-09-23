@@ -1,36 +1,49 @@
-import { html, customElement, property, query, PropertyValues } from 'lit-element'
-import { render } from 'lit-html'
-import { DialogElement } from '@vaadin/vaadin-dialog/src/vaadin-dialog'
+import { html, customElement, property, query, css } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
-import { toggleFullScreen } from 'easymde'
+import { WebDialog } from 'web-dialog'
 
 @customElement('c6o-dialog')
 export class Dialog extends MobxLitElement {
 
-    @property({type: Boolean})
+    @property({ type: Boolean })
     opened
 
-    @query('vaadin-dialog')
-    dialog: DialogElement
+    // https://github.com/andreasbm/web-dialog/blob/master/src/lib/web-dialog.ts
+    @query('web-dialog')
+    dialog: WebDialog
 
-    overlay
-
-    render() {
-        return html`
-            <slot hidden></slot>
-            <vaadin-dialog aria-label="simple" ?opened=${this.opened} .renderer=${this.renderContent}>
-            </vaadin-dialog>
+    static get styles() {
+        return css`
+            web-dialog {
+                --dialog-container-padding: 0;
+                --dialog-border-radius: 0;
+                --dialog-animation-duration: 0;
+            }
         `
     }
 
-    renderContent = (root) => {
-        if (root.firstElementChild)
-            return
-            this.update
-        this.overlay = root
-        const slot = this.shadowRoot.querySelector('slot')
-        const elements = slot.assignedElements({flatten: true})
-        for(const e of elements)
-            root.appendChild(e)
+    render() {
+        return html`
+            <web-dialog center
+                    ?open=${this.opened}
+                    @closing=${this.exposeEvent}
+                    @close=${this.exposeEvent}
+                    @open=${this.exposeEvent}>
+                <slot name='header'></slot>
+                <slot></slot>
+                <slot name='footer'></slot>
+            </web-dialog>
+        `
+    }
+
+    exposeEvent = (e: CustomEvent) => {
+        const exposedEvent = new CustomEvent(e.type, {
+            detail: e.detail,
+            bubbles: true,
+            composed: true
+        })
+        const cancelled = !this.dispatchEvent(exposedEvent)
+        if (cancelled)
+            e.preventDefault()
     }
 }
