@@ -6,8 +6,10 @@ import { cssReboot, cssBase, cssGrid } from '@c6o/ui-theme'
 @customElement('c6o-store-state')
 export class StoreState extends MobxLitElement {
 
-    @property({ type: Boolean, attribute: 'simple' })
-    simpleUI = false
+    // pass in a 'progress-bar' attribute to render only the progress bar
+    // instead of the loading componet, which includes loading text
+    @property({ type: Boolean, attribute: 'progress-bar' })
+    progressBar = false
 
     @property({ type: Boolean })
     container = false
@@ -77,12 +79,14 @@ export class StoreState extends MobxLitElement {
                 </section>
             `
         } else {
-            return this.container ? html`
+            return this.progressBar ? html`
+                <c6o-progress-bar indeterminate value="0"></c6o-progress-bar>
+            ` : this.container ? html`
                 <div c6o="container">
-                    <c6o-loading loading-message=${this.loadingMessage} ?simple=${this.simpleUI}></c6o-loading>
+                    <c6o-loading loading-message=${this.loadingMessage}></c6o-loading>
                 </div>
             ` : html`
-                <c6o-loading loading-message=${this.loadingMessage} ?simple=${this.simpleUI}></c6o-loading>
+                <c6o-loading loading-message=${this.loadingMessage}></c6o-loading>
             `
         }
     }
