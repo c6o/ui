@@ -1,5 +1,6 @@
 import { html, customElement, property } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
+import { EntityStore, EntityListStore } from '@c6o/common'
 
 @customElement('c6o-store-panel')
 export class StorePanel extends MobxLitElement {
@@ -8,10 +9,10 @@ export class StorePanel extends MobxLitElement {
     store: EntityStore | EntityListStore
 
     @property({ type: String, attribute: 'loading-message' })
-    loadingMessage
+    loadingMessage: string
 
     @property({ type: Boolean, attribute: 'no-busy' })
-    noBusy
+    noBusy: boolean
 
     render() {
         if (!this.store)
