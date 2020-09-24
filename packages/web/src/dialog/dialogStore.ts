@@ -6,6 +6,7 @@ import { render, TemplateResult } from 'lit-html'
 
 export interface DialogStore extends PolymerElement {
     render()
+    store
 }
 
 export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMixin) {
@@ -13,7 +14,6 @@ export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMix
     filePath
     opened: boolean
     root
-    store
     abstract renderContent(save, cancel): TemplateResult
     cancelCallback?(): void // Optional so don't mark as abstract (which must be implemented)
     confirmCallback?(): void
@@ -23,8 +23,6 @@ export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMix
             ...super.properties,
             file: { type: Object },
             filePath: { type: String, value: 'image' },
-            root: { type: Object },
-            store: { type: Object }
         }
     }
 
@@ -39,6 +37,7 @@ export abstract class DialogStore extends mix(DialogElement).with(EntityStoreMix
     }
 
     upload = (e) => {
+        // this.file is used by the Vaadin Upload component
         this.file = e.detail.file
         this.file.complete = true
         this.file.status = ''
