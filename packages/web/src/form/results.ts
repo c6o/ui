@@ -68,7 +68,7 @@ export class Results extends mix(MobxLitElement).with(EntityStoreMixin) {
             return this.showSuccess()
         }
 
-        if (this.store?.error)
+        if (this.store?.hasErrors)
             return this.showErrors(this.store.errors)
 
         return html``
@@ -114,10 +114,14 @@ export class Results extends mix(MobxLitElement).with(EntityStoreMixin) {
                 id="error"
                 theme=${theme}
             >
-                <h4>${this.errorHeading}</h4>
-                <ul class="error-message">
-                    ${messages.map(i => html`<li>${i}</li>`)}
-                </ul>
+                ${errorsToShow.includes('pending') ?
+                    messages.map(i => html`<div class="error-message">${i}</div>`)
+                : html`
+                    <h4>${this.errorHeading}</h4>
+                    <ul class="error-message">
+                        ${messages.map(i => html`<li>${i}</li>`)}
+                    </ul>
+                `}
             </c6o-contextual-banner>
         `
     }

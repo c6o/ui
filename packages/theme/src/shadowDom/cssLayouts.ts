@@ -2,6 +2,7 @@ import { css } from 'lit-element'
 
 export const cssLayouts = css`
     .container-content {
+        height: 100%;
         padding-top: var(--xl-spacing);
     }
 

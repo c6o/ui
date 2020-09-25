@@ -3,6 +3,7 @@ import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 
 export interface Upload extends PolymerElement {
+    files
     set
     store
 }
@@ -16,6 +17,10 @@ export class Upload extends mix(UploadElement).with(EntityStoreMixin, EntityStor
             btnText: { type: String, value: 'Select File...' },
             errorText : { type: String, value: 'Error uploading file' }
         }
+    }
+
+    reset() {
+        this.files = []
     }
 
     async connectedCallback() {
