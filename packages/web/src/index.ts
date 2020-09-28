@@ -48,4 +48,5 @@ export * from './router'
 export * from './store/panel'
 export * from './store/state'
 export * from './tooltip'
+export * from './dialog/dialog'
 
