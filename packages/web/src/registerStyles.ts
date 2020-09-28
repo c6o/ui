@@ -190,6 +190,7 @@ registerStyles('vaadin-button', css`
         border-radius: var(--c6o-border-radius);
         color: var(--color-storm);
         height: 120px;
+        margin-bottom: var(--md-spacing);
         padding: var(--sm-spacing) var(--md-spacing);
         width: 170px;
     }
@@ -203,6 +204,14 @@ registerStyles('vaadin-button', css`
         height: 100%;
         margin-bottom: 0;
         width: 100%;
+    }
+
+    :host([theme~="card"]) [part] ::slotted(iron-icon[icon^="vaadin:"]) {
+        display: block;
+        color: var(--color-sea);
+        height: calc(var(--xl-spacing) * 2.5);
+        margin: 0 auto var(--xs-spacing);
+        width: calc(var(--xl-spacing) * 2.5);
     }
 `)
 
