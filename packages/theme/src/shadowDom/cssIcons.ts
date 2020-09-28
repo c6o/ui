@@ -25,6 +25,22 @@ export const cssIcons = css`
         margin-right: var(--sm-spacing);
     }
 
+    @keyframes spinner {
+        to { transform: rotate(360deg); }
+    }
+
+    iron-icon.busy:before {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border-top: 2px solid var(--color-twilight-ocean);
+        border-right: 2px solid transparent;
+        animation: spinner .4s linear infinite;
+    }
+
     .vendor-logo,
     .c6o-icon {
         width: 60px;

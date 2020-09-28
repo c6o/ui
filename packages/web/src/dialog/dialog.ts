@@ -8,6 +8,9 @@ export class Dialog extends MobxLitElement {
     @property({ type: Boolean })
     opened
 
+    @property({ type: String })
+    size
+
     // https://github.com/andreasbm/web-dialog/blob/master/src/lib/web-dialog.ts
     @query('web-dialog')
     dialog: WebDialog
