@@ -1,5 +1,9 @@
 import { observe } from 'mobx'
 
+export interface EntityListStoreMixin {
+    listStore: any
+}
+
 export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extends base {
     entityListStoreDisposers = []
 
