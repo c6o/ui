@@ -31,6 +31,11 @@ export const cssIcons = css`
         margin: 0 var(--md-spacing) var(--xl-spacing) 0;
     }
 
+    .vendor-logo.small,
+    .c6o-icon.small {
+        width: 45px;
+    }
+
     .vendor-logo img,
     .c6o-icon img {
         width: 100%;

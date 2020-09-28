@@ -184,6 +184,26 @@ registerStyles('vaadin-button', css`
     :host(.inline-form-btn) {
         margin-top: 21px;
     }
+
+    :host([theme~="card"]) {
+        border-color: var(--color-cloud);
+        border-radius: var(--c6o-border-radius);
+        color: var(--color-storm);
+        height: 120px;
+        padding: var(--sm-spacing) var(--md-spacing);
+        width: 170px;
+    }
+
+    :host([theme~="card"]:hover) {
+        background-color: var(--color-wind);
+        color: var(--color-storm);
+    }
+
+    :host([theme~="card"]) [part="label"] {
+        height: 100%;
+        margin-bottom: 0;
+        width: 100%;
+    }
 `)
 
 registerStyles('vaadin-checkbox vaadin-radio-button vaadin-text-area vaadin-text-field vaadin-upload', css`
