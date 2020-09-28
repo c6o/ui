@@ -5,9 +5,13 @@ export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extend
 
     static get properties() {
         return {
-            listStore: { type: Object, observer: 'listStoreChanged' }
+            listStore: { type: Object, observer: 'listStoreChanged' },
+            storeProperty: { type: 'string', value: 'entityStores' }
         }
     }
+
+    // Property can be set to a valid string when something binds to ${null} or ${undefined}
+    get safeProperty() { return  !this.storeProperty || this.storeProperty === 'null' || this.storeProperty === 'undefined' ? 'entityStores' : this.storeProperty }
 
     listStoreChanged() {
         // Cannot use => notation in base class!?!
@@ -20,10 +24,10 @@ export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extend
         this.entityListStoreDisposers = []
 
         if (this.listStore) {
-            this.entityListStoreDisposers.push(observe(this.listStore, 'entityStores', () => {
+            this.entityListStoreDisposers.push(observe(this.listStore, this.safeProperty, () => {
                 this.entityStoresChanged()
 
-                this.listStore.entityStores.forEach(entityStore => {
+                this.listStore[this.safeProperty].forEach(entityStore => {
                     this.entityListStoreDisposers.push(observe(entityStore.entity, () =>
                         this.entityChanged()
                     ))
@@ -43,7 +47,7 @@ export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extend
     }
 
     entityStoresChanged() {
-        this.items = this.listStore?.entityStores
+        this.items = this.listStore?.[this.safeProperty]
         this.render()
     }
 
