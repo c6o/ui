@@ -1,9 +1,9 @@
-import { html, customElement, property } from 'lit-element'
-import { cssTooltip } from '@c6o/ui-theme'
-import { StyledMobxLitElement } from './styles'
+import { html, customElement, property, CSSResult } from 'lit-element'
+import { MobxLitElement } from '@adobe/lit-mobx'
+import { cssReboot, cssBase, cssTooltip } from '@c6o/ui-theme'
 
 @customElement('c6o-tooltip')
-export class Tooltip extends StyledMobxLitElement(cssTooltip)  {
+export class Tooltip extends MobxLitElement {
 
     @property({ type: String })
     title = 'Tooltip'
@@ -13,6 +13,14 @@ export class Tooltip extends StyledMobxLitElement(cssTooltip)  {
 
     @property({ type: String })
     content
+
+    static get styles(): (CSSResult[] | CSSResult)[] {
+        return [
+            cssReboot,
+            cssBase,
+            cssTooltip
+        ]
+    }
 
     render() {
         return html`
