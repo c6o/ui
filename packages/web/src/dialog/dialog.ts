@@ -9,7 +9,7 @@ export class Dialog extends MobxLitElement {
     opened
 
     @property({ type: String })
-    size
+    size = 'default'
 
     // https://github.com/andreasbm/web-dialog/blob/master/src/lib/web-dialog.ts
     @query('web-dialog')
@@ -19,19 +19,26 @@ export class Dialog extends MobxLitElement {
         return css`
             web-dialog {
                 --dialog-container-padding: 0;
-                --dialog-border-radius: 0;
+                --dialog-border-radius: var(--c6o-border-radius);
                 --dialog-animation-duration: 0;
+            }
+
+            web-dialog.wide {
+                --dialog-max-width: 80vw;
             }
         `
     }
 
     render() {
         return html`
-            <web-dialog center
-                    ?open=${this.opened}
-                    @closing=${this.exposeEvent}
-                    @close=${this.exposeEvent}
-                    @open=${this.exposeEvent}>
+            <web-dialog
+                center
+                class=${this.size}
+                ?open=${this.opened}
+                @closing=${this.exposeEvent}
+                @close=${this.exposeEvent}
+                @open=${this.exposeEvent}
+            >
                 <slot name='header'></slot>
                 <slot></slot>
                 <slot name='footer'></slot>

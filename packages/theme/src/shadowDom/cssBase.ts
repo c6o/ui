@@ -25,6 +25,10 @@ export const cssBase = css`
         color: var(--color-morning-sea);
     }
 
+    a:focus {
+        outline: none;
+    }
+
     a.icon {
         text-decoration: none;
     }
