@@ -11,6 +11,10 @@ export const cssTypography = css`
         margin-bottom: .75rem;
     }
 
+    h1.inline, h2.inline, h3.inline, h4.inline, h5.inline, h6.inline {
+        margin-bottom: 0;
+    }
+
     h1 {
         color: var(--color-h1);
         font-size: var(--lumo-font-size-xxl);

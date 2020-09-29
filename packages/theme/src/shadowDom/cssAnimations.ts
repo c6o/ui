@@ -64,4 +64,20 @@ export const cssAnimations = css`
             transform: scale(1.0);
         }
     }
+
+    @keyframes spinner {
+        to { transform: rotate(360deg); }
+    }
+
+    .busy:before {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border-top: 2px solid var(--color-twilight-ocean);
+        border-right: 2px solid transparent;
+        animation: spinner .4s linear infinite;
+    }
 `

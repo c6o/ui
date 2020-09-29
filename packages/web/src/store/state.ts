@@ -1,7 +1,7 @@
 import { html, customElement, property, css, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { EntityStore, EntityListStore } from '@c6o/common'
-import { cssReboot, cssBase, cssGrid } from '@c6o/ui-theme'
+import { cssReboot, cssBase, cssGrid, cssAnimations } from '@c6o/ui-theme'
 
 @customElement('c6o-store-state')
 export class StoreState extends MobxLitElement {
@@ -23,6 +23,7 @@ export class StoreState extends MobxLitElement {
             cssReboot,
             cssBase,
             cssGrid,
+            cssAnimations,
             css`
                 #content {
                     position: relative;
@@ -42,24 +43,12 @@ export class StoreState extends MobxLitElement {
                     display: block;
                 }
 
-                @keyframes spinner {
-                    to { transform: rotate(360deg); }
-                }
-
                 #overlay.busy:before {
-                    content: '';
-                    box-sizing: border-box;
                     position: fixed;
                     top: 50%;
                     left: 50%;
-                    width: 40px;
-                    height: 40px;
                     margin-top: -20px;
                     margin-left: -20px;
-                    border-radius: 50%;
-                    border-top: 2px solid var(--color-twilight-ocean);
-                    border-right: 2px solid transparent;
-                    animation: spinner .4s linear infinite;
                 }
             `
         ]

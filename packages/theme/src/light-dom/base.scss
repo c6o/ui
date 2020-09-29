@@ -28,6 +28,10 @@ a {
         color: var(--color-morning-sea);
     }
 
+    &:focus {
+        outline: none;
+    }
+
     &.icon {
         text-decoration: none;
 
