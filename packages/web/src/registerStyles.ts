@@ -272,6 +272,7 @@ registerStyles('vaadin-combo-box', css`
 registerStyles('vaadin-dialog-overlay', css`
     :host {
         top: -1rem;
+        z-index: 100000000;
     }
 `)
 
