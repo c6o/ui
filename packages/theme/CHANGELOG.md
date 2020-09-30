@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.9](https://github.com/c6o/node-monorepo/compare/v0.0.8...v0.0.9) (2020-09-30)
+
+
+### ✨ Features
+
+* Card button theme ([c8e23df](https://github.com/c6o/node-monorepo/commit/c8e23dfcb5855f20403c05651760789031e1980b))
+* Using web-dialog ([#47](https://github.com/c6o/node-monorepo/issues/47)) ([0603592](https://github.com/c6o/node-monorepo/commit/06035928ea1d7cb2f80c4435f708b8a4206e4227)), closes [#46](https://github.com/c6o/node-monorepo/issues/46)
+
+
+### 🐛 Bug Fixes
+
+* Added multi-asset upload component ([37d0c2a](https://github.com/c6o/node-monorepo/commit/37d0c2acee25680c8051ea4f898d3673a4296842))
+
+
+### ♻️ Chores
+
+* Move the installing and error animations to ui-theme ([eceff6d](https://github.com/c6o/node-monorepo/commit/eceff6d73745825cf06e900cdf1b06b5ff8a46bd))
+
+
+
+
+
 ## [0.0.8](https://github.com/c6o/node-monorepo/compare/v0.0.7...v0.0.8) (2020-09-18)
 
 **Note:** Version bump only for package @c6o/ui-theme

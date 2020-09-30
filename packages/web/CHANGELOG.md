@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.9](https://github.com/c6o/node-monorepo/compare/v0.0.8...v0.0.9) (2020-09-30)
+
+
+### ✨ Features
+
+* Add attribute to panel and state to be able to suppress busy animation overlay ([#42](https://github.com/c6o/node-monorepo/issues/42)) ([9d92573](https://github.com/c6o/node-monorepo/commit/9d9257367a4c69fac31293a2e9a32f62f622f314))
+* Card button theme ([c8e23df](https://github.com/c6o/node-monorepo/commit/c8e23dfcb5855f20403c05651760789031e1980b))
+* Using web-dialog ([#47](https://github.com/c6o/node-monorepo/issues/47)) ([0603592](https://github.com/c6o/node-monorepo/commit/06035928ea1d7cb2f80c4435f708b8a4206e4227)), closes [#46](https://github.com/c6o/node-monorepo/issues/46)
+
+
+### 🐛 Bug Fixes
+
+* Added multi-asset upload component ([37d0c2a](https://github.com/c6o/node-monorepo/commit/37d0c2acee25680c8051ea4f898d3673a4296842))
+* EntityListStore not rendering when EntityStore changes ([2842ca7](https://github.com/c6o/node-monorepo/commit/2842ca74f4a93803bedf209a25a7ccb2bfdf3afc))
+* Moved vaadin-dialog over web-dialog ([1e3f0d3](https://github.com/c6o/node-monorepo/commit/1e3f0d3e5e9dd701b9709940df7b7fe1d84aa3c3))
+* State Manager component, and TextArea component rendering issues ([#41](https://github.com/c6o/node-monorepo/issues/41)) ([6d021de](https://github.com/c6o/node-monorepo/commit/6d021de7eb1f7ff9dbf03133a29f86a1d2cabb01))
+
+
+### ♻️ Chores
+
+* Edit to the CSS to better align text ([#43](https://github.com/c6o/node-monorepo/issues/43)) ([eeb1dcf](https://github.com/c6o/node-monorepo/commit/eeb1dcf9356976a7ee3d0f2c03667a69baf2a3c5))
+* Simplify the c6o-state and c6o-loading components ([#44](https://github.com/c6o/node-monorepo/issues/44)) ([55cf21d](https://github.com/c6o/node-monorepo/commit/55cf21d60deba192e2d75ac750a3de1ed250aa5e))
+
+
+
+
+
 ## [0.0.8](https://github.com/c6o/node-monorepo/compare/v0.0.7...v0.0.8) (2020-09-18)
 
 
