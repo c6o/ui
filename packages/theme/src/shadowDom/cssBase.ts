@@ -10,7 +10,6 @@ export const cssBase = css`
         background-color: var(--c6o-body-bkg-color);
         color: var(--c6o-body-text-color);
         font-family: var(--font-family);
-        font-weight: 500;
     }
 
     p.section {

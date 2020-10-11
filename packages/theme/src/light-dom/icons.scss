@@ -32,14 +32,21 @@ iron-icon {
 
 .vendor-logo,
 .c6o-icon {
-    width: 60px;
     margin: 0 var(--md-spacing) var(--xl-spacing) 0;
+    width: calc(var(--xl-spacing) * 2);
 
     img {
+        height: auto;
         width: 100%;
     }
 
     &.small {
         width: 45px;
     }
+}
+
+.vendor-icon {
+    height: auto;
+    margin-right: var(--md-spacing);
+    width: var(--xl-spacing);
 }

@@ -2,7 +2,7 @@ import { CheckboxElement } from '@vaadin/vaadin-checkbox/src/vaadin-checkbox'
 import { PolymerElement } from '@polymer/polymer'
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
-import { setValueFromPath, getValueFromPath } from '../mixins/path'
+import { getValueFromPath } from '../mixins/path'
 
 export interface Checkbox extends PolymerElement {
     path: string
@@ -12,7 +12,7 @@ export interface Checkbox extends PolymerElement {
 export class Checkbox extends mix(CheckboxElement).with(EntityStoreMixin, EntityStorePathMixin) {
 
     eventToStore(e) {
-        setValueFromPath(this.store.pending, this.path, e.target.checked)
+        super.valueToStore(e.target.checked)
     }
 
     storeToValue() {

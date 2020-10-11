@@ -13,7 +13,7 @@ export class StoreState extends MobxLitElement {
     store: EntityStore | EntityListStore
 
     @property({ type: String, attribute: 'loading-message' })
-    loadingMessage
+    loadingMessage = 'Loading'
 
     @property({ type: Boolean, attribute: 'no-busy' })
     noBusy = false

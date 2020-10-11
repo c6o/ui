@@ -8,7 +8,7 @@ export const cssTypography = css`
 
     h4, h5, h6 {
         line-height: 1.2;
-        margin-bottom: .75rem;
+        margin-bottom: .85rem;
     }
 
     h1.inline, h2.inline, h3.inline, h4.inline, h5.inline, h6.inline {
@@ -36,8 +36,8 @@ export const cssTypography = css`
     }
 
     h4 {
-        font-size: var(--lumo-font-size-m);
-        font-weight: 300;
+        font-size: var(--lumo-font-size-l);
+        font-weight: 500;
     }
 
     h5 {
@@ -75,6 +75,26 @@ export const cssTypography = css`
         font-weight: 600;
     }
 
+    .status-text {
+        font-weight: 700;
+    }
+
+    .status-text.pending {
+        color: var(--color-rain);
+    }
+
+    .status-text.installing {
+        color: var(--color-evening-sun);
+    }
+
+    .status-text.error {
+        color: var(--color-fire);
+    }
+
+    .status-text.completed {
+        color: var(--color-ocean);
+    }
+
     .title {
         color: var(--color-title);
         font-size: var(--lumo-font-size-xxxl);
@@ -85,6 +105,10 @@ export const cssTypography = css`
         color: var(--color-help-text);
         font-size: var(--lumo-font-size-xs);
         margin-bottom: var(--xl-spacing);
+    }
+
+    .help-text.inline {
+        margin-bottom: 0;
     }
 
     small,
@@ -113,5 +137,11 @@ export const cssTypography = css`
         max-width: 100%;
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
+    }
+
+    label.inline {
+        line-height: inherit;
+        margin-bottom: 0;
+        margin-left: var(--md-spacing);
     }
 `

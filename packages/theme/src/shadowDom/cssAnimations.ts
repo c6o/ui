@@ -36,6 +36,10 @@ export const cssAnimations = css`
         background-color: var(--color-sun);
     }
 
+    .c6o-chase.waiting .c6o-chase-dot:before {
+        background-color: var(--color-ocean);
+    }
+
     .c6o-chase-dot:nth-child(1) { animation-delay: -1.1s; }
     .c6o-chase-dot:nth-child(2) { animation-delay: -1.0s; }
     .c6o-chase-dot:nth-child(3) { animation-delay: -0.9s; }

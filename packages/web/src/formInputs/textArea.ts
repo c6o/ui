@@ -50,29 +50,26 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
             this.value = yaml.safeDump(newVal, { indent: 4 })
     }
 
-    eventToStore(e) {
-        const value = e.target.value.trim()
+    valueToStore(value) {
         this.errorMessage = ''
         this.invalid = false
 
         if (this.json) {
             try {
                 setValueFromPath(this.store.pending, this.path, JSON.parse(value))
-            }
-            catch (e) {
+            } catch (e) {
                 this.errorMessage = `Error setting JSON: ${e.message}`
                 this.invalid = true
             }
         } else if (this.yaml) {
             try {
                 setValueFromPath(this.store.pending, this.path, yaml.safeLoad(value))
-            }
-            catch (e) {
+            } catch (e) {
                 this.errorMessage = `Error setting YAML: ${e.message}`
                 this.invalid = true
             }
         } else
-            super.eventToStore(e)
+            super.valueToStore(value)
     }
 
     storeToValue() {

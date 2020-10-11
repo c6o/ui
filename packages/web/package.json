@@ -21,6 +21,7 @@
   "author": "Narayan Sainaney",
   "license": "Apache-2.0",
   "dependencies": {
+    "@polymer/paper-toggle-button": "^3.0.1",
     "@vaadin/vaadin": "^14.0.11",
     "easymde": "^2.11.0",
     "js-yaml": "^3.13.1",

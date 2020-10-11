@@ -11,7 +11,11 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
     }
 
     eventToStore(e) {
-        setValueFromPath(this.store.pending, this.path, e.target.value.trim())
+        this.valueToStore(e.target.value.trim())
+    }
+
+    valueToStore(value) {
+        setValueFromPath(this.store.pending, this.path, value)
     }
 
     storeToValue() {
@@ -50,15 +54,25 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
                 // Load the value from the store if initialized
                 if (this.store.initialized)
                     this.storeToValue()
+                else if (!getValueFromPath(this.store.pending, this.path) && this.required && !this.disabled) {
+                    // Set pending to an empty value if the field is required so an error is shown
+                    // even if the field is never activated by the user
+                    setValueFromPath(this.store.pending, this.path, '')
+                }
 
                 this._reactionDisposer?.()
                 this._reactionDisposer = reaction(
                     () => ([this.store.pending, this.store.initialized]),
                     () => {
-                        // Either the store is reset or initialized
-                        // load the value as long as it's not pending
+                        // Either the store was reset or initialized
+                        // Load the value as long as it's not pending
                         if (!this.store.pending[this.path])
                             this.storeToValue()
+                            if (!this.disabled) {
+                                // We may have set pending.path to an empty string previously,
+                                // but now our store is initialized and we need to populate pending.path with its value
+                                this.valueToStore(super.value)
+                            }
                     }
                 )
             }

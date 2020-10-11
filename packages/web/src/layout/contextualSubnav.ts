@@ -9,19 +9,25 @@ export class ContextualSubnav extends MobxLitElement {
     location: any
 
     @property({ type: String })
-    entityId
+    entityId: string
 
     @property({ type: String })
-    headingFirstPart
+    headingFirstPart: string
 
     @property({ type: String })
-    headingFirstPartLink
+    headingFirstPartLink: string
 
     @property({ type: String })
-    headingSecondPart
+    headingSecondPart: string
 
     @property({ type: String })
-    format
+    headingSecondPartLink: string
+
+    @property({ type: String })
+    headingThirdPart: string
+
+    @property({ type: String })
+    format: string
 
     @property({ type: Object })
     tabs: any
@@ -84,6 +90,13 @@ export class ContextualSubnav extends MobxLitElement {
                 span.second-part {
                     font-weight: 600;
                     margin-left: 1rem;
+                    margin-right: 1rem;
+                    vertical-align: middle;
+                }
+
+                span.third-part {
+                    font-weight: 300;
+                    margin-left: 1rem;
                     vertical-align: middle;
                 }
 
@@ -120,7 +133,14 @@ export class ContextualSubnav extends MobxLitElement {
                             ${this.headingFirstPart}
                         </span> /
                     `}
-                    <span class="second-part ${this.format === 'sentenceCase' ? 'sentence-case' : ''}">${this.headingSecondPart}</span>
+                    <span class="second-part ${this.format === 'sentenceCase' ? 'sentence-case' : ''}">
+                        ${this.headingSecondPartLink ? html`
+                            <a alt="go back" href=${this.headingSecondPartLink}>${this.headingSecondPart}</a>
+                        ` : html`${this.headingSecondPart}`}
+                    </span>
+                    ${this.headingThirdPart ? html`
+                        / <span class="third-part ${this.format === 'sentenceCase' ? 'sentence-case' : ''}">${this.headingThirdPart}</span>
+                    ` : ''}
                 </h1>
                 <c6o-tabs
                     id="contextual-subnav"
