@@ -14,6 +14,9 @@ export class ErrorDialog extends MobxLitElement {
     opened = false
 
     @property({ type: String })
+    theme = 'error'
+
+    @property({ type: String })
     title = 'Error'
 
     static get styles(): (CSSResult[] | CSSResult)[] {
@@ -50,7 +53,7 @@ export class ErrorDialog extends MobxLitElement {
                 </header>
 
                 <div c6o="flex align-start" id="error-content">
-                    <iron-icon class="error" icon="vaadin:exclamation-circle"></iron-icon>
+                    <iron-icon class="${this.theme}" icon="vaadin:exclamation-circle"></iron-icon>
                     <span>
                         ${this.message?.length ?
                             html`${this.message}` :
