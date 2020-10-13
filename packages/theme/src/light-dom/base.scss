@@ -48,6 +48,10 @@ a {
             text-decoration: none;
         }
     }
+
+    &.text-error:hover {
+        color: var(--color-night-fire);
+    }
 }
 
 button {

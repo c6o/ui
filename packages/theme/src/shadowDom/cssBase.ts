@@ -37,6 +37,10 @@ export const cssBase = css`
         width: var(--xl-spacing);
     }
 
+    a.text-error:hover {
+        color: var(--color-night-fire);
+    }
+
     button {
         background: none;
         border: none;

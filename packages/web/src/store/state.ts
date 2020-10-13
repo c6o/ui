@@ -9,8 +9,8 @@ export class StoreState extends MobxLitElement {
     @property({ type: Boolean })
     container = false
 
-    @property({ type: Object })
-    store: EntityStore | EntityListStore
+    @property({ type: Boolean })
+    centered = false
 
     @property({ type: String, attribute: 'loading-message' })
     loadingMessage = 'Loading'
@@ -21,6 +21,9 @@ export class StoreState extends MobxLitElement {
     @property({ type: Boolean, attribute: 'no-init' })
     noInit = false
 
+    @property({ type: Object })
+    store: EntityStore | EntityListStore
+
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
             cssReboot,
@@ -28,6 +31,14 @@ export class StoreState extends MobxLitElement {
             cssGrid,
             cssAnimations,
             css`
+                .centered {
+                    align-items: center;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    height: 100%;
+                }
+
                 #content {
                     position: relative;
                 }
@@ -58,9 +69,11 @@ export class StoreState extends MobxLitElement {
     }
 
     render() {
+        const classes = this.centered ? 'centered' : ''
+
         if (this.store?.initialized || this.noInit) {
             return html`
-                <section id="content">
+                <section id="content" class="${classes}">
                     <div id="overlay" class="${this.store?.busy && !this.noBusy ? 'busy' : ''}"></div>
                     <slot></slot>
                 </section>
