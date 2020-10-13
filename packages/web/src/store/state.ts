@@ -18,6 +18,9 @@ export class StoreState extends MobxLitElement {
     @property({ type: Boolean, attribute: 'no-busy' })
     noBusy = false
 
+    @property({ type: Boolean, attribute: 'no-init' })
+    noInit = false
+
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
             cssReboot,
@@ -55,10 +58,10 @@ export class StoreState extends MobxLitElement {
     }
 
     render() {
-        if (this.store?.initialized) {
+        if (this.store?.initialized || this.noInit) {
             return html`
                 <section id="content">
-                    <div id="overlay" class="${this.store.busy && !this.noBusy ? 'busy' : ''}"></div>
+                    <div id="overlay" class="${this.store?.busy && !this.noBusy ? 'busy' : ''}"></div>
                     <slot></slot>
                 </section>
             `
