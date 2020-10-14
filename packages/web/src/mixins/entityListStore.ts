@@ -15,14 +15,14 @@ export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extend
     }
 
     // Property can be set to a valid string when something binds to ${null} or ${undefined}
-    get safeProperty() { return  !this.storeProperty || this.storeProperty === 'null' || this.storeProperty === 'undefined' ? 'entityStores' : this.storeProperty }
+    get safeProperty() { return !this.storeProperty || this.storeProperty === 'null' || this.storeProperty === 'undefined' ? 'entityStores' : this.storeProperty }
 
     listStoreChanged() {
         // Cannot use => notation in base class!?!
         // Do nothing in the base
         // Override this if you want to handle listStoreChanged events
         // Dispose previous subscriptions
-        for(const disposer of this.entityListStoreDisposers)
+        for (const disposer of this.entityListStoreDisposers)
             disposer()
 
         this.entityListStoreDisposers = []

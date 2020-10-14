@@ -27,6 +27,11 @@ export class ComboBox extends mix(ComboBoxElement).with(EntityStoreMixin, Entity
             this.value = e.target.inputElement.value?.toUpperCase()
     }
 
+    resetValue() {
+        this.value = ''
+        this.invalid = false
+    }
+
     async connectedCallback() {
         await super.connectedCallback()
         if (this.lowercase || this.uppercase)
@@ -37,11 +42,6 @@ export class ComboBox extends mix(ComboBoxElement).with(EntityStoreMixin, Entity
         if (this.lowercase || this.uppercase)
             this.removeEventListener('input', this.autoFormat)
         await super.disconnectedCallback()
-    }
-
-    resetValue() {
-        this.value = ''
-        this.invalid = false
     }
 }
 

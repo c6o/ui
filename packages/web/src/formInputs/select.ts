@@ -1,6 +1,6 @@
 import { SelectElement } from '@vaadin/vaadin-select/src/vaadin-select'
 import { mix } from 'mixwith'
-import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin } from '../mixins'
+import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin, getValueFromPath } from '../mixins'
 
 export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin) {
     itemLabelPath: string
@@ -18,7 +18,7 @@ export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityList
             itemLabelPath: { type: String, value: 'displayName' },
             itemValuePath: { type: String, value: 'value' },
             items: { type: Array },
-            listStore: { type: Object }
+            listStore: { type: Object, observer: 'listStoreChanged' }
         }
     }
 
@@ -41,9 +41,9 @@ export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityList
                 this.listBox.appendChild(rule)
             } else {
                 const vaadinItem = window.document.createElement('vaadin-item')
-                vaadinItem.textContent = item[this.itemLabelPath]
+                vaadinItem.textContent = item[this.itemLabelPath] || getValueFromPath(item, this.itemLabelPath)
                 this.listBox.appendChild(vaadinItem)
-                vaadinItem.setAttribute('value', item[this.itemValuePath])
+                vaadinItem.setAttribute('value', item[this.itemValuePath] || getValueFromPath(item, this.itemValuePath))
             }
         })
         root.appendChild(this.listBox)
