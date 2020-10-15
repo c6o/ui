@@ -5,6 +5,8 @@
 ========================================================================== */
 
 iron-icon {
+    flex-shrink: 0;
+
     &.default {
         margin-right: var(--sm-spacing);
     }

@@ -1,6 +1,10 @@
 import { css } from 'lit-element'
 
 export const cssIcons = css`
+    iron-icon {
+        flex-shrink: 0;
+    }
+
     iron-icon.default {
         margin-right: var(--sm-spacing);
     }
