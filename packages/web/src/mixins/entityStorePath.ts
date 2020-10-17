@@ -62,7 +62,7 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
 
                 this._reactionDisposer?.()
                 this._reactionDisposer = reaction(
-                    () => ([this.store.pending, this.store.initialized]),
+                    () => ([this.store.pending, this.store.initialized, this.store.entity]),
                     () => {
                         // Either the store was reset or initialized
                         // Load the value as long as it's not pending
