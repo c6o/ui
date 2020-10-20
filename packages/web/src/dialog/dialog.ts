@@ -7,19 +7,22 @@ import { cssReboot, cssBase } from '@c6o/ui-theme'
 export class Dialog extends MobxLitElement {
 
     @property({ type: String })
-    classes: string
+    classes = ''
 
     @property({ type: Boolean, attribute: 'max-height' })
-    maxHeight: boolean
+    maxHeight = false
 
     @property({ type: Boolean, attribute: 'min-height' })
-    minHeight: boolean
+    minHeight = false
 
     @property({ type: Boolean })
     opened = false
 
     @property({ type: Boolean })
-    wide: boolean
+    tall = false
+
+    @property({ type: Boolean })
+    wide = false
 
     // https://github.com/andreasbm/web-dialog/blob/master/src/lib/web-dialog.ts
     @query('web-dialog')
@@ -36,10 +39,7 @@ export class Dialog extends MobxLitElement {
                     --dialog-container-padding: 0;
                     --dialog-padding: var(--xl-spacing);
                     --dialog-z-index: 199;
-                }
-
-                web-dialog.wide {
-                    --dialog-max-width: 80vw;
+                    color: var(--color-navy);
                 }
 
                 web-dialog.max-height {
@@ -49,12 +49,27 @@ export class Dialog extends MobxLitElement {
                 web-dialog.min-height {
                     min-height: 35vh;
                 }
+
+                web-dialog.tall {
+                    --dialog-height: 80vh;
+                }
+
+                web-dialog.wide {
+                    --dialog-max-width: 80vw;
+                }
             `
         ]
     }
 
     render() {
-        const classes = this.classes || `${this.wide ? 'wide' : ''} ${this.maxHeight ? 'max-height' : ''} ${this.minHeight ? 'min-height' : ''}`
+        const classes = `
+            ${this.classes}
+            ${this.maxHeight ? 'max-height' : ''}
+            ${this.minHeight ? 'min-height' : ''}
+            ${this.tall ? 'tall' : ''}
+            ${this.wide ? 'wide' : ''}
+        `
+
         return html`
             <web-dialog
                 center
