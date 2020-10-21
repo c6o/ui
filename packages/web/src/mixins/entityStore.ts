@@ -81,6 +81,7 @@ export const EntityStoreLitMixin = (base) => class EntityStoreLitMixinClass exte
     }
 
     updated(changedProperties) {
+        super.updated(changedProperties)
         if (changedProperties.has('store'))
             this.storeChanged()
     }
