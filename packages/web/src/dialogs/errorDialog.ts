@@ -1,17 +1,13 @@
-import { html, customElement, property, query, css, CSSResult } from 'lit-element'
-import { MobxLitElement } from '@adobe/lit-mobx'
-import { WebDialog } from 'web-dialog'
+import { html, customElement, property, css, CSSResult } from 'lit-element'
 import { cssAll, cssModals } from '@c6o/ui-theme'
+import { BaseDialog } from './baseDialog'
 
 @customElement('c6o-error-dialog')
-export class ErrorDialog extends MobxLitElement {
+export class ErrorDialog extends BaseDialog {
 
     // Use either the message property or provide content for the <slot>
     @property({ type: String })
     message: string
-
-    @property({ type: Boolean })
-    opened = false
 
     @property({ type: String })
     theme = 'error'
@@ -39,12 +35,9 @@ export class ErrorDialog extends MobxLitElement {
         ]
     }
 
-    @query('web-dialog')
-    dialog: WebDialog
-
     render() {
         return html`
-            <c6o-dialog ?opened=${this.opened}>
+            <c6o-dialog classes=${this.cssClasses} ?opened=${this.opened}>
                 <header slot="header">
                     <h2 class="modal-title">
                         ${this.title}
@@ -66,20 +59,5 @@ export class ErrorDialog extends MobxLitElement {
                 </footer>
             </c6o-dialog>
         `
-    }
-
-    close = () => {
-        this.opened = false
-    }
-
-    // These are necessary to set opened to false if the user clicks outside of the dialog to close it
-    async connectedCallback() {
-        await super.connectedCallback()
-        this.addEventListener('close', this.close)
-    }
-
-    async disconnectedCallback() {
-        this.removeEventListener('close', this.close)
-        await super.disconnectedCallback()
     }
 }

@@ -3,6 +3,8 @@ import { setValueFromPath, getValueFromPath } from './path'
 
 // This has to come AFTER an EntityStoreMixin in mix(xx).with(EntityStoreMixin, EntityStorePathMixin,....)
 export const EntityStorePathMixin = (base) => class entityStorePathMixin extends base {
+    _errorDisposer
+    _reactionDisposer
 
     static get properties() {
         return {
@@ -41,9 +43,6 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
         if (this.store && this.path)
             this.eventToStore(e)
     }
-
-    _errorDisposer
-    _reactionDisposer
 
     storeChanged = () => {
         super.storeChanged()
