@@ -48,6 +48,10 @@ export abstract class BaseDialog extends MobxLitElement {
             e.preventDefault()
     }
 
+    open = () => {
+        this.opened = true
+    }
+
     close = () => {
         this.opened = false
     }

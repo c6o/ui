@@ -1,15 +1,9 @@
 import { html, customElement, property, CSSResult, query } from 'lit-element'
 import { cssAll, cssModals } from '@c6o/ui-theme'
-import { EntityStoreLitMixin, EntityStoreMixin} from '../mixins/entityStore'
-import { mix } from 'mixwith'
-import { Dialog } from './dialog'
-import { BaseDialog } from './baseDialog'
-
-export interface StoreDialog extends EntityStoreMixin, BaseDialog {
-}
+import { BaseStoreDialog } from './baseStoreDialog'
 
 @customElement('c6o-store-dialog')
-export class StoreDialog extends mix(Dialog).with(EntityStoreLitMixin) {
+export class StoreDialog extends BaseStoreDialog {
 
     @property({ type: String, attribute: 'btn-text' })
     btnText = 'Cancel'
@@ -56,7 +50,7 @@ export class StoreDialog extends mix(Dialog).with(EntityStoreLitMixin) {
                             <div class="modal-subtitle">${this.subtitle}</div>
                         `: ''}
                     </h2>
-                    <iron-icon icon="vaadin:close" @click=${this.close}></iron-icon>
+                    <iron-icon icon="vaadin:close" @click=${this.cancel}></iron-icon>
                 </header>
 
                 <slot></slot>
@@ -81,11 +75,6 @@ export class StoreDialog extends mix(Dialog).with(EntityStoreLitMixin) {
         `
     }
 
-    storeChanged() {
-        super.storeChanged()
-        this.store !== null ? this.opened = true : this.close()
-    }
-
     upload = (e) => {
         // this.file is used by the Vaadin Upload component
         this.file = e.detail.file
@@ -106,7 +95,7 @@ export class StoreDialog extends mix(Dialog).with(EntityStoreLitMixin) {
             const confirm = await this.confirmDialog.show(this.deleteMessage)
             if (confirm) {
                 await this.store.remove()
-                this.store = null // this will close the dialog
+                this.close()
             }
         }
     }
@@ -115,17 +104,15 @@ export class StoreDialog extends mix(Dialog).with(EntityStoreLitMixin) {
         if (this.store) {
             if (this.cancelCallback)
                 this.cancelCallback()
-            this.store.reset()
-            this.store = null // this will close the dialog
+            this.close()
         }
-        this.close()
     }
 
     save = async () => {
         const result = await this.saveToStore()
         if (result) {
             this.confirmCallback?.()
-            this.store = null // this will close the dialog
+            this.close()
         }
         return result
     }
