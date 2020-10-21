@@ -2,7 +2,7 @@ import { observe, reaction } from 'mobx'
 import { setValueFromPath, getValueFromPath } from './path'
 
 // This has to come AFTER an EntityStoreMixin in mix(xx).with(EntityStoreMixin, EntityStorePathMixin,....)
-export const EntityStorePathMixin = (base) => class entityStorePathMixin extends base {
+export const EntityStorePathMixin = (base) => class EntityStorePathMixinClass extends base {
     _errorDisposer
     _reactionDisposer
 

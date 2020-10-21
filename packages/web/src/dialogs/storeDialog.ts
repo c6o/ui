@@ -1,15 +1,15 @@
 import { html, customElement, property, CSSResult, query } from 'lit-element'
 import { cssAll, cssModals } from '@c6o/ui-theme'
-import { EntityStoreMixin, EntityStoreMixinClass} from '../mixins/entityStore'
+import { EntityStoreLitMixin, EntityStoreMixin} from '../mixins/entityStore'
 import { mix } from 'mixwith'
 import { Dialog } from './dialog'
 import { BaseDialog } from './baseDialog'
 
-export interface StoreDialog extends EntityStoreMixinClass, BaseDialog {
+export interface StoreDialog extends EntityStoreMixin, BaseDialog {
 }
 
 @customElement('c6o-store-dialog')
-export class StoreDialog extends mix(Dialog).with(EntityStoreMixin) {
+export class StoreDialog extends mix(Dialog).with(EntityStoreLitMixin) {
 
     @property({ type: String, attribute: 'btn-text' })
     btnText = 'Cancel'

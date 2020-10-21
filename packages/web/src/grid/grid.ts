@@ -4,7 +4,6 @@ import { EntityListStoreMixin } from '../mixins/entityListStore'
 import { mix } from 'mixwith'
 
 export interface Grid extends PolymerElement, EntityListStoreMixin {
-
 }
 
 export class Grid extends mix(GridElement).with(EntityListStoreMixin) {

@@ -4,7 +4,7 @@ export interface EntityListStoreMixin {
     listStore: any
 }
 
-export const EntityListStoreMixin = (base) =>  class entityListStoreMixin extends base {
+export const EntityListStoreMixin = (base) =>  class EntityListStoreMixinClass extends base {
     entityListStoreDisposers = []
 
     static get properties() {

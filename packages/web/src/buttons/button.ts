@@ -2,9 +2,9 @@ import { ButtonElement } from '@vaadin/vaadin-button/src/vaadin-button'
 import { PolymerElement } from '@polymer/polymer'
 import { observe } from 'mobx'
 import { mix } from 'mixwith'
-import { EntityStoreMixin, EntityStoreMixinClass } from '../mixins'
+import { EntityStoreMixin } from '../mixins'
 
-export interface Button extends PolymerElement, ButtonElement, EntityStoreMixinClass    {
+export interface Button extends PolymerElement, ButtonElement, EntityStoreMixin    {
     disabled: boolean
     noDisableWhenBusy: boolean
     store
