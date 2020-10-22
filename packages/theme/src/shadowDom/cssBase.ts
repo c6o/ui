@@ -87,4 +87,9 @@ export const cssBase = css`
     .icon.inline {
         margin-right: var(--xl-spacing);
     }
+
+    .icon.small {
+        height: var(--c6o-icon-height-sm);
+        width: var(--c6o-icon-height-sm);
+    }
 `
