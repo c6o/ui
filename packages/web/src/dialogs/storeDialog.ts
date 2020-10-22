@@ -5,9 +5,6 @@ import { BaseStoreDialog } from './baseStoreDialog'
 @customElement('c6o-store-dialog')
 export class StoreDialog extends BaseStoreDialog {
 
-    @property({ type: String, attribute: 'btn-text' })
-    btnText = 'Cancel'
-
     @property({ type: String, attribute: 'confirm-btn-text' })
     confirmBtnText = 'Save'
 
@@ -35,6 +32,8 @@ export class StoreDialog extends BaseStoreDialog {
     confirmDialog
 
     render() {
+        const btnText = this.btnText || 'Cancel'
+
         return html`
             <c6o-dialog classes=${this.cssClasses} ?opened=${this.opened}>
                 <header slot="header">
@@ -54,14 +53,13 @@ export class StoreDialog extends BaseStoreDialog {
                         <div id="delete-btn">
                             <c6o-button class="delete-button" theme="error" @click=${this.delete}>${this.deleteBtnText}</c6o-button>
                             <c6o-confirm-dialog
-                                btn-theme="primary error"
+                                confirm-btn-theme="primary error"
                                 confirm-btn-text="Delete"
-                                title="Please Confirm">
-                            </c6o-confirm-dialog>
+                            ></c6o-confirm-dialog>
                         </div>
                     ` : ''}
                     <div class="btn-group">
-                        <c6o-button class="close-button" theme="${this.btnTheme}" @click=${this.cancel}>${this.btnText}</c6o-button>
+                        <c6o-button class="close-button" theme="${this.btnTheme}" @click=${this.cancel}>${btnText}</c6o-button>
                         <c6o-button class="confirm-button" theme="${this.confirmBtnTheme}" @click=${this.save}>${this.confirmBtnText}</c6o-button>
                     </div>
                 </footer>
@@ -80,10 +78,8 @@ export class StoreDialog extends BaseStoreDialog {
     }
 
     cancel = () => {
-        if (this.store) {
-            this.cancelCallback?.()
-            this.close()
-        }
+        this.cancelCallback?.()
+        this.close()
     }
 
     save = async () => {

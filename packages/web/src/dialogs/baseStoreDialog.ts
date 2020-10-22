@@ -8,7 +8,7 @@ export interface BaseStoreDialog extends EntityStoreMixin, BaseDialog {
 export abstract class BaseStoreDialog extends mix(BaseDialog).with(EntityStoreLitMixin) {
 
     close = () => {
-        this.store = null
+        this.store ? this.store = null : this.opened = false
     }
 
     storeChanged() {

@@ -38,3 +38,7 @@
         margin: 0 auto var(--xl-spacing);
     }
 }
+
+.btn-group > c6o-button:not(:first-child) {
+    margin-left: var(--sm-spacing);
+}

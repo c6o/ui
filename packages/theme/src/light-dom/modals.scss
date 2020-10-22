@@ -98,15 +98,3 @@
     margin-top: var(--lg-spacing);
     padding-top: var(--md-spacing);
 }
-
-c6o-horizontal-layout > .btn-group {
-    flex: 1 1 auto;
-}
-
-c6o-horizontal-layout > .btn-group:last-child {
-    text-align: right;
-}
-
-.btn-group > c6o-button:not(:first-child) {
-    margin-left: var(--md-spacing);
-}

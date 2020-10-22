@@ -3,11 +3,11 @@ import { MobxLitElement } from '@adobe/lit-mobx'
 
 export abstract class BaseDialog extends MobxLitElement {
 
-    @property({ type: String, attribute: 'btn-theme' })
-    btnTheme = 'default'
-
     @property({ type: String, attribute: 'btn-text' })
     btnText = 'Close'
+
+    @property({ type: String, attribute: 'btn-theme' })
+    btnTheme = 'default'
 
     @property({ type: String })
     classes = ''

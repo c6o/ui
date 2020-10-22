@@ -28,7 +28,7 @@ export class Dialog extends BaseDialog {
                     --dialog-max-height: 600px;
                 }
 
-                web-dialog.min-height {
+                web-dialog.min-height #modal-body {
                     min-height: 35vh;
                 }
 
@@ -54,7 +54,9 @@ export class Dialog extends BaseDialog {
                 @open=${this.exposeEvent}
             >
                 <slot name="header"></slot>
-                <slot></slot>
+                <div c6o="fill" id="modal-body">
+                    <slot></slot>
+                </div>
                 <slot name="footer"></slot>
             </web-dialog>
         `

@@ -47,8 +47,4 @@ export const cssModals = css`
         margin-top: var(--lg-spacing);
         padding-top: var(--md-spacing);
     }
-
-    .btn-group > c6o-button:not(:first-child) {
-        margin-left: var(--md-spacing);
-    }
 `

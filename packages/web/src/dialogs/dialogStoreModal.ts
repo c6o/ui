@@ -46,10 +46,10 @@ export abstract class DialogStoreModal extends DialogStore {
                     </div>
                 </div>
                 <c6o-confirm-dialog
-                    btn-theme="primary error"
+                    confirm-btn-theme="primary error"
                     confirm-btn-text="Delete"
-                    title="Confirm Edition Deletion">
-                </c6o-confirm-dialog>
+                    title="Confirm Edition Deletion"
+                ></c6o-confirm-dialog>
             ` : html`
                 <div class="modal-footer" c6o="flex justify-between">
                     <c6o-button class="cancel-button" theme="default" @click=${cancel}>${this.cancelBtnText}</c6o-button>

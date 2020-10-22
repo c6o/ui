@@ -1,58 +1,58 @@
-import { html } from 'lit-element'
-import { DialogElement } from '@vaadin/vaadin-dialog/src/vaadin-dialog'
-import { render, TemplateResult } from 'lit-html'
+import { html, customElement, CSSResult, property } from 'lit-element'
+import { cssAll, cssModals } from '@c6o/ui-theme'
+import { BaseDialog } from './baseDialog'
 
-export class ConfirmationDialog extends DialogElement {
-    btnTheme: string
-    confirmBtnText: string
-    cancelBtnText: string
+@customElement('c6o-confirm-dialog')
+export class ConfirmationDialog extends BaseDialog {
+
+    @property({ type: Function })
+    callback
+
+    @property({ type: String, attribute: 'confirm-btn-text' })
+    confirmBtnText = 'OK'
+
+    @property({ type: String, attribute: 'confirm-btn-theme' })
+    confirmBtnTheme = 'primary'
+
+    @property({ type: String })
     message: string
-    size: string
-    title: string
-    renderModalContent?(): TemplateResult
-    callback: (confirmed: boolean) => void
 
-    static get properties() {
-        return {
-            btnTheme: { type: String, value: 'info' },
-            confirmBtnText: { type: String, value: 'OK' },
-            cancelBtnText: { type: String, value: 'Cancel' },
-            message: { type: String, value: '' },
-            size: { type: String, value: '' },
-            title: { type: String, value: 'Please Confirm' },
-        }
+    static get styles(): (CSSResult[] | CSSResult)[] {
+        return [
+            cssAll,
+            cssModals
+        ]
     }
 
-    renderer = (root) => {
-        if (root.firstElementChild) return
-        render(this.renderContent(), root)
-    }
+    render() {
+        const title = this.title || 'Please Confirm'
 
-    renderContent = () => {
         return html`
-            <div class="modal-header">
-                <h2 class="modal-title">${this.title}</h2>
-                <iron-icon icon="vaadin:close" @click=${this.cancel}></iron-icon>
-            </div>
-            <div class="modal-body ${this.size}">
-                <div id="modal-content">
-                    ${this.message?.length ? html`
-                        ${this.message}
-                    ` : html`
-                        ${this.renderModalContent()}
-                    `}
-                </div>
-            </div>
-            <div class="modal-footer" c6o="flex justify-between">
-                <c6o-button class="cancel-button" theme="default" @click=${this.cancel}>${this.cancelBtnText}</c6o-button>
-                <c6o-button class="confirm-button" theme="${this.btnTheme}" @click=${this.confirm}>${this.confirmBtnText}</c6o-button>
-            </div>
+            <c6o-dialog classes=${this.cssClasses} ?opened=${this.opened}>
+                <header slot="header">
+                    <h2 class="modal-title">${title}</h2>
+                    <iron-icon icon="vaadin:close" @click=${this.cancel}></iron-icon>
+                </header>
+
+                ${this.message?.length ? html`
+                    <p>${this.message}</p>
+                ` : html`
+                    <slot></slot>
+                `}
+
+                <footer c6o="text-right" slot="footer">
+                    <div class="btn-group">
+                        <c6o-button id="cancel-button" theme="${this.btnTheme}" @click=${this.cancel}>${this.btnText}</c6o-button>
+                        <c6o-button id="confirm-button" theme="${this.confirmBtnTheme}" @click=${this.confirm}>${this.confirmBtnText}</c6o-button>
+                    </div>
+                </footer>
+            </c6o-dialog>
         `
     }
 
     show(message: string) {
         this.message = message
-        super.opened = true
+        this.open()
 
         return new Promise((resolve) => {
             this.callback = (confirmed: boolean) => {
@@ -62,14 +62,12 @@ export class ConfirmationDialog extends DialogElement {
     }
 
     cancel = async () => {
-        super.opened = false
         this.callback(false)
+        this.close()
     }
 
     confirm = async () => {
-        super.opened = false
         this.callback(true)
+        this.close()
     }
 }
-
-customElements.define('c6o-confirm-dialog', ConfirmationDialog)
