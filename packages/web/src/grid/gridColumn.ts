@@ -1,5 +1,9 @@
 import { GridColumnElement } from '@vaadin/vaadin-grid/src/vaadin-grid-column'
 
+export interface GridColumn extends HTMLElement {
+
+}
+
 export class GridColumn extends GridColumnElement {
 
     _findHostGrid() {

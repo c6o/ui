@@ -2,6 +2,10 @@ import { SelectElement } from '@vaadin/vaadin-select/src/vaadin-select'
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin, getValueFromPath } from '../mixins'
 
+export interface Select extends EntityListStoreMixin, HTMLElement {
+
+}
+
 export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin) {
     itemLabelPath: string
     itemValuePath: string

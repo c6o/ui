@@ -3,6 +3,10 @@ import { TemplateResult } from 'lit-html'
 import { DialogStore } from './dialogStore'
 import { ConfirmationDialog } from '@c6o/ui-web'
 
+export interface DialogStoreModal extends HTMLElement {
+
+}
+
 export abstract class DialogStoreModal extends DialogStore {
     btnTheme
     confirmBtnText

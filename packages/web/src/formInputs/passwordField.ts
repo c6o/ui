@@ -2,6 +2,8 @@ import { PasswordFieldElement } from '@vaadin/vaadin-text-field/src/vaadin-passw
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 
+export interface PasswordField extends HTMLElement {
+}
 export class PasswordField extends mix(PasswordFieldElement).with(EntityStoreMixin, EntityStorePathMixin) {
 }
 

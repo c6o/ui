@@ -1,6 +1,8 @@
 import { observe } from 'mobx'
 
 export interface EntityListStoreMixin {
+    entityStoresChanged()
+    entityChanged()
     listStore: any
 }
 

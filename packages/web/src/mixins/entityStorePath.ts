@@ -1,6 +1,11 @@
 import { observe, reaction } from 'mobx'
 import { setValueFromPath, getValueFromPath } from './path'
 
+export interface EntityStorePathMixinClass {
+    valueToStore(value: any): void
+    storeToValue(): void
+    value: any
+}
 // This has to come AFTER an EntityStoreMixin in mix(xx).with(EntityStoreMixin, EntityStorePathMixin,....)
 export const EntityStorePathMixin = (base) => class entityStorePathMixin extends base {
 

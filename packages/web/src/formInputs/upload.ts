@@ -1,4 +1,5 @@
 import { UploadElement } from '@vaadin/vaadin-upload/src/vaadin-upload'
+import { PolymerElement } from '@polymer/polymer'
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 

@@ -1,12 +1,14 @@
 import { TextAreaElement } from '@vaadin/vaadin-text-field/src/vaadin-text-area'
+import { PolymerElement } from '@polymer/polymer'
 import { observe } from 'mobx'
 import EasyMDE from 'easymde'
 import { mix } from 'mixwith'
-import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
+import { EntityStoreMixin, EntityStorePathMixin, EntityStorePathMixinClass } from '../mixins'
 import { setValueFromPath, getValueFromPath } from '../mixins/path'
 import yaml from 'js-yaml'
 
-export interface TextArea extends PolymerElement {
+interface base extends EntityStorePathMixinClass, PolymerElement { }
+export interface TextArea extends base {
     errorMessage: string
     invalid: boolean
     path: string

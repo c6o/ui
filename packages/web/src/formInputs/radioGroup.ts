@@ -1,10 +1,13 @@
 import { RadioGroupElement } from '@vaadin/vaadin-radio-button/src/vaadin-radio-group'
 import { PolymerElement } from '@polymer/polymer'
 import { mix } from 'mixwith'
-import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
+import { EntityStoreMixin, EntityStorePathMixin, EntityStorePathMixinClass } from '../mixins'
 import { getValueFromPath } from '../mixins/path'
 
-export interface RadioGroup extends PolymerElement {
+interface base extends PolymerElement, EntityStorePathMixinClass {
+
+}
+export interface RadioGroup extends base {
     path: string
     store
     value

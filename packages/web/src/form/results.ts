@@ -1,4 +1,5 @@
 import { html, css, property, CSSResult } from 'lit-element'
+import { PolymerElement } from '@polymer/polymer'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { mix } from 'mixwith'
 import { EntityStoreMixin } from '../mixins'

@@ -2,6 +2,13 @@ import { html } from 'lit-element'
 import { DialogElement } from '@vaadin/vaadin-dialog/src/vaadin-dialog'
 import { render, TemplateResult } from 'lit-html'
 
+interface base extends HTMLElement {
+    opened: boolean
+}
+export interface ConfirmationDialog extends base {
+
+}
+
 export class ConfirmationDialog extends DialogElement {
     btnTheme: string
     confirmBtnText: string
