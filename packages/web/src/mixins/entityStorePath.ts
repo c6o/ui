@@ -8,7 +8,9 @@ export const EntityStorePathMixin = (base) => class EntityStorePathMixinClass ex
 
     static get properties() {
         return {
+            hasPendingReset: { type: Boolean, value: false },
             path: { type: String },
+            type: { type: String }
         }
     }
 
@@ -18,6 +20,10 @@ export const EntityStorePathMixin = (base) => class EntityStorePathMixinClass ex
 
     valueToStore(value) {
         setValueFromPath(this.store.pending, this.path, value)
+        if (this.type) {
+            const path = `${this.path.split('.')[0]}.type`
+            setValueFromPath(this.store.pending, path, this.type)
+        }
     }
 
     storeToValue() {
@@ -57,6 +63,7 @@ export const EntityStorePathMixin = (base) => class EntityStorePathMixinClass ex
                     // Set pending to an empty value if the field is required so an error is shown
                     // even if the field is never activated by the user
                     setValueFromPath(this.store.pending, this.path, '')
+                    this.hasPendingReset = true
                 }
 
                 this._reactionDisposer?.()
@@ -67,9 +74,9 @@ export const EntityStorePathMixin = (base) => class EntityStorePathMixinClass ex
                         // Load the value as long as it's not pending
                         if (!this.store.pending[this.path])
                             this.storeToValue()
-                            if (!this.disabled) {
-                                // We may have set pending.path to an empty string previously,
-                                // but now our store is initialized and we need to populate pending.path with its value
+                            if (this.hasPendingReset) {
+                                // We set pending.path to an empty string previously, but now our store is initialized
+                                // and we need to populate pending.path with its value, if it has one
                                 this.valueToStore(super.value)
                             }
                     }

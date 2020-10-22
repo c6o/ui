@@ -20,12 +20,6 @@ export class StoreDialog extends BaseStoreDialog {
     @property({ type: String, attribute: 'delete-message' })
     deleteMessage: string
 
-    @property({ type: Object })
-    file: any
-
-    @property({ type: String, attribute: 'file-path' })
-    filePath = 'image'
-
     // Optional callbacks
     cancelCallback?(): void
     confirmCallback?(): void
@@ -75,21 +69,6 @@ export class StoreDialog extends BaseStoreDialog {
         `
     }
 
-    upload = (e) => {
-        // this.file is used by the Vaadin Upload component
-        this.file = e.detail.file
-        this.file.complete = true
-        this.file.status = ''
-
-        const reader = new FileReader()
-        reader.onload = this.fileProcessed
-        reader.readAsDataURL(e.detail.file)
-    }
-
-    fileProcessed = (e) => {
-        this.store.pending[this.filePath] = e.target.result
-    }
-
     delete = async () => {
         if (this.confirmDialog) {
             const confirm = await this.confirmDialog.show(this.deleteMessage)
@@ -102,8 +81,7 @@ export class StoreDialog extends BaseStoreDialog {
 
     cancel = () => {
         if (this.store) {
-            if (this.cancelCallback)
-                this.cancelCallback()
+            this.cancelCallback?.()
             this.close()
         }
     }
@@ -120,9 +98,5 @@ export class StoreDialog extends BaseStoreDialog {
     saveToStore = async () => {
         await this.store?.save()
         return !!this.store?.success
-    }
-
-    reset = async () => {
-        this.store.reset()
     }
 }
