@@ -2,11 +2,11 @@
   "name": "@c6o/ui-web",
   "version": "0.0.9",
   "description": "CodeZero common web components and controls",
-  "main": "./src/index.ts",
-  "module": "./src/index.ts",
+  "main": "./lib/index.ts",
+  "module": "./lib/index.ts",
   "source": true,
   "files": [
-    "src"
+    "lib"
   ],
   "keywords": [
     "web",
@@ -21,6 +21,7 @@
   "author": "Narayan Sainaney",
   "license": "Apache-2.0",
   "dependencies": {
+    "@c6o/ui-theme": "^0.0.9",
     "@polymer/paper-toggle-button": "^3.0.1",
     "@vaadin/vaadin": "^14.0.11",
     "easymde": "^2.11.0",

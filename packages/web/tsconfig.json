@@ -17,6 +17,9 @@
         "sourceMap": true,
         "lib": ["es2018", "dom"]
     },
+    "references": [
+        { "path":  "../theme" }
+    ],
     "exclude": [
         "lib",
         "test",

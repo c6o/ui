@@ -1,24 +1,3 @@
-// Extends is not supported at this time
-/*
-{
-    "extends": "../../../tsconfig.json",
-    "compilerOptions": {
-        "rootDir": "./src",
-        "outDir": "./lib",
-        "lib": ["dom", "dom.iterable"]
-    },
-    "references": [
-        { "path":  "../../common" }
-    ],
-    "include": [
-        "src"
-    ],
-    "exclude": [
-        "node_modules",
-        "test"
-    ]
-}
-*/
 {
     "compilerOptions": {
         "composite": true,
@@ -41,11 +20,8 @@
             "dom"
         ],
     },
-    "references": [
-        { "path":  "../../../common" },
-    ],
     "exclude": [
-        "test",
+        "lib",
         "node_modules",
         "test"
     ]
