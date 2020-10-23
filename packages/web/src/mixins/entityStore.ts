@@ -1,4 +1,6 @@
-export interface EntityStoreMixin {
+import { PolymerElement } from '@polymer/polymer'
+
+export interface EntityStoreMixin extends PolymerElement {
     noInherit: boolean
     store: any
     storeChanged(): void

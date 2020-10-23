@@ -1,12 +1,12 @@
 import { CheckboxElement } from '@vaadin/vaadin-checkbox/src/vaadin-checkbox'
-import { PolymerElement } from '@polymer/polymer'
 import { mix } from 'mixwith'
+import { EntityStore } from '@c6o/common'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 import { getValueFromPath } from '../mixins/path'
 
-export interface Checkbox extends PolymerElement {
+export interface Checkbox extends EntityStorePathMixin {
     path: string
-    store
+    store: EntityStore
 }
 
 export class Checkbox extends mix(CheckboxElement).with(EntityStoreMixin, EntityStorePathMixin) {

@@ -1,7 +1,11 @@
+import { PolymerElement } from '@polymer/polymer'
 import { observe } from 'mobx'
 
-export interface EntityListStoreMixin {
+export interface EntityListStoreMixin extends PolymerElement {
     listStore: any
+    entityChanged(): void
+    entityStoresChanged(): void
+
 }
 
 export const EntityListStoreMixin = (base) =>  class EntityListStoreMixinClass extends base {

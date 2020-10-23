@@ -1,9 +1,8 @@
 import { TextFieldElement } from '@vaadin/vaadin-text-field/src/vaadin-text-field'
-import { PolymerElement } from '@polymer/polymer'
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 
-export interface TextField extends PolymerElement {
+export interface TextField extends EntityStorePathMixin {
     eventToStore
     path
     store

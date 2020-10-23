@@ -1,11 +1,12 @@
 import { UploadElement } from '@vaadin/vaadin-upload/src/vaadin-upload'
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
+import { EntityStore } from '@c6o/common'
 
-export interface Upload extends PolymerElement {
-    files
+export interface Upload extends EntityStorePathMixin {
+    files: Array<File>
     set
-    store
+    store: EntityStore
 }
 
 export class Upload extends mix(UploadElement).with(EntityStoreMixin, EntityStorePathMixin) {

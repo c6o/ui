@@ -1,9 +1,8 @@
 import { GridElement } from '@vaadin/vaadin-grid/src/vaadin-grid'
-import { PolymerElement } from '@polymer/polymer'
 import { EntityListStoreMixin } from '../mixins/entityListStore'
 import { mix } from 'mixwith'
 
-export interface Grid extends PolymerElement, EntityListStoreMixin {
+export interface Grid extends EntityListStoreMixin {
 }
 
 export class Grid extends mix(GridElement).with(EntityListStoreMixin) {

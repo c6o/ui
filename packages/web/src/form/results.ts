@@ -3,10 +3,11 @@ import { MobxLitElement } from '@adobe/lit-mobx'
 import { mix } from 'mixwith'
 import { EntityStoreMixin } from '../mixins'
 import { cssReboot, cssBase } from '@c6o/ui-theme'
+import { EntityStore } from '@c6o/common'
 
-export interface Results extends PolymerElement {
+export interface Results extends EntityStoreMixin {
     shadowRoot
-    store
+    store: EntityStore
 }
 
 // This custom element must be nested in a c6o-form-layout element with a bound store

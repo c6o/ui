@@ -5,15 +5,17 @@ import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 import { setValueFromPath, getValueFromPath } from '../mixins/path'
 import yaml from 'js-yaml'
+import { EntityStore } from '@c6o/common'
 
-export interface TextArea extends PolymerElement {
+export interface TextArea extends EntityStorePathMixin {
     errorMessage: string
     invalid: boolean
     path: string
-    store
+    store: EntityStore
 }
 
 export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, EntityStorePathMixin) {
+    data
     easyMDE
     json: boolean
     markdown: boolean
@@ -21,7 +23,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
     readonly: boolean
     root
     textAreaDisposer
-    value
+    value: string
     yaml: boolean
 
     static get properties() {
@@ -32,6 +34,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
             markdown: { type: Boolean },
             minHeight: { type: String, value: '300px'},
             readonly: { type: Boolean, value: false },
+            value: { type: String },
             yaml: { type: Boolean }
         }
     }
@@ -84,10 +87,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
     }
 
     isEmpty(value) {
-        if (value?.constructor === Object)
-            return !Object.keys(value).length
-        else
-            return !value?.length
+        return value?.constructor === Object ? !Object.keys(value).length : !value?.length
     }
 
     async connectedCallback() {

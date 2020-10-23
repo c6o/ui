@@ -1,5 +1,15 @@
+import { PolymerElement } from '@polymer/polymer'
 import { observe, reaction } from 'mobx'
 import { setValueFromPath, getValueFromPath } from './path'
+
+export interface EntityStorePathMixin extends PolymerElement {
+    checked: boolean
+    store: any
+    value: any
+    storeChanged(): void
+    storeToValue(): void
+    valueToStore(value: any): void
+}
 
 // This has to come AFTER an EntityStoreMixin in mix(xx).with(EntityStoreMixin, EntityStorePathMixin,....)
 export const EntityStorePathMixin = (base) => class EntityStorePathMixinClass extends base {
