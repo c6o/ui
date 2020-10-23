@@ -2,11 +2,11 @@
   "name": "@c6o/ui-theme",
   "version": "0.0.9",
   "description": "CodeZero common front-end theme",
-  "main": "./lib/index.ts",
-  "module": "./lib/index.ts",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
   "source": true,
   "files": [
-    "lib"
+    "src"
   ],
   "scripts": {
     "build": "echo \"Notice: no build specified\"",
