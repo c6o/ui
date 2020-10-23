@@ -4,13 +4,14 @@ import { MobxLitElement } from '@adobe/lit-mobx'
 import { mix } from 'mixwith'
 import { EntityStoreMixin } from '../mixins'
 import { cssReboot, cssBase, cssGrid } from '@c6o/ui-theme'
+import { EntityStore } from '@c6o/common'
 
-export interface SaveButton extends PolymerElement {
+export interface SaveButton extends EntityStoreMixin {
     shadowRoot
-    store
+    store: EntityStore
 }
 
-export class SaveButton extends mix(MobxLitElement).with(EntityStoreMixin) {
+export class SaveButton extends mix(MobxLitElement).with(EntityStoreMixin) implements PolymerElement {
     timeout
 
     @property({ type: String, attribute: 'success-message' })

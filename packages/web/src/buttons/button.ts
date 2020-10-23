@@ -3,14 +3,15 @@ import { PolymerElement } from '@polymer/polymer'
 import { observe } from 'mobx'
 import { mix } from 'mixwith'
 import { EntityStoreMixin } from '../mixins'
+import { EntityStore } from '@c6o/common'
 
-export interface Button extends PolymerElement, ButtonElement, EntityStoreMixin    {
+export interface Button extends EntityStoreMixin    {
     disabled: boolean
     noDisableWhenBusy: boolean
-    store
+    store: EntityStore
 }
 
-export class Button extends mix(ButtonElement).with(EntityStoreMixin)  {
+export class Button extends mix(ButtonElement).with(EntityStoreMixin) implements PolymerElement {
     private busyDisposer
     noDisableWhenBusy: boolean
 
@@ -22,7 +23,6 @@ export class Button extends mix(ButtonElement).with(EntityStoreMixin)  {
     }
 
     storeChanged() {
-        //@ts-ignore
         super.storeChanged()
 
         this.busyDisposer?.()

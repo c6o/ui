@@ -2,7 +2,7 @@ import { FormLayoutElement } from '@vaadin/vaadin-form-layout/src/vaadin-form-la
 import { mix } from 'mixwith'
 import { EntityStoreMixin } from '../mixins'
 
-export interface FormLayout extends HTMLElement {
+export interface FormLayout extends EntityStoreMixin {
 }
 
 export class FormLayout extends mix(FormLayoutElement).with(EntityStoreMixin) {

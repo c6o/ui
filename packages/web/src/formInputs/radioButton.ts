@@ -1,9 +1,8 @@
-import { PolymerElement } from '@polymer/polymer'
 import { RadioButtonElement } from '@vaadin/vaadin-radio-button/src/vaadin-radio-button'
 import { mix } from 'mixwith'
 import { EntityStoreMixin } from '../mixins'
 
-export interface RadioButton extends PolymerElement {
+export interface RadioButton extends EntityStoreMixin {
 }
 
 export class RadioButton extends mix(RadioButtonElement).with(EntityStoreMixin) {

@@ -17,6 +17,24 @@ export interface BaseStoreDialog extends EntityStoreMixin {
 }
 
 export abstract class BaseStoreDialog extends mix(BaseDialog).with(EntityStoreLitMixin) {
+    confirmBtnText: string
+    confirmBtnTheme: string
+    deleteBtnText: string
+    deleteMessage: string
+
+    static get properties() {
+        return {
+            ...super.properties,
+            confirmBtnText: { type: String, value: 'Save' },
+            confirmBtnTheme: { type: String, value: 'primary' },
+            deleteBtnText: { type: String, value: 'Delete' },
+            deleteMessage: { type: String }
+        }
+    }
+
+    // Optional callbacks
+    cancelCallback?(): void
+    confirmCallback?(): void
 
     close = () => {
         this.store ? this.store = null : this.opened = false
@@ -25,5 +43,24 @@ export abstract class BaseStoreDialog extends mix(BaseDialog).with(EntityStoreLi
     storeChanged() {
         super.storeChanged()
         this.opened = !!this.store
+    }
+
+    cancel = () => {
+        this.cancelCallback?.()
+        this.close()
+    }
+
+    save = async () => {
+        const result = await this.saveToStore()
+        if (result) {
+            this.confirmCallback?.()
+            this.close()
+        }
+        return result
+    }
+
+    saveToStore = async () => {
+        await this.store?.save()
+        return !!this.store?.success
     }
 }

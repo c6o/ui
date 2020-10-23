@@ -1,9 +1,6 @@
 import { HorizontalLayoutElement } from '@vaadin/vaadin-ordered-layout/src/vaadin-horizontal-layout'
 
-export interface HorizontalLayout extends HTMLElement {
-}
-
-export class HorizontalLayout extends HorizontalLayoutElement {
+export class HorizontalLayout extends HorizontalLayoutElement implements HTMLElement {
 }
 
 customElements.define('c6o-horizontal-layout', HorizontalLayout)

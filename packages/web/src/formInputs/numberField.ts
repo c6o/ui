@@ -1,9 +1,8 @@
 import { NumberFieldElement } from '@vaadin/vaadin-text-field/src/vaadin-number-field'
-import { PolymerElement } from '@polymer/polymer'
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 
-export interface NumberField extends PolymerElement {
+export interface NumberField extends EntityStorePathMixin {
 }
 
 export class NumberField extends mix(NumberFieldElement).with(EntityStoreMixin, EntityStorePathMixin) {

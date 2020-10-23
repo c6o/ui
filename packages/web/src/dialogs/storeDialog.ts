@@ -1,25 +1,9 @@
-import { html, customElement, property, CSSResult, query } from 'lit-element'
+import { html, customElement, CSSResult, query } from 'lit-element'
 import { cssAll, cssModals } from '@c6o/ui-theme'
 import { BaseStoreDialog } from './baseStoreDialog'
 
 @customElement('c6o-store-dialog')
 export class StoreDialog extends BaseStoreDialog {
-
-    @property({ type: String, attribute: 'confirm-btn-text' })
-    confirmBtnText = 'Save'
-
-    @property({ type: String, attribute: 'confirm-btn-theme' })
-    confirmBtnTheme = 'primary'
-
-    @property({ type: String, attribute: 'delete-btn-text' })
-    deleteBtnText = 'Delete'
-
-    @property({ type: String, attribute: 'delete-message' })
-    deleteMessage: string
-
-    // Optional callbacks
-    cancelCallback?(): void
-    confirmCallback?(): void
 
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
@@ -75,24 +59,5 @@ export class StoreDialog extends BaseStoreDialog {
                 this.close()
             }
         }
-    }
-
-    cancel = () => {
-        this.cancelCallback?.()
-        this.close()
-    }
-
-    save = async () => {
-        const result = await this.saveToStore()
-        if (result) {
-            this.confirmCallback?.()
-            this.close()
-        }
-        return result
-    }
-
-    saveToStore = async () => {
-        await this.store?.save()
-        return !!this.store?.success
     }
 }
