@@ -14,7 +14,7 @@
     "UI"
   ],
   "scripts": {
-    "build": "echo \"Notice: no build specified\"",
+    "build": "tsc -b",
     "develop": "echo \"Notice: no develop specified\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

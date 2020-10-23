@@ -1,6 +1,9 @@
 import { GridColumnElement } from '@vaadin/vaadin-grid/src/vaadin-grid-column'
 
-export class GridColumn extends GridColumnElement implements HTMLElement {
+export interface GridColumn extends HTMLElement {
+}
+
+export class GridColumn extends GridColumnElement {
 
     _findHostGrid() {
         let el: any = this
