@@ -39,7 +39,6 @@ export const cssModals = css`
     .modal-title .modal-subtitle {
         color: var(--color-thunder);
         font-size: var(--lumo-font-size-s);
-        line-height: .2;
     }
 
     footer {
