@@ -7,16 +7,6 @@ export interface Grid extends EntityListStoreMixin {
 
 export class Grid extends mix(GridElement).with(EntityListStoreMixin) {
 
-    async connectedCallback() {
-        await super.connectedCallback()
-        this.$.table.addEventListener('scroll', this.handleScroll)
-    }
-
-    async disconnectedCallback() {
-        this.$.table.removeEventListener('scroll', this.handleScroll)
-        await super.disconnectedCallback()
-    }
-
     handleScroll = async () => {
         let loading = false
         const table = this.$.table
@@ -25,6 +15,16 @@ export class Grid extends mix(GridElement).with(EntityListStoreMixin) {
             await this.listStore?.next()
             loading = false
         }
+    }
+
+    async connectedCallback() {
+        await super.connectedCallback()
+        this.$.table.addEventListener('scroll', this.handleScroll)
+    }
+
+    async disconnectedCallback() {
+        this.$.table.removeEventListener('scroll', this.handleScroll)
+        await super.disconnectedCallback()
     }
 }
 
