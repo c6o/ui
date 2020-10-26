@@ -16,8 +16,10 @@ export class Checkbox extends mix(CheckboxElement).with(EntityStoreMixin, Entity
     }
 
     storeToValue() {
-        const valueFrom = this.store.entity || this.store.pending
-        super.checked = !!getValueFromPath(valueFrom, this.path)
+        if (this.store) {
+            const valueFrom = this.store.entity || this.store.pending
+            super.checked = !!getValueFromPath(valueFrom, this.path)
+        }
     }
 }
 

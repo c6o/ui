@@ -29,16 +29,20 @@ export const EntityStorePathMixin = (base) => class EntityStorePathMixinClass ex
     }
 
     valueToStore(value) {
-        setValueFromPath(this.store.pending, this.path, value)
-        if (this.type) {
-            const path = `${this.path.split('.')[0]}.type`
-            setValueFromPath(this.store.pending, path, this.type)
+        if (this.store) {
+            setValueFromPath(this.store.pending, this.path, value)
+            if (this.type) {
+                const path = `${this.path.split('.')[0]}.type`
+                setValueFromPath(this.store.pending, path, this.type)
+            }
         }
     }
 
     storeToValue() {
-        const valueFrom = this.store.entity || this.store.pending
-        super.value = getValueFromPath(valueFrom, this.path)
+        if (this.store) {
+            const valueFrom = this.store.entity || this.store.pending
+            super.value = getValueFromPath(valueFrom, this.path)
+        }
     }
 
     checkForErrors = () => {
@@ -78,11 +82,11 @@ export const EntityStorePathMixin = (base) => class EntityStorePathMixinClass ex
 
                 this._reactionDisposer?.()
                 this._reactionDisposer = reaction(
-                    () => ([this.store.pending, this.store.initialized]),
+                    () => ([this.store?.pending, this.store?.initialized]),
                     () => {
                         // Either the store was reset or initialized
                         // Load the value as long as it's not pending
-                        if (!this.store.pending[this.path])
+                        if (!this.store?.pending[this.path])
                             this.storeToValue()
                             if (this.hasPendingReset) {
                                 // We set pending.path to an empty string previously, but now our store is initialized

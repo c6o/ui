@@ -17,8 +17,10 @@ export class RadioGroup extends mix(RadioGroupElement).with(EntityStoreMixin, En
     }
 
     storeToValue() {
-        const valueFrom = this.store.entity || this.store.pending
-        this.value = !!getValueFromPath(valueFrom, this.path)
+        if (this.store) {
+            const valueFrom = this.store.entity || this.store.pending
+            this.value = !!getValueFromPath(valueFrom, this.path)
+        }
     }
 }
 
