@@ -1,3 +1,4 @@
+import { property } from 'lit-element'
 import { EntityStoreLitMixin, EntityStoreMixin} from '../mixins/entityStore'
 import { mix } from 'mixwith'
 import { BaseDialog } from './baseDialog'
@@ -17,20 +18,18 @@ export interface BaseStoreDialog extends EntityStoreMixin {
 }
 
 export abstract class BaseStoreDialog extends mix(BaseDialog).with(EntityStoreLitMixin) {
-    confirmBtnText: string
-    confirmBtnTheme: string
-    deleteBtnText: string
-    deleteMessage: string
 
-    static get properties() {
-        return {
-            ...super.properties,
-            confirmBtnText: { type: String, value: 'Save' },
-            confirmBtnTheme: { type: String, value: 'primary' },
-            deleteBtnText: { type: String, value: 'Delete' },
-            deleteMessage: { type: String }
-        }
-    }
+    @property({ type: String, attribute: 'confirm-btn-text' })
+    confirmBtnText = 'Save'
+
+    @property({ type: String, attribute: 'confirm-btn-theme' })
+    confirmBtnTheme = 'primary'
+
+    @property({ type: String, attribute: 'delete-btn-text' })
+    deleteBtnText = 'Delete'
+
+    @property({ type: String, attribute: 'delete-btn-theme' })
+    deleteMessage
 
     // Optional callbacks
     cancelCallback?(): void
