@@ -24,14 +24,13 @@ export class Dialog extends BaseDialog {
                     color: var(--color-navy);
                 }
 
-                web-dialog.max-height {
-                    --dialog-max-height: 600px;
+                web-dialog #modal-body {
+                    max-height: 75vh;
+                    overflow: scroll;
                 }
 
                 web-dialog.min-height #modal-body {
-                    max-height: 75vh;
                     min-height: 35vh;
-                    overflow: scroll;
                 }
 
                 web-dialog.tall {

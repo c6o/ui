@@ -12,9 +12,6 @@ export abstract class BaseDialog extends MobxLitElement {
     @property({ type: String })
     classes = ''
 
-    @property({ type: Boolean, attribute: 'max-height' })
-    maxHeight = false
-
     @property({ type: Boolean, attribute: 'min-height' })
     minHeight = false
 
@@ -34,7 +31,7 @@ export abstract class BaseDialog extends MobxLitElement {
     wide = false
 
     get cssClasses() {
-        return `${this.classes} ${this.maxHeight ? 'max-height' : ''} ${this.minHeight ? 'min-height' : ''} ${this.tall ? 'tall' : ''} ${this.wide ? 'wide' : ''}`
+        return `${this.classes} ${this.minHeight ? 'min-height' : ''} ${this.tall ? 'tall' : ''} ${this.wide ? 'wide' : ''}`
     }
 
     exposeEvent = (e: CustomEvent) => {
