@@ -33,6 +33,7 @@ export class Toggle extends mix(MobxLitElement).with(EntityStoreMixin) {
                     --paper-toggle-button-checked-bar-color: var(--color-ocean);
                     --paper-toggle-button-checked-button-color: var(--color-ocean);
                     cursor: pointer;
+                    display: block;
                     margin-bottom: var(--xl-spacing);
                 }
 
