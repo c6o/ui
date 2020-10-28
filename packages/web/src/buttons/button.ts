@@ -32,7 +32,7 @@ export class Button extends mix(ButtonElement).with(EntityStoreMixin)  {
             this.busyDisposer = observe(this.store, 'busy', () => {
                 if (!this.noDisableWhenBusy)
                     this.disabled = this.store.busy
-            })
+            }, true)
     }
 
     async disconnectedCallback() {
