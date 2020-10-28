@@ -1,4 +1,4 @@
-import { html, css, property, CSSResult } from 'lit-element'
+import { html, customElement, css, property, CSSResult } from 'lit-element'
 import { PolymerElement } from '@polymer/polymer'
 import '@polymer/paper-toggle-button/paper-toggle-button.js'
 import { MobxLitElement } from '@adobe/lit-mobx'
@@ -7,10 +7,9 @@ import { EntityStoreMixin } from '../mixins'
 import { cssReboot, cssBase, cssGrid, cssTypography } from '@c6o/ui-theme'
 
 export interface Toggle extends PolymerElement {
-    shadowRoot
-    store
 }
 
+@customElement('c6o-toggle')
 export class Toggle extends mix(MobxLitElement).with(EntityStoreMixin) {
 
     @property({ type: Boolean })
@@ -37,7 +36,9 @@ export class Toggle extends mix(MobxLitElement).with(EntityStoreMixin) {
                 }
 
                 #label {
-                    margin-left: var(--sm-spacing);
+                    color: var(--color-thunder);
+                    font-size: var(--lumo-font-size-s);
+                    margin-left: var(--xs-spacing);
                 }
 
                 label {
@@ -58,9 +59,6 @@ export class Toggle extends mix(MobxLitElement).with(EntityStoreMixin) {
     }
 
     render() {
-        if (!this.store)
-            return html``
-
         return html`
             <div c6o="flex align-center">
                 ${this.labelOff ? html`<label class="off inline ${this.checked ? '' : 'active'}">${this.labelOff}</label>` : ''}
@@ -86,5 +84,3 @@ export class Toggle extends mix(MobxLitElement).with(EntityStoreMixin) {
         this.dispatchEvent(customEvent)
     }
 }
-
-customElements.define('c6o-toggle', Toggle)
