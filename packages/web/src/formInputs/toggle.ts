@@ -6,8 +6,6 @@ import { EntityStoreMixin } from '../mixins'
 import { cssReboot, cssBase, cssGrid, cssTypography } from '@c6o/ui-theme'
 
 export interface Toggle extends EntityStoreMixin {
-    shadowRoot
-    store
 }
 
 @customElement('c6o-toggle')
