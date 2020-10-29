@@ -2,21 +2,23 @@ import { css } from 'lit-element'
 
 export const cssBadge = css`
     [theme~="badge"] {
-        display: inline-flex;
         align-items: center;
-        justify-content: center;
-        box-sizing: border-box;
-        padding: 0.6em calc(0.8em + var(--lumo-border-radius-m) / 4);
-        color: var(--lumo-primary-text-color);
         background-color: var(--lumo-primary-color-10pct);
         border-radius: var(--lumo-border-radius-s);
+        box-sizing: border-box;
+        color: var(--lumo-primary-text-color);
+        display: inline-flex;
         font-family: var(--lumo-font-family);
         font-size: var(--lumo-font-size-xs);
-        line-height: 1;
         font-weight: 500;
-        text-transform: initial;
+        justify-content: center;
         letter-spacing: initial;
+        line-height: 1;
+        margin-bottom: var(--xs-spacing);
+        margin-right: var(--sm-spacing);
         min-width: calc(var(--lumo-line-height-xs) * 1em + 0.45em);
+        padding: 0.6em calc(0.8em + var(--lumo-border-radius-m) / 4);
+        text-transform: initial;
     }
 
     /* Ensure proper vertical alignment */
