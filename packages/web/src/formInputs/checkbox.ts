@@ -4,7 +4,11 @@ import { EntityStore } from '@c6o/common'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 import { getValueFromPath } from '../mixins/path'
 
-export interface Checkbox extends EntityStorePathMixin {
+interface CheckBoxBase extends EntityStorePathMixin {
+    checked: boolean
+}
+
+export interface Checkbox extends CheckBoxBase {
     path: string
     store: EntityStore
 }

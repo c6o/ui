@@ -3,7 +3,6 @@ import { observe, reaction } from 'mobx'
 import { setValueFromPath, getValueFromPath } from './path'
 
 export interface EntityStorePathMixin extends PolymerElement {
-    checked: boolean
     store: any
     value: any
     storeChanged(): void

@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "build": "tsc -b",
-    "develop": "echo \"Notice: no develop specified\"",
+    "develop": "tsc -b -w --preserveWatchOutput",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Narayan Sainaney",
