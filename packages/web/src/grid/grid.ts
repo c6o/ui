@@ -1,23 +1,11 @@
 import { GridElement } from '@vaadin/vaadin-grid/src/vaadin-grid'
-import { PolymerElement } from '@polymer/polymer'
 import { EntityListStoreMixin } from '../mixins/entityListStore'
 import { mix } from 'mixwith'
 
-export interface Grid extends PolymerElement, EntityListStoreMixin {
-
+export interface Grid extends EntityListStoreMixin {
 }
 
 export class Grid extends mix(GridElement).with(EntityListStoreMixin) {
-
-    async connectedCallback() {
-        await super.connectedCallback()
-        this.$.table.addEventListener('scroll', this.handleScroll)
-    }
-
-    async disconnectedCallback() {
-        this.$.table.removeEventListener('scroll', this.handleScroll)
-        await super.disconnectedCallback()
-    }
 
     handleScroll = async () => {
         let loading = false
@@ -27,6 +15,16 @@ export class Grid extends mix(GridElement).with(EntityListStoreMixin) {
             await this.listStore?.next()
             loading = false
         }
+    }
+
+    async connectedCallback() {
+        await super.connectedCallback()
+        this.$.table.addEventListener('scroll', this.handleScroll)
+    }
+
+    async disconnectedCallback() {
+        this.$.table.removeEventListener('scroll', this.handleScroll)
+        await super.disconnectedCallback()
     }
 }
 

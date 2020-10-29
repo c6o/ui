@@ -1,12 +1,11 @@
 import { html, customElement, css, property, CSSResult } from 'lit-element'
-import { PolymerElement } from '@polymer/polymer'
 import '@polymer/paper-toggle-button/paper-toggle-button.js'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { mix } from 'mixwith'
 import { EntityStoreMixin } from '../mixins'
 import { cssReboot, cssBase, cssGrid, cssTypography } from '@c6o/ui-theme'
 
-export interface Toggle extends PolymerElement {
+export interface Toggle extends EntityStoreMixin {
 }
 
 @customElement('c6o-toggle')
@@ -32,6 +31,7 @@ export class Toggle extends mix(MobxLitElement).with(EntityStoreMixin) {
                     --paper-toggle-button-checked-bar-color: var(--color-ocean);
                     --paper-toggle-button-checked-button-color: var(--color-ocean);
                     cursor: pointer;
+                    display: block;
                     margin-bottom: var(--xl-spacing);
                 }
 

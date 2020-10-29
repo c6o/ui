@@ -39,16 +39,11 @@ export const cssModals = css`
     .modal-title .modal-subtitle {
         color: var(--color-thunder);
         font-size: var(--lumo-font-size-s);
-        line-height: .2;
     }
 
     footer {
         border-top: 1px solid var(--color-cloud);
         margin-top: var(--lg-spacing);
         padding-top: var(--md-spacing);
-    }
-
-    .btn-group > c6o-button:not(:first-child) {
-        margin-left: var(--md-spacing);
     }
 `

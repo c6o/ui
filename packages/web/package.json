@@ -14,13 +14,14 @@
     "UI"
   ],
   "scripts": {
-    "build": "echo \"Notice: no build specified\"",
-    "develop": "echo \"Notice: no develop specified\"",
+    "build": "tsc -b",
+    "develop": "tsc -b -w --preserveWatchOutput",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Narayan Sainaney",
   "license": "Apache-2.0",
   "dependencies": {
+    "@c6o/ui-theme": "^0.0.9",
     "@polymer/paper-toggle-button": "^3.0.1",
     "@vaadin/vaadin": "^14.0.11",
     "easymde": "^2.11.0",

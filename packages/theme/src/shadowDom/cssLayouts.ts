@@ -24,12 +24,8 @@ export const cssLayouts = css`
         padding: var(--md-spacing) calc(var(--xl-spacing) * 2);
     }
 
-    .btn-group-left c6o-button {
-        margin-right: var(--md-spacing);
-    }
-
-    btn-group-right c6o-button {
-        margin-left: var(--md-spacing);
+    .btn-group > c6o-button:not(:first-child) {
+        margin-left: var(--sm-spacing);
     }
 
     c6o-select {

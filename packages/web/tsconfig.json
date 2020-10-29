@@ -40,9 +40,10 @@
     },
     "references": [
         { "path":  "../../../common" },
+        { "path":  "../theme" },
     ],
     "exclude": [
-        "test",
+        "lib",
         "node_modules",
         "test"
     ]

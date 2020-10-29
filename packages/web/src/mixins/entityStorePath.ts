@@ -1,12 +1,25 @@
+import { PolymerElement } from '@polymer/polymer'
 import { observe, reaction } from 'mobx'
 import { setValueFromPath, getValueFromPath } from './path'
 
+export interface EntityStorePathMixin extends PolymerElement {
+    store: any
+    value: any
+    storeChanged(): void
+    storeToValue(): void
+    valueToStore(value: any): void
+}
+
 // This has to come AFTER an EntityStoreMixin in mix(xx).with(EntityStoreMixin, EntityStorePathMixin,....)
-export const EntityStorePathMixin = (base) => class entityStorePathMixin extends base {
+export const EntityStorePathMixin = (base) => class EntityStorePathMixinClass extends base {
+    _errorDisposer
+    _reactionDisposer
 
     static get properties() {
         return {
+            hasPendingReset: { type: Boolean, value: false },
             path: { type: String },
+            type: { type: String }
         }
     }
 
@@ -15,12 +28,20 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
     }
 
     valueToStore(value) {
-        setValueFromPath(this.store.pending, this.path, value)
+        if (this.store) {
+            setValueFromPath(this.store.pending, this.path, value)
+            if (this.type) {
+                const path = `${this.path.split('.')[0]}.type`
+                setValueFromPath(this.store.pending, path, this.type)
+            }
+        }
     }
 
     storeToValue() {
-        const valueFrom = this.store.entity || this.store.pending
-        super.value = getValueFromPath(valueFrom, this.path)
+        if (this.store) {
+            const valueFrom = this.store.entity || this.store.pending
+            super.value = getValueFromPath(valueFrom, this.path)
+        }
     }
 
     checkForErrors = () => {
@@ -42,9 +63,6 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
             this.eventToStore(e)
     }
 
-    _errorDisposer
-    _reactionDisposer
-
     storeChanged = () => {
         super.storeChanged()
 
@@ -58,19 +76,20 @@ export const EntityStorePathMixin = (base) => class entityStorePathMixin extends
                     // Set pending to an empty value if the field is required so an error is shown
                     // even if the field is never activated by the user
                     setValueFromPath(this.store.pending, this.path, '')
+                    this.hasPendingReset = true
                 }
 
                 this._reactionDisposer?.()
                 this._reactionDisposer = reaction(
-                    () => ([this.store.pending, this.store.initialized]),
+                    () => ([this.store?.pending, this.store?.initialized]),
                     () => {
                         // Either the store was reset or initialized
                         // Load the value as long as it's not pending
-                        if (!this.store.pending[this.path])
+                        if (!this.store?.pending[this.path])
                             this.storeToValue()
-                            if (!this.disabled) {
-                                // We may have set pending.path to an empty string previously,
-                                // but now our store is initialized and we need to populate pending.path with its value
+                            if (this.hasPendingReset) {
+                                // We set pending.path to an empty string previously, but now our store is initialized
+                                // and we need to populate pending.path with its value, if it has one
                                 this.valueToStore(super.value)
                             }
                     }

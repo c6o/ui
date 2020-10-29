@@ -1,9 +1,8 @@
 import { TextFieldElement } from '@vaadin/vaadin-text-field/src/vaadin-text-field'
-import { PolymerElement } from '@polymer/polymer'
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 
-export interface TextField extends PolymerElement {
+export interface TextField extends EntityStorePathMixin {
     eventToStore
     path
     store
@@ -12,6 +11,7 @@ export interface TextField extends PolymerElement {
 export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, EntityStorePathMixin) {
     invalid: boolean
     lowercase: boolean
+    maxlength: string
     uppercase: boolean
     updateOnInput: boolean
     value: string
@@ -20,6 +20,7 @@ export class TextField extends mix(TextFieldElement).with(EntityStoreMixin, Enti
         return {
             ...super.properties,
             lowercase: { type: Boolean },
+            maxlength: { type: String, value: '100' },
             uppercase: { type: Boolean },
             updateOnInput: {type: Boolean, attribute: 'update-on-input' },
             value: { type: String }

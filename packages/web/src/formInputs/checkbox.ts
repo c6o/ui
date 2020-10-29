@@ -1,12 +1,16 @@
 import { CheckboxElement } from '@vaadin/vaadin-checkbox/src/vaadin-checkbox'
-import { PolymerElement } from '@polymer/polymer'
 import { mix } from 'mixwith'
+import { EntityStore } from '@c6o/common'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 import { getValueFromPath } from '../mixins/path'
 
-export interface Checkbox extends PolymerElement {
+interface CheckBoxBase extends EntityStorePathMixin {
+    checked: boolean
+}
+
+export interface Checkbox extends CheckBoxBase {
     path: string
-    store
+    store: EntityStore
 }
 
 export class Checkbox extends mix(CheckboxElement).with(EntityStoreMixin, EntityStorePathMixin) {
@@ -16,8 +20,10 @@ export class Checkbox extends mix(CheckboxElement).with(EntityStoreMixin, Entity
     }
 
     storeToValue() {
-        const valueFrom = this.store.entity || this.store.pending
-        super.checked = !!getValueFromPath(valueFrom, this.path)
+        if (this.store) {
+            const valueFrom = this.store.entity || this.store.pending
+            super.checked = !!getValueFromPath(valueFrom, this.path)
+        }
     }
 }
 

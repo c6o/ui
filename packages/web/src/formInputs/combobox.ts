@@ -1,9 +1,9 @@
 import { ComboBoxElement } from '@vaadin/vaadin-combo-box/src/vaadin-combo-box'
-import { PolymerElement } from '@polymer/polymer'
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin } from '../mixins'
 
-export interface ComboBox extends PolymerElement { }
+export interface ComboBox extends EntityStorePathMixin {
+}
 
 export class ComboBox extends mix(ComboBoxElement).with(EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin) {
     invalid: boolean

@@ -1,13 +1,13 @@
 import { RadioGroupElement } from '@vaadin/vaadin-radio-button/src/vaadin-radio-group'
-import { PolymerElement } from '@polymer/polymer'
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
 import { getValueFromPath } from '../mixins/path'
+import { EntityStore } from '@c6o/common'
 
-export interface RadioGroup extends PolymerElement {
+export interface RadioGroup extends EntityStorePathMixin {
     path: string
-    store
-    value
+    store: EntityStore
+    value: boolean
 }
 
 export class RadioGroup extends mix(RadioGroupElement).with(EntityStoreMixin, EntityStorePathMixin) {
@@ -17,8 +17,10 @@ export class RadioGroup extends mix(RadioGroupElement).with(EntityStoreMixin, En
     }
 
     storeToValue() {
-        const valueFrom = this.store.entity || this.store.pending
-        this.value = !!getValueFromPath(valueFrom, this.path)
+        if (this.store) {
+            const valueFrom = this.store.entity || this.store.pending
+            this.value = !!getValueFromPath(valueFrom, this.path)
+        }
     }
 }
 

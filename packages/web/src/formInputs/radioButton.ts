@@ -2,6 +2,9 @@ import { RadioButtonElement } from '@vaadin/vaadin-radio-button/src/vaadin-radio
 import { mix } from 'mixwith'
 import { EntityStoreMixin } from '../mixins'
 
+export interface RadioButton extends EntityStoreMixin {
+}
+
 export class RadioButton extends mix(RadioButtonElement).with(EntityStoreMixin) {
 }
 
