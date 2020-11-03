@@ -64,6 +64,10 @@ export const cssBase = css`
         padding-inline-start: 0;
     }
 
+    ul.inline {
+        margin-bottom: 0;
+    }
+
     hr {
         margin-top: 1rem;
         margin-bottom: 1rem;

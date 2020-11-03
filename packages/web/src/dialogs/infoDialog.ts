@@ -1,9 +1,12 @@
-import { html, customElement, CSSResult } from 'lit-element'
+import { html, customElement, property, CSSResult } from 'lit-element'
 import { cssAll, cssModals } from '@c6o/ui-theme'
 import { BaseDialog } from './baseDialog'
 
 @customElement('c6o-info-dialog')
 export class InfoDialog extends BaseDialog {
+
+    @property({ type: Boolean, attribute: 'has-previous' })
+    hasPrevious = false
 
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
@@ -27,10 +30,24 @@ export class InfoDialog extends BaseDialog {
 
                 <slot></slot>
 
-                <footer c6o="text-right" slot="footer">
+                <footer c6o="${this.hasPrevious ? 'flex justify-between' : 'text-right'}" slot="footer">
+                    ${this.hasPrevious ? html`
+                        <c6o-button theme="${this.btnTheme}" @click=${this.previous}>Previous</c6o-button>
+                    ` : ''}
                     <c6o-button class="close-button" theme="${this.btnTheme}" @click=${this.close}>${this.btnText}</c6o-button>
                 </footer>
             </c6o-dialog>
         `
+    }
+
+    previous = (e) => {
+        e.stopPropagation()
+        const customEvent = new CustomEvent('previous', {
+            bubbles: true,
+            cancelable: false,
+            composed: true
+        })
+
+        this.dispatchEvent(customEvent)
     }
 }
