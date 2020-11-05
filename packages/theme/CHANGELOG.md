@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/c6o/node-monorepo/compare/v0.0.9...v0.1.0) (2020-11-05)
+
+
+### ♻️ Chores
+
+* clean-up the CSS for badges ([40bbdb5](https://github.com/c6o/node-monorepo/commit/40bbdb5717d1577d485ef54f5b108a6455104a4b))
+* Completion of the dialog refactor ([#50](https://github.com/c6o/node-monorepo/issues/50)) ([978e3fd](https://github.com/c6o/node-monorepo/commit/978e3fde4af055028ae803b6523293433d749ec4))
+* Don't shrink iron-icons in flex ([51c54eb](https://github.com/c6o/node-monorepo/commit/51c54eb7c6f061efb19d6d3ae724b7492b9e5692))
+* Migration to web-dialog. Misc style enhancements ([9ce6db5](https://github.com/c6o/node-monorepo/commit/9ce6db5b99321f7774841a2ad32983f5b57a3db0))
+* remove the SimpleDialog component as it's no longer used ([#49](https://github.com/c6o/node-monorepo/issues/49)) ([8c0f18a](https://github.com/c6o/node-monorepo/commit/8c0f18ae876e7cd703f6a85b36e4daa2171b6be1))
+
+
+
+
+
 ## [0.0.9](https://github.com/c6o/node-monorepo/compare/v0.0.8...v0.0.9) (2020-09-30)
 
 

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/c6o/node-monorepo/compare/v0.0.9...v0.1.0) (2020-11-05)
+
+
+### ✨ Features
+
+* Added no-init to c6o-store-state ([4791619](https://github.com/c6o/node-monorepo/commit/4791619ba2feacda9a389da2e2fb3febf1c10977))
+
+
+### 🐛 Bug Fixes
+
+* Put a guard in the TextArea component so MobX doesn't error if the element is being used without a store. ([75225e1](https://github.com/c6o/node-monorepo/commit/75225e14c68a222b641db2f9e709e7b9fb55a644))
+
+
+### ♻️ Chores
+
+* Clean-up the Toggle component and don't require it have a store. ([111c7c4](https://github.com/c6o/node-monorepo/commit/111c7c4b4faf157bbac54b440e2e48106ae5419e))
+* Completion of the dialog refactor ([#50](https://github.com/c6o/node-monorepo/issues/50)) ([978e3fd](https://github.com/c6o/node-monorepo/commit/978e3fde4af055028ae803b6523293433d749ec4))
+* fire the observe immediately to guard against the button remaining disabled in a dialog ([18e4000](https://github.com/c6o/node-monorepo/commit/18e4000f091d54507eef2cf70851255781b78350))
+* give the new error dialog a theme ([58aa6bf](https://github.com/c6o/node-monorepo/commit/58aa6bf41a4c5503c76c03a2eea607c36e6458b0))
+* Migration to web-dialog. Misc style enhancements ([9ce6db5](https://github.com/c6o/node-monorepo/commit/9ce6db5b99321f7774841a2ad32983f5b57a3db0))
+* remove the SimpleDialog component as it's no longer used ([#49](https://github.com/c6o/node-monorepo/issues/49)) ([8c0f18a](https://github.com/c6o/node-monorepo/commit/8c0f18ae876e7cd703f6a85b36e4daa2171b6be1))
+* use theme="condensed" instead of "has-help-text" class ([ecee0c9](https://github.com/c6o/node-monorepo/commit/ecee0c9421d059934f5cb0ec09709d65b1459c1e))
+
+
+
+
+
 ## [0.0.9](https://github.com/c6o/node-monorepo/compare/v0.0.8...v0.0.9) (2020-09-30)
 
 
