@@ -4,7 +4,7 @@
  * These will not apply to the ShadowDOM of Web Components except via CSS variables
 ========================================================================== */
 
-.modal-header {
+header {
     align-items: flex-start;
     border-bottom: 1px solid var(--color-cloud);
     display: flex;
@@ -44,55 +44,7 @@
     }
 }
 
-.modal-body {
-    padding: 0 var(--md-spacing);
-    overflow-y: scroll;
-    max-height: 600px;
-    min-height: 100px;
-    width: 700px;
-
-    &.tall {
-        height: calc(100vh - 400px);
-    }
-
-    &.min-height {
-        min-height: 35vh;
-    }
-
-    #sign-in-modal-content {
-        text-align: center;
-    }
-
-    .auth-provider {
-        width: 15rem;
-    }
-}
-
-@media (min-width: 768px) {
-    .modal-body {
-        &.wide {
-            width: calc(100vw - 300px);
-        }
-
-        &.extra-wide {
-            width: calc(100vw - 200px);
-        }
-    }
-}
-
-@media (min-width: 1200px) {
-    .modal-body {
-        &.wide {
-            width: calc(100vw - 600px);
-        }
-
-        &.extra-wide {
-            width: calc(100vw - 300px);
-        }
-    }
-}
-
-.modal-footer {
+footer {
     border-top: 1px solid var(--color-cloud);
     margin-top: var(--lg-spacing);
     padding-top: var(--md-spacing);
