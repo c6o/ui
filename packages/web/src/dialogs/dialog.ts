@@ -27,7 +27,7 @@ export class Dialog extends BaseDialog {
                 web-dialog #modal-body {
                     max-height: 75vh;
                     padding: 0 var(--xs-spacing);
-                    overflow: scroll;
+                    overflow: auto;
                 }
 
                 web-dialog.min-height #modal-body {
