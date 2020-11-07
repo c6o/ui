@@ -18,6 +18,10 @@ export class ContextualBanner extends MobxLitElement {
             cssGrid,
             cssIcons,
             css`
+                :host {
+                    text-align: left;
+                }
+
                 .banner {
                     align-items: flex-start;
                     border-radius: var(--c6o-border-radius);
