@@ -18,10 +18,10 @@ export class Dialog extends BaseDialog {
                 web-dialog {
                     --dialog-animation-duration: 0;
                     --dialog-border-radius: var(--c6o-border-radius);
+                    --dialog-color: var(--color-navy);
                     --dialog-container-padding: 0;
                     --dialog-padding: var(--xl-spacing);
                     --dialog-z-index: 199;
-                    color: var(--color-navy);
                 }
 
                 web-dialog #modal-body {

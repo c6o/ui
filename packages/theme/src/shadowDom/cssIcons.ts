@@ -2,7 +2,7 @@ import { css } from 'lit-element'
 
 export const cssIcons = css`
     iron-icon {
-        flex-shrink: 0;
+        flex-shrink: 0 !important;
     }
 
     iron-icon.default {

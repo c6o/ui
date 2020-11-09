@@ -1,7 +1,8 @@
 import { css } from 'lit-element'
 
 export const cssModals = css`
-    header {
+    header,
+    .modal-header {
         align-items: flex-start;
         border-bottom: 1px solid var(--color-cloud);
         display: flex;
@@ -10,21 +11,24 @@ export const cssModals = css`
         padding-bottom: var(--md-spacing);
     }
 
-    header img {
+    header img,
+    .modal-header img {
         padding-right: var(--c6o-icon-padding, 22px);
         width: var(--c6o-icon-width, 48px);
         height: auto;
         box-sizing: content-box;
     }
 
-    header iron-icon {
+    header iron-icon,
+    .modal-header iron-icon {
         --iron-icon-width: 16px;
         --iron-icon-height: 16px;
         color: var(--color-rain);
         cursor: pointer;
     }
 
-    header iron-icon:hover {
+    header iron-icon:hover,
+    .modal-header iron-icon:hover {
         color: var(--color-navy);
     }
 
@@ -41,7 +45,8 @@ export const cssModals = css`
         font-size: var(--lumo-font-size-s);
     }
 
-    footer {
+    footer,
+    .modal-footer {
         border-top: 1px solid var(--color-cloud);
         margin-top: var(--lg-spacing);
         padding-top: var(--md-spacing);
