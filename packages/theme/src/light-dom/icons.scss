@@ -30,6 +30,11 @@ iron-icon {
         color: var(--color-fire);
         margin-right: var(--sm-spacing);
     }
+
+    &.lg {
+        height: 40px;
+        width: 40px;
+    }
 }
 
 .vendor-logo,

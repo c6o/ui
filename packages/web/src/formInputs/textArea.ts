@@ -15,6 +15,7 @@ export interface TextArea extends EntityStorePathMixin {
 }
 
 export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, EntityStorePathMixin) {
+    autorefresh
     data
     easyMDE
     json: boolean
@@ -29,6 +30,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
     static get properties() {
         return {
             ...super.properties,
+            autorefresh: { type: Boolean, value: false },
             data: { type: Object, observer: 'dataChanged' },
             json: { type: Boolean },
             markdown: { type: Boolean },
@@ -92,13 +94,38 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
         return value?.constructor === Object ? !Object.keys(value).length : !value?.length
     }
 
+    startListening(cm, state) {
+        const check = () => {
+          if (cm.display.wrapper.offsetHeight) {
+                this.stopListening(cm, state)
+                if (cm.display.lastWrapHeight != cm.display.wrapper.clientHeight)
+                cm.refresh()
+          } else {
+                state.timeout = setTimeout(check, state.delay)
+          }
+        }
+        state.timeout = setTimeout(check, state.delay)
+        state.hurry = function() {
+            clearTimeout(state.timeout)
+            state.timeout = setTimeout(check, 50)
+        }
+        this.easyMDE.codemirror.on(window, 'mouseup', state.hurry)
+        this.easyMDE.codemirror.on(window, 'keyup', state.hurry)
+      }
+
+    stopListening(_cm, state) {
+        clearTimeout(state.timeout)
+        this.easyMDE.codemirror.off(window, 'mouseup', state.hurry)
+        this.easyMDE.codemirror.off(window, 'keyup', state.hurry)
+    }
+
     async connectedCallback() {
         await super.connectedCallback()
 
         if (this.store) {
             this.textAreaDisposer = observe(this.store, 'entity', () => {
                 if (this.markdown) {
-                    const easyMDE = new EasyMDE({
+                    this.easyMDE = new EasyMDE({
                         element: this.root.querySelector('textarea'),
                         autoDownloadFontAwesome: false,
                         minHeight: this.minHeight,
@@ -106,12 +133,23 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
                     })
 
                     this.store.entity ?
-                        easyMDE.value(getValueFromPath(this.store.entity, this.path)) :
-                        easyMDE.value('')
+                        this.easyMDE.value(getValueFromPath(this.store.entity, this.path)) :
+                        this.easyMDE.value('')
 
-                    easyMDE.codemirror.on('change', () => {
-                        setValueFromPath(this.store.pending, this.path, easyMDE.value())
+                    this.easyMDE.codemirror.on('change', () => {
+                        setValueFromPath(this.store.pending, this.path, this.easyMDE.value())
                     })
+
+                    // https://github.com/Ionaru/easy-markdown-editor/pull/249
+                    if (this.autorefresh) {
+                        const cm = this.easyMDE.codemirror
+                        if (cm.state.autoRefresh) {
+                            this.stopListening(cm, cm.state.autoRefresh)
+                            cm.state.autoRefresh = null
+                        }
+                        if (cm.display.wrapper.offsetHeight == 0)
+                            this.startListening(cm, cm.state.autoRefresh = { delay: 250 })
+                    }
                 }
             })
         }

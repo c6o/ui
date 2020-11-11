@@ -77,6 +77,10 @@ ul {
         font-size: var(--lumo-font-size-s);
         padding-inline-start: 0;
     }
+
+    &.inline {
+        margin-bottom: 0;
+    }
 }
 
 hr {

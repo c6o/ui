@@ -24,7 +24,7 @@
     "@c6o/ui-theme": "^0.1.0",
     "@polymer/paper-toggle-button": "^3.0.1",
     "@vaadin/vaadin": "^14.0.11",
-    "easymde": "^2.11.0",
+    "easymde": "^2.12.1",
     "js-yaml": "^3.13.1",
     "lit-element": "^2.3.1",
     "markdown-it": "^11.0.0",

@@ -32,16 +32,4 @@ export const cssLayouts = css`
     c6o-select {
         width: 100%;
     }
-
-    .card {
-        background-color: var(--color-white);
-        box-shadow: 4px 4px 10px var(--color-cloud);
-        margin: var(--xl-spacing) calc(var(--xl-spacing) * 1.5);
-        padding: var(--xl-spacing);
-        text-align: center;
-    }
-
-    .card .icon {
-        margin: 0 auto var(--xl-spacing);
-    }
 `

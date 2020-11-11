@@ -29,6 +29,11 @@ export const cssIcons = css`
         margin-right: var(--sm-spacing);
     }
 
+    iron-icon.lg {
+        height: 40px;
+        width: 40px;
+    }
+
     .vendor-logo,
     .c6o-icon {
         margin: 0 var(--md-spacing) var(--xl-spacing) 0;
