@@ -3,7 +3,8 @@ import { css } from 'lit-element'
 export const cssBase = css`
     html,
     body {
-        height: 100%
+        height: 100%;
+        scroll-behavior: smooth;
     }
 
     html > body {
