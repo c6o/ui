@@ -343,6 +343,7 @@ registerStyles('vaadin-item', css`
     }
 
     :host([theme~="logout"]) {
+        color: var(--color-fire);
         margin-bottom: var(--sm-spacing);
     }
 
@@ -379,6 +380,14 @@ registerStyles('vaadin-list-box', css`
         text-align: left;
     }
 
+    [part="items"] ::slotted(.heading) {
+        font-size: var(--lumo-font-size-xs);
+        font-weight: 500;
+        padding: var(--xs-spacing) var(--lg-spacing);
+        text-align: left;
+        text-transform: uppercase;
+    }
+
     [part="items"] ::slotted(.dropdown-item) {
         font-size: var(--lumo-font-size-s);
         padding: 0 var(--lg-spacing);
@@ -390,6 +399,10 @@ registerStyles('vaadin-list-box', css`
         cursor: pointer;
         height: 45px;
         padding: var(--sm-spacing) var(--lg-spacing);
+    }
+
+    [part="items"] ::slotted(vaadin-item:nth-child(odd):not([theme~="logout"])) {
+        background-color: var(--color-wind);
     }
 
     [part="items"] ::slotted(vaadin-item)::before {

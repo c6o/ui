@@ -1,4 +1,4 @@
-import { html, customElement, property } from 'lit-element'
+import { html, customElement, property, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import MarkdownIt from 'markdown-it'
 import { cssReboot, cssBase } from '@c6o/ui-theme'
@@ -7,7 +7,7 @@ import { cssReboot, cssBase } from '@c6o/ui-theme'
 export class Markdown extends MobxLitElement {
 
     @property({ type: String })
-    markdown
+    markdown: string
 
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [ cssReboot, cssBase ]
