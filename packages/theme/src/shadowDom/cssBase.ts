@@ -97,4 +97,10 @@ export const cssBase = css`
         height: var(--c6o-icon-height-sm);
         width: var(--c6o-icon-height-sm);
     }
+
+    .divider {
+        border-top: 2px solid var(--color-sea);
+        margin: var(--xl-spacing) 0;
+        width: 100px;
+    }
 `

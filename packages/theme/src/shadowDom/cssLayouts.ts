@@ -7,6 +7,11 @@ export const cssLayouts = css`
         padding-top: var(--xl-spacing);
     }
 
+    .container-content.extra-padding {
+        padding-bottom: var(--xl-spacing);
+        padding-top: calc(var(--xl-spacing) * 2);
+    }
+
     .panel {
         background-color: var(--color-white);
         border: none;
