@@ -59,13 +59,18 @@ vaadin-list-box {
 
     iron-icon {
         &[theme~="account-switcher"] {
+            color: var(--color-sea);
+            cursor: pointer;
             margin-right: var(--sm-spacing);
         }
 
+        &[theme~="account-switcher"]:hover {
+            color: var(--color-morning-sea);
+        }
+
         &[theme~="profile"] {
-            height: 30px;
-            width: 30px;
-            opacity: .5;
+            height: var(--lg-spacing);
+            width: var(--lg-spacing);
         }
     }
 }
