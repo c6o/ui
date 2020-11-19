@@ -100,8 +100,8 @@ hr {
 }
 
 .icon {
-    height: calc(var(--xl-spacing) * 2);
-    width: calc(var(--xl-spacing) * 2);
+    height: var(--xxl-spacing);
+    width: var(--xxl-spacing);
 
     &.inline {
         margin-right: var(--xl-spacing);

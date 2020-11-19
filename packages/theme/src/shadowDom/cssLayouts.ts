@@ -9,7 +9,7 @@ export const cssLayouts = css`
 
     .container-content.extra-padding {
         padding-bottom: var(--xl-spacing);
-        padding-top: calc(var(--xl-spacing) * 2);
+        padding-top: var(--xxl-spacing);
     }
 
     .panel {
@@ -27,7 +27,7 @@ export const cssLayouts = css`
 
     .sub-panel {
         max-width: 500px;
-        padding: var(--md-spacing) calc(var(--xl-spacing) * 2);
+        padding: var(--md-spacing) var(--xxl-spacing);
     }
 
     .btn-group > c6o-button:not(:first-child) {
