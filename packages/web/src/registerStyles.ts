@@ -342,6 +342,10 @@ registerStyles('vaadin-item', css`
         text-align: left;
     }
 
+    :host([theme~="profile"]) {
+        margin-top: var(--sm-spacing);
+    }
+
     :host([theme~="logout"]) {
         color: var(--color-fire);
         margin-bottom: var(--sm-spacing);
@@ -383,7 +387,7 @@ registerStyles('vaadin-list-box', css`
     [part="items"] ::slotted(.heading) {
         font-size: var(--lumo-font-size-xs);
         font-weight: 500;
-        padding: var(--xs-spacing) var(--lg-spacing);
+        padding: var(--xs-spacing) var(--lg-spacing) var(--sm-spacing);
         text-align: left;
         text-transform: uppercase;
     }
@@ -401,8 +405,8 @@ registerStyles('vaadin-list-box', css`
         padding: var(--sm-spacing) var(--lg-spacing);
     }
 
-    [part="items"] ::slotted(vaadin-item:nth-child(odd):not([theme~="logout"])) {
-        background-color: var(--color-wind);
+    [part="items"] ::slotted(vaadin-item:nth-child(even):not([theme~="logout"])) {
+        background-color: var(--color-snow);
     }
 
     [part="items"] ::slotted(vaadin-item)::before {
@@ -410,13 +414,13 @@ registerStyles('vaadin-list-box', css`
     }
 
     [part="items"] ::slotted(vaadin-item:hover:not([disabled])) {
-        background-color: var(--color-wind);
-        color: var(--color-navy);
+        background-color: var(--color-wind) !important;
+        color: var(--color-navy) !important;
     }
 
     [part="items"] ::slotted(vaadin-item[selected]) {
-        background-color: var(--color-sea);
-        color: var(--color-white);
+        background-color: var(--color-sea) !important;;
+        color: var(--color-white) !important;;
     }
 
     [part="items"] ::slotted([focus-ring]) {
