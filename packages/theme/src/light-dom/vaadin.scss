@@ -61,7 +61,10 @@ vaadin-list-box {
         &[theme~="account-switcher"] {
             color: var(--color-sea);
             cursor: pointer;
-            margin-right: var(--sm-spacing);
+            height: var(--lg-spacing);
+            margin-right: var(--lg-spacing);
+            padding: 0;
+            width: var(--lg-spacing);
         }
 
         &[theme~="account-switcher"]:hover {
@@ -69,8 +72,7 @@ vaadin-list-box {
         }
 
         &[theme~="settings"] {
-            height: var(--lg-spacing);
-            width: var(--lg-spacing);
+            margin-right: 0;
         }
     }
 }

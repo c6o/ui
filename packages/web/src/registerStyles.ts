@@ -371,6 +371,10 @@ registerStyles('vaadin-item', css`
         color: var(--color-sea);
     }
 
+    :host([theme~="profile"][tabindex])::after {
+        display: none;
+    }
+
     :host([selected])::after {
         opacity: 1;
     }
@@ -423,8 +427,20 @@ registerStyles('vaadin-list-box', css`
         color: var(--color-white) !important;;
     }
 
+    [part="items"] ::slotted(vaadin-item[selected][theme~="profile"]) {
+        background-color: transparent !important;
+    }
+
+    [part="items"] ::slotted(vaadin-item[theme~="profile"]) {
+        background-color: transparent;
+    }
+
     [part="items"] ::slotted([focus-ring]) {
-        box-shadow: inset 0 0 0 2px var(--color-sun) !important;
+        box-shadow: inset 0 0 2px 0 var(--color-sea) !important;
+    }
+
+    :host([theme~="account-switcher"]) [part="items"] ::slotted([focus-ring]) {
+        box-shadow: none !important;
     }
 `)
 
