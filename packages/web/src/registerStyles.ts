@@ -478,8 +478,8 @@ registerStyles('vaadin-radio-button', css`
     }
 
     [part="radio"] {
-        height: 1.5em;
-        width: 1.5em;
+        height: 22px;
+        width: 22px;
     }
 
     [part="radio"]::after {
