@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/c6o/node-monorepo/compare/v0.1.0...v0.1.1) (2020-11-19)
+
+
+### ✨ Features
+
+* A new custom store dialog component ([e38eae5](https://github.com/c6o/node-monorepo/commit/e38eae52f9006a38c2a0364838c102edfc914aa9))
+* Add a "condensed" theme to the accordion component ([d2ec9f1](https://github.com/c6o/node-monorepo/commit/d2ec9f1a69470b7da03c7f65eede0ec9994e601e))
+* Basic content loader for stores ([684d8f5](https://github.com/c6o/node-monorepo/commit/684d8f57a12a938fc6ce7cb6d05471777a57c5ff))
+* Support for app pricing and revenue generation ([03974e9](https://github.com/c6o/node-monorepo/commit/03974e9cb135e7cb2f41cf3b322c4db4e1f845ff))
+
+
+### 🐛 Bug Fixes
+
+* Align text left in contextual banners ([8e53b15](https://github.com/c6o/node-monorepo/commit/8e53b15808647956d32523c2058f0bd0f1d531fa))
+* Don't show scrollbars by default [skip ci] ([bac34cb](https://github.com/c6o/node-monorepo/commit/bac34cb811bd0099dcefe3297e4ce01a95ed5838))
+
+
+### ♻️ Chores
+
+* Add some base CSS to markdown component ([0cbd1a2](https://github.com/c6o/node-monorepo/commit/0cbd1a2ca648ed92a1a77d62eb0e9e90e85bd5f2))
+* Combine the custom store dialog with the store dialog for a single component ([bf29df3](https://github.com/c6o/node-monorepo/commit/bf29df3e521b4152fdbe1aa2fe862109cd312d35))
+* Vaadin list box styles ([731b2b2](https://github.com/c6o/node-monorepo/commit/731b2b22d1951622e247216fcf083b5019ef97a3))
+
+
+
+
+
 # [0.1.0](https://github.com/c6o/node-monorepo/compare/v0.0.9...v0.1.0) (2020-11-05)
 
 

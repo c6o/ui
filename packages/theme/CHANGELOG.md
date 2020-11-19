@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/c6o/node-monorepo/compare/v0.1.0...v0.1.1) (2020-11-19)
+
+
+### ✨ Features
+
+* A new custom store dialog component ([e38eae5](https://github.com/c6o/node-monorepo/commit/e38eae52f9006a38c2a0364838c102edfc914aa9))
+* Support for app pricing and revenue generation ([03974e9](https://github.com/c6o/node-monorepo/commit/03974e9cb135e7cb2f41cf3b322c4db4e1f845ff))
+
+
+### ♻️ Chores
+
+* Add some base CSS to markdown component ([0cbd1a2](https://github.com/c6o/node-monorepo/commit/0cbd1a2ca648ed92a1a77d62eb0e9e90e85bd5f2))
+* Added a divider style ([e31c3f7](https://github.com/c6o/node-monorepo/commit/e31c3f7f5fc47047acd7dc9f239aa1f8f6473540))
+* Iron icon style updates ([1dbc3e7](https://github.com/c6o/node-monorepo/commit/1dbc3e7d7d5f2e0191a81e90157270436f54abf0))
+* small css update ([a1cfa23](https://github.com/c6o/node-monorepo/commit/a1cfa23583cde0ab841516354eba02ca8ea6ffa7))
+* update modal CSS for the light DOM ([681aee6](https://github.com/c6o/node-monorepo/commit/681aee6fac2a5d6b1b844d9acccf491b1f1f610d))
+* Vaadin list box styles ([731b2b2](https://github.com/c6o/node-monorepo/commit/731b2b22d1951622e247216fcf083b5019ef97a3))
+
+
+
+
+
 # [0.1.0](https://github.com/c6o/node-monorepo/compare/v0.0.9...v0.1.0) (2020-11-05)
 
 
