@@ -31,6 +31,10 @@ export class StoreState extends MobxLitElement {
             cssGrid,
             cssAnimations,
             css`
+                :host {
+                    display: block;
+                }
+
                 .centered {
                     align-items: center;
                     display: flex;

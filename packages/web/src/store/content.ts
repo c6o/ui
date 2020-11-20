@@ -18,6 +18,7 @@ export class StoreContent extends MobxLitElement {
             cssAnimations,
             css`
                 :host {
+                    display: block;
                     position: relative;
                 }
 

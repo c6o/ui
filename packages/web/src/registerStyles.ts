@@ -201,10 +201,23 @@ registerStyles('vaadin-button', css`
         border-color: var(--color-cloud);
         border-radius: var(--c6o-border-radius);
         color: var(--color-storm);
-        height: 120px;
+        height: 80px;
         margin: var(--md-spacing);
         padding: var(--sm-spacing) var(--md-spacing);
-        width: 170px;
+        width: 100px;
+    }
+
+    @media (min-width: 1200px) {
+        :host([theme~="card"]) {
+            height: 120px;
+            width: 170px;
+        }
+    }
+
+    @media (max-height: 700px) {
+        :host([theme~="card"]) {
+            margin: var(--xs-spacing) var(--md-spacing);
+        }
     }
 
     :host([theme~="card"]:hover) {
@@ -222,14 +235,21 @@ registerStyles('vaadin-button', css`
     :host([theme~="card"]) [part] ::slotted(iron-icon[icon^="vaadin:"]) {
         display: block;
         color: var(--color-sea);
-        height: calc(var(--xl-spacing) * 2.5);
-        margin: 0 auto var(--xs-spacing);
-        width: calc(var(--xl-spacing) * 2.5);
+        height: calc(var(--xl-spacing) * 2.1);
+        margin: var(--xs-spacing) auto;
+        width: calc(var(--xl-spacing) * 2.1);
     }
 
     :host([theme~="card"]) [part] ::slotted(iron-icon[icon^="vaadin:"].small) {
         height: calc(var(--xl-spacing) * 1.5);
         width: calc(var(--xl-spacing) * 1.5);
+    }
+
+    @media (max-width: 1200px) {
+        :host([theme~="card"]) [part] ::slotted(iron-icon[icon^="vaadin:"]) {
+            height: var(--xl-spacing);
+            width: var(--xl-spacing);
+        }
     }
 `)
 
