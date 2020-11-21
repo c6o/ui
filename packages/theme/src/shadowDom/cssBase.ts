@@ -67,6 +67,13 @@ export const cssBase = css`
 
     ul.inline {
         margin-bottom: 0;
+        padding-left: 1em;
+    }
+
+    ul.inline li {
+        float: left;
+        padding-bottom: 3px;
+        padding-right: 3em;
     }
 
     hr {

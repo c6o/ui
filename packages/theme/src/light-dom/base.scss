@@ -81,6 +81,13 @@ ul {
 
     &.inline {
         margin-bottom: 0;
+        padding-left: 1em;
+
+        li {
+            float: left;
+            padding-bottom: 3px;
+            padding-right: 3em;
+        }
     }
 }
 
