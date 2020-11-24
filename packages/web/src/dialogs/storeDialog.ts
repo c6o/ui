@@ -1,4 +1,4 @@
-import { html, customElement, CSSResult, query } from 'lit-element'
+import { html, customElement, css, CSSResult, query } from 'lit-element'
 import { cssAll, cssModals } from '@c6o/ui-theme'
 import { BaseStoreDialog } from './baseStoreDialog'
 
@@ -11,7 +11,18 @@ export class StoreDialog extends BaseStoreDialog {
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
             cssAll,
-            cssModals
+            cssModals,
+            css`
+                .animation-container {
+                    position: relative;
+                }
+
+                .waiting-animation {
+                    left: -45px;
+                    position: absolute;
+                    top: 3px;
+                }
+            `
         ]
     }
 
