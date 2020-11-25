@@ -41,6 +41,12 @@ export class Dialog extends BaseDialog {
                 web-dialog.wide {
                     --dialog-max-width: 80vw;
                 }
+
+                @media screen and (max-width: 1200px), screen and (max-height: 900px) {
+                    web-dialog.tall {
+                        --dialog-height: 90vh;
+                    }
+                }
             `
         ]
     }
