@@ -129,7 +129,7 @@ export const cssTypography = css`
         font-size: var(--lumo-font-size-s);
         margin-left: calc(var(--lumo-border-radius-m) / 4);
         transition: color 0.2s;
-        line-height: 1;
+        line-height: 1rem;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
