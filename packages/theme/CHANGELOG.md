@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/c6o/node-monorepo/compare/v0.1.1...v0.1.2) (2020-11-25)
+
+
+### ♻️ Chores
+
+* inline list styles ([ca6dc2e](https://github.com/c6o/node-monorepo/commit/ca6dc2ef277470022cdd95443f976e9c9bb91594))
+* Updates to some Vaadin styles ([b973093](https://github.com/c6o/node-monorepo/commit/b9730933707e0b8d4828e910d0fa6d91dfff89c7))
+* use xxl-spacing instead of calc ([1bf1366](https://github.com/c6o/node-monorepo/commit/1bf1366d6f062c3715a3eff790f09461cb82634f))
+
+
+
+
+
 ## [0.1.1](https://github.com/c6o/node-monorepo/compare/v0.1.0...v0.1.1) (2020-11-19)
 
 

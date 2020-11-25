@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/c6o/node-monorepo/compare/v0.1.1...v0.1.2) (2020-11-25)
+
+
+### 🐛 Bug Fixes
+
+* Radio button sizes ([6f6f546](https://github.com/c6o/node-monorepo/commit/6f6f546c654e9b58c8a9353269d45b99a36c0c09))
+
+
+### ♻️ Chores
+
+* CSS update ([5f25e88](https://github.com/c6o/node-monorepo/commit/5f25e8893bca6f3dade810fb193566a4a66e599c))
+* Give the StoreDialog a waiting animation for cloud install ([5afa72c](https://github.com/c6o/node-monorepo/commit/5afa72cecd413984d744bc3b438cc2b2e91bb6d5))
+* Increase "tall" dialog height on smaller screens ([742d6ae](https://github.com/c6o/node-monorepo/commit/742d6ae04276fd536a9de6b6256f5cc5fd338f0b))
+* Make default card gap smaller ([58429ca](https://github.com/c6o/node-monorepo/commit/58429ca813b2272833a0a52f8c7f0fbc8331d6f9))
+* More responsive work around the hosting providers ([796225c](https://github.com/c6o/node-monorepo/commit/796225c6f19215cf837a44de4d1f84d785bbd922))
+* responsive styles ([2f731bd](https://github.com/c6o/node-monorepo/commit/2f731bd22116d39ee614ed1260c9c513a9272bf8))
+* Updates to some Vaadin styles ([b973093](https://github.com/c6o/node-monorepo/commit/b9730933707e0b8d4828e910d0fa6d91dfff89c7))
+
+
+
+
+
 ## [0.1.1](https://github.com/c6o/node-monorepo/compare/v0.1.0...v0.1.1) (2020-11-19)
 
 
