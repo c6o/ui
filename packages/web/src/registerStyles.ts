@@ -201,16 +201,16 @@ registerStyles('vaadin-button', css`
         border-color: var(--color-cloud);
         border-radius: var(--c6o-border-radius);
         color: var(--color-storm);
-        height: 80px;
+        height: 120px;
         margin: var(--md-spacing);
         padding: var(--sm-spacing) var(--md-spacing);
-        width: 100px;
+        width: 170px;
     }
 
-    @media (min-width: 1200px) {
+    @media screen and (max-width: 1200px), screen and (max-height: 770px) {
         :host([theme~="card"]) {
-            height: 120px;
-            width: 170px;
+            height: 80px;
+            width: 100px;
         }
     }
 
