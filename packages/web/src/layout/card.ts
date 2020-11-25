@@ -9,7 +9,7 @@ export class Card extends MobxLitElement {
     centered = false
 
     @property({ type: String })
-    gap = 'var(--xl-spacing)'
+    gap = 'var(--md-spacing)'
 
     @property({ type: String })
     width = 'auto'
