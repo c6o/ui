@@ -54,6 +54,10 @@ export class Toggle extends mix(MobxLitElement).with(EntityStoreMixin) {
                 label.active {
                     font-weight: bold;
                 }
+
+                :host([theme~="condensed"]) {
+                    margin-bottom: var(--xs-spacing);
+                }
             `
         ]
     }

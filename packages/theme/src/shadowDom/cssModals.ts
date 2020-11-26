@@ -1,6 +1,10 @@
 import { css } from 'lit-element'
 
 export const cssModals = css`
+    :host {
+        --color-help-text: var(--color-thunder);
+    }
+
     header,
     .modal-header {
         align-items: flex-start;
