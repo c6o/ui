@@ -287,6 +287,15 @@ registerStyles('vaadin-checkbox', css`
         width: .9em;
     }
 
+    :host([theme~="small"]) {
+        font-size: var(--lumo-font-size-xs);
+    }
+
+    :host([theme~="small"]) [part="checkbox"]::after {
+        left: .65em;
+        top: 1.3em;
+    }
+
     label {
         align-items: center;
     }
