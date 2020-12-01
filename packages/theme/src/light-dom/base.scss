@@ -53,6 +53,11 @@ a {
     &.text-error:hover {
         color: var(--color-night-fire);
     }
+
+    &.menu-item {
+        padding: var(--sm-spacing);
+        text-align: center;
+    }
 }
 
 button {

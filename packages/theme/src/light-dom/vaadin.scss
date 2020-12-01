@@ -15,7 +15,7 @@ vaadin-context-menu-list-box {
     &[theme~="system"],
     &[theme~="activity"],
     &[theme~="icon"] {
-        min-width: 200px;
+        min-width: 225px;
 
         vaadin-context-menu-item {
             padding-bottom: var(--sm-spacing);

@@ -42,7 +42,6 @@ export const EntityListStoreMixin = (base) =>  class EntityListStoreMixinClass e
                 })
             }, true))
 
-
             this.entityListStoreDisposers.push(observe(this.listStore, 'entities', () => {
                 // Watch for entity changes
                 this.listStore.entities.forEach(entity => {
