@@ -43,11 +43,9 @@ export class ConfirmationDialog extends BaseDialog {
                     <slot></slot>
                 `}
 
-                <footer c6o="text-right" slot="footer">
-                    <div class="btn-group">
-                        <c6o-button id="cancel-button" theme="${this.btnTheme}" @click=${this.cancel}>${this.btnText}</c6o-button>
-                        <c6o-button ?hidden=${this.hideConfirm} id="confirm-button" theme="${this.confirmBtnTheme}" @click=${this.confirm}>${this.confirmBtnText}</c6o-button>
-                    </div>
+                <footer c6o="flex justify-between" slot="footer">
+                    <c6o-button id="cancel-button" theme="${this.btnTheme}" @click=${this.cancel}>${this.btnText}</c6o-button>
+                    <c6o-button ?hidden=${this.hideConfirm} id="confirm-button" theme="${this.confirmBtnTheme}" @click=${this.confirm}>${this.confirmBtnText}</c6o-button>
                 </footer>
             </c6o-dialog>
         `

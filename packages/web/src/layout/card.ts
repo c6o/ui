@@ -11,7 +11,7 @@ export class Card extends MobxLitElement {
     @property({ type: String })
     gap = 'var(--md-spacing)'
 
-    @property({ type: String })
+    @property({ type: String, attribute: 'card-width' })
     width = 'auto'
 
     static get styles(): (CSSResult[] | CSSResult)[] {
@@ -33,6 +33,12 @@ export class Card extends MobxLitElement {
 
                 #card.center {
                     text-align: center;
+                }
+
+                @media screen and (max-width: 1000px), screen and (max-height: 800px) {
+                    #card {
+                        max-width: 300px !important;
+                    }
                 }
 
                 ::slotted(.icon) {
