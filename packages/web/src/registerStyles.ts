@@ -306,6 +306,16 @@ registerStyles('vaadin-checkbox', css`
     }
 `)
 
+registerStyles('vaadin-context-menu-item', css`
+    :host([tabindex])::before {
+        opacity: 0;
+    }
+
+    :host([tabindex])::after {
+        color: var(--color-sea);
+    }
+`)
+
 registerStyles('vaadin-dialog-overlay', css`
     :host {
         top: -1rem;
@@ -381,19 +391,19 @@ registerStyles('vaadin-item', css`
     }
 
     :host([tabindex])::after {
-        display: var(--_lumo-item-selected-icon-display, none);
+        color: var(--color-white);
         content: var(--lumo-icons-checkmark);
+        display: var(--_lumo-item-selected-icon-display, none);
+        flex: none;
         font-family: lumo-icons;
         font-size: var(--lumo-icon-size-m);
-        line-height: 1;
         font-weight: normal;
-        width: 1em;
         height: 1em;
+        line-height: 1;
         margin: calc((1 - var(--lumo-line-height-xs)) * var(--lumo-font-size-m) / 2) 0;
-        color: var(--color-white);
-        flex: none;
         opacity: 0;
         transition: transform 0.2s cubic-bezier(.12, .32, .54, 2), opacity 0.1s;
+        width: 1em;
     }
 
     :host([tabindex]:hover)::after {

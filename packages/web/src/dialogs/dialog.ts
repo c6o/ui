@@ -1,4 +1,4 @@
-import { html, customElement, query, css, CSSResult } from 'lit-element'
+import { html, customElement, query, css, CSSResult, property } from 'lit-element'
 import { WebDialog } from 'web-dialog'
 import { cssAll, cssModals } from '@c6o/ui-theme'
 import { BaseDialog } from './baseDialog'
@@ -42,6 +42,11 @@ export class Dialog extends BaseDialog {
                     --dialog-max-width: 80vw;
                 }
 
+                web-dialog.normal {
+                    --dialog-height: auto;
+                    --dialog-max-width: 700px;
+                }
+
                 @media screen and (max-width: 1200px), screen and (max-height: 900px) {
                     web-dialog.tall {
                         --dialog-height: 90vh;
@@ -57,8 +62,8 @@ export class Dialog extends BaseDialog {
                 center
                 class=${this.cssClasses}
                 ?open=${this.opened}
-                @close=${this.exposeEvent}
-                @closing=${this.exposeEvent}
+                @close=${this.handleClose}
+                @closing=${this.handleClosing}
                 @open=${this.exposeEvent}
             >
                 <slot name="header"></slot>
@@ -68,5 +73,16 @@ export class Dialog extends BaseDialog {
                 <slot name="footer"></slot>
             </web-dialog>
         `
+    }
+
+    handleClose = (e) => {
+        if (!this.noCloseOnOutsideClick)
+            this.exposeEvent(e)
+    }
+
+    handleClosing = (e) => {
+        this.exposeEvent(e)
+        if (this.noCloseOnOutsideClick)
+            e.preventDefault()
     }
 }

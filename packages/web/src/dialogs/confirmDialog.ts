@@ -31,7 +31,7 @@ export class ConfirmationDialog extends BaseDialog {
         const title = this.title || 'Please Confirm'
 
         return html`
-            <c6o-dialog classes=${this.cssClasses} ?opened=${this.opened}>
+            <c6o-dialog classes=${this.cssClasses} no-close-on-outside-click ?opened=${this.opened}>
                 <header slot="header">
                     <h2 class="modal-title">${title}</h2>
                     <iron-icon icon="vaadin:close" @click=${this.cancel}></iron-icon>

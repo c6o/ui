@@ -35,9 +35,7 @@ export abstract class BaseStoreDialog extends mix(BaseDialog).with(EntityStoreLi
     cancelCallback?(): void
     confirmCallback?(): void
 
-    close = () => {
-        this.store ? this.store = null : this.opened = false
-    }
+    close = () => this.store ? this.store = null : this.opened = false
 
     storeChanged() {
         super.storeChanged()
