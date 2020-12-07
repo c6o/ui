@@ -3,6 +3,7 @@ import { EntityListStoreMixin } from '../mixins/entityListStore'
 import { mix } from 'mixwith'
 
 export interface Grid extends EntityListStoreMixin {
+    activeItem: boolean
 }
 
 export class Grid extends mix(GridElement).with(EntityListStoreMixin) {
@@ -15,6 +16,11 @@ export class Grid extends mix(GridElement).with(EntityListStoreMixin) {
             await this.listStore?.next()
             loading = false
         }
+    }
+
+    // This is so that the same row can be clicked on back-to-back and still fire @active-item-changed
+    resetActiveItem() {
+        this.activeItem = null
     }
 
     async connectedCallback() {
