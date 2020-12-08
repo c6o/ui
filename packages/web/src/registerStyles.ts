@@ -727,6 +727,16 @@ registerStyles('vaadin-text-area vaadin-text-field', css`
     :host([theme~="reversed"]) [part="value"] {
         color: var(--color-snow);
     }
+
+    :host([theme~="inline"]) {
+        margin-bottom: 0;
+    }
+`)
+
+registerStyles('vaadin-text-field', css`
+    :host([theme~="tall"]) [part="input-field"] {
+        height: 50px;
+    }
 `)
 
 registerStyles('vaadin-text-area', css`
