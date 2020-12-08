@@ -4,6 +4,7 @@ import { mix } from 'mixwith'
 
 export interface Grid extends EntityListStoreMixin {
     activeItem: boolean
+    getEventContext(e)
 }
 
 export class Grid extends mix(GridElement).with(EntityListStoreMixin) {
@@ -18,14 +19,22 @@ export class Grid extends mix(GridElement).with(EntityListStoreMixin) {
         }
     }
 
-    // This is so that the same row can be clicked on back-to-back and still fire @active-item-changed
-    resetActiveItem() {
-        this.activeItem = null
-    }
-
     async connectedCallback() {
         await super.connectedCallback()
+
         this.$.table.addEventListener('scroll', this.handleScroll)
+
+        this.addEventListener('click', (e) => {
+            const item = this.getEventContext(e).item
+            const customEvent = new CustomEvent('row-clicked', {
+                bubbles: true,
+                cancelable: false,
+                composed: true,
+                detail: { value: item }
+            })
+
+            this.dispatchEvent(customEvent)
+        })
     }
 
     async disconnectedCallback() {
