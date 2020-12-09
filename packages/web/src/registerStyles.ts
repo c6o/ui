@@ -511,6 +511,12 @@ registerStyles('vaadin-number-field', css`
     }
 `)
 
+registerStyles('vaadin-progress-bar', css`
+    :host([theme~="light"]) [part="bar"] {
+        background-color: var(--color-white);
+    }
+`)
+
 registerStyles('vaadin-radio-button', css`
     :host {
         display: block;
