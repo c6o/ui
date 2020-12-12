@@ -1,4 +1,4 @@
-import { html, customElement, property, CSSResult } from 'lit-element'
+import { html, customElement, property, css, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import MarkdownIt from 'markdown-it'
 import { cssReboot, cssBase } from '@c6o/ui-theme'
@@ -10,7 +10,19 @@ export class RichText extends MobxLitElement {
     richText: string
 
     static get styles(): (CSSResult[] | CSSResult)[] {
-        return [ cssReboot, cssBase ]
+        return [
+            cssReboot,
+            cssBase,
+            css`
+                :host(.no-margin) p {
+                    margin-bottom: 0;
+                }
+
+                :host(.smaller) {
+                    font-size: .9rem;
+                }
+            `
+         ]
     }
 
     render() {
