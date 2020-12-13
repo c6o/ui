@@ -265,6 +265,10 @@ registerStyles('vaadin-checkbox vaadin-radio-button vaadin-text-area vaadin-text
     :host([theme~="condensed"]) {
         margin-bottom: var(--xs-spacing);
     }
+
+    [part="error-message"] {
+        text-align: left;
+    }
 `)
 
 registerStyles('vaadin-checkbox', css`
