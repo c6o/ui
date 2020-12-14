@@ -83,6 +83,13 @@ export const cssBase = css`
         border-top: 1px solid var(--color-wind);
     }
 
+    pre {
+        background-color: var(--color-wind);
+        color: var(--color-navy);
+        line-height: 1.4rem;
+        padding: var(--sm-spacing);
+    }
+
     .hidden {
         display: none;
     }

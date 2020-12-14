@@ -1,7 +1,7 @@
 import { html, customElement, property, css, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import MarkdownIt from 'markdown-it'
-import { cssReboot, cssBase } from '@c6o/ui-theme'
+import { cssReboot, cssBase, cssTypography } from '@c6o/ui-theme'
 
 @customElement('c6o-rich-text')
 export class RichText extends MobxLitElement {
@@ -13,6 +13,7 @@ export class RichText extends MobxLitElement {
         return [
             cssReboot,
             cssBase,
+            cssTypography,
             css`
                 :host(.no-margin) p {
                     margin-bottom: 0;
