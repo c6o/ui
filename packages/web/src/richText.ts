@@ -22,6 +22,14 @@ export class RichText extends MobxLitElement {
                 :host(.smaller) {
                     font-size: .9rem;
                 }
+
+                :host([theme~="dark"]) a {
+                    color: var(--color-fog);
+                }
+
+                :host([theme~="dark"]) a:hover {
+                    color: var(--color-white);
+                }
             `
          ]
     }
