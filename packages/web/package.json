@@ -16,7 +16,9 @@
   "scripts": {
     "build": "tsc -b",
     "develop": "tsc -b -w --preserveWatchOutput",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "Narayan Sainaney",
   "license": "Apache-2.0",
@@ -32,6 +34,16 @@
     "mobx": "^5.15.2",
     "source-map-support": "^0.5.16",
     "web-dialog": "^0.0.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@storybook/addon-actions": "^6.1.11",
+    "@storybook/addon-essentials": "^6.1.11",
+    "@storybook/addon-links": "^6.1.11",
+    "@storybook/web-components": "^6.1.11",
+    "babel-loader": "^8.2.2",
+    "lit-html": "^1.3.0",
+    "typescript": "^3.9.5"
   },
   "gitHead": "a4d382ca54a10c3f1405151c6a1cab1478d40896"
 }
