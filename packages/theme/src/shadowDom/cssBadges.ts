@@ -1,6 +1,6 @@
 import { css } from 'lit-element'
 
-export const cssBadge = css`
+export const cssBadges = css`
     [theme~="badge"] {
         align-items: center;
         background-color: var(--lumo-primary-color-10pct);

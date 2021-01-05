@@ -2,6 +2,29 @@ import { html, customElement, css, property, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { cssReboot, cssGrid, cssBase, cssIcons } from '@c6o/ui-theme'
 
+/**
+ * `<c6o-contextual-banner>` is a Web Component that provides an in-context banner, meaning it's displayed in the flow of the screen content.
+ *
+ * ```
+ *   <c6o-contextual-banner>Saved successfully!<c6o-contextual-banner>
+ *
+ *   <c6o-contextual-banner
+ *     icon="exclamation-circle"
+ *     theme="warning">
+ *       Warning! Don't do that!
+ *   </c6o-contextual-banner>
+ * ```
+ *
+ * Property   | Description
+ * -----------|------------
+ * `icon`     | Vaadin icon for the `iron-icon` component
+ * `theme`    | Possible values are 'info', 'success', 'warning', 'error', or 'centered'
+ *
+ * @extends MobxLitElement
+ */
+
+export type BannerTheme = '' | 'info' | 'success' | 'warning' | 'error' | 'centered'
+
 @customElement('c6o-contextual-banner')
 export class ContextualBanner extends MobxLitElement {
 
@@ -9,7 +32,7 @@ export class ContextualBanner extends MobxLitElement {
     icon = 'info-circle'
 
     @property({ type: String })
-    theme = 'info'
+    theme: BannerTheme = 'info'
 
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
