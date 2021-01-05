@@ -1,6 +1,7 @@
 import { html, customElement, css, property, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { cssReboot, cssGrid, cssBase, cssTypography } from '@c6o/ui-theme'
+import { navigate } from '@c6o/ui-web'
 
 @customElement('c6o-contextual-subnav')
 export class ContextualSubnav extends MobxLitElement {
@@ -33,7 +34,7 @@ export class ContextualSubnav extends MobxLitElement {
     tabs: any
 
     @property({ type: String })
-    theme = 'default'
+    theme = 'thin'
 
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
@@ -67,7 +68,7 @@ export class ContextualSubnav extends MobxLitElement {
                     height: 58px;
                 }
 
-                vaadin-tab {
+                c6o-tab {
                     width: 150px;
                 }
 
@@ -145,7 +146,7 @@ export class ContextualSubnav extends MobxLitElement {
                 <c6o-tabs
                     id="contextual-subnav"
                     selected=${this.selected}
-                    theme="subnav-tabs ${this.theme}"
+                    theme="${this.theme}"
                 >
                     ${this.renderTabs()}
                 </c6o-tabs>
@@ -156,16 +157,14 @@ export class ContextualSubnav extends MobxLitElement {
     renderTabs() {
         return Object.keys(this.tabs).map(pathname => {
             const link = this.entityId ? this.path[3] === this.entityId ?
-                `/${this.path[1]}/${this.path[2]}/${this.entityId}/${pathname}` :
-                `/${this.path[1]}/${this.entityId}/${pathname}` :
-                `/${this.path[1]}/${pathname}`
+                `${this.path[1]}/${this.path[2]}/${this.entityId}/${pathname}` :
+                `${this.path[1]}/${this.entityId}/${pathname}` :
+                `${this.path[1]}/${pathname}`
 
             return html`
-                <vaadin-tab theme="subnav-tab ${this.theme}">
-                    <a class="contextual subnav" href="${link}" id="subnav-${pathname}">
-                        ${this.tabs[pathname].label}
-                    </a>
-                </vaadin-tab>
+                <c6o-tab @click=${() => navigate(link)}>
+                    ${this.tabs[pathname].label}
+                </c6o-tab>
             `
         })
     }
