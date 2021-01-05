@@ -6,7 +6,7 @@ import '@vaadin/vaadin-menu-bar'
 // Define additional or override styles for Vaadin components
 export * from './registerStyles'
 
-// Traxitt UI components that extend Vaadin components
+// CodeZero UI components that extend Vaadin components
 export * from './animations/installing'
 export * from './animations/loading'
 export * from './animations/progress'
@@ -51,8 +51,6 @@ export * from './router'
 export * from './store/content'
 export * from './store/panel'
 export * from './store/state'
-export * from './tabs/navigationTabs'
-export * from './tabs/tab'
-export * from './tabs/tabs'
+export * from './tabs/'
 export * from './tooltip'
 

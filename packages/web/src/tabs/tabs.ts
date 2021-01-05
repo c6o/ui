@@ -6,11 +6,17 @@ import { EntityListStoreMixin } from '../mixins'
  * `<c6o-tabs>` is a Web Component for easy switching between different views.
  *
  * ```
- *   <c6o-tabs selected="4">
+ *   <c6o-tabs>
  *     <c6o-tab>Page 1</c6o-tab>
  *     <c6o-tab>Page 2</c6o-tab>
  *     <c6o-tab>Page 3</c6o-tab>
  *     <c6o-tab>Page 4</c6o-tab>
+ *   </c6o-tabs>
+ *
+ *   <c6o-tabs selected="2">
+ *     <c6o-tab>Page 1</c6o-tab>
+ *     <c6o-tab>Page 2</c6o-tab>
+ *     <c6o-tab>Page 3</c6o-tab>
  *   </c6o-tabs>
  *
  *   <c6o-tabs orientation="vertical">
@@ -41,6 +47,7 @@ import { EntityListStoreMixin } from '../mixins'
  * @extends TabsElement
  * @mixes EntityListStoreMixin
  */
+
 export interface Tabs extends EntityListStoreMixin {
 }
 

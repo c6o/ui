@@ -22,6 +22,11 @@ import { cssReboot, cssGrid, cssBase } from '@c6o/ui-theme'
  *
  * @extends MobxLitElement
  */
+
+ export interface NavigationTabsItems {
+     [key: string]: { tabIndex: number, label: string }
+ }
+
 @customElement('c6o-navigation-tabs')
 export class NavigationTabs extends MobxLitElement {
 
@@ -32,7 +37,7 @@ export class NavigationTabs extends MobxLitElement {
     selected = 0
 
     @property({ type: Object })
-    tabs = {}
+    tabs: NavigationTabsItems = {}
 
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [

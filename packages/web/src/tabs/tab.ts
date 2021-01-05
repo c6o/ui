@@ -26,6 +26,7 @@ import { TabElement } from '@vaadin/vaadin-tabs/src/vaadin-tab'
  *
  * @extends TabElement
  */
+
 export interface Tab extends HTMLElement {
 }
 
