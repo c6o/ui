@@ -55,7 +55,7 @@ export class ErrorDialog extends BaseDialog {
                 </div>
 
                 <footer c6o="text-center" slot="footer">
-                    <c6o-button class="close-button" theme="default" @click=${this.close}>Close</c6o-button>
+                    <c6o-button id="close-button" theme="default" @click=${this.close}>Close</c6o-button>
                 </footer>
             </c6o-dialog>
         `

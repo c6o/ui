@@ -51,10 +51,10 @@ export class StoreDialog extends BaseStoreDialog {
                 ${this.footer ? this.footer() : html`
                     <footer c6o="flex justify-between" slot="footer">
                         <div class="btn-group">
-                            <c6o-button class="cancel-button" theme="${this.btnTheme}" @click=${this.cancel}>${btnText}</c6o-button>
+                            <c6o-button id="cancel-button" theme="${this.btnTheme}" @click=${this.cancel}>${btnText}</c6o-button>
                             ${this.deleteMessage?.length ? html`
                                 <div id="delete-btn">
-                                    <c6o-button class="delete-button" ?disabled=${this.store?.busy} theme="error" @click=${this.delete}>${this.deleteBtnText}</c6o-button>
+                                    <c6o-button ?disabled=${this.store?.busy} id="delete-button" theme="error" @click=${this.delete}>${this.deleteBtnText}</c6o-button>
                                     <c6o-confirm-dialog
                                         confirm-btn-theme="primary error"
                                         confirm-btn-text="Delete"
@@ -62,7 +62,7 @@ export class StoreDialog extends BaseStoreDialog {
                                 </div>
                             ` : ''}
                         </div>
-                        <c6o-button class="confirm-button" ?disabled=${this.store?.busy} theme="${this.confirmBtnTheme}" @click=${this.save}>${this.confirmBtnText}</c6o-button>
+                        <c6o-button ?disabled=${this.store?.busy} id="confirm-button" theme="${this.confirmBtnTheme}" @click=${this.save}>${this.confirmBtnText}</c6o-button>
                     </footer>
                 `}
             </c6o-dialog>
