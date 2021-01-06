@@ -48,7 +48,7 @@ export class InfoDialog extends BaseDialog {
 
                 ${this.footer ? this.footer() : html`
                     <footer c6o="${this.hasPrevious ? 'flex justify-between' : 'text-center'}" slot="footer">
-                        <c6o-button class="close-button" theme="${this.btnTheme}" @click=${this.close}>${this.btnText}</c6o-button>
+                        <c6o-button id="close-button" theme="${this.btnTheme}" @click=${this.close}>${this.btnText}</c6o-button>
                         ${this.hasPrevious ? html`
                             <c6o-button @click=${this.previous}>Previous</c6o-button>
                         ` : ''}
