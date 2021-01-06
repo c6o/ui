@@ -7,10 +7,8 @@ import '@vaadin/vaadin-menu-bar'
 export * from './registerStyles'
 
 // CodeZero UI components that extend Vaadin components
-export * from './animations/installing'
-export * from './animations/loading'
-export * from './animations/progress'
-export * from './banners/contextualBanner'
+export * from './animations/'
+export * from './banners/'
 export * from './buttons/button'
 export * from './buttons/saveButton'
 export * from './details'

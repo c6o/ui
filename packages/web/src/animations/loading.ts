@@ -2,6 +2,20 @@ import { html, customElement, property, css, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { cssReboot, cssBase, cssLayouts, cssTypography } from '@c6o/ui-theme'
 
+/**
+ * `<c6o-loading>` is a Web Component that provides a loading animation and message.
+ *
+ * ```
+ *   <c6o-loading loading-message="Loading content..."></c6o-loading>
+ * ```
+ *
+ * Property   | Description
+ * -----------|------------
+ * `loadingMessage` | The message that will be displayed above the loading animation
+ *
+ * @extends MobxLitElement
+ */
+
 @customElement('c6o-loading')
 export class Loading extends MobxLitElement {
 
