@@ -43,9 +43,9 @@ export abstract class BaseDialog extends MobxLitElement {
 
     exposeEvent = (e: CustomEvent) => {
         const exposedEvent = new CustomEvent(e.type, {
-            detail: e.detail,
             bubbles: true,
-            composed: true
+            composed: true,
+            detail: e.detail
         })
         const cancelled = !this.dispatchEvent(exposedEvent)
         if (cancelled)

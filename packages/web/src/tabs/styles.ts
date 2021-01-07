@@ -7,7 +7,7 @@ registerStyles('vaadin-tab', css`
         display: flex;
         font-weight: 500;
         justify-content: center;
-        padding-top: 12px;
+        padding-top: var(--lg-spacing);
     }
 
     :host(:hover) {

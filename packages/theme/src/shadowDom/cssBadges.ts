@@ -1,7 +1,7 @@
 import { css } from 'lit-element'
 
 export const cssBadges = css`
-    [theme~="badge"] {
+    .badge {
         align-items: center;
         background-color: var(--lumo-primary-color-10pct);
         border-radius: var(--lumo-border-radius-s);
@@ -14,88 +14,113 @@ export const cssBadges = css`
         justify-content: center;
         letter-spacing: initial;
         line-height: 1;
-        margin-bottom: var(--xs-spacing);
         margin-right: var(--sm-spacing);
+        margin-top: var(--sm-spacing);
         min-width: calc(var(--lumo-line-height-xs) * 1em + 0.45em);
         padding: 0.6em calc(0.8em + var(--lumo-border-radius-m) / 4);
+        position: relative;
         text-transform: initial;
     }
 
     /* Ensure proper vertical alignment */
-    [theme~="badge"]::before {
+    .badge::before {
         display: inline-block;
         content: "\\2003";
         width: 0;
     }
 
-    [theme~="badge"][theme~="small"] {
+    .badge[theme~="small"] {
         font-size: var(--lumo-font-size-xxs);
         line-height: 1;
     }
 
+    .badge[theme~="large"] {
+        font-size: var(--lumo-font-size-s);
+        line-height: 1;
+        padding: 0.8em calc(1em + var(--lumo-border-radius-m) / 4);
+    }
+
     /* Colors */
 
-    [theme~="badge"][theme~="success"] {
+    .badge[theme~="success"] {
         color: var(--lumo-success-text-color);
         background-color: var(--lumo-success-color-10pct);
     }
 
-    [theme~="badge"][theme~="error"] {
+    .badge[theme~="error"] {
         color: var(--lumo-error-text-color);
         background-color: var(--lumo-error-color-10pct);
     }
 
-    [theme~="badge"][theme~="contrast"] {
+    .badge[theme~="contrast"] {
         color: var(--lumo-contrast-60pct);
         background-color: var(--lumo-contrast-5pct);
     }
 
     /* Primary */
 
-    [theme~="badge"][theme~="primary"] {
+    .badge[theme~="primary"] {
         color: var(--lumo-primary-contrast-color);
         background-color: var(--lumo-primary-color);
     }
 
-    [theme~="badge"][theme~="success"][theme~="primary"] {
+    .badge[theme~="success"][theme~="primary"] {
         color: var(--lumo-success-contrast-color);
         background-color: var(--lumo-success-color);
     }
 
-    [theme~="badge"][theme~="error"][theme~="primary"] {
+    .badge[theme~="error"][theme~="primary"] {
         color: var(--lumo-error-contrast-color);
         background-color: var(--lumo-error-color);
     }
 
-    [theme~="badge"][theme~="contrast"][theme~="primary"] {
+    .badge[theme~="contrast"][theme~="primary"] {
         color: var(--lumo-base-color);
         background-color: var(--lumo-contrast);
     }
 
     /* Links */
 
-    [theme~="badge"][href]:hover {
-        text-decoration: none;
+    .badge[theme~="link"]:hover {
         background-color: var(--lumo-contrast-20pct);
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .badge[theme~="delete"][theme~="link"]:hover {
+        background-color: var(--color-fire);
+        color: var(--color-white);
+    }
+
+    .badge[theme~="delete"][theme~="link"]:hover::after {
+        content: "\\f057";
+        color: var(--color-black);
+        font-family: 'Font Awesome 5 Free';
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 900;
+        position: absolute;
+        right: -4px;
+        top: -4px;
     }
 
     /* Icon */
 
-    [theme~="badge"] iron-icon {
+    .badge iron-icon {
         margin: -0.25em 0;
         --iron-icon-width: 1.5em;
         --iron-icon-height: 1.5em;
     }
 
-    [theme~="badge"] iron-icon:first-child {
+    .badge iron-icon:first-child {
         margin-left: -0.375em;
     }
 
-    [theme~="badge"] iron-icon:last-child {
+    .badge iron-icon:last-child {
         margin-right: -0.375em;
     }
 
-    [theme~="badge"][icon] {
+    .badge[icon] {
         min-width: 0;
         padding: 0;
         font-size: 1rem;
@@ -103,14 +128,14 @@ export const cssBadges = css`
         --iron-icon-height: var(--lumo-icon-size-m);
     }
 
-    [theme~="badge"][icon][theme~="small"] {
+    .badge[icon][theme~="small"] {
         --iron-icon-width: var(--lumo-icon-size-s);
         --iron-icon-height: var(--lumo-icon-size-s);
     }
 
     /* Empty */
 
-    [theme~="badge"]:not([icon]):empty {
+    .badge:not([icon]):empty {
         min-width: 0;
         width: 1em;
         height: 1em;
@@ -119,38 +144,26 @@ export const cssBadges = css`
         background-color: var(--lumo-primary-color);
     }
 
-    [theme~="badge"][theme~="small"]:not([icon]):empty {
+    .badge[theme~="small"]:not([icon]):empty {
         width: 0.75em;
         height: 0.75em;
     }
 
-    [theme~="badge"][theme~="contrast"]:not([icon]):empty {
+    .badge[theme~="contrast"]:not([icon]):empty {
         background-color: var(--lumo-contrast);
     }
 
-    [theme~="badge"][theme~="success"]:not([icon]):empty {
+    .badge[theme~="success"]:not([icon]):empty {
         background-color: var(--lumo-success-color);
     }
 
-    [theme~="badge"][theme~="error"]:not([icon]):empty {
+    .badge[theme~="error"]:not([icon]):empty {
         background-color: var(--lumo-error-color);
     }
 
     /* Pill */
 
-    [theme~="badge"][theme~="pill"] {
+    .badge[theme~="pill"] {
         --lumo-border-radius-s: 1em;
-    }
-
-    /* RTL specific styles */
-
-    [dir="rtl"][theme~="badge"] iron-icon:first-child {
-        margin-right: -0.375em;
-        margin-left: 0;
-    }
-
-    [dir="rtl"][theme~="badge"] iron-icon:last-child {
-        margin-left: -0.375em;
-        margin-right: 0;
     }
 `
