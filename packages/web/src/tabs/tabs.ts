@@ -44,8 +44,8 @@ import { EntityListStoreMixin } from '../mixins'
  * `overflow` | It's set to `start`, `end`, none or both. | :host
  * `theme` | Optional tabs theme, valid values are `thin` and `light`. | :host
  *
- * @extends TabsElement
- * @mixes EntityListStoreMixin
+ * @extends EntityListStoreMixin
+ * @mixes TabsElement
  */
 
 export interface Tabs extends EntityListStoreMixin {

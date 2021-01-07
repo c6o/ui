@@ -37,7 +37,8 @@ import { EntityStore } from '@c6o/common'
  *
  * See [ThemableMixin – how to apply styles for shadow parts](https://github.com/vaadin/vaadin-themable-mixin/wiki)
  *
- * @extends ButtonElement
+ * @extends EntityStoreMixin
+ * @mixes ButtonElement
  */
 
 export type ButtonThemes = '' | 'primary' | 'secondary' | 'tertiary' | 'default' | 'info' | 'error' | 'success' | 'warning' | 'large' | 'small' | 'icon' | 'card'
