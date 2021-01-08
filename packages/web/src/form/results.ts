@@ -1,22 +1,45 @@
-import { html, css, property, CSSResult } from 'lit-element'
+import { html, css, property, CSSResult, query } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { mix } from 'mixwith'
 import { EntityStoreMixin } from '../mixins'
 import { cssReboot, cssBase } from '@c6o/ui-theme'
+import { ContextualBanner } from '@c6o/ui-web'
 import { EntityStore } from '@c6o/common'
+
+/**
+ * `<c6o-results>` is a Web Component that provides a results banner for forms, displaying a success or error message after a save atttempt.
+ * It must be nested in a c6o-form-layout element with a bound store.
+ *
+ * ```
+ * <c6o-results
+ *   colspan="2
+ *   fade-out
+ *   success-message="App successfully updated"
+ * ></c6o-results>
+ * ```
+ *
+ * Attribute       | Description
+ * ----------------|------------
+ * `error-heading` | The heading text if there is an error message. The error message comes from the error itself.
+ * `errors-only`   | When set, this component will only show error messages
+ * `fade-out-duration` | How long before the banner is removed from the UI
+ * `fade-out`     | When set, the success message will fade out after a given duration
+ * `filter`       | Only show errors of a certain type, based on the input's path, e.g. 'picture', 'namespace', etc.
+ * `success-message` | Message to display when saving was successful
+ *
+ * @extends EntityStoreMixin
+ * @mixes MobxLitElement
+ * @mixes EntityStoreMixin
+ */
 
 export interface Results extends EntityStoreMixin {
     shadowRoot
     store: EntityStore
 }
 
-// This custom element must be nested in a c6o-form-layout element with a bound store
 export class Results extends mix(MobxLitElement).with(EntityStoreMixin) {
     defaultErrorHeading: string
     timeout
-
-    @property({ type: String, attribute: 'success-message' })
-    successMessage = 'Saved successfully'
 
     @property({ type: String, attribute: 'error-heading' })
     errorHeading = 'Please correct the following errors:'
@@ -32,6 +55,9 @@ export class Results extends mix(MobxLitElement).with(EntityStoreMixin) {
 
     @property({ type: String })
     filter
+
+    @property({ type: String, attribute: 'success-message' })
+    successMessage = 'Saved successfully'
 
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
@@ -60,7 +86,8 @@ export class Results extends mix(MobxLitElement).with(EntityStoreMixin) {
         ]
     }
 
-    get successBanner() { return this.shadowRoot.querySelector('c6o-contextual-banner#success') as unknown as HTMLElement }
+    @query('c6o-contextual-banner#success')
+    successBanner: ContextualBanner
 
     render() {
         if (this.store?.results && !this.errorsOnly) {

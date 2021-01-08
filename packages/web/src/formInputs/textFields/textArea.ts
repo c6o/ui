@@ -2,16 +2,85 @@ import { TextAreaElement } from '@vaadin/vaadin-text-field/src/vaadin-text-area'
 import { observe } from 'mobx'
 import EasyMDE from 'easymde'
 import { mix } from 'mixwith'
-import { EntityStoreMixin, EntityStorePathMixin } from '../mixins'
-import { setValueFromPath, getValueFromPath } from '../mixins/path'
+import { EntityStoreMixin, EntityStorePathMixin } from '../../mixins'
+import { setValueFromPath, getValueFromPath } from '../../mixins/path'
 import yaml from 'js-yaml'
 import { EntityStore } from '@c6o/common'
+
+/**
+ * `<c6o-text-area>` is a Web Component for text area control in forms.
+ *
+ * ```html
+ * <c6o-text-area label="Add description"></vaadin-text-area>
+ *
+ * <c6o-text-area
+ *   colspan="2"
+ *   label="Short Description"
+ *   markdown
+ *   maxlength="250"
+ *   min-height="100px"
+ *   path="summary"
+ * ></c6o-text-area>
+ * ```
+ *
+ * ### Prefixes and suffixes
+ *
+ * These are child elements of a `<c6o-text-area>` that are displayed
+ * inline with the input, before or after.
+ * In order for an element to be considered as a prefix, it must have the slot
+ * attribute set to `prefix` (and similarly for `suffix`).
+ *
+ * ```html
+ * <c6o-text-area label="Add description">
+ *   <div slot="prefix">Details:</div>
+ *   <div slot="suffix">The end!</div>
+ * </c6o-text-area>
+ * ```
+ *
+ * ### Styling
+ *
+ * The following shadow DOM parts are available for styling:
+ *
+ * Part name | Description
+ * ----------------|----------------
+ * `label` | The label element
+ * `input-field` | The element that wraps prefix, value and suffix
+ * `value` | The text value element inside the `input-field` element
+ * `error-message` | The error message element
+ *
+ * The following state attributes are available for styling:
+ *
+ * Attribute    | Description | Part name
+ * -------------|-------------|------------
+ * `disabled` | Set to a disabled text field | :host
+ * `has-value` | Set when the element has a value | :host
+ * `has-label` | Set when the element has a label | :host
+ * `invalid` | Set when the element is invalid | :host
+ * `focused` | Set when the element is focused | :host
+ * `focus-ring` | Set when the element is keyboard focused | :host
+ * `readonly` | Set to a readonly text field | :host
+ * `markdown` | Set to turn the text area into a rich text editor that uses markdown. Uses the EasyMDE plugin. | :host
+ * `json` | Set to specify that the text area content is JSON | :host
+ * `yaml` | Set to specify that the text area content is YAML | :host
+ * `size` | Possible values are 'max-height', 'min-height', 'medium-height', 'large-height' | :host
+ *
+ * See [ThemableMixin – how to apply styles for shadow parts](https://github.com/vaadin/vaadin-themable-mixin/wiki)
+ *
+ * @extends EntityStorePathMixin
+ * @mixes TextAreaElement
+ * @mixes EntityStoreMixin
+ * @mixes EntityStorePathMixin
+ */
+
+ export type TextAreaSize = '' | 'max-height' | 'min-height' | 'medium-height' | 'large-height'
 
 export interface TextArea extends EntityStorePathMixin {
     errorMessage: string
     invalid: boolean
     path: string
+    size: TextAreaSize
     store: EntityStore
+    value: string
 }
 
 export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, EntityStorePathMixin) {
@@ -24,7 +93,6 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
     readonly: boolean
     root
     textAreaDisposer
-    value: string
     yaml: boolean
 
     static get properties() {
@@ -36,7 +104,6 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
             markdown: { type: Boolean },
             minHeight: { type: String, value: '300px'},
             readonly: { type: Boolean, value: false },
-            value: { type: String },
             yaml: { type: Boolean }
         }
     }

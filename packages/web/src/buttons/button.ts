@@ -39,6 +39,7 @@ import { EntityStore } from '@c6o/common'
  *
  * @extends EntityStoreMixin
  * @mixes ButtonElement
+ * @mixes EntityStoreMixin
  */
 
 export type ButtonThemes = '' | 'primary' | 'secondary' | 'tertiary' | 'default' | 'info' | 'error' | 'success' | 'warning' | 'large' | 'small' | 'icon' | 'card'
