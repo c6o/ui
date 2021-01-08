@@ -2,7 +2,7 @@ import { html, customElement, css, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 
 /**
- * `<cc6o-menu-button>` is a Web Component that provides a button for use as amenu item.
+ * `<c6o-menu-button>` is a Web Component that provides a button for use as a menu item.
  *
  * ```
  * <c6o-menu-button>

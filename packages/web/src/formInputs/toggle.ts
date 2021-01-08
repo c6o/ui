@@ -5,6 +5,31 @@ import { mix } from 'mixwith'
 import { EntityStoreMixin } from '../mixins'
 import { cssReboot, cssBase, cssGrid, cssTypography } from '@c6o/ui-theme'
 
+/**
+ * `<c6o-toggle>` is a Web Component for a left-right toggle.
+ *
+ * ```
+ * <c6o-toggle
+ *   ?checked=${!store.hasPrivacyUrl}
+ *   label-off="URL"
+ *   label-on="Full Text"
+ *   @toggle=${this.handlePrivacyToggle}
+ * ></c6o-toggle>
+ * ```
+ *
+ * Both labels are optional
+ *
+ *  Attribute | Description
+ * ------------|------------
+ * `checked`   | Whether the toggle is on (checked) or off
+ * `label-off` | The left-hand label for the OFF position
+ * `label-on`  | The right-hand label for the ON position
+ *
+ * @extends MobxLitElement
+ * @mixes MobxLitElement
+ * @mixes EntityStoreMixin
+ */
+
 export interface Toggle extends EntityStoreMixin {
 }
 
@@ -65,7 +90,9 @@ export class Toggle extends mix(MobxLitElement).with(EntityStoreMixin) {
     render() {
         return html`
             <div c6o="flex align-center">
-                ${this.labelOff ? html`<label class="off inline ${this.checked ? '' : 'active'}">${this.labelOff}</label>` : ''}
+                ${this.labelOff ? html`
+                    <label class="off inline ${this.checked ? '' : 'active'}">${this.labelOff}</label>
+                ` : ''}
                 <paper-toggle-button c6o="fit" ?checked=${this.checked} @click="${this.handleToggleClick}">
                     ${!this.labelOff && !this.labelOn ? html`
                         <span id="label">
@@ -73,7 +100,9 @@ export class Toggle extends mix(MobxLitElement).with(EntityStoreMixin) {
                         </span>
                     ` : ''}
                 </paper-toggle-button>
-                ${this.labelOn ? html`<label class="on inline ${this.checked ? 'active' : ''}">${this.labelOn}</label>` : ''}
+                ${this.labelOn ? html`
+                    <label class="on inline ${this.checked ? 'active' : ''}">${this.labelOn}</label>
+                ` : ''}
             </div>
         `
     }
