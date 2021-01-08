@@ -3,6 +3,24 @@ import { MobxLitElement } from '@adobe/lit-mobx'
 import { EntityStore } from '@c6o/common'
 import { cssReboot, cssBase, cssGrid, cssLayouts, cssAnimations } from '@c6o/ui-theme'
 
+/**
+ * `<c6o-store-content>` is a Web Component that displays a loading overlay while the store is being initialized.
+ *
+ * ```
+ * <c6o-store-content .store=${this.contentStore}>
+ *   <section c6o="grid 12 6@lg">
+ *     ${this.contentStore.content.map(app => this.renderFeaturedApp(app.data))}
+ *   </section>
+ * </c6o-store-content>
+ * ```
+ *
+ * Property  | Description
+ * -----------|------------
+ * `store`    | The EntityStore that needs to be initialized
+ *
+ * @extends MobxLitElement
+ */
+
 @customElement('c6o-store-content')
 export class StoreContent extends MobxLitElement {
 
@@ -60,6 +78,10 @@ export class StoreContent extends MobxLitElement {
                 </div>
             `
 
-        return this.store?.initialized ? html`<slot></slot>` : html`<div id="overlay" class="busy"></div>`
+        return this.store?.initialized ? html`
+            <slot></slot>
+        ` : html`
+            <div id="overlay" class="busy"></div>
+        `
     }
 }

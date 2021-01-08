@@ -3,6 +3,27 @@ import { MobxLitElement } from '@adobe/lit-mobx'
 import MarkdownIt from 'markdown-it'
 import { cssReboot, cssBase, cssTypography } from '@c6o/ui-theme'
 
+/**
+ * `<c6o-rich-text>` is a Web Component for rendering either markdown or a string of HTML in the UI.
+ *
+ * ```
+ * <c6o-rich-text rich-text=${this.store.shortSummary}></c6o-rich-text>
+ * ```
+ *
+ * Attribute   | Description
+ * ------------|------------
+ * `rich-text` | A string of either markdown or HTML
+ * `theme`     | Possible values are 'dark', 'no-margin', 'smaller', 'centered'
+ *
+ * @extends MobxLitElement
+ */
+
+export type RichTextTheme = '' | 'dark' | 'no-margin' | 'smaller' | 'centered'
+
+export interface RichText extends MobxLitElement {
+    theme: RichTextTheme
+}
+
 @customElement('c6o-rich-text')
 export class RichText extends MobxLitElement {
 
@@ -15,11 +36,11 @@ export class RichText extends MobxLitElement {
             cssBase,
             cssTypography,
             css`
-                :host(.no-margin) p {
+                :host([theme~="no-margin"]) p {
                     margin-bottom: 0;
                 }
 
-                :host(.smaller) {
+                :host([theme~="smaller"]) {
                     font-size: .9rem;
                 }
 
@@ -29,6 +50,10 @@ export class RichText extends MobxLitElement {
 
                 :host([theme~="dark"]) a:hover {
                     color: var(--color-white);
+                }
+
+                :host([theme~="centered"]) {
+                    text-align: center;
                 }
             `
          ]

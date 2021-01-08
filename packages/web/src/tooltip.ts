@@ -2,17 +2,34 @@ import { html, customElement, property, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { cssReboot, cssBase, cssTooltip } from '@c6o/ui-theme'
 
+/**
+ * `<c6o-tooltip>` is a Web Component for rendering a tooltip on mouse hover.
+ *
+ * ```
+ * <c6o-tooltip title="Infrastructure">
+ *   <span slot="tooltip-content">
+ *     <strong>Status:</strong>
+ *     <span class="status-text ${clusterStore.iaasStatus}">${clusterStore.iaasStatus}</span>
+ *   </span>
+ * </c6o-tooltip>
+ * ```
+ *
+ * Attribute   | Description
+ * ------------|------------
+ * `narrow`    | When set the tooltip will be a smaller width
+ * `title`     | The tooltip's title
+ *
+ * @extends MobxLitElement
+ */
+
 @customElement('c6o-tooltip')
 export class Tooltip extends MobxLitElement {
-
-    @property({ type: String })
-    title = 'Tooltip'
 
     @property({ type: Boolean })
     narrow = false
 
     @property({ type: String })
-    content
+    title = 'Tooltip'
 
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
