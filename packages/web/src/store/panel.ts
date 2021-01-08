@@ -2,6 +2,28 @@ import { html, customElement, property } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { EntityStore, EntityListStore } from '@c6o/common'
 
+/**
+ * `<c6o-store-panel>` is a Web Component that displays a loading banner while the store is being initialized
+ * and then shows slotted content based on whether the store is empty or not.
+ *
+ * ```
+ * <c6o-store-panel loading-message="Loading Apps..." no-busy .store=${this.appsListStore}>
+ *   ${this.renderMyApps()}
+ * </c6o-store-panel>
+ * ```
+ *
+ * Attribute  | Description
+ * -----------|------------
+ * `loading-message` | The message that will be displayed in the loading banner
+ * `no-busy` | When set, an overlay will NOT be displayed when the store is 'busy'
+ *
+ * Property  | Description
+ * -----------|------------
+ * `store`    | The EntityStore that needs to be initialized
+ *
+ * @extends MobxLitElement
+ */
+
 @customElement('c6o-store-panel')
 export class StorePanel extends MobxLitElement {
 

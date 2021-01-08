@@ -1,15 +1,7 @@
-import { DetailsElement } from '@vaadin/vaadin-details/src/vaadin-details'
+import { AccordionPanelElement } from '@vaadin/vaadin-accordion/src/vaadin-accordion-panel'
 
 /**
- * `<c6o-details>` is a Web Component which the creates an
- * expandable panel similar to `<details>` HTML element.
- *
- * ```
- * <c6o-details>
- *   <div slot="summary">Expandable Details</div>
- *   Toggle using mouse, Enter and Space keys.
- * </c6o-details>
- * ```
+ * The accordion panel element.
  *
  * ### Styling
  *
@@ -20,7 +12,7 @@ import { DetailsElement } from '@vaadin/vaadin-details/src/vaadin-details'
  * `summary`        | The element used to open and close collapsible content.
  * `toggle`         | The element used as indicator, can represent an icon.
  * `summary-content`| The wrapper for the slotted summary content.
- * `content`        | The wrapper for the collapsible details content.
+ * `content`        | The wrapper for the collapsible panel content.
  *
  * The following attributes are exposed for styling:
  *
@@ -33,13 +25,13 @@ import { DetailsElement } from '@vaadin/vaadin-details/src/vaadin-details'
  *
  * See [ThemableMixin – how to apply styles for shadow parts](https://github.com/vaadin/vaadin-themable-mixin/wiki)
  *
- * @extends DetailsElement
+ * @extends AccordionPanelElement
  */
 
-export interface Details extends HTMLElement {
+export interface AccordionPanel extends HTMLElement {
 }
 
-export class Details extends DetailsElement {
+export class AccordionPanel extends AccordionPanelElement {
 }
 
-customElements.define('c6o-details', Details)
+customElements.define('c6o-accordion-panel', AccordionPanel)
