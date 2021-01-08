@@ -187,7 +187,7 @@ export class Grid extends mix(GridElement).with(EntityListStoreMixin) {
     async connectedCallback() {
         await super.connectedCallback()
 
-        if (this.items?.length && this.listStore)
+        if (this.items?.length && this.listStore?.hasEntities)
             throw new Error('Both an items array and a ListStore were provided to the Grid component. Please only use one or the other.')
 
         this.$.table.addEventListener('scroll', this.handleScroll)
