@@ -68,14 +68,14 @@ export class StoreContent extends MobxLitElement {
     render() {
         if (this.store?.errors?.length)
             return html`
-                <div c6o="container">
+                <c6o-container>
                     <c6o-contextual-banner
                         icon="exclamation-circle"
                         theme="error"
                     >
                         ${this.store.errors}
                     </c6o-contextual-banner>
-                </div>
+                </c6o-container>
             `
 
         return this.store?.initialized ? html`

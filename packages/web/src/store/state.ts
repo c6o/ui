@@ -112,9 +112,9 @@ export class StoreState extends MobxLitElement {
             `
         } else {
             return this.container ? html`
-                <div c6o="container">
+                <c6o-container>
                     <c6o-loading loading-message=${this.loadingMessage}></c6o-loading>
-                </div>
+                </c6o-container>
             ` : html`
                 <c6o-loading loading-message=${this.loadingMessage}></c6o-loading>
             `
