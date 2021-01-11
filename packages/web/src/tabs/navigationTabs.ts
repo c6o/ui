@@ -46,7 +46,7 @@ export class NavigationTabs extends MobxLitElement {
             cssGrid,
             css`
                 c6o-tabs {
-                    height: 58px;
+                    height: var(--c6o-tabs-height);
                 }
 
                 c6o-tab {
