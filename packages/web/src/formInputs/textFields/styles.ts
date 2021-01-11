@@ -81,12 +81,12 @@ registerStyles('vaadin-text-field', css`
 `)
 
 registerStyles('vaadin-text-area', css`
-    :host([size~="max-height"]) {
-        min-height: 400px;
+    :host {
+        min-height: 130px;
     }
 
-    :host([size~="min-height"]) {
-        min-height: 130px;
+    :host([size~="max-height"]) {
+        min-height: 400px;
     }
 
     :host([size~="medium-height"]) {

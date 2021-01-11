@@ -62,7 +62,7 @@ import { EntityStore } from '@c6o/common'
  * `markdown` | Set to turn the text area into a rich text editor that uses markdown. Uses the EasyMDE plugin. | :host
  * `json` | Set to specify that the text area content is JSON | :host
  * `yaml` | Set to specify that the text area content is YAML | :host
- * `size` | Possible values are 'max-height', 'min-height', 'medium-height', 'large-height' | :host
+ * `size` | Possible values are 'max-height', 'medium-height', 'large-height' | :host
  *
  * See [ThemableMixin – how to apply styles for shadow parts](https://github.com/vaadin/vaadin-themable-mixin/wiki)
  *
@@ -72,7 +72,7 @@ import { EntityStore } from '@c6o/common'
  * @mixes EntityStorePathMixin
  */
 
- export type TextAreaSize = '' | 'max-height' | 'min-height' | 'medium-height' | 'large-height'
+ export type TextAreaSize = '' | 'max-height' | 'medium-height' | 'large-height'
 
 export interface TextArea extends EntityStorePathMixin {
     errorMessage: string
