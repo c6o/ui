@@ -52,9 +52,9 @@ export class HorizontalTabs extends MobxLitElement {
                 ${this.renderTabs()}
             </c6o-tabs>
 
-            <div c6o="container" class="container-content">
+            <c6o-container padded>
                 ${this.renderTab()}
-            </div>
+            </c6o-container>
         `
     }
 
