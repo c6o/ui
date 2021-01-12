@@ -102,7 +102,7 @@ export class InstallingAnimation extends MobxLitElement {
 
     render() {
         return html`
-            <div class=${['c6o-chase', `${this.type}`].join(' ')}>
+            <div class=${['c6o-chase', `${this.type}`].join(' ').trim()}>
                 <div class="c6o-chase-dot"></div>
                 <div class="c6o-chase-dot"></div>
                 <div class="c6o-chase-dot"></div>

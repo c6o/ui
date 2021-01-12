@@ -103,14 +103,18 @@ export class Container extends MobxLitElement {
             this.morePadded ? 'more-padded' : '',
             this.extraPadded ? 'extra-padded' : '',
             this.mostPadded ? 'most-padded' : ''
-        ].join(' ')
+        ].join(' ').trim()
+
+        const layout = [
+            this.centered ? 'flex justify-center' : '',
+            this.flex ? 'flex' : '',
+            this.verticalCentered ? 'flex column justify-center align-center' : ''
+        ].join(' ').trim()
 
         return html`
             <section class=${classes}>
                 <slot
-                    c6o="${this.centered ? 'flex justify-center' : ''}
-                        ${this.flex ? 'flex' : ''}
-                        ${this.verticalCentered ? 'flex column justify-center align-center' : ''}"
+                    c6o=${layout}
                     class="full-height"
                 ></slot>
             </section>

@@ -72,10 +72,10 @@ export class SaveButton extends mix(MobxLitElement).with(EntityStoreMixin) imple
             return html``
 
         return html`
-            <div c6o="flex align-center">
+            <c6o-flex v-centered>
                 <c6o-button @click=${this.handleSave}>Save</c6o-button>
                 <c6o-label class="save-results">${this.successMessage}</c6o-label>
-            </div>
+            </c6o-flex>
             <c6o-results
                 class="save-results"
                 colspan="2"

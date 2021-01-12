@@ -90,7 +90,7 @@ export class SearchField extends MobxLitElement {
                 clear-button-visible
                 ?disabled=${this.disabled}
                 placeholder=${this.placeholder}
-                theme=${['inline search', `${this.theme}`].join(' ')}
+                theme=${['inline search', `${this.theme}`].join(' ').trim()}
                 value=${this.value}
                 @change=${(e) => this.fireCustomEvent(e, 'value-changed')}
                 @input=${(e) => this.fireCustomEvent(e, 'input-changed')}

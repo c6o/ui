@@ -89,21 +89,23 @@ export class Toggle extends mix(MobxLitElement).with(EntityStoreMixin) {
 
     render() {
         return html`
-            <div c6o="flex align-center">
+            <c6o-flex v-centered>
                 ${this.labelOff ? html`
                     <label class="off inline ${this.checked ? '' : 'active'}">${this.labelOff}</label>
                 ` : ''}
+
                 <paper-toggle-button c6o="fit" ?checked=${this.checked} @click="${this.handleToggleClick}">
                     ${!this.labelOff && !this.labelOn ? html`
                         <span id="label">
                             <slot></slot>
                         </span>
                     ` : ''}
+
                 </paper-toggle-button>
                 ${this.labelOn ? html`
                     <label class="on inline ${this.checked ? 'active' : ''}">${this.labelOn}</label>
                 ` : ''}
-            </div>
+            </c6o-flex>
         `
     }
 
