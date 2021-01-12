@@ -37,6 +37,7 @@ registerStyles('vaadin-button', css`
 
     :host([theme~="tertiary"]) {
         border: none;
+        min-width: var(--lumo-button-size) !important;
     }
 
     :host([theme~="tertiary"]:hover) {
@@ -101,6 +102,10 @@ registerStyles('vaadin-button', css`
         color: var(--color-white);
     }
 
+    :host([theme~="success"][theme~="tertiary"]:hover) {
+        color: var(--color-twilight-ocean);
+    }
+
     :host([theme~="warning"]) {
         border-color: var(--color-sun);
         color: var(--color-thunder);
@@ -120,6 +125,10 @@ registerStyles('vaadin-button', css`
     :host([theme~="warning"][theme~="primary"]:hover) {
         background-color: var(--color-evening-sun);
         color: var(--color-white);
+    }
+
+    :host([theme~="warning"][theme~="tertiary"]:hover) {
+        color: var(--color-evening-sun);
     }
 
     :host([theme~="error"]) {
