@@ -76,3 +76,11 @@ vaadin-list-box {
         }
     }
 }
+
+// This is used in the light DOM of vaadin-items in the AccountSwitcher
+.account-image {
+    border-radius: var(--c6o-border-radius);
+    height: var(--lumo-icon-size-l);
+    margin-right: var(--sm-spacing);
+    width: var(--lumo-icon-size-l);
+}
