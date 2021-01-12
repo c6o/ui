@@ -3,23 +3,28 @@ import { MobxLitElement } from '@adobe/lit-mobx'
 import { cssReboot, cssBase, cssGrid } from '@c6o/ui-theme'
 
 /**
- * `<c6o-container>` is a Web Component for displaying content in a max-width and optionally padded container.
+ * `<c6o-flex>` is a Web Component for displaying content either horizontally or vertically.
  *
  * ```
- * <c6o-container padded>
- *   Welcome!
- * </c6o-container>
+ * <c6o-flex full-height h-centered nowrap v-centered>
+ *   <p>Content 1</p>
+ *   <p>Content 2</p>
+ * </c6o-flex>
  * ```
  *
  * Attribute  | Description
  * -----------|------------
- * `padded`   | Adds top padding
- * `more-padded` | Adds both top and bottom padding
- * `extra-padded` | Adds even more top and bottom padding
- * `most-padded` | Adds the most top and bottom padding
- * `centered` | Centers the slotted content
- * `flex` | Apply a flex-box to the slotted content
- * `vertical-centered` | When set, the content will be displayed vertically and centered
+ * `align-right` | Aligns the content to the right (end)
+ * `centered` | Centers the text
+ * `full-height` | Adds a height of 100% to the slotted content
+ * `h-centered` | Horizontally center the content
+ * `lg-margin` | Adds a large bottom margin
+ * `margin` | Adds a bottom margin
+ * `nowrap` | Content will not wrap
+ * `spaced` | Content will be spaced out evenly
+ * `vertical` | Content will flow vertically instead of horizontally
+ * `v-centered` | Vertically center the content
+ * `xl-margin` | Adds an extra large bottom margin
  *
  * @extends MobxLitElement
  */
