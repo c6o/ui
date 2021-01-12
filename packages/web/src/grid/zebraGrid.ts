@@ -19,6 +19,11 @@ import { cssAll } from '@c6o/ui-theme'
  * </c6o-zebra-grid>
  * ```
  *
+ *  * Attribute | Description
+ * -------------|------------
+ * `height`     | The height of the grid. Defaults to 100%, but you can use any valid CSS height, e.g. 'calc(100vh - 200px)'
+ * `height-by-rows` | When set, the grid height will be determined by the number of rows, and will not scroll
+ *
  * Property    | Description
  * ------------|------------
  * `listStore` | The EntityListStore that will be used for the grid's data
@@ -31,6 +36,9 @@ export class ZebraGrid extends MobxLitElement {
 
     @property({ type: String })
     height = '100%'
+
+    @property({ type: Boolean, attribute: 'height-by-rows' })
+    heightByRows = false
 
     @property({ type: Object })
     listStore: EntityListStore
@@ -51,6 +59,7 @@ export class ZebraGrid extends MobxLitElement {
     render() {
         return html`
             <c6o-grid
+                ?height-by-rows=${this.heightByRows}
                 .listStore=${this.listStore}
                 style="height: ${this.height}"
                 theme="wrap-cell-content no-border row-stripes"
