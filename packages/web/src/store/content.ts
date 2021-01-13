@@ -1,7 +1,7 @@
 import { html, customElement, property, css, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { EntityStore } from '@c6o/common'
-import { cssReboot, cssBase, cssGrid, cssLayouts, cssAnimations } from '@c6o/ui-theme'
+import { cssReboot, cssBase, cssGrid, cssAnimations } from '@c6o/ui-theme'
 
 /**
  * `<c6o-store-content>` is a Web Component that displays a loading overlay while the store is being initialized.
@@ -32,7 +32,6 @@ export class StoreContent extends MobxLitElement {
             cssReboot,
             cssBase,
             cssGrid,
-            cssLayouts,
             cssAnimations,
             css`
                 :host {

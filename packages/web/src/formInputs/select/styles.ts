@@ -3,6 +3,7 @@ import { registerStyles, css } from '@vaadin/vaadin-themable-mixin/register-styl
 registerStyles('vaadin-select', css`
     :host([theme~="inline"]) {
         max-width: 300px;
+        width: 100%;
     }
 `)
 

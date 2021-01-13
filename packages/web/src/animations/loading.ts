@@ -1,6 +1,6 @@
 import { html, customElement, property, css, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
-import { cssReboot, cssBase, cssLayouts, cssTypography } from '@c6o/ui-theme'
+import { cssReboot, cssBase, cssTypography } from '@c6o/ui-theme'
 
 /**
  * `<c6o-loading>` is a Web Component that provides a loading animation and message.
@@ -26,7 +26,6 @@ export class Loading extends MobxLitElement {
         return [
             cssReboot,
             cssBase,
-            cssLayouts,
             cssTypography,
             css`
                 #loading {
@@ -49,10 +48,10 @@ export class Loading extends MobxLitElement {
     render() {
         return html`
             <section id="loading">
-                <div class="panel">
+                <c6o-panel>
                     <h3>${this.loadingMessage}</h3>
                     <c6o-progress-bar indeterminate value="0"></c6o-progress-bar>
-                </div>
+                </c6o-panel>
             </section>
         `
     }

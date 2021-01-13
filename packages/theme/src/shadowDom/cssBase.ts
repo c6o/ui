@@ -117,4 +117,17 @@ export const cssBase = css`
         margin: var(--xl-spacing) 0;
         width: 100px;
     }
+
+    .btn-group > c6o-button:not(:first-child) {
+        margin-left: var(--sm-spacing);
+    }
+
+    .panel {
+        background-color: var(--color-white);
+        border: none;
+        border-radius: var(--c6o-border-radius);
+        color: var(--color-thunder);
+        margin-bottom: var(--xl-spacing);
+        padding: var(--xl-spacing);
+    }
 `

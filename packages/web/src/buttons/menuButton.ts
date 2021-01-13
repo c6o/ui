@@ -25,8 +25,15 @@ export class MenuButton extends MobxLitElement {
             }
 
             #menu-link:hover {
-                text-decoration: none;
                 color: var(--color-sea);
+                text-decoration: none;
+            }
+
+            ::slotted(img) {
+                border-radius: var(--c6o-border-radius);
+                height: var(--lumo-icon-size-l);
+                margin-right: var(--sm-spacing);
+                width: var(--lumo-icon-size-l);
             }
         `
     }
