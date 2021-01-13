@@ -47,13 +47,13 @@ vaadin-context-menu-list-box {
     }
 }
 
-vaadin-list-box {
+vaadin-list-box, c6o-list-box {
     > hr {
         margin-bottom: var(--sm-spacing);
         margin-top: var(--sm-spacing);
     }
 
-    vaadin-item {
+    vaadin-item, c6o-item {
         cursor: pointer;
     }
 
@@ -77,7 +77,7 @@ vaadin-list-box {
     }
 }
 
-// This is used in the light DOM of vaadin-items in the AccountSwitcher
+// This is used in the light DOM of c6o-items in the AccountSwitcher
 .account-image {
     border-radius: var(--c6o-border-radius);
     height: var(--lumo-icon-size-l);

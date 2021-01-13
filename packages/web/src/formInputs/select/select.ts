@@ -22,10 +22,10 @@ import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin, getValueF
  * ```js
  * const select = document.querySelector('#select');
  * select.renderer = function(root, select) {
- *   const listBox = document.createElement('vaadin-list-box');
- *   // append 3 <vaadin-item> elements
+ *   const listBox = document.createElement('c6o-list-box');
+ *   // append 3 <c6o-item> elements
  *   ['Jose', 'Manolo', 'Pedro'].forEach(function(name) {
- *     const item = document.createElement('vaadin-item');
+ *     const item = document.createElement('c6o-item');
  *     item.textContent = name;
  *     listBox.appendChild(item);
  *   });
@@ -49,16 +49,16 @@ import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin, getValueF
  * ```
  * <c6o-select>
  *   <template>
- *     <vaadin-list-box>
- *       <vaadin-item label="foo">Foo</vaadin-item>
- *       <vaadin-item>Bar</vaadin-item>
- *       <vaadin-item>Baz</vaadin-item>
- *     </vaadin-list-box>
+ *     <c6o-list-box>
+ *       <c6o-item label="foo">Foo</c6o-item>
+ *       <c6o-item>Bar</c6o-item>
+ *       <c6o-item>Baz</c6o-item>
+ *     </c6o-list-box>
  *   </template>
  * </c6o-select>
  * ```
  *
- * Hint: By setting the `label` property of inner vaadin-items you will
+ * Hint: By setting the `label` property of inner c6o-items you will
  * be able to change the visual representation of the selected value in the input part.
  *
  * ### Styling
@@ -137,17 +137,17 @@ export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityList
 
         this.root = root
 
-        // Create the <vaadin-list-box>
-        this.listBox = window.document.createElement('vaadin-list-box')
+        // Create the <c6o-list-box>
+        this.listBox = window.document.createElement('c6o-list-box')
         itemList.forEach(item => {
             if (item[this.itemValuePath] === 'hr') {
                 const rule = window.document.createElement('hr')
                 this.listBox.appendChild(rule)
             } else {
-                const vaadinItem = window.document.createElement('vaadin-item')
-                vaadinItem.textContent = item[this.itemLabelPath] || getValueFromPath(item, this.itemLabelPath)
-                this.listBox.appendChild(vaadinItem)
-                vaadinItem.setAttribute('value', item[this.itemValuePath] || getValueFromPath(item, this.itemValuePath))
+                const contentItem = window.document.createElement('c6o-item')
+                contentItem.textContent = item[this.itemLabelPath] || getValueFromPath(item, this.itemLabelPath)
+                this.listBox.appendChild(contentItem)
+                contentItem.setAttribute('value', item[this.itemValuePath] || getValueFromPath(item, this.itemValuePath))
             }
         })
         root.appendChild(this.listBox)
