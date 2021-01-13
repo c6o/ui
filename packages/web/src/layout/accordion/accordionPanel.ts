@@ -28,6 +28,9 @@ import { AccordionPanelElement } from '@vaadin/vaadin-accordion/src/vaadin-accor
  * @extends AccordionPanelElement
  */
 
+export interface AccordionPanel extends HTMLElement {
+}
+
 export class AccordionPanel extends AccordionPanelElement {
 }
 

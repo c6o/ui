@@ -6,6 +6,9 @@ import { NotificationElement } from '@vaadin/vaadin-notification/src/vaadin-noti
  * @extends NotificationElement
  */
 
+export interface Notification extends HTMLElement {
+}
+
 export class Notification extends NotificationElement {
 }
 

@@ -44,6 +44,9 @@ import { AccordionElement } from '@vaadin/vaadin-accordion/src/vaadin-accordion'
  * @extends AccordionElement
  */
 
+export interface Accordion extends HTMLElement {
+}
+
 export class Accordion extends AccordionElement {
 }
 

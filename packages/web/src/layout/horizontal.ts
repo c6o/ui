@@ -23,6 +23,9 @@ import { HorizontalLayoutElement } from '@vaadin/vaadin-ordered-layout/src/vaadi
  * @extends HorizontalLayoutElement
  */
 
+export interface HorizontalLayout extends HTMLElement {
+}
+
 export class HorizontalLayout extends HorizontalLayoutElement {
 }
 
