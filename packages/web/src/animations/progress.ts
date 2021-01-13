@@ -35,9 +35,6 @@ import { ProgressBarElement } from '@vaadin/vaadin-progress-bar/src/vaadin-progr
  * @extends ProgressBarElement
  */
 
-export interface ProgressBar extends HTMLElement {
-}
-
 export class ProgressBar extends ProgressBarElement {
 }
 

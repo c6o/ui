@@ -38,9 +38,6 @@ import { ItemElement } from '@vaadin/vaadin-item/src/vaadin-item'
  * @extends ItemElement
  */
 
-export interface Item extends HTMLElement {
-}
-
 export class Item extends ItemElement {
 }
 

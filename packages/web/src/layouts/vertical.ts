@@ -23,9 +23,6 @@ import { VerticalLayoutElement } from '@vaadin/vaadin-ordered-layout/src/vaadin-
  * @extends VerticalLayoutElement
  */
 
-export interface VerticalLayout extends HTMLElement {
-}
-
 export class VerticalLayout extends VerticalLayoutElement {
 }
 

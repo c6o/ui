@@ -36,9 +36,6 @@ import { DetailsElement } from '@vaadin/vaadin-details/src/vaadin-details'
  * @extends DetailsElement
  */
 
-export interface Details extends HTMLElement {
-}
-
 export class Details extends DetailsElement {
 }
 
