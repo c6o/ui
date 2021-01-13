@@ -22,6 +22,7 @@ import { cssReboot, cssBase } from '@c6o/ui-theme'
  *     'Scandium', 'Titanium', 'Vanadium', 'Chromium', 'Manganese',
  *     'Iron', 'Cobalt', 'Nickel', 'Copper', 'Zinc'
  *   ]}
+ *   @selected-item-changed=${this.handleItemChanged}
  * ></c6o-multiselect-combo-box>
  *
  *
@@ -81,7 +82,19 @@ export class MultiSelectComboBox extends MobxLitElement {
                 .items=${this.items}
                 label=${this.label}
                 placeholder=${this.placeholder}
+                @change=${this.handleItemSelected}
             ></multiselect-combo-box>
         `
+    }
+
+    handleItemSelected = () => {
+        const customEvent = new CustomEvent('selected-item-changed', {
+            bubbles: true,
+            cancelable: false,
+            composed: true,
+            detail: this.selectedItems
+        })
+
+        this.dispatchEvent(customEvent)
     }
 }
