@@ -1,8 +1,5 @@
 import { GridSelectionColumnElement } from '@vaadin/vaadin-grid/src/vaadin-grid-selection-column'
 
-export interface GridSelectionColumn extends HTMLElement {
-}
-
 export class GridSelectionColumn extends GridSelectionColumnElement {
 
     _findHostGrid() {

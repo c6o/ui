@@ -1,6 +1,6 @@
 import { ComboBoxElement } from '@vaadin/vaadin-combo-box/src/vaadin-combo-box'
 import { mix } from 'mixwith'
-import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin } from '../mixins'
+import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin } from '../../mixins'
 
 /**
  * `<c6o-combo-box>` is a combo box element combining a dropdown list with an

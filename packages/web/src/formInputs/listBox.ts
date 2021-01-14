@@ -25,9 +25,6 @@ import { ListBoxElement } from '@vaadin/vaadin-list-box/src/vaadin-list-box'
  * @extends ListBoxElement
  */
 
-export interface ListBox extends HTMLElement {
-}
-
 export class ListBox extends ListBoxElement {
 }
 
