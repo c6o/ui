@@ -21,7 +21,7 @@ import { cssReboot, cssBase, cssGrid, cssAnimations } from '@c6o/ui-theme'
  * `container` | When set, the loading banner will be wrapped in a div with some margins and max width
  * `centered`  | When set, the slotted content will be centered
  * `loading-message` | The message that will be displayed in the loading banner
- * `no-busy`   | When set, an overlay will NOT be displayed when the store is 'busy'
+ * `show-busy` | When set, a loading overlay will be displayed when the store is 'busy'
  * `no-init`   | When set, no loading banner will be displayed
  *
  * Property   | Description
@@ -43,8 +43,8 @@ export class StoreState extends MobxLitElement {
     @property({ type: String, attribute: 'loading-message' })
     loadingMessage = 'Loading'
 
-    @property({ type: Boolean, attribute: 'no-busy' })
-    noBusy = false
+    @property({ type: Boolean, attribute: 'show-busy' })
+    showBusy = false
 
     @property({ type: Boolean, attribute: 'no-init' })
     noInit = false
@@ -106,7 +106,7 @@ export class StoreState extends MobxLitElement {
         if (this.store?.initialized || this.noInit) {
             return html`
                 <section id="content" class="${classes}">
-                    <div id="overlay" class="${this.store?.busy && !this.noBusy ? 'busy' : ''}"></div>
+                    <div id="overlay" class="${this.store?.busy && this.showBusy ? 'busy' : ''}"></div>
                     <slot></slot>
                 </section>
             `

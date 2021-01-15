@@ -1,7 +1,7 @@
 import { html, css, property, CSSResult, query } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { mix } from 'mixwith'
-import { EntityStoreMixin } from '../mixins'
+import { EntityStoreMixin, EntityStoreLitMixin } from '../mixins'
 import { cssReboot, cssBase } from '@c6o/ui-theme'
 import { ContextualBanner } from '@c6o/ui-web'
 import { EntityStore } from '@c6o/common'
@@ -37,7 +37,7 @@ export interface Results extends EntityStoreMixin {
     store: EntityStore
 }
 
-export class Results extends mix(MobxLitElement).with(EntityStoreMixin) {
+export class Results extends mix(MobxLitElement).with(EntityStoreLitMixin) {
     defaultErrorHeading: string
     timeout
 

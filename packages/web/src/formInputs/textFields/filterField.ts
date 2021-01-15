@@ -49,6 +49,7 @@ export class FilterField extends MobxLitElement {
                 ?busy=${this.busy}
                 ?disabled=${this.disabled}
                 placeholder=${this.placeholder}
+                show-busy
                 @input-changed=${this.handleFilterChanged}
             ></c6o-search-field>
         `

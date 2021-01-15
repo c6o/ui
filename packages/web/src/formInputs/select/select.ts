@@ -104,11 +104,13 @@ import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin, getValueF
  */
 
 export interface Select extends EntityListStoreMixin {
+    _items: Array<any>
     invalid: boolean
     itemLabelPath: string
     itemValuePath: string
     items: Array<any>
     listStore
+    opened: boolean
     value: string
 }
 

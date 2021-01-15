@@ -22,11 +22,12 @@ import { cssReboot, cssBase, cssAnimations } from '@c6o/ui-theme'
  * ></c6o-search-field>
  * ```
  *
- * Property    | Description
+ * Attribute   | Description
  * ------------|------------
  * `busy`      | Displays a spinner when true
  * `disabled`  | When true, disables the <c6o-text-field>
  * `placeholder` | Text that will appear in the field until a user puts it into focus
+ * `show-busy` | When set, a spinner animation will be displayed next to the field when 'busy' is true
  * `theme`     | Set to change the appearance or size of the field. Possible values are 'light', 'tall', 'condensed', 'reversed'
  *
  * @extends MobxLitElement
@@ -45,6 +46,9 @@ export class SearchField extends MobxLitElement {
 
     @property({ type: String })
     placeholder = ''
+
+    @property({ type: Boolean, attribute: 'show-busy' })
+    showBusy = false
 
     @property({ type: String })
     theme: SearchFieldTheme = ''
@@ -86,7 +90,7 @@ export class SearchField extends MobxLitElement {
     render() {
         return html`
             <c6o-text-field
-                class=${this.busy ? 'busy' : ''}
+                class=${this.busy && this.showBusy ? 'busy' : ''}
                 clear-button-visible
                 ?disabled=${this.disabled}
                 placeholder=${this.placeholder}

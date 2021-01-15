@@ -7,7 +7,7 @@ import { EntityStore, EntityListStore } from '@c6o/common'
  * and then shows slotted content based on whether the store is empty or not.
  *
  * ```
- * <c6o-store-panel loading-message="Loading Apps..." no-busy .store=${this.appsListStore}>
+ * <c6o-store-panel loading-message="Loading Apps..." .store=${this.appsListStore}>
  *   ${this.renderMyApps()}
  * </c6o-store-panel>
  * ```
@@ -15,7 +15,7 @@ import { EntityStore, EntityListStore } from '@c6o/common'
  * Attribute  | Description
  * -----------|------------
  * `loading-message` | The message that will be displayed in the loading banner
- * `no-busy` | When set, an overlay will NOT be displayed when the store is 'busy'
+ * `show-busy` | When set, a loading overlay will be displayed when the store is 'busy'
  *
  * Property  | Description
  * -----------|------------
@@ -31,17 +31,17 @@ export class StorePanel extends MobxLitElement {
     store: EntityStore | EntityListStore
 
     @property({ type: String, attribute: 'loading-message' })
-    loadingMessage: string
+    loadingMessage = 'Loading...'
 
-    @property({ type: Boolean, attribute: 'no-busy' })
-    noBusy: boolean
+    @property({ type: Boolean, attribute: 'show-busy' })
+    showBusy = false
 
     render() {
         if (!this.store)
             return ''
 
         return html`
-            <c6o-store-state loading-message=${this.loadingMessage} ?no-busy=${this.noBusy} .store=${this.store}>
+            <c6o-store-state loading-message=${this.loadingMessage} ?show-busy=${this.showBusy} .store=${this.store}>
                 <slot></slot>
                 ${this.store.nullState ? html`
                     <slot name="null"></slot>
