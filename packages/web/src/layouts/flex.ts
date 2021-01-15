@@ -75,6 +75,10 @@ export class FlexLayout extends MobxLitElement {
                     display: block;
                 }
 
+                :host([full-height]) {
+                    height: 100%;
+                }
+
                 ::slotted(c6o-flex) {
                     height: auto;
                 }
