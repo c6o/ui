@@ -50,4 +50,8 @@ registerStyles('vaadin-checkbox', css`
         font-size: var(--lumo-font-size-s);
         line-height: 1.3;
     }
+
+    :host([theme~="inline"]) {
+        margin-bottom: 0;
+    }
 `)
