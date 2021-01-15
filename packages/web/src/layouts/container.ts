@@ -65,6 +65,10 @@ export class Container extends MobxLitElement {
                     width: 100%;
                 }
 
+                :host([theme~="full-width"]) {
+                    max-width: 100%;
+                }
+
                 .full-height {
                     height: 100%;
                 }
