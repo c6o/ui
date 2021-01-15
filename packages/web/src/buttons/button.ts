@@ -58,7 +58,7 @@ export class Button extends mix(ButtonElement).with(EntityStoreMixin) implements
     static get properties() {
         return {
             ...super.properties,
-            noDisableWhenBusy: { type: Boolean, value: false},
+            noDisableWhenBusy: { type: Boolean, value: false },
             theme: { type: String }
         }
     }

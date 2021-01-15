@@ -170,9 +170,18 @@ export interface Grid extends EntityListStoreMixin {
     activeItem: boolean
     getEventContext(e)
     items: Array<any>
+    selectable: boolean
+    selectedItems: Array<any>
 }
 
 export class Grid extends mix(GridElement).with(EntityListStoreMixin) {
+
+    static get properties() {
+        return {
+            ...super.properties,
+            selectable: { type: Boolean, value: false }
+        }
+    }
 
     handleScroll = async () => {
         let loading = false
@@ -205,6 +214,13 @@ export class Grid extends mix(GridElement).with(EntityListStoreMixin) {
 
             this.dispatchEvent(customEvent)
         })
+
+        if (this.selectable) {
+            this.addEventListener('active-item-changed', (e: CustomEvent) => {
+                const item = e.detail.value
+                this.selectedItems = item ? [item] : []
+            })
+        }
     }
 
     async disconnectedCallback() {
