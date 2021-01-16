@@ -6,7 +6,7 @@ import { BaseDialog } from './baseDialog'
 @customElement('c6o-dialog')
 export class Dialog extends BaseDialog {
 
-    // https://github.com/andreasbm/web-dialog/blob/master/src/lib/web-dialog.ts
+    // https://github.com/andreasbm/web-dialog
     @query('web-dialog')
     dialog: WebDialog
 
@@ -68,7 +68,11 @@ export class Dialog extends BaseDialog {
             >
                 <slot name="header"></slot>
                 <div c6o="fill" id="modal-body">
-                    <slot></slot>
+                    ${this.loading ? html`
+                        <c6o-loading></c6o-loading>
+                    ` : html`
+                        <slot></slot>
+                    `}
                 </div>
                 <slot name="footer"></slot>
             </web-dialog>

@@ -44,7 +44,7 @@ import { EntityStore } from '@c6o/common'
 
 export type ButtonThemes = '' | 'primary' | 'secondary' | 'tertiary' | 'default' | 'info' | 'error' | 'success' | 'warning' | 'large' | 'small' | 'icon' | 'card'
 
-export interface Button extends EntityStoreMixin    {
+export interface Button extends EntityStoreMixin {
     disabled: boolean
     noDisableWhenBusy: boolean
     store: EntityStore

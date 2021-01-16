@@ -15,6 +15,9 @@ export abstract class BaseDialog extends MobxLitElement {
     @property({ type: Boolean, attribute: 'min-height' })
     minHeight = false
 
+    @property({ type: Boolean })
+    loading = true
+
     @property({ type: Boolean, attribute: 'no-close-on-outside-click' })
     noCloseOnOutsideClick = false
 
@@ -52,17 +55,27 @@ export abstract class BaseDialog extends MobxLitElement {
             e.preventDefault()
     }
 
-    open = () => { this.opened = true }
+    async onOpen() {
+        return true
+    }
+
+    open = async () => {
+        this.opened = true
+        const loaded = await this.onOpen()
+        this.loading = !loaded
+    }
 
     close = () => { this.opened = false }
 
-    // These are necessary to set opened to false if the user clicks outside of the dialog to close it
     async connectedCallback() {
         await super.connectedCallback()
+        this.addEventListener('open', this.open)
+        // This is necessary to set opened to false if the user clicks outside of the dialog to close it
         this.addEventListener('close', this.close)
     }
 
     async disconnectedCallback() {
+        this.removeEventListener('open', this.open)
         this.removeEventListener('close', this.close)
         await super.disconnectedCallback()
     }
