@@ -27,6 +27,9 @@ export interface VerticalTabsItems extends Array<VerticalTabsItem> {}
 @customElement('c6o-vertical-tabs')
 export class VerticalTabs extends MobxLitElement {
 
+    @property({ type: Boolean })
+    panel = false
+
     @property({ type: Object })
     tabs: TabsItems = []
 
@@ -50,7 +53,7 @@ export class VerticalTabs extends MobxLitElement {
                     ${this.renderTabs()}
                 </c6o-tabs>
 
-                <section c6o="10" class="panel">
+                <section c6o="10" class="${this.panel ? 'panel' : ''}">
                     ${this.renderTab()}
                 </section>
             </div>
