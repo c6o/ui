@@ -49,7 +49,7 @@ export class Toggle extends LitElement {
                     --paper-toggle-button-checked-button-color: var(--color-ocean);
                     cursor: pointer;
                     display: block;
-                    margin-bottom: var(--xl-spacing);
+                    margin-bottom: var(--lg-spacing);
                 }
 
                 #label {
