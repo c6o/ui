@@ -167,6 +167,7 @@ import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin } from '..
 export interface ComboBox extends EntityStorePathMixin {
     invalid: boolean
     lowercase: boolean
+    selectedItem
     uppercase: boolean
     value: string
 }
