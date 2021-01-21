@@ -1,7 +1,7 @@
 import { property } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 
-export abstract class BaseDialog extends MobxLitElement {
+export class BaseDialog extends MobxLitElement {
 
     @property({ type: String, attribute: 'btn-text' })
     btnText = 'Close'
@@ -59,13 +59,18 @@ export abstract class BaseDialog extends MobxLitElement {
         return true
     }
 
+    async onClose() { }
+
     open = async () => {
         this.opened = true
         const loaded = await this.onOpen()
         this.loading = !loaded
     }
 
-    close = () => { this.opened = false }
+    close = async () => {
+        this.opened = false
+        await this.onClose()
+    }
 
     async connectedCallback() {
         await super.connectedCallback()
