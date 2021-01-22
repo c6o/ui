@@ -18,6 +18,7 @@ import { cssReboot, cssBase, cssGrid, cssTypography } from '@c6o/ui-theme'
  *
  *  Attribute | Description
  * ------------|------------
+ * `busy`      | When true the toggle is disabled
  * `is-checked` | Whether the toggle is on (checked) or off
  * `label-off` | The left-hand label for the OFF position
  * `label-on`  | The right-hand label for the ON position
@@ -27,6 +28,9 @@ import { cssReboot, cssBase, cssGrid, cssTypography } from '@c6o/ui-theme'
 
 @customElement('c6o-toggle')
 export class Toggle extends LitElement {
+
+    @property({ type: Boolean })
+    busy = false
 
     @property({ type: Boolean, attribute: 'is-checked' })
     isChecked: boolean
@@ -86,7 +90,12 @@ export class Toggle extends LitElement {
                     <label class="off inline ${this.isChecked ? '' : 'active'}">${this.labelOff}</label>
                 ` : ''}
 
-                <paper-toggle-button c6o="fit" ?checked=${this.isChecked} @click="${this.handleToggleClick}">
+                <paper-toggle-button
+                    ?disabled=${this.busy}
+                    c6o="fit"
+                    ?checked=${this.isChecked}
+                    @click="${this.handleToggleClick}"
+                >
                     ${!this.labelOff && !this.labelOn ? html`
                         <span id="label">
                             <slot></slot>
@@ -104,9 +113,9 @@ export class Toggle extends LitElement {
     handleToggleClick = (e) => {
         this.isChecked = e.target.checked
         const customEvent = new CustomEvent('toggle', {
-            detail: e.target.checked,
             bubbles: true,
-            composed: true
+            composed: true,
+            detail: e.target.checked
         })
         this.dispatchEvent(customEvent)
     }
