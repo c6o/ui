@@ -135,7 +135,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
             }
         } else if (this.yaml) {
             try {
-                setValueFromPath(this.store.pending, this.path, yaml.safeLoad(value))
+                setValueFromPath(this.store.pending, this.path, yaml.load(value))
             } catch (e) {
                 this.errorMessage = `Error setting YAML: ${e.message}`
                 this.invalid = true
