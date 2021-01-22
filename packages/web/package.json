@@ -25,7 +25,7 @@
     "@polymer/paper-toggle-button": "^3.0.1",
     "@vaadin/vaadin": "^14.4.5",
     "easymde": "^2.12.1",
-    "js-yaml": "^3.13.1",
+    "js-yaml": "^4.0.0",
     "lit-element": "^2.3.1",
     "markdown-it": "^11.0.0",
     "mixwith": "^0.1.1",

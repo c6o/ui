@@ -41,14 +41,14 @@ import { EntityStore } from '@c6o/common'
  */
 
 export interface Upload extends EntityStorePathMixin {
+    btnText: string
+    errorText: string
     files: Array<File>
     set
     store: EntityStore
 }
 
 export class Upload extends mix(UploadElement).with(EntityStoreMixin, EntityStorePathMixin) {
-    btnText: string
-    errorText: string
 
     static get properties() {
         return {
