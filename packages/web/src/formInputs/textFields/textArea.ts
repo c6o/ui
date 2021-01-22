@@ -119,7 +119,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
         if (this.json)
             this.value = JSON.stringify(newVal)
         else if (this.yaml)
-            this.value = yaml.safeDump(newVal, { indent: 4 })
+            this.value = yaml.dump(newVal, { indent: 4 })
     }
 
     valueToStore(value) {
@@ -151,7 +151,7 @@ export class TextArea extends mix(TextAreaElement).with(EntityStoreMixin, Entity
             if (this.json && !this.isEmpty(valueFromPath))
                 super.value = JSON.stringify(getValueFromPath(valueFrom, this.path), null, 4)
             else if (this.yaml && !this.isEmpty(valueFromPath))
-                super.value = yaml.safeDump(valueFromPath)
+                super.value = yaml.dump(valueFromPath)
             else
                 super.storeToValue()
         }
