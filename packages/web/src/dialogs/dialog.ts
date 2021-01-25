@@ -1,4 +1,4 @@
-import { html, customElement, query, css, CSSResult, property } from 'lit-element'
+import { html, customElement, query, css, CSSResult } from 'lit-element'
 import { WebDialog } from 'web-dialog'
 import { cssAll, cssModals } from '@c6o/ui-theme'
 import { BaseDialog } from './baseDialog'
@@ -68,11 +68,7 @@ export class Dialog extends BaseDialog {
             >
                 <slot name="header"></slot>
                 <div c6o="fill" id="modal-body">
-                    ${this.loading ? html`
-                        <c6o-loading></c6o-loading>
-                    ` : html`
-                        <slot></slot>
-                    `}
+                    <slot></slot>
                 </div>
                 <slot name="footer"></slot>
             </web-dialog>

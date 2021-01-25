@@ -3,6 +3,9 @@ import { MobxLitElement } from '@adobe/lit-mobx'
 
 export class BaseDialog extends MobxLitElement {
 
+    onClose?(): void
+    async onOpen?()
+
     @property({ type: String, attribute: 'btn-text' })
     btnText = 'Close'
 
@@ -12,11 +15,11 @@ export class BaseDialog extends MobxLitElement {
     @property({ type: String })
     classes = ''
 
+    @property({ type: Boolean })
+    loading = false
+
     @property({ type: Boolean, attribute: 'min-height' })
     minHeight = false
-
-    @property({ type: Boolean })
-    loading = true
 
     @property({ type: Boolean, attribute: 'no-close-on-outside-click' })
     noCloseOnOutsideClick = false
@@ -55,21 +58,19 @@ export class BaseDialog extends MobxLitElement {
             e.preventDefault()
     }
 
-    async onOpen() {
-        return true
-    }
-
-    async onClose() { }
-
     open = async () => {
         this.opened = true
-        const loaded = await this.onOpen()
-        this.loading = !loaded
+        if (this.onOpen) {
+            this.loading = true
+            await this.onOpen()
+            this.loading = false
+        }
     }
 
-    close = async () => {
+    close = () => {
         this.opened = false
-        await this.onClose()
+        if (this.onClose)
+            this.onClose()
     }
 
     async connectedCallback() {
