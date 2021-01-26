@@ -70,6 +70,11 @@ registerStyles('vaadin-item', css`
     :host([selected])::after {
         opacity: 1;
     }
+
+    :host([selected])::before,
+    :host([tabindex])::before {
+        display: none;
+    }
 `)
 
 registerStyles('vaadin-list-box', css`
@@ -94,36 +99,43 @@ registerStyles('vaadin-list-box', css`
         text-align: left;
     }
 
-    [part="items"] ::slotted(c6o-item) {
+    [part="items"] ::slotted(c6o-item),
+    [part="items"] ::slotted(vaadin-item) {
         border-radius: 0;
         cursor: pointer;
         height: 45px;
         padding: var(--sm-spacing) var(--lg-spacing);
     }
 
-    [part="items"] ::slotted(c6o-item:nth-child(even):not([theme~="logout"])) {
+    [part="items"] ::slotted(c6o-item:nth-child(even):not([theme~="logout"])),
+    [part="items"] ::slotted(vaadin-item:nth-child(even):not([theme~="logout"])) {
         background-color: var(--color-snow);
     }
 
-    [part="items"] ::slotted(c6o-item)::before {
+    [part="items"] ::slotted(c6o-item)::before,
+    [part="items"] ::slotted(vaadin-item)::before {
         display: none;
     }
 
-    [part="items"] ::slotted(c6o-item:hover:not([disabled])) {
+    [part="items"] ::slotted(c6o-item:hover:not([disabled])),
+    [part="items"] ::slotted(vaadin-item:hover:not([disabled])) {
         background-color: var(--color-wind) !important;
         color: var(--color-navy) !important;
     }
 
-    [part="items"] ::slotted(c6o-item[selected]) {
+    [part="items"] ::slotted(c6o-item[selected]),
+    [part="items"] ::slotted(vaadin-item[selected]) {
         background-color: var(--color-sea) !important;;
         color: var(--color-white) !important;;
     }
 
-    [part="items"] ::slotted(c6o-item[selected][theme~="profile"]) {
+    [part="items"] ::slotted(c6o-item[selected][theme~="profile"]),
+    [part="items"] ::slotted(vaadin-item[selected][theme~="profile"]) {
         background-color: transparent !important;
     }
 
-    [part="items"] ::slotted(c6o-item[theme~="profile"]) {
+    [part="items"] ::slotted(c6o-item[theme~="profile"]),
+    [part="items"] ::slotted(vaadin-item[theme~="profile"]) {
         background-color: transparent;
     }
 
