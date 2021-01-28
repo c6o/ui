@@ -23,7 +23,7 @@ import { cssAll } from '@c6o/ui-theme'
  * -------------|------------
  * `height`     | The height of the grid. Defaults to 100%, but you can use any valid CSS height, e.g. 'calc(100vh - 200px)'
  * `height-by-rows` | When set, the grid height will be determined by the number of rows, and will not scroll
- * `listSt ore` | The EntityListStore that will be used for the grid's data
+ * `listStore`  | The EntityListStore that will be used for the grid's data
  * `selectable` | When set, if a grid row is clicked it will show a selected background color
  *
  * @extends MobxLitElement

@@ -99,8 +99,8 @@ export const cssBase = css`
     }
 
     .icon {
-        height: calc(var(--xl-spacing) * 2.5);
-        width: calc(var(--xl-spacing) * 2.5);
+        height: var(--c6o-icon-height);
+        width: var(--c6o-icon-height);
     }
 
     .icon.inline {
@@ -110,6 +110,21 @@ export const cssBase = css`
     .icon.small {
         height: var(--c6o-icon-height-sm);
         width: var(--c6o-icon-height-sm);
+    }
+
+    .icon.medium {
+        height: var(--c6o-icon-height);
+        width: var(--c6o-icon-height);
+    }
+
+    .icon.large {
+        height: var(--c6o-icon-height-lg);
+        width: var(--c6o-icon-height-lg);
+    }
+
+    .icon.xlarge {
+        height: var(--c6o-icon-height-xl);
+        width: var(--c6o-icon-height-xl);
     }
 
     .divider {
