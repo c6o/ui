@@ -63,8 +63,8 @@ export const EntityStorePathMixin = (base) => class EntityStorePathMixinClass ex
             this.eventToStore(e)
     }
 
-    storeChanged = () => {
-        super.storeChanged()
+    async storeChanged() {
+        await super.storeChanged()
 
         // if the control doesn't have a path, we are using it without binding to the store
         if (this.store) {

@@ -51,7 +51,7 @@ export class StoreDialog extends BaseStoreDialog {
                 ${this.footer ? this.footer() : html`
                     <footer c6o="flex justify-between" slot="footer">
                         <div class="btn-group">
-                            <c6o-button id="cancel-button" theme="${this.btnTheme}" @click=${this.cancel}>${btnText}</c6o-button>
+                            <c6o-button class="test" id="cancel-button" theme="${this.btnTheme}" @click=${this.cancel}>${btnText}</c6o-button>
                             ${this.deleteMessage?.length ? html`
                                 <div id="delete-btn">
                                     <c6o-button ?disabled=${this.store?.busy} id="delete-button" theme="error" @click=${this.delete}>${this.deleteBtnText}</c6o-button>

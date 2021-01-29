@@ -63,8 +63,8 @@ export class Button extends mix(ButtonElement).with(EntityStoreMixin) implements
         }
     }
 
-    storeChanged() {
-        super.storeChanged()
+    async storeChanged() {
+        await super.storeChanged()
 
         this._busyDisposer?.()
         delete this._busyDisposer

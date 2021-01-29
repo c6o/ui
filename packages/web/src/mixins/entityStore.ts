@@ -3,7 +3,7 @@ import { PolymerElement } from '@polymer/polymer'
 export interface EntityStoreMixin extends PolymerElement {
     noInherit: boolean
     store: any
-    storeChanged(): void
+    storeChanged(): Promise<void>
 }
 
 // Used by our Vaadin components, which are Polymer 3
@@ -19,7 +19,7 @@ export const EntityStoreMixin = (base) => class EntityStoreMixinClass extends ba
         }
     }
 
-    storeChanged() {
+    async storeChanged() {
         // Do nothing in the base
         // Override this if you want to handle storeChanged events
         this._childMixins.forEach(child => child.store = this.store)
@@ -67,7 +67,7 @@ export const EntityStoreLitMixin = (base) => class EntityStoreLitMixinClass exte
         }
     }
 
-    storeChanged() {
+    async storeChanged() {
         // Do nothing in the base
         // Override this if you want to handle storeChanged events
         this._childMixins.forEach(child => child.store = this.store)
@@ -82,10 +82,10 @@ export const EntityStoreLitMixin = (base) => class EntityStoreLitMixinClass exte
         // console.log(`Added ${childElement.localName} to store list for ${this.localName}`)
     }
 
-    updated(changedProperties) {
+    async updated(changedProperties) {
         super.updated(changedProperties)
         if (changedProperties.has('store'))
-            this.storeChanged()
+            await this.storeChanged()
     }
 
     async connectedCallback() {

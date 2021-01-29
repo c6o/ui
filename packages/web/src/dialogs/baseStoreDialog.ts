@@ -8,6 +8,7 @@ export interface BaseStoreDialog extends EntityStoreMixin {
     btnTheme: string
     classes: string
     cssClasses: string
+    loading: boolean
     maxHeight: boolean
     minHeight: boolean
     opened: boolean
@@ -15,6 +16,8 @@ export interface BaseStoreDialog extends EntityStoreMixin {
     tall: string
     title: string
     wide: boolean
+    onClose?(): void
+    onOpen?(): Promise<void>
 }
 
 export abstract class BaseStoreDialog extends mix(BaseDialog).with(EntityStoreLitMixin) {
@@ -29,17 +32,26 @@ export abstract class BaseStoreDialog extends mix(BaseDialog).with(EntityStoreLi
     deleteBtnText = 'Delete'
 
     @property({ type: String, attribute: 'delete-btn-theme' })
-    deleteMessage
+    deleteMessage: string
 
-    // Optional callbacks
+    // Optional callbacks. These are tied to the cancel and confirm buttons.
+    // Alternatively you can use onOpen or onClose to respond to the dialog opening and closing.
     cancelCallback?(): void
     confirmCallback?(): void
 
-    close = () => this.store ? this.store = null : this.opened = false
+    close = () => {
+        this.store ? this.store = null : this.opened = false
+        this.onClose?.()
+    }
 
-    storeChanged() {
-        super.storeChanged()
+    async storeChanged() {
+        await super.storeChanged()
         this.opened = !!this.store
+        if (this.opened && this.onOpen) {
+            this.loading = true
+            await this.onOpen()
+            this.loading = false
+        }
     }
 
     cancel = () => {
