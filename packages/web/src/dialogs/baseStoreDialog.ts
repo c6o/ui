@@ -8,7 +8,6 @@ export interface BaseStoreDialog extends EntityStoreMixin {
     btnTheme: string
     classes: string
     cssClasses: string
-    loading: boolean
     maxHeight: boolean
     minHeight: boolean
     opened: boolean
@@ -48,9 +47,7 @@ export abstract class BaseStoreDialog extends mix(BaseDialog).with(EntityStoreLi
         await super.storeChanged()
         this.opened = !!this.store
         if (this.opened && this.onOpen) {
-            this.loading = true
             await this.onOpen()
-            this.loading = false
         }
     }
 

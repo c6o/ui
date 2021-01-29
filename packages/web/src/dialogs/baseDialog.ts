@@ -15,9 +15,6 @@ export class BaseDialog extends MobxLitElement {
     @property({ type: String })
     classes = ''
 
-    @property({ type: Boolean })
-    loading = false
-
     @property({ type: Boolean, attribute: 'min-height' })
     minHeight = false
 
@@ -60,11 +57,7 @@ export class BaseDialog extends MobxLitElement {
 
     open = async () => {
         this.opened = true
-        if (this.onOpen) {
-            this.loading = true
-            await this.onOpen()
-            this.loading = false
-        }
+        await this.onOpen?.()
     }
 
     close = () => {
