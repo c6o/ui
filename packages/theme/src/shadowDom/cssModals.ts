@@ -16,7 +16,9 @@ export const cssModals = css`
     }
 
     header img,
-    .modal-header img {
+    header c6o-image,
+    .modal-header img,
+    .modal-header c6o-image {
         padding-right: var(--c6o-icon-padding, 22px);
         width: var(--c6o-icon-width, 48px);
         height: auto;

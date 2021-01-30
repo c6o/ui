@@ -1,7 +1,7 @@
-import { html, customElement, property, css, CSSResult } from 'lit-element'
+import { html, customElement, property, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { EntityListStore } from '@c6o/common'
-import { cssAll } from '@c6o/ui-theme'
+import { cssReboot, cssBase } from '@c6o/ui-theme'
 
 /**
  * `<c6o-zebra-grid>` is a Web Component that provides a grid styled using zebra stripes.
@@ -46,14 +46,8 @@ export class ZebraGrid extends MobxLitElement {
 
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
-            cssAll,
-            css`
-                img {
-                    border-radius: var(--c6o-border-radius);
-                    height: var(--c6o-icon-height-sm, 40px);
-                    width: var(--c6o-icon-height-sm, 40px);
-                }
-            `
+            cssReboot,
+            cssBase
         ]
     }
 

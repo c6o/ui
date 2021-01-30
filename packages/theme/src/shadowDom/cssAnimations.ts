@@ -17,12 +17,12 @@ export const cssAnimations = css`
         animation: spinner .4s linear infinite;
     }
 
-    .icon.installing {
+    .icon.animated {
         -webkit-animation: sail 2.2s infinite ease-in-out;
         animation: sail 2.2s infinite ease-in-out;
     }
 
-    .icon.error {
+    .icon.pulsing {
         -webkit-animation: pulse 1.2s infinite ease-in-out;
         animation: pulse 1.2s infinite ease-in-out;
     }
