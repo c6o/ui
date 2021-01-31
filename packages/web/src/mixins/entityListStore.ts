@@ -28,10 +28,9 @@ export const EntityListStoreMixin = (base) => class EntityListStoreMixinClass ex
         // Dispose previous subscriptions
         for (const disposer of this._listStoreDisposers)
             disposer()
-
+        this._listStoreDisposers = []
 
         if (this.listStore) {
-            this._listStoreDisposers = []
             this._listStoreDisposers.push(observe(this.listStore, this.safeProperty, () => {
                 this.entityStoresChanged()
 
