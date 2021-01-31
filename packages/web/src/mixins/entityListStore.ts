@@ -9,7 +9,7 @@ export interface EntityListStoreMixin extends PolymerElement {
 }
 
 export const EntityListStoreMixin = (base) => class EntityListStoreMixinClass extends base {
-    listStoreDisposers = []
+    _listStoreDisposers = []
 
     static get properties() {
         return {
@@ -26,41 +26,31 @@ export const EntityListStoreMixin = (base) => class EntityListStoreMixinClass ex
         // Do nothing in the base
         // Override this if you want to handle listStoreChanged events
         // Dispose previous subscriptions
-        for (const disposer of this.listStoreDisposers)
+        for (const disposer of this._listStoreDisposers)
             disposer()
 
-        this.listStoreDisposers = []
-        console.log('NSX changed')
 
         if (this.listStore) {
-            this.listStoreDisposers.push(observe(this.listStore, this.safeProperty, () => {
+            this._listStoreDisposers = []
+            this._listStoreDisposers.push(observe(this.listStore, this.safeProperty, () => {
                 this.entityStoresChanged()
 
-                console.log('NSX observing', this.safeProperty)
-
-                this.listStore[this.safeProperty].forEach(entityStore => {
-                    this.listStoreDisposers.push(observe(entityStore, () => {
-                        console.log('NSX changed es')
-                        this.entityChanged()
+                const entityStoreList = this.listStore[this.safeProperty]
+                if (entityStoreList) {
+                    for(const entityStore of entityStoreList) {
+                        // At least one of them has to fire immediately
+                        this._listStoreDisposers.push(observe(entityStore, () => this.entityChanged()))
+                        this._listStoreDisposers.push(observe(entityStore, 'entity', () => this.entityChanged()))
                     }
-                    ))
+                }
 
-                    if (entityStore)
-                        this.listStoreDisposers.push(observe(entityStore.entity, () => {
-                            console.log('NSX changed')
-                            this.entityChanged()
-                        }, true))
-            })
-
-            this.listStoreDisposers.push(observe(this.listStore, 'entities', () => {
-                // Watch for entity changes
-                this.listStore.entities.forEach(entity => {
-                    this.listStoreDisposers.push(observe(entity, () =>
-                        this.entityChanged()
-                    ))
-                })
-            }), true)
-        }))
+                // We're observing both the entityStores and the entities - this may be overkill
+                // and result in too many render calls. We can consider removing this
+                this._listStoreDisposers.push(observe(this.listStore, 'entities', () => {
+                    for (const entity of this.listStore.entities)
+                        this._listStoreDisposers.push(observe(entity, () => this.entityChanged() ))
+                }), true)
+            }))
         }
     }
 
