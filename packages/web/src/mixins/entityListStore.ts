@@ -1,5 +1,5 @@
 import { PolymerElement } from '@polymer/polymer'
-import { observe, reaction } from 'mobx'
+import { observe } from 'mobx'
 
 export interface EntityListStoreMixin extends PolymerElement {
     listStore: any
@@ -36,11 +36,8 @@ export const EntityListStoreMixin = (base) => class EntityListStoreMixinClass ex
 
                 const entityStoreList = this.listStore[this.safeProperty]
                 if (entityStoreList) {
-                    for(const entityStore of entityStoreList) {
-                        // At least one of them has to fire immediately
+                    for(const entityStore of entityStoreList)
                         this._listStoreDisposers.push(observe(entityStore, () => this.entityChanged()))
-                        this._listStoreDisposers.push(observe(entityStore, 'entity', () => this.entityChanged()))
-                    }
                 }
 
                 // We're observing both the entityStores and the entities - this may be overkill
