@@ -1,5 +1,5 @@
 import { PolymerElement } from '@polymer/polymer'
-import { observe } from 'mobx'
+import { observe, reaction } from 'mobx'
 
 export interface EntityListStoreMixin extends PolymerElement {
     listStore: any
@@ -7,13 +7,13 @@ export interface EntityListStoreMixin extends PolymerElement {
     entityStoresChanged(): void
 }
 
-export const EntityListStoreMixin = (base) =>  class EntityListStoreMixinClass extends base {
-    entityListStoreDisposers = []
+export const EntityListStoreMixin = (base) => class EntityListStoreMixinClass extends base {
+    listStoreDisposers = []
 
     static get properties() {
         return {
             listStore: { type: Object, observer: 'listStoreChanged' },
-            storeProperty: { type: 'string', value: 'entityStores' }
+            storeProperty: { type: 'string', value: 'entityStores', observer: 'listStoreChanged' }
         }
     }
 
@@ -25,26 +25,48 @@ export const EntityListStoreMixin = (base) =>  class EntityListStoreMixinClass e
         // Do nothing in the base
         // Override this if you want to handle listStoreChanged events
         // Dispose previous subscriptions
-        for (const disposer of this.entityListStoreDisposers)
+        for (const disposer of this.listStoreDisposers)
             disposer()
 
-        this.entityListStoreDisposers = []
+        this.listStoreDisposers = []
+        console.log('NSX changed')
 
         if (this.listStore) {
-            this.entityListStoreDisposers.push(observe(this.listStore, this.safeProperty, () => {
+            this.listStoreDisposers.push(observe(this.listStore, this.safeProperty, () => {
                 this.entityStoresChanged()
 
+                console.log('NSX observing', this.safeProperty)
+
                 this.listStore[this.safeProperty].forEach(entityStore => {
-                    this.entityListStoreDisposers.push(observe(entityStore.entity, () =>
+                    const disposer = reaction(
+                        () => [entityStore, entityStore.entity],
+                        () => {
+                            console.log('NSX changed reaction')
+                            this.entityChanged()
+                        }
+                    )
+                    /*tthis.listStoreDisposers.push(disposer)
+                    console.log('NSX changed outer', entityStore)
+
+                    this.listStoreDisposers.push(observe(entityStore, () => {
+                        console.log('NSX changed es')
                         this.entityChanged()
+                    }
                     ))
+
+                    his.listStoreDisposers.push(observe(entityStore.entity, () => {
+                        console.log('NSX changed')
+                        this.entityChanged()
+                    }
+                    )), true)*/
                 })
+
             }, true))
 
-            this.entityListStoreDisposers.push(observe(this.listStore, 'entities', () => {
+            this.listStoreDisposers.push(observe(this.listStore, 'entities', () => {
                 // Watch for entity changes
                 this.listStore.entities.forEach(entity => {
-                    this.entityListStoreDisposers.push(observe(entity, () =>
+                    this.listStoreDisposers.push(observe(entity, () =>
                         this.entityChanged()
                     ))
                 })
