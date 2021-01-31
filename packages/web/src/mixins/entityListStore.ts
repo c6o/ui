@@ -3,6 +3,7 @@ import { observe, reaction } from 'mobx'
 
 export interface EntityListStoreMixin extends PolymerElement {
     listStore: any
+    storeProperty: string
     entityChanged(): void
     entityStoresChanged(): void
 }
@@ -38,30 +39,18 @@ export const EntityListStoreMixin = (base) => class EntityListStoreMixinClass ex
                 console.log('NSX observing', this.safeProperty)
 
                 this.listStore[this.safeProperty].forEach(entityStore => {
-                    const disposer = reaction(
-                        () => [entityStore, entityStore.entity],
-                        () => {
-                            console.log('NSX changed reaction')
-                            this.entityChanged()
-                        }
-                    )
-                    /*tthis.listStoreDisposers.push(disposer)
-                    console.log('NSX changed outer', entityStore)
-
                     this.listStoreDisposers.push(observe(entityStore, () => {
                         console.log('NSX changed es')
                         this.entityChanged()
                     }
                     ))
 
-                    his.listStoreDisposers.push(observe(entityStore.entity, () => {
-                        console.log('NSX changed')
-                        this.entityChanged()
-                    }
-                    )), true)*/
-                })
-
-            }, true))
+                    if (entityStore)
+                        this.listStoreDisposers.push(observe(entityStore.entity, () => {
+                            console.log('NSX changed')
+                            this.entityChanged()
+                        }, true))
+            })
 
             this.listStoreDisposers.push(observe(this.listStore, 'entities', () => {
                 // Watch for entity changes
@@ -70,7 +59,8 @@ export const EntityListStoreMixin = (base) => class EntityListStoreMixinClass ex
                         this.entityChanged()
                     ))
                 })
-            }, true))
+            }), true)
+        }))
         }
     }
 
