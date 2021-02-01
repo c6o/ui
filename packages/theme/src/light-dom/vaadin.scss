@@ -61,10 +61,10 @@ vaadin-list-box, c6o-list-box {
         &[theme~="account-switcher"] {
             color: var(--color-sea);
             cursor: pointer;
-            height: var(--lg-spacing);
-            margin-right: var(--lg-spacing);
+            height: var(--lumo-icon-size);
+            margin-right: var(--sm-spacing);
             padding: 0;
-            width: var(--lg-spacing);
+            width: var(--lumo-icon-size-l);
         }
 
         &[theme~="account-switcher"]:hover {
@@ -78,8 +78,9 @@ vaadin-list-box, c6o-list-box {
 }
 
 // This is used in the light DOM of c6o-items in the AccountSwitcher
-.account-image {
+.account-switcher-icon {
     border-radius: var(--c6o-border-radius);
+    display: inline-block;
     height: var(--lumo-icon-size-l);
     margin-right: var(--sm-spacing);
     width: var(--lumo-icon-size-l);

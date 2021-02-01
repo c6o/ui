@@ -19,10 +19,12 @@ export const cssModals = css`
     header c6o-image,
     .modal-header img,
     .modal-header c6o-image {
-        padding-right: var(--c6o-icon-padding, 22px);
-        width: var(--c6o-icon-width, 48px);
-        height: auto;
         box-sizing: content-box;
+        height: auto;
+        max-height: var(--c6o-icon-width, 48px);
+        max-width: var(--c6o-icon-width, 48px);
+        padding-right: var(--c6o-icon-padding, 22px);
+        width: auto;
     }
 
     header iron-icon,

@@ -1,7 +1,7 @@
-import { html, customElement, property, CSSResult } from 'lit-element'
+import { html, customElement, property, css, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
 import { EntityListStore } from '@c6o/common'
-import { cssReboot, cssBase } from '@c6o/ui-theme'
+import { cssAll } from '@c6o/ui-theme'
 
 /**
  * `<c6o-zebra-grid>` is a Web Component that provides a grid styled using zebra stripes.
@@ -13,7 +13,7 @@ import { cssReboot, cssBase } from '@c6o/ui-theme'
  *   .listStore=${this.appsListStore}
  *   @active-item-changed=${this.activeItemChanged}
  * >
- *   <c6o-grid-column auto-width flex-grow="0" .renderer=${this.renderIcon}></c6o-grid-column>
+ *   <c6o-grid-column flex-grow="0" .renderer=${this.renderIcon}></c6o-grid-column>
  *   <c6o-grid-column header="App Name" path="displayName"></c6o-grid-column>
  *   <c6o-grid-column header="Editions" .renderer=${this.renderEditions}></c6o-grid-column>
  * </c6o-zebra-grid>
@@ -46,8 +46,14 @@ export class ZebraGrid extends MobxLitElement {
 
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
-            cssReboot,
-            cssBase
+            cssAll,
+            css`
+                img {
+                    border-radius: var(--c6o-border-radius);
+                    height: var(--c6o-icon-height-sm, 40px);
+                    width: var(--c6o-icon-height-sm, 40px);
+                }
+            `
         ]
     }
 
