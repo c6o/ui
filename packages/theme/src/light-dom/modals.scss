@@ -12,7 +12,8 @@ header {
     margin-bottom: var(--xl-spacing);
     padding-bottom: var(--md-spacing);
 
-    img {
+    img,
+    c6o-image {
         padding-right: var(--c6o-icon-padding, 22px);
         width: var(--c6o-icon-width, 48px);
         height: auto;

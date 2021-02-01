@@ -73,6 +73,7 @@ export class FlexLayout extends MobxLitElement {
             css`
                 :host {
                     display: block;
+                    width: 100%;
                 }
 
                 :host([full-height]) {

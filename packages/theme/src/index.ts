@@ -26,7 +26,3 @@ export * from './shadowDom/cssModals'
 export * from './shadowDom/cssReboot'
 export * from './shadowDom/cssTooltip'
 export * from './shadowDom/cssTypography'
-
-// Assets
-export * from './assets'
-

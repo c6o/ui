@@ -13,7 +13,7 @@ import { cssAll } from '@c6o/ui-theme'
  *   .listStore=${this.appsListStore}
  *   @active-item-changed=${this.activeItemChanged}
  * >
- *   <c6o-grid-column auto-width flex-grow="0" .renderer=${this.renderIcon}></c6o-grid-column>
+ *   <c6o-grid-column flex-grow="0" .renderer=${this.renderIcon}></c6o-grid-column>
  *   <c6o-grid-column header="App Name" path="displayName"></c6o-grid-column>
  *   <c6o-grid-column header="Editions" .renderer=${this.renderEditions}></c6o-grid-column>
  * </c6o-zebra-grid>
