@@ -3,17 +3,18 @@ import { observe } from 'mobx'
 
 export interface EntityListStoreMixin extends PolymerElement {
     listStore: any
+    storeProperty: string
     entityChanged(): void
     entityStoresChanged(): void
 }
 
-export const EntityListStoreMixin = (base) =>  class EntityListStoreMixinClass extends base {
-    entityListStoreDisposers = []
+export const EntityListStoreMixin = (base) => class EntityListStoreMixinClass extends base {
+    _listStoreDisposers = []
 
     static get properties() {
         return {
             listStore: { type: Object, observer: 'listStoreChanged' },
-            storeProperty: { type: 'string', value: 'entityStores' }
+            storeProperty: { type: 'string', value: 'entityStores', observer: 'listStoreChanged' }
         }
     }
 
@@ -25,30 +26,27 @@ export const EntityListStoreMixin = (base) =>  class EntityListStoreMixinClass e
         // Do nothing in the base
         // Override this if you want to handle listStoreChanged events
         // Dispose previous subscriptions
-        for (const disposer of this.entityListStoreDisposers)
+        for (const disposer of this._listStoreDisposers)
             disposer()
-
-        this.entityListStoreDisposers = []
+        this._listStoreDisposers = []
 
         if (this.listStore) {
-            this.entityListStoreDisposers.push(observe(this.listStore, this.safeProperty, () => {
+            this._listStoreDisposers.push(observe(this.listStore, this.safeProperty, () => {
                 this.entityStoresChanged()
 
-                this.listStore[this.safeProperty].forEach(entityStore => {
-                    this.entityListStoreDisposers.push(observe(entityStore.entity, () =>
-                        this.entityChanged()
-                    ))
-                })
-            }, true))
+                const entityStoreList = this.listStore[this.safeProperty]
+                if (entityStoreList) {
+                    for(const entityStore of entityStoreList)
+                        this._listStoreDisposers.push(observe(entityStore, () => this.entityChanged()))
+                }
 
-            this.entityListStoreDisposers.push(observe(this.listStore, 'entities', () => {
-                // Watch for entity changes
-                this.listStore.entities.forEach(entity => {
-                    this.entityListStoreDisposers.push(observe(entity, () =>
-                        this.entityChanged()
-                    ))
-                })
-            }, true))
+                // We're observing both the entityStores and the entities - this may be overkill
+                // and result in too many render calls. We can consider removing this
+                this._listStoreDisposers.push(observe(this.listStore, 'entities', () => {
+                    for (const entity of this.listStore.entities)
+                        this._listStoreDisposers.push(observe(entity, () => this.entityChanged() ))
+                }), true)
+            }))
         }
     }
 
