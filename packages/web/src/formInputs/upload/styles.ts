@@ -13,6 +13,10 @@ registerStyles('vaadin-upload', css`
         margin-bottom: var(--xs-spacing);
     }
 
+    :host([theme~="compact"]) {
+        margin-bottom: var(--md-spacing);
+    }
+
     [part="error-message"] {
         text-align: left;
     }
