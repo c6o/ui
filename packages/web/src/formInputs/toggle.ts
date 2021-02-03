@@ -80,6 +80,10 @@ export class Toggle extends LitElement {
                 :host([theme~="condensed"]) {
                     margin-bottom: var(--xs-spacing);
                 }
+
+                :host([theme~="compact"]) {
+                    margin-bottom: var(--md-spacing);
+                }
             `
         ]
     }

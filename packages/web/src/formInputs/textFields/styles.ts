@@ -40,13 +40,17 @@ registerStyles('vaadin-text-area vaadin-text-field', css`
     [part="input-field"] ::slotted([part="value"]) {
         cursor: pointer;
     }
-`)
 
-registerStyles('vaadin-text-field', css`
     :host([theme~="condensed"]) {
         margin-bottom: var(--xs-spacing);
     }
 
+    :host([theme~="compact"]) {
+        margin-bottom: var(--md-spacing);
+    }
+`)
+
+registerStyles('vaadin-text-field', css`
     :host([theme~="light"]) [part="input-field"] {
         background-color: var(--color-white);
     }
