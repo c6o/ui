@@ -35,11 +35,12 @@ export class Toggle extends LitElement {
     @property({ type: Boolean, attribute: 'is-checked' })
     isChecked: boolean
 
+    // Don't provide a default label or the slot mechanism won't work
     @property({ type: String, attribute: 'label-off' })
-    labelOff = 'OFF'
+    labelOff: string
 
     @property({ type: String, attribute: 'label-on' })
-    labelOn = 'ON'
+    labelOn: string
 
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
