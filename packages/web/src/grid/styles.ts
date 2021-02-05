@@ -5,6 +5,10 @@ registerStyles('vaadin-grid', css`
         margin-bottom: var(--xl-spacing);
     }
 
+    :host([theme~="condensed"]) {
+        margin-bottom: 0;
+    }
+
     :host [part~="row"] ::slotted(vaadin-grid-cell-content) {
         font-weight: 500;
         padding-top: var(--md-spacing);

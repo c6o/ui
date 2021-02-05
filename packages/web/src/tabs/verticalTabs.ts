@@ -21,8 +21,6 @@ import { TabsItems } from './'
  * @extends MobxLitElement
  */
 
-export interface VerticalTabsItem { label: string, tabHtml: HTMLElement }
-export interface VerticalTabsItems extends Array<VerticalTabsItem> {}
 
 @customElement('c6o-vertical-tabs')
 export class VerticalTabs extends MobxLitElement {

@@ -32,6 +32,9 @@ import { cssReboot, cssBase, cssGrid } from '@c6o/ui-theme'
 @customElement('c6o-flex')
 export class FlexLayout extends MobxLitElement {
 
+    @property({ type: Boolean, attribute: 'align-bottom' })
+    alignBottom = false
+
     @property({ type: Boolean, attribute: 'align-right' })
     alignRight = false
 
@@ -105,6 +108,7 @@ export class FlexLayout extends MobxLitElement {
 
     render() {
         const layout = ['flex',
+            this.alignBottom ? 'align-end' : '',
             this.alignRight ? 'justify-end' : '',
             this.centered ? 'text-center' : 'text-left',
             this.horizontalCentered ? this.vertical ? 'align-center' : 'justify-center' : '',
