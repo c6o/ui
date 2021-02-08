@@ -107,6 +107,11 @@ export const cssBase = css`
         margin-right: var(--xl-spacing);
     }
 
+    .icon.xxsmall {
+        height: var(--c6o-icon-height-xxs);
+        width: var(--c6o-icon-height-xxs);
+    }
+
     .icon.xsmall {
         height: var(--c6o-icon-height-xs);
         width: var(--c6o-icon-height-xs);
