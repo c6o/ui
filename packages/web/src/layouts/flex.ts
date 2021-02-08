@@ -17,6 +17,7 @@ import { cssReboot, cssBase, cssGrid } from '@c6o/ui-theme'
  * `align-right` | Aligns the content to the right (end)
  * `centered` | Centers the text
  * `full-height` | Adds a height of 100% to the slotted content
+ * `full-width` | Adds a width of 100% to the slotted content
  * `h-centered` | Horizontally center the content
  * `lg-margin` | Adds a large bottom margin
  * `margin` | Adds a bottom margin
@@ -43,6 +44,9 @@ export class FlexLayout extends MobxLitElement {
 
     @property({ type: Boolean, attribute: 'full-height' })
     fullHeight = false
+
+    @property({ type: Boolean, attribute: 'full-width' })
+    fullWidth = false
 
     @property({ type: Boolean, attribute: 'h-centered' })
     horizontalCentered = false
@@ -76,7 +80,6 @@ export class FlexLayout extends MobxLitElement {
             css`
                 :host {
                     display: block;
-                    width: 100%;
                 }
 
                 :host([full-height]) {
@@ -89,6 +92,10 @@ export class FlexLayout extends MobxLitElement {
 
                 .fh {
                     height: 100%;
+                }
+
+                .fw {
+                    width: 100%;
                 }
 
                 .lmb {
@@ -120,6 +127,7 @@ export class FlexLayout extends MobxLitElement {
 
         const classes = [
             this.fullHeight ? 'fh' : '',
+            this.fullWidth ? 'fw' : '',
             this.marginBottom ? 'mb' : '',
             this.largeMarginBottom ? 'lmb' : '',
             this.xLargeMarginBottom ? 'xmb' : ''
