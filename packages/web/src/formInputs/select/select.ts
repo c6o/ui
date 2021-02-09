@@ -1,4 +1,5 @@
 import { SelectElement } from '@vaadin/vaadin-select/src/vaadin-select'
+import { EntityListStore } from '@c6o/common'
 import { mix } from 'mixwith'
 import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin, getValueFromPath } from '../../mixins'
 
@@ -109,12 +110,14 @@ export interface Select extends EntityListStoreMixin {
     itemLabelPath: string
     itemValuePath: string
     items: Array<any>
-    listStore
+    listStore: EntityListStore
     opened: boolean
+    renderer(root: any)
     value: string
 }
 
 export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin) {
+    // These need to stay as class variables (do not move to interface)
     listBox
     root
 
@@ -124,11 +127,15 @@ export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityList
             itemLabelPath: { type: String, value: 'displayName' },
             itemValuePath: { type: String, value: 'value' },
             items: { type: Array },
-            listStore: { type: Object, observer: 'listStoreChanged' }
+            listStore: { type: Object, observer: 'listStoreChanged' },
         }
     }
 
-    renderer = (root) => {
+    // The renderer for the Select component is a bit finicky. Passing in a ListStore instead of an items array
+    // seems to prevent the @change event listener from registering properly.
+    // This method is here so we can set the select's renderer on connectedCallback,
+    // and also so we can set the renderer to null, and then back to this, when entityStoresChanged is called.
+    selectRenderer = (root) => {
         // Check if there is a list-box generated with the previous renderer call to update its content instead of recreation
         if (root.firstChild)
             return
@@ -156,13 +163,16 @@ export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityList
     }
 
     resetOptions() {
-        if (this.root?.firstChild)
+        if (this.root?.firstChild && this.listBox)
             this.root.removeChild(this.listBox)
     }
 
     entityStoresChanged() {
         this.resetOptions()
-        super.entityStoresChanged()
+        this.items = this.listStore?.entities
+        // Hack to get the select component to properly render a ListStore
+        this.renderer = null
+        this.renderer = this.selectRenderer
     }
 
     entityChanged() {
@@ -180,6 +190,7 @@ export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityList
         if (this.items?.length && this.listStore?.hasEntities) {
             throw new Error('Both an items array and a ListStore were provided to this component. Please use either one or the other.')
         }
+        this.renderer = this.selectRenderer
     }
 }
 
