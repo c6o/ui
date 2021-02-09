@@ -46,7 +46,7 @@ export const EntityListStoreMixin = (base) => class EntityListStoreMixinClass ex
                     for (const entity of this.listStore.entities)
                         this._listStoreDisposers.push(observe(entity, () => this.entityChanged() ))
                 }), true)
-            }))
+            }, true))
         }
     }
 
