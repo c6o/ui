@@ -1,6 +1,5 @@
 import { html, customElement, property, css, CSSResult } from 'lit-element'
 import { MobxLitElement } from '@adobe/lit-mobx'
-import { observable } from 'mobx'
 import { cssAll } from '@c6o/ui-theme'
 
 /**
@@ -27,13 +26,14 @@ export interface MenuItems extends Array<MenuItem> {}
 @customElement('c6o-vertical-menu')
 export class VerticalMenu extends MobxLitElement {
 
+    @property({ type: Number })
+    index = 0
+
     @property({ type: Object })
     menuItems: MenuItems = []
 
     @property({ type: String })
     title = 'Menu:'
-
-    @observable selectedMenuIndex = 0
 
     static get styles(): (CSSResult[] | CSSResult)[] {
         return [
@@ -91,7 +91,7 @@ export class VerticalMenu extends MobxLitElement {
         return this.menuItems.map((item, index) => {
             return html`
                 <li>
-                    <a class=${this.selectedMenuIndex === index ? 'active' : ''} href="#" @click=${() => this.selectedMenuIndex = index}>
+                    <a class=${this.index === index ? 'active' : ''} href="#" @click=${() => this.index = index}>
                         <iron-icon icon=${item.icon}></iron-icon>
                         ${item.label}
                     </a>
@@ -101,7 +101,6 @@ export class VerticalMenu extends MobxLitElement {
     }
 
     renderSelectedMenu = () => {
-        const index = this.selectedMenuIndex || 0
-        return this.menuItems[index]?.itemHtml
+        return this.menuItems[this.index]?.itemHtml
     }
 }
