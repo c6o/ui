@@ -187,9 +187,6 @@ export class Select extends mix(SelectElement).with(EntityStoreMixin, EntityList
 
     async connectedCallback() {
         await super.connectedCallback()
-        if (this.items?.length && this.listStore?.hasEntities) {
-            throw new Error('Both an items array and a ListStore were provided to this component. Please use either one or the other.')
-        }
         this.renderer = this.selectRenderer
     }
 }

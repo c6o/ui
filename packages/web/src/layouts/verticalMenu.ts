@@ -101,6 +101,7 @@ export class VerticalMenu extends MobxLitElement {
     }
 
     renderSelectedMenu = () => {
-        return this.menuItems[this.selectedMenuIndex].itemHtml
+        const index = this.selectedMenuIndex || 0
+        return this.menuItems[index]?.itemHtml
     }
 }
