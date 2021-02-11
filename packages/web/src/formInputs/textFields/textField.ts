@@ -65,6 +65,7 @@ import { EntityStoreMixin, EntityStorePathMixin } from '../../mixins'
 export type TextFieldTheme = '' | 'inline' | 'light' | 'tall' | 'condensed' | 'reversed' | 'search'
 
 export interface TextField extends EntityStorePathMixin {
+    errorMessage: string
     eventToStore
     invalid: boolean
     path: string
