@@ -105,6 +105,7 @@ import { EntityStoreMixin, EntityListStoreMixin, EntityStorePathMixin, getValueF
  */
 
 export interface Select extends EntityListStoreMixin {
+    errorMessage: string
     _items: Array<any>
     invalid: boolean
     itemLabelPath: string

@@ -94,7 +94,7 @@ export class SaveButton extends mix(MobxLitElement).with(EntityStoreMixin) imple
         this.resultsBanner.removeAttribute('error')
         this[resultsType].removeAttribute('saved')
         await this.store.save()
-        if (this.store.success) {
+        if (this.store.hasSuccess) {
             if (this.timeout)
                 clearTimeout(this.timeout)
             this[resultsType].setAttribute('saved', '')
