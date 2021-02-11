@@ -90,9 +90,9 @@ export class Results extends mix(MobxLitElement).with(EntityStoreLitMixin) {
     successBanner: ContextualBanner
 
     render() {
-        // Use store.success here and not store.hasSuccess because
+        // Use store.serviceRequestSuccess here and not store.isValid because
         // we only want to show the success message after a CUPD operation
-        if (this.store?.success && !this.errorsOnly) {
+        if (this.store?.serviceRequestSuccess && !this.errorsOnly) {
             if (this.fadeOutOnSuccess)
                 this.fadeOutTimer()
             return this.showSuccess()

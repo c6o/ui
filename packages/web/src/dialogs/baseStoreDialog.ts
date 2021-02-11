@@ -67,6 +67,6 @@ export abstract class BaseStoreDialog extends mix(BaseDialog).with(EntityStoreLi
 
     saveToStore = async () => {
         await this.store?.save()
-        return this.store?.hasSuccess
+        return this.store?.isValid
     }
 }
